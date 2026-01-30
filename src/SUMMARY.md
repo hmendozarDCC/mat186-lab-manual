@@ -9,6 +9,7 @@
 ## Part 1: Getting Started
 - [Lab 1: R and RStudio Installation](lab1.md)
 - [Lab 2: RStudio Projects and Quarto](lab2.md)
+- [Lab 3: Mathematical Notation in Quarto](lab3.md)
 
 ## Part 2: Data Exploration
 - [Lab 3: Data Visualization](lab3.md)
