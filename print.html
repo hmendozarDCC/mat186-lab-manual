@@ -834,14 +834,75 @@ prop_results
 <hr />
 <h2 id="accessibility-note-rounding-for-clarity"><a class="header" href="#accessibility-note-rounding-for-clarity">Accessibility Note: Rounding for Clarity</a></h2>
 <p>When reporting proportions to a general audience, always convert decimals to percentages and round to one decimal place (e.g., $0.4022$ becomes <strong>40.2%</strong>). This makes your findings much easier to digest for readers using assistive technology.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-12-statistical-inference-for-two-means"><a class="header" href="#lab-12-statistical-inference-for-two-means">Lab 12: Statistical inference for two means</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-12-statistical-inference-for-two-means"><a class="header" href="#lab-12-statistical-inference-for-two-means">Lab 12: Statistical Inference for Two Means</a></h1>
+<h2 id="learning-objectives-11"><a class="header" href="#learning-objectives-11">Learning Objectives</a></h2>
+<ul>
+<li>Understand the difference between <strong>Independent</strong> and <strong>Paired</strong> samples.</li>
+<li>State the Null ($H_0$) and Alternative ($H_a$) hypotheses for comparing two groups.</li>
+<li>Conduct an <strong>Independent Samples t-test</strong> in R.</li>
+<li>Visualize the difference between groups using <strong>Boxplots</strong>.</li>
+</ul>
+<hr />
+<h2 id="part-1-comparing-two-independent-groups"><a class="header" href="#part-1-comparing-two-independent-groups">Part 1: Comparing Two Independent Groups</a></h2>
+<p>We use an Independent Samples t-test when we want to compare the means of two distinct, unrelated groups.</p>
+<ul>
+<li><strong>Example:</strong> Do "Humans" have a different average height than "Droids"?</li>
+<li><strong>Example:</strong> Is the average house price in Poughkeepsie different from the average price in Fishkill?</li>
+</ul>
+<hr />
+<h2 id="part-2-hypotheses-for-two-means"><a class="header" href="#part-2-hypotheses-for-two-means">Part 2: Hypotheses for Two Means</a></h2>
+<p>In this test, we are looking at the <strong>difference</strong> between the two population means ($\mu_1 - \mu_2$).</p>
+<ul>
+<li><strong>Null Hypothesis ($H_0$):</strong> $\mu_1 = \mu_2$ (The means are the same; the difference is zero).</li>
+<li><strong>Alternative Hypothesis ($H_a$):</strong> $\mu_1 \neq \mu_2$ (The means are significantly different).</li>
+</ul>
+<hr />
+<h2 id="part-3-visualizing-the-comparison"><a class="header" href="#part-3-visualizing-the-comparison">Part 3: Visualizing the Comparison</a></h2>
+<p>Before running the math, we should always visualize the two groups side-by-side using a <strong>Boxplot</strong>.</p>
+<pre><code class="language-r">library(tidyverse)
+
+# Comparing heights of Humans and Droids
+comparison_data &lt;- starwars |&gt; 
+  filter(species %in% c("Human", "Droid")) |&gt;
+  drop_na(height)
+
+ggplot(comparison_data, aes(x = species, y = height, fill = species)) +
+  geom_boxplot() +
+  labs(title = "Height Comparison: Humans vs. Droids")
+</code></pre>
+<hr />
+<h2 id="part-4-running-the-t-test-in-r"><a class="header" href="#part-4-running-the-t-test-in-r">Part 4: Running the t-test in R</a></h2>
+<p>In R, we use the "formula" syntax: <code>y ~ x</code> (where <code>y</code> is the numeric value and <code>x</code> is the grouping category).</p>
+<pre><code class="language-r"># Conducting the Independent Samples t-test
+t_test_results &lt;- t.test(height ~ species, data = comparison_data)
+
+# View results
+t_test_results
+</code></pre>
+<h3 id="how-to-interpret-the-output-1"><a class="header" href="#how-to-interpret-the-output-1">How to interpret the output:</a></h3>
+<ul>
+<li><strong>p-value:</strong> If p &lt; 0.05, we conclude that the average heights of Humans and Droids are significantly different.</li>
+<li><strong>95% Confidence Interval:</strong> This gives the range of the <em>difference</em> between the two means. If the interval contains <strong>0</strong>, the results are usually not significant.</li>
+</ul>
+<hr />
+<div class="dcc-important">
+**Lab Task 12:**
+1. Pick a dataset that has at least one **categorical variable** with two groups (e.g., Male/Female, Treatment/Control, Yes/No).
+2. Create a **Boxplot** to visually compare a numeric variable across those two groups.
+3. State your Null and Alternative hypotheses.
+4. Run the `t.test()` using the formula syntax.
+5. **The Conclusion:** Report your p-value and state whether you reject or fail to reject the null hypothesis. Does the data suggest the groups are truly different?
+</div>
+<hr />
+<h2 id="accessibility-tip-high-contrast-visuals"><a class="header" href="#accessibility-tip-high-contrast-visuals">Accessibility Tip: High-Contrast Visuals</a></h2>
+<p>When using the <code>fill = species</code> aesthetic in your plots, remember that some students may have color vision deficiencies. Use <code>scale_fill_viridis_d()</code> to ensure your group comparisons are accessible to everyone.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-13-statistical-inference-for-two-proportions"><a class="header" href="#lab-13-statistical-inference-for-two-proportions">Lab 13: Statistical inference for two proportions</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-14-bootstrapping"><a class="header" href="#lab-14-bootstrapping">Lab 14: Bootstrapping</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-15-non-parametric-methods-for-hypothesis-testing"><a class="header" href="#lab-15-non-parametric-methods-for-hypothesis-testing">Lab 15: Non-parametric methods for hypothesis testing</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-16-analysis-of-varianceanova"><a class="header" href="#lab-16-analysis-of-varianceanova">Lab 16: Analysis of variance(ANOVA)</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-17-regression-models"><a class="header" href="#lab-17-regression-models">Lab 17: Regression models</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-3-mathematical-notation-in-quarto-1"><a class="header" href="#lab-3-mathematical-notation-in-quarto-1">Lab 3: Mathematical Notation in Quarto</a></h1>
-<h2 id="learning-objectives-11"><a class="header" href="#learning-objectives-11">Learning Objectives</a></h2>
+<h2 id="learning-objectives-12"><a class="header" href="#learning-objectives-12">Learning Objectives</a></h2>
 <ul>
 <li>Distinguish between <strong>Inline</strong> and <strong>Display</strong> math modes in Quarto.</li>
 <li>Use LaTeX syntax to write essential statistical symbols ($\mu, \sigma, \bar{x}$).</li>
