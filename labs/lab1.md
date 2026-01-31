@@ -1,0 +1,49 @@
+# Lab 1: R and RStudio Installation
+
+## Learning Objectives
+*By the end of this lab, students will be able to:*
+* Successfully install the **R** programming language.
+* Install the **RStudio Desktop** Integrated Development Environment (IDE).
+* Verify the installation by running a simple command.
+
+---
+
+## Introduction
+To perform data science at DCC, we use two primary tools. Think of **R** as the "engine" of a car and **RStudio** as the "dashboard." You need the engine to go, but you need the dashboard to steer and see where you are going.
+
+<div class="dcc-note">
+If you are using a DCC Chromebook or a computer where you cannot install software, please contact the instructor about using **Posit Cloud** (the web-based version of RStudio).
+</div>
+
+---
+
+## Step 1: Install R (The Engine)
+You must install R **before** you install RStudio.
+
+1. Go to the [CRAN (Comprehensive R Archive Network)](https://cran.rstudio.com/) website.
+2. Select the download link for your operating system:
+   * **Download R for Windows** -> Click "base" -> Click "Download R 4.x.x for Windows."
+   * **Download R for (macOS)** -> Download the `.pkg` file that matches your chip (Apple silicon M1/M2 or Intel).
+3. Run the downloaded installer and keep all default settings by clicking "Next" or "Continue."
+
+
+
+---
+
+## Step 2: Install RStudio (The Dashboard)
+RStudio is the interface where you will write your code and view your data visualizations.
+
+1. Visit the [Posit Download Page](https://posit.co/download/rstudio-desktop/).
+2. Scroll down to **"2: Install RStudio"** and click the button for your operating system.
+3. Run the installer. Like R, it is best to keep all default settings.
+
+---
+
+## Step 3: Verify Your Setup
+Let's make sure the "engine" and "dashboard" are talking to each other.
+
+1. Open **RStudio** from your applications folder or start menu.
+2. Find the **Console** pane (usually on the bottom left).
+3. Type the following code and press **Enter**:
+   ```r
+   print("Hello, MAT 186!")
