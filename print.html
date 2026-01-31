@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><a href="accessibility.html">Accessibility Statement</a></li><li class="chapter-item expanded affix "><a href="glossary.html">Glossary</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="lab1.html"><strong aria-hidden="true">1.</strong> Lab 1: R and RStudio Installation</a></li><li class="chapter-item expanded "><a href="lab2.html"><strong aria-hidden="true">2.</strong> Lab 2: RStudio Projects and Quarto</a></li><li class="chapter-item expanded "><a href="lab3.html"><strong aria-hidden="true">3.</strong> Lab 3: Mathematical Notation in Quarto</a></li><li class="chapter-item expanded "><a href="lab4.html"><strong aria-hidden="true">4.</strong> Lab 4: GitHub Repository</a></li><li class="chapter-item expanded "><a href="lab5.html"><strong aria-hidden="true">5.</strong> Lab 5: Getting Data into R</a></li><li class="chapter-item expanded "><a href="lab6.html"><strong aria-hidden="true">6.</strong> Lab 6: Data Collection and Sources</a></li><li class="chapter-item expanded "><a href="lab3.html"><strong aria-hidden="true">7.</strong> Lab : Data Visualization</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><a href="accessibility.html">Accessibility Statement</a></li><li class="chapter-item expanded affix "><a href="glossary.html">Glossary</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="lab1.html"><strong aria-hidden="true">1.</strong> Lab 1: R and RStudio Installation</a></li><li class="chapter-item expanded "><a href="lab2.html"><strong aria-hidden="true">2.</strong> Lab 2: RStudio Projects and Quarto</a></li><li class="chapter-item expanded "><a href="lab3.html"><strong aria-hidden="true">3.</strong> Lab 3: Mathematical Notation in Quarto</a></li><li class="chapter-item expanded "><a href="lab4.html"><strong aria-hidden="true">4.</strong> Lab 4: GitHub Repository</a></li><li class="chapter-item expanded "><a href="lab5.html"><strong aria-hidden="true">5.</strong> Lab 5: Getting Data into R</a></li><li class="chapter-item expanded "><a href="lab6.html"><strong aria-hidden="true">6.</strong> Lab 6: Data Collection and Sources</a></li><li class="chapter-item expanded "><a href="lab7.html"><strong aria-hidden="true">7.</strong> Lab 7: Cleaning Data</a></li><li class="chapter-item expanded "><a href="lab3.html"><strong aria-hidden="true">8.</strong> Lab : Data Visualization</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -523,15 +523,73 @@ head(sw_data)
 <hr />
 <h2 id="part-4-the-next-step-preview"><a class="header" href="#part-4-the-next-step-preview">Part 4: The Next Step (Preview)</a></h2>
 <p>Data you find "in the wild" is rarely perfect. In the next lab, we will learn how to "clean" the data you just found—removing empty rows and fixing typos!</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-3-mathematical-notation-in-quarto-1"><a class="header" href="#lab-3-mathematical-notation-in-quarto-1">Lab 3: Mathematical Notation in Quarto</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-7-cleaning-data-with-dplyr"><a class="header" href="#lab-7-cleaning-data-with-dplyr">Lab 7: Cleaning Data with dplyr</a></h1>
 <h2 id="learning-objectives-6"><a class="header" href="#learning-objectives-6">Learning Objectives</a></h2>
+<ul>
+<li>Understand the concept of "Data Wrangling."</li>
+<li>Use the <strong>Pipe Operator</strong> (<code>|&gt;</code>) to chain commands.</li>
+<li>Learn core cleaning functions: <code>filter()</code>, <code>select()</code>, and <code>rename()</code>.</li>
+<li>Handle missing values (<code>NA</code>).</li>
+</ul>
+<hr />
+<h2 id="introduction-6"><a class="header" href="#introduction-6">Introduction</a></h2>
+<p>"Raw" data is rarely ready for analysis. It might have columns you don't need, rows that aren't relevant to your study, or names that are hard to type. In this lab, we use the <code>dplyr</code> package (part of the <code>tidyverse</code>) to "tidy up" our datasets.</p>
+<hr />
+<h2 id="part-1-the-pipe-operator-"><a class="header" href="#part-1-the-pipe-operator-">Part 1: The Pipe Operator (<code>|&gt;</code>)</a></h2>
+<p>Think of the pipe operator as saying the words <strong>"and then."</strong> It takes the output of one function and passes it to the next.</p>
+<p>Instead of writing:
+<code>clean_data &lt;- filter(raw_data, age &gt; 18)</code></p>
+<p>We write:
+<code>clean_data &lt;- raw_data |&gt; filter(age &gt; 18)</code></p>
+<hr />
+<h2 id="part-2-core-cleaning-functions"><a class="header" href="#part-2-core-cleaning-functions">Part 2: Core Cleaning Functions</a></h2>
+<h3 id="1-select---picking-columns"><a class="header" href="#1-select---picking-columns">1. <code>select()</code> - Picking Columns</a></h3>
+<p>If your dataset has 100 columns but you only need 3, use <code>select()</code>.</p>
+<pre><code class="language-r"># Keep only the 'name' and 'height' columns
+sw_small &lt;- starwars |&gt; 
+  select(name, height)
+</code></pre>
+<h3 id="2-filter---picking-rows"><a class="header" href="#2-filter---picking-rows">2. <code>filter()</code> - Picking Rows</a></h3>
+<p>If you only want to look at specific observations (e.g., characters taller than 100cm).</p>
+<pre><code class="language-r"># Keep only rows where height is greater than 100
+tall_characters &lt;- starwars |&gt; 
+  filter(height &gt; 100)
+</code></pre>
+<h3 id="3-rename---changing-names"><a class="header" href="#3-rename---changing-names">3. <code>rename()</code> - Changing Names</a></h3>
+<p>If a column name is confusing or has spaces, rename it.</p>
+<pre><code class="language-r"># Change 'homeworld' to 'home_planet'
+sw_clean &lt;- starwars |&gt; 
+  rename(home_planet = homeworld)
+</code></pre>
+<hr />
+<h2 id="part-3-handling-missing-data-na"><a class="header" href="#part-3-handling-missing-data-na">Part 3: Handling Missing Data (<code>NA</code>)</a></h2>
+<p>In R, missing values are represented as <code>NA</code> (Not Available). You can't calculate the mean of a column if it has <code>NA</code> values without telling R what to do.</p>
+<p>To remove rows with <em>any</em> missing data:</p>
+<pre><code class="language-r">tidy_sw &lt;- starwars |&gt; 
+  drop_na(height)
+</code></pre>
+<hr />
+<div class="dcc-important">
+**Lab Task 7:**
+1. Open your Quarto document from Lab 6 (the one with your NY State Open Data).
+2. Create a new section called "Data Cleaning."
+3. Use `select()` to keep only the 4 most important columns in your dataset.
+4. Use `filter()` to narrow your data down to one specific category or a certain range of numbers.
+5. Use `rename()` to make at least one column name easier to read.
+6. **Render** your document and check that your new "Cleaned" table looks correct.
+</div>
+<hr />
+<h2 id="pro-tip-the-glimpse"><a class="header" href="#pro-tip-the-glimpse">Pro-Tip: The "Glimpse"</a></h2>
+<p>Always run <code>glimpse(your_data)</code> after cleaning to make sure you haven't accidentally deleted something you meant to keep!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-3-mathematical-notation-in-quarto-1"><a class="header" href="#lab-3-mathematical-notation-in-quarto-1">Lab 3: Mathematical Notation in Quarto</a></h1>
+<h2 id="learning-objectives-7"><a class="header" href="#learning-objectives-7">Learning Objectives</a></h2>
 <ul>
 <li>Distinguish between <strong>Inline</strong> and <strong>Display</strong> math modes in Quarto.</li>
 <li>Use LaTeX syntax to write essential statistical symbols ($\mu, \sigma, \bar{x}$).</li>
 <li>Format complex equations like Linear Regression for professional lab reports.</li>
 </ul>
 <hr />
-<h2 id="introduction-6"><a class="header" href="#introduction-6">Introduction</a></h2>
+<h2 id="introduction-7"><a class="header" href="#introduction-7">Introduction</a></h2>
 <p>In Data Science, we often need to document the mathematical models we use. Quarto uses a system called <strong>LaTeX</strong> (pronounced "Lay-tek") to render math. This ensures your formulas look professional and are accessible to screen readers.</p>
 <hr />
 <h2 id="part-1-the-two-math-modes-1"><a class="header" href="#part-1-the-two-math-modes-1">Part 1: The Two Math Modes</a></h2>
