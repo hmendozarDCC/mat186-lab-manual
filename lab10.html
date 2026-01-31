@@ -176,7 +176,68 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="lab-10-statistical-inference-for-one-mean"><a class="header" href="#lab-10-statistical-inference-for-one-mean">Lab 10: Statistical inference for one mean</a></h1>
+                        <h1 id="lab-10-statistical-inference-for-one-mean"><a class="header" href="#lab-10-statistical-inference-for-one-mean">Lab 10: Statistical Inference for One Mean</a></h1>
+<h2 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h2>
+<ul>
+<li>Understand the logic of <strong>Null ($H_0$)</strong> and <strong>Alternative ($H_a$)</strong> Hypotheses.</li>
+<li>Calculate and interpret <strong>Confidence Intervals</strong>.</li>
+<li>Conduct a <strong>One-Sample t-test</strong> in R.</li>
+<li>Interpret the <strong>p-value</strong> to make a statistical decision.</li>
+</ul>
+<hr />
+<h2 id="part-1-the-logic-of-inference"><a class="header" href="#part-1-the-logic-of-inference">Part 1: The Logic of Inference</a></h2>
+<p>We rarely have data for an entire population (like every person in New York). Instead, we use a <strong>Sample</strong> to make an educated guess about the <strong>Population</strong>.</p>
+<ol>
+<li><strong>Null Hypothesis ($H_0$):</strong> The status quo. There is "nothing going on" or no difference.</li>
+<li><strong>Alternative Hypothesis ($H_a$):</strong> What we are trying to prove. There is a significant difference.</li>
+</ol>
+<hr />
+<h2 id="part-2-confidence-intervals"><a class="header" href="#part-2-confidence-intervals">Part 2: Confidence Intervals</a></h2>
+<p>A confidence interval gives us a range of plausible values for the true population mean. We usually use a <strong>95% Confidence Level</strong>.</p>
+<pre><code class="language-r">library(tidyverse)
+
+# Let's look at the average height of Star Wars characters
+# We want to estimate the true mean height of all characters in the galaxy
+starwars_heights &lt;- starwars |&gt; drop_na(height)
+
+# Calculating a 95% Confidence Interval manually
+t.test(starwars_heights$height, conf.level = 0.95)
+</code></pre>
+<hr />
+<h2 id="part-3-the-one-sample-t-test"><a class="header" href="#part-3-the-one-sample-t-test">Part 3: The One-Sample t-test</a></h2>
+<p>Imagine a claim that the "Average height of a galactic citizen is 175 cm." Does our data support this?</p>
+<pre><code class="language-r"># Testing if the mean height is significantly different from 175
+t_test_results &lt;- t.test(starwars_heights$height, mu = 175)
+
+# View the results
+t_test_results
+</code></pre>
+<h3 id="how-to-read-the-output"><a class="header" href="#how-to-read-the-output">How to read the output:</a></h3>
+<ul>
+<li><strong>t:</strong> The test statistic (how many standard errors we are from the claim).</li>
+<li><strong>df:</strong> Degrees of freedom (sample size minus 1).</li>
+<li><strong>p-value:</strong> The probability that we would see our result if the Null Hypothesis were true.</li>
+</ul>
+<hr />
+<h2 id="part-4-making-a-decision"><a class="header" href="#part-4-making-a-decision">Part 4: Making a Decision</a></h2>
+<p>In MAT 186, we typically use an <strong>alpha ($\alpha$) level of 0.05</strong>.</p>
+<ul>
+<li><strong>If p-value &lt; 0.05:</strong> We <strong>Reject</strong> the Null Hypothesis. The result is "Statistically Significant."</li>
+<li><strong>If p-value &gt; 0.05:</strong> We <strong>Fail to Reject</strong> the Null Hypothesis. We do not have enough evidence to support the change.</li>
+</ul>
+<hr />
+<div class="dcc-important">
+**Lab Task 10:**
+1. Use your personal dataset from previous labs.
+2. Pick a numeric variable (e.g., age, price, or score).
+3. **State your Hypotheses:** * $H_0: \mu = \text{choose a number close to your average}$
+   * $H_a: \mu \neq \text{that same number}$
+4. Run a `t.test()` in R using your variable and your chosen `mu`.
+5. **The Conclusion:** In your Quarto document, write a formal conclusion. "Since the p-value was [insert p-value], we [reject/fail to reject] the null hypothesis. There [is/is not] sufficient evidence to suggest the mean is different from [insert mu]."
+</div>
+<hr />
+<h2 id="accessibility-tip-reporting-results"><a class="header" href="#accessibility-tip-reporting-results">Accessibility Tip: Reporting Results</a></h2>
+<p>When writing your report, always include the <strong>Confidence Interval</strong>. This helps readers (and screen readers) understand the <em>magnitude</em> of your finding, not just whether it was "significant" or not.</p>
 
                     </main>
 
