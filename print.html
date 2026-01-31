@@ -197,69 +197,9 @@
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-1-r-and-rstudio-installation"><a class="header" href="#lab-1-r-and-rstudio-installation">Lab 1: R and RStudio Installation</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-2-rstudio-projects-and-quarto"><a class="header" href="#lab-2-rstudio-projects-and-quarto">Lab 2: RStudio Projects and Quarto</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-3-mathematical-notation-in-quarto"><a class="header" href="#lab-3-mathematical-notation-in-quarto">Lab 3: Mathematical Notation in Quarto</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-4-creating-your-data-science-portfolio-on-github"><a class="header" href="#lab-4-creating-your-data-science-portfolio-on-github">Lab 4: Creating Your Data Science Portfolio on GitHub</a></h1>
-<h2 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h2>
-<ul>
-<li>Create a personal GitHub account.</li>
-<li>Initialize a new repository for MAT 186 work.</li>
-<li>Understand the "Commit" and "Push" workflow.</li>
-<li>Host a live version of a lab report using GitHub Pages.</li>
-</ul>
-<hr />
-<h2 id="introduction-1"><a class="header" href="#introduction-1">Introduction</a></h2>
-<p>Data Science is a collaborative field. GitHub is the industry standard for version control and sharing code. In this lab, you will set up your own "portfolio"—a place where you can showcase the work you do in this class to future employers or transfer institutions.</p>
-<hr />
-<h2 id="part-1-setting-up-your-account"><a class="header" href="#part-1-setting-up-your-account">Part 1: Setting Up Your Account</a></h2>
-<ol>
-<li>Go to <a href="https://github.com">GitHub.com</a>.</li>
-<li>Sign up for a free account.
-<ul>
-<li><strong>Tip:</strong> Choose a professional username (e.g., <code>jsmith-dcc</code>), as you may show this to employers later!</li>
-</ul>
-</li>
-<li>Verify your email address.</li>
-</ol>
-<hr />
-<h2 id="part-2-creating-your-first-repository"><a class="header" href="#part-2-creating-your-first-repository">Part 2: Creating Your First Repository</a></h2>
-<p>A <strong>Repository</strong> (or "Repo") is like a project folder that lives in the cloud.</p>
-<ol>
-<li>Click the <strong>+</strong> icon in the top right and select <strong>New repository</strong>.</li>
-<li><strong>Repository name:</strong> <code>mat186-work</code></li>
-<li><strong>Description:</strong> "Labs and projects for Introduction to Data Science at DCC."</li>
-<li><strong>Public/Private:</strong> Select <strong>Public</strong>.</li>
-<li>Check the box that says <strong>Add a README file</strong>.</li>
-<li>Click <strong>Create repository</strong>.</li>
-</ol>
-<hr />
-<h2 id="part-3-uploading-your-lab-reports"><a class="header" href="#part-3-uploading-your-lab-reports">Part 3: Uploading Your Lab Reports</a></h2>
-<p>Now, let's add the work you've done in previous labs.</p>
-<ol>
-<li>In your new <code>mat186-work</code> repository, click <strong>Add file</strong> &gt; <strong>Upload files</strong>.</li>
-<li>Drag and drop your <strong>HTML files</strong> from Lab 2 and Lab 3 into the browser.</li>
-<li>At the bottom, type a "Commit message" like: <code>Initial upload of Lab 2 and 3</code>.</li>
-<li>Click <strong>Commit changes</strong>.</li>
-</ol>
-<hr />
-<h2 id="part-4-publishing-with-github-pages"><a class="header" href="#part-4-publishing-with-github-pages">Part 4: Publishing with GitHub Pages</a></h2>
-<p>Let's make your lab reports viewable as actual websites.</p>
-<ol>
-<li>Go to your repository <strong>Settings</strong> tab.</li>
-<li>On the left menu, click <strong>Pages</strong>.</li>
-<li>Under <strong>Build and deployment</strong>, set the Branch to <strong>main</strong> and click <strong>Save</strong>.</li>
-<li>After a minute, GitHub will give you a URL (e.g., <code>https://username.github.io/mat186-work/</code>).</li>
-</ol>
-<hr />
-<div class="dcc-important">
-**Lab Task 4:** 1. Create your `mat186-work` repository.
-2. Upload the HTML version of your Lab 3 (Math Formulas).
-3. Enable GitHub Pages.
-4. Paste the link to your live GitHub Page into the Brightspace assignment.
-</div>
-<hr />
-<h3 id="a-note-on-open-science"><a class="header" href="#a-note-on-open-science"><strong>A Note on Open Science</strong></a></h3>
-<p>By putting your work on GitHub, you are participating in <strong>Open Science</strong>. This allows others to learn from your code and allows you to track your own progress throughout the semester!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-4-github-repository"><a class="header" href="#lab-4-github-repository">Lab 4: GitHub Repository</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-5-getting-data-into-r"><a class="header" href="#lab-5-getting-data-into-r">Lab 5: Getting Data into R</a></h1>
-<h2 id="learning-objectives-1"><a class="header" href="#learning-objectives-1">Learning Objectives</a></h2>
+<h2 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h2>
 <ul>
 <li>Understand the difference between <strong>Absolute</strong> and <strong>Relative</strong> file paths.</li>
 <li>Import data from a local <strong>CSV</strong> file.</li>
@@ -267,7 +207,7 @@
 <li>Use the <code>readr</code> package (part of the tidyverse).</li>
 </ul>
 <hr />
-<h2 id="introduction-2"><a class="header" href="#introduction-2">Introduction</a></h2>
+<h2 id="introduction-1"><a class="header" href="#introduction-1">Introduction</a></h2>
 <p>Before we can visualize or model data, we have to "import" it into R's memory. Most data you will encounter is stored in <strong>CSV</strong> (Comma Separated Values) format, which looks like an Excel spreadsheet but is much lighter and easier for programs to read.</p>
 <hr />
 <h2 id="part-1-the-working-directory"><a class="header" href="#part-1-the-working-directory">Part 1: The Working Directory</a></h2>
@@ -318,7 +258,7 @@ head(sw_data)
 4. Render the document and confirm that your data table appears in the HTML.
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-6-data-collection-and-sources"><a class="header" href="#lab-6-data-collection-and-sources">Lab 6: Data Collection and Sources</a></h1>
-<h2 id="learning-objectives-2"><a class="header" href="#learning-objectives-2">Learning Objectives</a></h2>
+<h2 id="learning-objectives-1"><a class="header" href="#learning-objectives-1">Learning Objectives</a></h2>
 <ul>
 <li>Distinguish between <strong>Primary</strong> and <strong>Secondary</strong> data.</li>
 <li>Explore "Open Data" portals (Local, State, and Federal).</li>
@@ -326,7 +266,7 @@ head(sw_data)
 <li>Practice ethical data attribution.</li>
 </ul>
 <hr />
-<h2 id="introduction-3"><a class="header" href="#introduction-3">Introduction</a></h2>
+<h2 id="introduction-2"><a class="header" href="#introduction-2">Introduction</a></h2>
 <p>Data doesn't just appear out of nowhere; it is collected via sensors, surveys, web scraping, or manual entry. As a data scientist at DCC, you should know how to find reliable sources of information to answer real-world questions.</p>
 <hr />
 <h2 id="part-1-finding-open-data"><a class="header" href="#part-1-finding-open-data">Part 1: Finding Open Data</a></h2>
@@ -371,7 +311,7 @@ head(sw_data)
 <h2 id="part-4-the-next-step-preview"><a class="header" href="#part-4-the-next-step-preview">Part 4: The Next Step (Preview)</a></h2>
 <p>Data you find "in the wild" is rarely perfect. In the next lab, we will learn how to "clean" the data you just found—removing empty rows and fixing typos!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-7-cleaning-data-with-dplyr"><a class="header" href="#lab-7-cleaning-data-with-dplyr">Lab 7: Cleaning Data with dplyr</a></h1>
-<h2 id="learning-objectives-3"><a class="header" href="#learning-objectives-3">Learning Objectives</a></h2>
+<h2 id="learning-objectives-2"><a class="header" href="#learning-objectives-2">Learning Objectives</a></h2>
 <ul>
 <li>Understand the concept of "Data Wrangling."</li>
 <li>Use the <strong>Pipe Operator</strong> (<code>|&gt;</code>) to chain commands.</li>
@@ -379,7 +319,7 @@ head(sw_data)
 <li>Handle missing values (<code>NA</code>).</li>
 </ul>
 <hr />
-<h2 id="introduction-4"><a class="header" href="#introduction-4">Introduction</a></h2>
+<h2 id="introduction-3"><a class="header" href="#introduction-3">Introduction</a></h2>
 <p>"Raw" data is rarely ready for analysis. It might have columns you don't need, rows that aren't relevant to your study, or names that are hard to type. In this lab, we use the <code>dplyr</code> package (part of the <code>tidyverse</code>) to "tidy up" our datasets.</p>
 <hr />
 <h2 id="part-1-the-pipe-operator-"><a class="header" href="#part-1-the-pipe-operator-">Part 1: The Pipe Operator (<code>|&gt;</code>)</a></h2>
@@ -429,7 +369,7 @@ sw_clean &lt;- starwars |&gt;
 <h2 id="pro-tip-the-glimpse"><a class="header" href="#pro-tip-the-glimpse">Pro-Tip: The "Glimpse"</a></h2>
 <p>Always run <code>glimpse(your_data)</code> after cleaning to make sure you haven't accidentally deleted something you meant to keep!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-8-data-exploration-and-visualization-with-ggplot2"><a class="header" href="#lab-8-data-exploration-and-visualization-with-ggplot2">Lab 8: Data Exploration and Visualization with ggplot2</a></h1>
-<h2 id="learning-objectives-4"><a class="header" href="#learning-objectives-4">Learning Objectives</a></h2>
+<h2 id="learning-objectives-3"><a class="header" href="#learning-objectives-3">Learning Objectives</a></h2>
 <ul>
 <li>Calculate "Summary Statistics" using <code>dplyr</code>.</li>
 <li>Understand the <strong>Grammar of Graphics</strong> (Data, Aesthetics, and Geoms).</li>
@@ -497,7 +437,7 @@ ggplot(data = starwars_filtered, mapping = aes(x = height, y = mass)) +
 5. **Observation:** In your Quarto document, write 3 sentences describing the most interesting pattern or outlier you found in your plots.
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-9-probability-and-sampling-distributions"><a class="header" href="#lab-9-probability-and-sampling-distributions">Lab 9: Probability and Sampling Distributions</a></h1>
-<h2 id="learning-objectives-5"><a class="header" href="#learning-objectives-5">Learning Objectives</a></h2>
+<h2 id="learning-objectives-4"><a class="header" href="#learning-objectives-4">Learning Objectives</a></h2>
 <ul>
 <li>Distinguish between <strong>Discrete</strong> and <strong>Continuous</strong> probability distributions.</li>
 <li>Visualize the <strong>Normal Distribution</strong> (the "Bell Curve").</li>
@@ -560,7 +500,7 @@ ggplot(data.frame(samples), aes(x = samples)) +
 5. **Observation:** Write 2 sentences explaining how the "spread" of the histogram changed when you increased the sample size.
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-10-statistical-inference-for-one-mean"><a class="header" href="#lab-10-statistical-inference-for-one-mean">Lab 10: Statistical Inference for One Mean</a></h1>
-<h2 id="learning-objectives-6"><a class="header" href="#learning-objectives-6">Learning Objectives</a></h2>
+<h2 id="learning-objectives-5"><a class="header" href="#learning-objectives-5">Learning Objectives</a></h2>
 <ul>
 <li>Understand the logic of <strong>Null ($H_0$)</strong> and <strong>Alternative ($H_a$)</strong> Hypotheses.</li>
 <li>Calculate and interpret <strong>Confidence Intervals</strong>.</li>
@@ -622,7 +562,7 @@ t_test_results
 <h2 id="accessibility-tip-reporting-results"><a class="header" href="#accessibility-tip-reporting-results">Accessibility Tip: Reporting Results</a></h2>
 <p>When writing your report, always include the <strong>Confidence Interval</strong>. This helps readers (and screen readers) understand the <em>magnitude</em> of your finding, not just whether it was "significant" or not.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-11-statistical-inference-for-one-proportion"><a class="header" href="#lab-11-statistical-inference-for-one-proportion">Lab 11: Statistical Inference for One Proportion</a></h1>
-<h2 id="learning-objectives-7"><a class="header" href="#learning-objectives-7">Learning Objectives</a></h2>
+<h2 id="learning-objectives-6"><a class="header" href="#learning-objectives-6">Learning Objectives</a></h2>
 <ul>
 <li>Understand the conditions for the <strong>Large Sample Proportions Test</strong>.</li>
 <li>State Null ($H_0$) and Alternative ($H_a$) hypotheses for proportions.</li>
@@ -682,7 +622,7 @@ prop_results
 <h2 id="accessibility-note-rounding-for-clarity"><a class="header" href="#accessibility-note-rounding-for-clarity">Accessibility Note: Rounding for Clarity</a></h2>
 <p>When reporting proportions to a general audience, always convert decimals to percentages and round to one decimal place (e.g., $0.4022$ becomes <strong>40.2%</strong>). This makes your findings much easier to digest for readers using assistive technology.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-12-statistical-inference-for-two-means"><a class="header" href="#lab-12-statistical-inference-for-two-means">Lab 12: Statistical Inference for Two Means</a></h1>
-<h2 id="learning-objectives-8"><a class="header" href="#learning-objectives-8">Learning Objectives</a></h2>
+<h2 id="learning-objectives-7"><a class="header" href="#learning-objectives-7">Learning Objectives</a></h2>
 <ul>
 <li>Understand the difference between <strong>Independent</strong> and <strong>Paired</strong> samples.</li>
 <li>State the Null ($H_0$) and Alternative ($H_a$) hypotheses for comparing two groups.</li>
@@ -744,7 +684,7 @@ t_test_results
 <h2 id="accessibility-tip-high-contrast-visuals"><a class="header" href="#accessibility-tip-high-contrast-visuals">Accessibility Tip: High-Contrast Visuals</a></h2>
 <p>When using the <code>fill = species</code> aesthetic in your plots, remember that some students may have color vision deficiencies. Use <code>scale_fill_viridis_d()</code> to ensure your group comparisons are accessible to everyone.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-13-statistical-inference-for-two-proportions"><a class="header" href="#lab-13-statistical-inference-for-two-proportions">Lab 13: Statistical Inference for Two Proportions</a></h1>
-<h2 id="learning-objectives-9"><a class="header" href="#learning-objectives-9">Learning Objectives</a></h2>
+<h2 id="learning-objectives-8"><a class="header" href="#learning-objectives-8">Learning Objectives</a></h2>
 <ul>
 <li>Compare the "success rates" or percentages of two independent groups.</li>
 <li>State the Null ($H_0$) and Alternative ($H_a$) hypotheses for differences in proportions.</li>
@@ -752,7 +692,7 @@ t_test_results
 <li>Create a <strong>Stacked Bar Chart</strong> to visualize the relative differences between groups.</li>
 </ul>
 <hr />
-<h2 id="introduction-5"><a class="header" href="#introduction-5">Introduction</a></h2>
+<h2 id="introduction-4"><a class="header" href="#introduction-4">Introduction</a></h2>
 <p>In Lab 11, we looked at one proportion. In the real world, we usually want to compare two. For example:</p>
 <ul>
 <li>Does Group A have a higher graduation rate than Group B?</li>
@@ -804,7 +744,7 @@ results
 **Lab Task 13:**
 1. Open
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-14-bootstrapping-and-resampling"><a class="header" href="#lab-14-bootstrapping-and-resampling">Lab 14: Bootstrapping and Resampling</a></h1>
-<h2 id="learning-objectives-10"><a class="header" href="#learning-objectives-10">Learning Objectives</a></h2>
+<h2 id="learning-objectives-9"><a class="header" href="#learning-objectives-9">Learning Objectives</a></h2>
 <ul>
 <li>Understand the concept of <strong>Sampling with Replacement</strong>.</li>
 <li>Use the <code>infer</code> package to create a bootstrap distribution.</li>
@@ -856,7 +796,7 @@ percentile_ci
 <div class="dcc-important">
 **Lab Task 1
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-15-non-parametric-methods-for-hypothesis-testing"><a class="header" href="#lab-15-non-parametric-methods-for-hypothesis-testing">Lab 15: Non-parametric Methods for Hypothesis Testing</a></h1>
-<h2 id="learning-objectives-11"><a class="header" href="#learning-objectives-11">Learning Objectives</a></h2>
+<h2 id="learning-objectives-10"><a class="header" href="#learning-objectives-10">Learning Objectives</a></h2>
 <ul>
 <li>Identify when to use <strong>Non-parametric</strong> tests instead of Parametric tests.</li>
 <li>Conduct a <strong>Wilcoxon Rank-Sum Test</strong> (Mann-Whitney U).</li>
@@ -909,7 +849,7 @@ wilcox.test(mass ~ species, data = comparison_data)
 <h2 id="pro-tip-when-in-doubt-rank-it-out"><a class="header" href="#pro-tip-when-in-doubt-rank-it-out">Pro-Tip: When in Doubt, Rank it Out</a></h2>
 <p>If you are presenting data to a stakeholder and you are worried about one or two "crazy" outliers ruining your average, the Wilcoxon test is your best friend. It treats the outlier as just "the highest rank," preventing it from pulling the results in its direction.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-16-analysis-of-variance-anova"><a class="header" href="#lab-16-analysis-of-variance-anova">Lab 16: Analysis of Variance (ANOVA)</a></h1>
-<h2 id="learning-objectives-12"><a class="header" href="#learning-objectives-12">Learning Objectives</a></h2>
+<h2 id="learning-objectives-11"><a class="header" href="#learning-objectives-11">Learning Objectives</a></h2>
 <ul>
 <li>Understand when to use <strong>ANOVA</strong> instead of multiple t-tests.</li>
 <li>State the Null ($H_0$) and Alternative ($H_a$) hypotheses for multiple groups.</li>
@@ -974,7 +914,7 @@ TukeyHSD(model)
 <h2 id="pro-tip-the-equal-variance-assumption"><a class="header" href="#pro-tip-the-equal-variance-assumption">Pro-Tip: The "Equal Variance" Assumption</a></h2>
 <p>ANOVA assumes that the "spread" (variance) is roughly the same for all groups. If one boxplot is massive and another is tiny, the math might be unreliable. In those cases, we go back to the <strong>Non-parametric</strong> methods from Lab 15!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-17-regression-models"><a class="header" href="#lab-17-regression-models">Lab 17: Regression Models</a></h1>
-<h2 id="learning-objectives-13"><a class="header" href="#learning-objectives-13">Learning Objectives</a></h2>
+<h2 id="learning-objectives-12"><a class="header" href="#learning-objectives-12">Learning Objectives</a></h2>
 <ul>
 <li>Understand the Linear Regression equation: $y = \beta_0 + \beta_1x + \epsilon$.</li>
 <li>Calculate and interpret the <strong>Correlation Coefficient ($r$)</strong>.</li>
