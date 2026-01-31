@@ -23,3 +23,17 @@ format:
     theme: [cosmo, style.css] # Links your CSS file!
     toc: true                # Table of contents for accessibility
     code-copy: true          # Easy for students to copy code
+
+
+
+
+website:
+  page-footer:
+    left: "© 2026 MAT 186 | Dutchess Community College"
+    center: "Last updated: {{< meta date-modified >}}"
+    right: "Designed for Accessibility"
+
+format:
+  html:
+    date-modified: last-modified # Tells Quarto to look at when the file was saved
+    date-format: "MMMM D, YYYY" # Makes it readable (e.g., January 31, 2026)
