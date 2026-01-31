@@ -176,7 +176,66 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="lab-13-statistical-inference-for-two-proportions"><a class="header" href="#lab-13-statistical-inference-for-two-proportions">Lab 13: Statistical inference for two proportions</a></h1>
+                        <h1 id="lab-13-statistical-inference-for-two-proportions"><a class="header" href="#lab-13-statistical-inference-for-two-proportions">Lab 13: Statistical Inference for Two Proportions</a></h1>
+<h2 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h2>
+<ul>
+<li>Compare the "success rates" or percentages of two independent groups.</li>
+<li>State the Null ($H_0$) and Alternative ($H_a$) hypotheses for differences in proportions.</li>
+<li>Use the <code>prop.test()</code> function in R for two-sample comparisons.</li>
+<li>Create a <strong>Stacked Bar Chart</strong> to visualize the relative differences between groups.</li>
+</ul>
+<hr />
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<p>In Lab 11, we looked at one proportion. In the real world, we usually want to compare two. For example:</p>
+<ul>
+<li>Does Group A have a higher graduation rate than Group B?</li>
+<li>Is a medicine more effective in the treatment group than the control group?</li>
+</ul>
+<hr />
+<h2 id="part-1-hypotheses-for-two-proportions"><a class="header" href="#part-1-hypotheses-for-two-proportions">Part 1: Hypotheses for Two Proportions</a></h2>
+<p>We are testing the difference between two population proportions ($p_1 - p_2$).</p>
+<ul>
+<li><strong>Null Hypothesis ($H_0$):</strong> $p_1 = p_2$ (There is no difference between the groups).</li>
+<li><strong>Alternative Hypothesis ($H_a$):</strong> $p_1 \neq p_2$ (The groups have significantly different proportions).</li>
+</ul>
+<hr />
+<h2 id="part-2-visualizing-with-stacked-bar-charts"><a class="header" href="#part-2-visualizing-with-stacked-bar-charts">Part 2: Visualizing with Stacked Bar Charts</a></h2>
+<p>When comparing proportions, a standard bar chart can be misleading if the group sizes are different. We use <code>position = "fill"</code> to show the <strong>percentage</strong> (0 to 100%) rather than the raw count.</p>
+<pre><code class="language-r">library(tidyverse)
+
+# Comparing 'Success' across two different categories
+ggplot(my_data, aes(x = group_variable, fill = success_variable)) +
+  geom_bar(position = "fill") +
+  labs(title = "Proportional Comparison of Success by Group",
+       y = "Proportion (0 to 1)",
+       x = "Group Name")
+</code></pre>
+<hr />
+<h2 id="part-3-running-the-two-sample-prop-test"><a class="header" href="#part-3-running-the-two-sample-prop-test">Part 3: Running the Two-Sample Prop Test</a></h2>
+<p>In R, we provide the "successes" and the "totals" as vectors within the <code>prop.test()</code> function.</p>
+<p><strong>Scenario:</strong> * <strong>Group 1:</strong> 45 people out of 100 succeeded.</p>
+<ul>
+<li><strong>Group 2:</strong> 30 people out of 100 succeeded.</li>
+</ul>
+<pre><code class="language-r"># x = number of successes in each group
+# n = total sample size for each group
+
+results &lt;- prop.test(x = c(45, 30), n = c(100, 100), correct = FALSE)
+
+# View the statistical output
+results
+</code></pre>
+<hr />
+<h2 id="part-4-interpreting-the-results"><a class="header" href="#part-4-interpreting-the-results">Part 4: Interpreting the Results</a></h2>
+<ul>
+<li><strong>p-value:</strong> If the p-value is less than 0.05, we conclude the difference is "Statistically Significant."</li>
+<li><strong>Sample Estimates:</strong> R will show you the individual proportions ($\hat{p}_1$ and $\hat{p}_2$).</li>
+<li><strong>Confidence Interval:</strong> This interval estimates the true difference between the two population percentages.</li>
+</ul>
+<hr />
+<div class="dcc-important">
+**Lab Task 13:**
+1. Open
 
                     </main>
 

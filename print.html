@@ -896,20 +896,79 @@ t_test_results
 <hr />
 <h2 id="accessibility-tip-high-contrast-visuals"><a class="header" href="#accessibility-tip-high-contrast-visuals">Accessibility Tip: High-Contrast Visuals</a></h2>
 <p>When using the <code>fill = species</code> aesthetic in your plots, remember that some students may have color vision deficiencies. Use <code>scale_fill_viridis_d()</code> to ensure your group comparisons are accessible to everyone.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-13-statistical-inference-for-two-proportions"><a class="header" href="#lab-13-statistical-inference-for-two-proportions">Lab 13: Statistical inference for two proportions</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-13-statistical-inference-for-two-proportions"><a class="header" href="#lab-13-statistical-inference-for-two-proportions">Lab 13: Statistical Inference for Two Proportions</a></h1>
+<h2 id="learning-objectives-12"><a class="header" href="#learning-objectives-12">Learning Objectives</a></h2>
+<ul>
+<li>Compare the "success rates" or percentages of two independent groups.</li>
+<li>State the Null ($H_0$) and Alternative ($H_a$) hypotheses for differences in proportions.</li>
+<li>Use the <code>prop.test()</code> function in R for two-sample comparisons.</li>
+<li>Create a <strong>Stacked Bar Chart</strong> to visualize the relative differences between groups.</li>
+</ul>
+<hr />
+<h2 id="introduction-7"><a class="header" href="#introduction-7">Introduction</a></h2>
+<p>In Lab 11, we looked at one proportion. In the real world, we usually want to compare two. For example:</p>
+<ul>
+<li>Does Group A have a higher graduation rate than Group B?</li>
+<li>Is a medicine more effective in the treatment group than the control group?</li>
+</ul>
+<hr />
+<h2 id="part-1-hypotheses-for-two-proportions"><a class="header" href="#part-1-hypotheses-for-two-proportions">Part 1: Hypotheses for Two Proportions</a></h2>
+<p>We are testing the difference between two population proportions ($p_1 - p_2$).</p>
+<ul>
+<li><strong>Null Hypothesis ($H_0$):</strong> $p_1 = p_2$ (There is no difference between the groups).</li>
+<li><strong>Alternative Hypothesis ($H_a$):</strong> $p_1 \neq p_2$ (The groups have significantly different proportions).</li>
+</ul>
+<hr />
+<h2 id="part-2-visualizing-with-stacked-bar-charts"><a class="header" href="#part-2-visualizing-with-stacked-bar-charts">Part 2: Visualizing with Stacked Bar Charts</a></h2>
+<p>When comparing proportions, a standard bar chart can be misleading if the group sizes are different. We use <code>position = "fill"</code> to show the <strong>percentage</strong> (0 to 100%) rather than the raw count.</p>
+<pre><code class="language-r">library(tidyverse)
+
+# Comparing 'Success' across two different categories
+ggplot(my_data, aes(x = group_variable, fill = success_variable)) +
+  geom_bar(position = "fill") +
+  labs(title = "Proportional Comparison of Success by Group",
+       y = "Proportion (0 to 1)",
+       x = "Group Name")
+</code></pre>
+<hr />
+<h2 id="part-3-running-the-two-sample-prop-test"><a class="header" href="#part-3-running-the-two-sample-prop-test">Part 3: Running the Two-Sample Prop Test</a></h2>
+<p>In R, we provide the "successes" and the "totals" as vectors within the <code>prop.test()</code> function.</p>
+<p><strong>Scenario:</strong> * <strong>Group 1:</strong> 45 people out of 100 succeeded.</p>
+<ul>
+<li><strong>Group 2:</strong> 30 people out of 100 succeeded.</li>
+</ul>
+<pre><code class="language-r"># x = number of successes in each group
+# n = total sample size for each group
+
+results &lt;- prop.test(x = c(45, 30), n = c(100, 100), correct = FALSE)
+
+# View the statistical output
+results
+</code></pre>
+<hr />
+<h2 id="part-4-interpreting-the-results"><a class="header" href="#part-4-interpreting-the-results">Part 4: Interpreting the Results</a></h2>
+<ul>
+<li><strong>p-value:</strong> If the p-value is less than 0.05, we conclude the difference is "Statistically Significant."</li>
+<li><strong>Sample Estimates:</strong> R will show you the individual proportions ($\hat{p}_1$ and $\hat{p}_2$).</li>
+<li><strong>Confidence Interval:</strong> This interval estimates the true difference between the two population percentages.</li>
+</ul>
+<hr />
+<div class="dcc-important">
+**Lab Task 13:**
+1. Open
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-14-bootstrapping"><a class="header" href="#lab-14-bootstrapping">Lab 14: Bootstrapping</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-15-non-parametric-methods-for-hypothesis-testing"><a class="header" href="#lab-15-non-parametric-methods-for-hypothesis-testing">Lab 15: Non-parametric methods for hypothesis testing</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-16-analysis-of-varianceanova"><a class="header" href="#lab-16-analysis-of-varianceanova">Lab 16: Analysis of variance(ANOVA)</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-17-regression-models"><a class="header" href="#lab-17-regression-models">Lab 17: Regression models</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-3-mathematical-notation-in-quarto-1"><a class="header" href="#lab-3-mathematical-notation-in-quarto-1">Lab 3: Mathematical Notation in Quarto</a></h1>
-<h2 id="learning-objectives-12"><a class="header" href="#learning-objectives-12">Learning Objectives</a></h2>
+<h2 id="learning-objectives-13"><a class="header" href="#learning-objectives-13">Learning Objectives</a></h2>
 <ul>
 <li>Distinguish between <strong>Inline</strong> and <strong>Display</strong> math modes in Quarto.</li>
 <li>Use LaTeX syntax to write essential statistical symbols ($\mu, \sigma, \bar{x}$).</li>
 <li>Format complex equations like Linear Regression for professional lab reports.</li>
 </ul>
 <hr />
-<h2 id="introduction-7"><a class="header" href="#introduction-7">Introduction</a></h2>
+<h2 id="introduction-8"><a class="header" href="#introduction-8">Introduction</a></h2>
 <p>In Data Science, we often need to document the mathematical models we use. Quarto uses a system called <strong>LaTeX</strong> (pronounced "Lay-tek") to render math. This ensures your formulas look professional and are accessible to screen readers.</p>
 <hr />
 <h2 id="part-1-the-two-math-modes-1"><a class="header" href="#part-1-the-two-math-modes-1">Part 1: The Two Math Modes</a></h2>
