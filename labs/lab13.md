@@ -70,14 +70,4 @@ results
 
 <div class="dcc-important">
 **Lab Task 13:**
-1. Open your Quarto document for Lab 13.
-2. Choose two groups from your data and a binary "success" outcome (e.g., "Pass/Fail" or "Yes/No").
-3. Create a **Stacked Bar Chart** using `position = "fill"`.
-4. Run `prop.test()` to compare the two groups.
-5. **Conclusion:** State your p-value and write a one-sentence conclusion. "We [reject/fail to reject] the null hypothesis and conclude there is [a/no] significant difference in the proportions."
-</div>
-
----
-
-## Accessibility Tip: Color and Texture
-When creating stacked bar charts, rely on more than just color. Using high-contrast palettes like `scale_fill_brewer(palette = "Set1")` helps students with color blindness distinguish between the "Success" and "Failure" sections of your bars.
+1. Open
