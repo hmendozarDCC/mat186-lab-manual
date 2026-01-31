@@ -1,1 +1,25 @@
+project:
+  type: website
 
+website:
+  title: "MAT 186: Data Science Labs"
+  sidebar:
+    style: "docked"
+    background: "#f8f9fa"
+    contents:
+      - section: "Welcome"
+        contents:
+          - index.md
+      - section: "The Labs"
+        contents:
+          - labs/lab1.md
+          - labs/lab2.md
+          - labs/lab8.md
+          - labs/lab11.md
+          - labs/lab17.md
+
+format:
+  html:
+    theme: [cosmo, style.css] # Links your CSS file!
+    toc: true                # Table of contents for accessibility
+    code-copy: true          # Easy for students to copy code
