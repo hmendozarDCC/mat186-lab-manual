@@ -1,33 +1,3 @@
-<style>
-  /* This makes the site look modern and clean */
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.8;
-    color: #333;
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
-  }
-  h1, h2 {
-    color: #003366; /* Official DCC Navy Blue */
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 10px;
-  }
-  .blue-box {
-    background-color: #e7f3ff;
-    border-left: 5px solid #2196F3;
-    padding: 15px;
-    margin: 20px 0;
-    border-radius: 5px;
-  }
-  .task-box {
-    background-color: #f9f9f9;
-    border: 1px dashed #666;
-    padding: 15px;
-    border-radius: 5px;
-  }
-</style>
-
 # 📊 MAT 186: Data Science Lab Manual
 
 Welcome to the **Dutchess Community College** Data Science lab manual. This site is designed to be your primary resource for learning R, data visualization, and statistical inference.
