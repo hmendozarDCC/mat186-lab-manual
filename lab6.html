@@ -177,58 +177,6 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="lab-6-data-collection-and-sources"><a class="header" href="#lab-6-data-collection-and-sources">Lab 6: Data Collection and Sources</a></h1>
-<h2 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h2>
-<ul>
-<li>Distinguish between <strong>Primary</strong> and <strong>Secondary</strong> data.</li>
-<li>Explore "Open Data" portals (Local, State, and Federal).</li>
-<li>Understand the concept of <strong>Tidy Data</strong>.</li>
-<li>Practice ethical data attribution.</li>
-</ul>
-<hr />
-<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
-<p>Data doesn't just appear out of nowhere; it is collected via sensors, surveys, web scraping, or manual entry. As a data scientist at DCC, you should know how to find reliable sources of information to answer real-world questions.</p>
-<hr />
-<h2 id="part-1-finding-open-data"><a class="header" href="#part-1-finding-open-data">Part 1: Finding Open Data</a></h2>
-<p>Government agencies often provide "Open Data" portals where anyone can download datasets for free. These are excellent sources for your final projects.</p>
-<h3 id="recommended-portals"><a class="header" href="#recommended-portals">Recommended Portals:</a></h3>
-<ul>
-<li><strong><a href="https://data.dutchessny.gov/">Dutchess County Open Data</a>:</strong> Local data on parcels, transit, and public safety.</li>
-<li><strong><a href="https://data.ny.gov/">NY State Open Data</a>:</strong> Information on education, health, and the environment across New York.</li>
-<li><strong><a href="https://data.census.gov/">U.S. Census Bureau</a>:</strong> The gold standard for demographic data in the United States.</li>
-</ul>
-<hr />
-<h2 id="part-2-what-is-tidy-data"><a class="header" href="#part-2-what-is-tidy-data">Part 2: What is "Tidy Data"?</a></h2>
-<p>Once you collect data, it needs to be in a specific format for R to read it easily. This is called <strong>Tidy Data</strong>. There are three rules:</p>
-<ol>
-<li>Each <strong>variable</strong> must have its own column.</li>
-<li>Each <strong>observation</strong> (case) must have its own row.</li>
-<li>Each <strong>value</strong> must have its own cell.</li>
-</ol>
-<hr />
-<h2 id="part-3-data-ethics--attribution"><a class="header" href="#part-3-data-ethics--attribution">Part 3: Data Ethics &amp; Attribution</a></h2>
-<p>Whenever you collect data that you didn't create yourself, you must provide a <strong>Data Citation</strong>. This gives credit to the original collectors and allows others to verify your work.</p>
-<p><strong>A good citation includes:</strong></p>
-<ul>
-<li>The name of the organization.</li>
-<li>The year the data was accessed.</li>
-<li>The URL/Link to the dataset.</li>
-</ul>
-<hr />
-<div class="dcc-important">
-**Lab Task 6: The Scavenger Hunt**
-1. Visit the [NY State Open Data Portal](https://data.ny.gov/).
-2. Search for a dataset that interests you (e.g., "Student Enrollment" or "Water Quality").
-3. Download the **CSV** version of that data.
-4. Move the file into your RStudio Project folder.
-5. In a new Quarto document, write a short paragraph describing:
-   * **Where** the data came from.
-   * **Who** collected it.
-   * **What** one row in the dataset represents (the observation).
-6. Use `read_csv()` to load the data and show the first 10 rows using `head()`.
-</div>
-<hr />
-<h2 id="part-4-the-next-step-preview"><a class="header" href="#part-4-the-next-step-preview">Part 4: The Next Step (Preview)</a></h2>
-<p>Data you find "in the wild" is rarely perfect. In the next lab, we will learn how to "clean" the data you just found—removing empty rows and fixing typos!</p>
 
                     </main>
 

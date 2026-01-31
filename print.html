@@ -200,60 +200,8 @@
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-4-github-repository"><a class="header" href="#lab-4-github-repository">Lab 4: GitHub Repository</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-5-getting-data-into-r"><a class="header" href="#lab-5-getting-data-into-r">Lab 5: Getting Data into R</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-6-data-collection-and-sources"><a class="header" href="#lab-6-data-collection-and-sources">Lab 6: Data Collection and Sources</a></h1>
-<h2 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h2>
-<ul>
-<li>Distinguish between <strong>Primary</strong> and <strong>Secondary</strong> data.</li>
-<li>Explore "Open Data" portals (Local, State, and Federal).</li>
-<li>Understand the concept of <strong>Tidy Data</strong>.</li>
-<li>Practice ethical data attribution.</li>
-</ul>
-<hr />
-<h2 id="introduction-1"><a class="header" href="#introduction-1">Introduction</a></h2>
-<p>Data doesn't just appear out of nowhere; it is collected via sensors, surveys, web scraping, or manual entry. As a data scientist at DCC, you should know how to find reliable sources of information to answer real-world questions.</p>
-<hr />
-<h2 id="part-1-finding-open-data"><a class="header" href="#part-1-finding-open-data">Part 1: Finding Open Data</a></h2>
-<p>Government agencies often provide "Open Data" portals where anyone can download datasets for free. These are excellent sources for your final projects.</p>
-<h3 id="recommended-portals"><a class="header" href="#recommended-portals">Recommended Portals:</a></h3>
-<ul>
-<li><strong><a href="https://data.dutchessny.gov/">Dutchess County Open Data</a>:</strong> Local data on parcels, transit, and public safety.</li>
-<li><strong><a href="https://data.ny.gov/">NY State Open Data</a>:</strong> Information on education, health, and the environment across New York.</li>
-<li><strong><a href="https://data.census.gov/">U.S. Census Bureau</a>:</strong> The gold standard for demographic data in the United States.</li>
-</ul>
-<hr />
-<h2 id="part-2-what-is-tidy-data"><a class="header" href="#part-2-what-is-tidy-data">Part 2: What is "Tidy Data"?</a></h2>
-<p>Once you collect data, it needs to be in a specific format for R to read it easily. This is called <strong>Tidy Data</strong>. There are three rules:</p>
-<ol>
-<li>Each <strong>variable</strong> must have its own column.</li>
-<li>Each <strong>observation</strong> (case) must have its own row.</li>
-<li>Each <strong>value</strong> must have its own cell.</li>
-</ol>
-<hr />
-<h2 id="part-3-data-ethics--attribution"><a class="header" href="#part-3-data-ethics--attribution">Part 3: Data Ethics &amp; Attribution</a></h2>
-<p>Whenever you collect data that you didn't create yourself, you must provide a <strong>Data Citation</strong>. This gives credit to the original collectors and allows others to verify your work.</p>
-<p><strong>A good citation includes:</strong></p>
-<ul>
-<li>The name of the organization.</li>
-<li>The year the data was accessed.</li>
-<li>The URL/Link to the dataset.</li>
-</ul>
-<hr />
-<div class="dcc-important">
-**Lab Task 6: The Scavenger Hunt**
-1. Visit the [NY State Open Data Portal](https://data.ny.gov/).
-2. Search for a dataset that interests you (e.g., "Student Enrollment" or "Water Quality").
-3. Download the **CSV** version of that data.
-4. Move the file into your RStudio Project folder.
-5. In a new Quarto document, write a short paragraph describing:
-   * **Where** the data came from.
-   * **Who** collected it.
-   * **What** one row in the dataset represents (the observation).
-6. Use `read_csv()` to load the data and show the first 10 rows using `head()`.
-</div>
-<hr />
-<h2 id="part-4-the-next-step-preview"><a class="header" href="#part-4-the-next-step-preview">Part 4: The Next Step (Preview)</a></h2>
-<p>Data you find "in the wild" is rarely perfect. In the next lab, we will learn how to "clean" the data you just found—removing empty rows and fixing typos!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-7-cleaning-data-with-dplyr"><a class="header" href="#lab-7-cleaning-data-with-dplyr">Lab 7: Cleaning Data with dplyr</a></h1>
-<h2 id="learning-objectives-1"><a class="header" href="#learning-objectives-1">Learning Objectives</a></h2>
+<h2 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h2>
 <ul>
 <li>Understand the concept of "Data Wrangling."</li>
 <li>Use the <strong>Pipe Operator</strong> (<code>|&gt;</code>) to chain commands.</li>
@@ -261,7 +209,7 @@
 <li>Handle missing values (<code>NA</code>).</li>
 </ul>
 <hr />
-<h2 id="introduction-2"><a class="header" href="#introduction-2">Introduction</a></h2>
+<h2 id="introduction-1"><a class="header" href="#introduction-1">Introduction</a></h2>
 <p>"Raw" data is rarely ready for analysis. It might have columns you don't need, rows that aren't relevant to your study, or names that are hard to type. In this lab, we use the <code>dplyr</code> package (part of the <code>tidyverse</code>) to "tidy up" our datasets.</p>
 <hr />
 <h2 id="part-1-the-pipe-operator-"><a class="header" href="#part-1-the-pipe-operator-">Part 1: The Pipe Operator (<code>|&gt;</code>)</a></h2>
@@ -311,7 +259,7 @@ sw_clean &lt;- starwars |&gt;
 <h2 id="pro-tip-the-glimpse"><a class="header" href="#pro-tip-the-glimpse">Pro-Tip: The "Glimpse"</a></h2>
 <p>Always run <code>glimpse(your_data)</code> after cleaning to make sure you haven't accidentally deleted something you meant to keep!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-8-data-exploration-and-visualization-with-ggplot2"><a class="header" href="#lab-8-data-exploration-and-visualization-with-ggplot2">Lab 8: Data Exploration and Visualization with ggplot2</a></h1>
-<h2 id="learning-objectives-2"><a class="header" href="#learning-objectives-2">Learning Objectives</a></h2>
+<h2 id="learning-objectives-1"><a class="header" href="#learning-objectives-1">Learning Objectives</a></h2>
 <ul>
 <li>Calculate "Summary Statistics" using <code>dplyr</code>.</li>
 <li>Understand the <strong>Grammar of Graphics</strong> (Data, Aesthetics, and Geoms).</li>
@@ -379,7 +327,7 @@ ggplot(data = starwars_filtered, mapping = aes(x = height, y = mass)) +
 5. **Observation:** In your Quarto document, write 3 sentences describing the most interesting pattern or outlier you found in your plots.
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-9-probability-and-sampling-distributions"><a class="header" href="#lab-9-probability-and-sampling-distributions">Lab 9: Probability and Sampling Distributions</a></h1>
-<h2 id="learning-objectives-3"><a class="header" href="#learning-objectives-3">Learning Objectives</a></h2>
+<h2 id="learning-objectives-2"><a class="header" href="#learning-objectives-2">Learning Objectives</a></h2>
 <ul>
 <li>Distinguish between <strong>Discrete</strong> and <strong>Continuous</strong> probability distributions.</li>
 <li>Visualize the <strong>Normal Distribution</strong> (the "Bell Curve").</li>
@@ -442,7 +390,7 @@ ggplot(data.frame(samples), aes(x = samples)) +
 5. **Observation:** Write 2 sentences explaining how the "spread" of the histogram changed when you increased the sample size.
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-10-statistical-inference-for-one-mean"><a class="header" href="#lab-10-statistical-inference-for-one-mean">Lab 10: Statistical Inference for One Mean</a></h1>
-<h2 id="learning-objectives-4"><a class="header" href="#learning-objectives-4">Learning Objectives</a></h2>
+<h2 id="learning-objectives-3"><a class="header" href="#learning-objectives-3">Learning Objectives</a></h2>
 <ul>
 <li>Understand the logic of <strong>Null ($H_0$)</strong> and <strong>Alternative ($H_a$)</strong> Hypotheses.</li>
 <li>Calculate and interpret <strong>Confidence Intervals</strong>.</li>
@@ -504,7 +452,7 @@ t_test_results
 <h2 id="accessibility-tip-reporting-results"><a class="header" href="#accessibility-tip-reporting-results">Accessibility Tip: Reporting Results</a></h2>
 <p>When writing your report, always include the <strong>Confidence Interval</strong>. This helps readers (and screen readers) understand the <em>magnitude</em> of your finding, not just whether it was "significant" or not.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-11-statistical-inference-for-one-proportion"><a class="header" href="#lab-11-statistical-inference-for-one-proportion">Lab 11: Statistical Inference for One Proportion</a></h1>
-<h2 id="learning-objectives-5"><a class="header" href="#learning-objectives-5">Learning Objectives</a></h2>
+<h2 id="learning-objectives-4"><a class="header" href="#learning-objectives-4">Learning Objectives</a></h2>
 <ul>
 <li>Understand the conditions for the <strong>Large Sample Proportions Test</strong>.</li>
 <li>State Null ($H_0$) and Alternative ($H_a$) hypotheses for proportions.</li>
@@ -564,7 +512,7 @@ prop_results
 <h2 id="accessibility-note-rounding-for-clarity"><a class="header" href="#accessibility-note-rounding-for-clarity">Accessibility Note: Rounding for Clarity</a></h2>
 <p>When reporting proportions to a general audience, always convert decimals to percentages and round to one decimal place (e.g., $0.4022$ becomes <strong>40.2%</strong>). This makes your findings much easier to digest for readers using assistive technology.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-12-statistical-inference-for-two-means"><a class="header" href="#lab-12-statistical-inference-for-two-means">Lab 12: Statistical Inference for Two Means</a></h1>
-<h2 id="learning-objectives-6"><a class="header" href="#learning-objectives-6">Learning Objectives</a></h2>
+<h2 id="learning-objectives-5"><a class="header" href="#learning-objectives-5">Learning Objectives</a></h2>
 <ul>
 <li>Understand the difference between <strong>Independent</strong> and <strong>Paired</strong> samples.</li>
 <li>State the Null ($H_0$) and Alternative ($H_a$) hypotheses for comparing two groups.</li>
@@ -626,7 +574,7 @@ t_test_results
 <h2 id="accessibility-tip-high-contrast-visuals"><a class="header" href="#accessibility-tip-high-contrast-visuals">Accessibility Tip: High-Contrast Visuals</a></h2>
 <p>When using the <code>fill = species</code> aesthetic in your plots, remember that some students may have color vision deficiencies. Use <code>scale_fill_viridis_d()</code> to ensure your group comparisons are accessible to everyone.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-13-statistical-inference-for-two-proportions"><a class="header" href="#lab-13-statistical-inference-for-two-proportions">Lab 13: Statistical Inference for Two Proportions</a></h1>
-<h2 id="learning-objectives-7"><a class="header" href="#learning-objectives-7">Learning Objectives</a></h2>
+<h2 id="learning-objectives-6"><a class="header" href="#learning-objectives-6">Learning Objectives</a></h2>
 <ul>
 <li>Compare the "success rates" or percentages of two independent groups.</li>
 <li>State the Null ($H_0$) and Alternative ($H_a$) hypotheses for differences in proportions.</li>
@@ -634,7 +582,7 @@ t_test_results
 <li>Create a <strong>Stacked Bar Chart</strong> to visualize the relative differences between groups.</li>
 </ul>
 <hr />
-<h2 id="introduction-3"><a class="header" href="#introduction-3">Introduction</a></h2>
+<h2 id="introduction-2"><a class="header" href="#introduction-2">Introduction</a></h2>
 <p>In Lab 11, we looked at one proportion. In the real world, we usually want to compare two. For example:</p>
 <ul>
 <li>Does Group A have a higher graduation rate than Group B?</li>
@@ -686,7 +634,7 @@ results
 **Lab Task 13:**
 1. Open
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-14-bootstrapping-and-resampling"><a class="header" href="#lab-14-bootstrapping-and-resampling">Lab 14: Bootstrapping and Resampling</a></h1>
-<h2 id="learning-objectives-8"><a class="header" href="#learning-objectives-8">Learning Objectives</a></h2>
+<h2 id="learning-objectives-7"><a class="header" href="#learning-objectives-7">Learning Objectives</a></h2>
 <ul>
 <li>Understand the concept of <strong>Sampling with Replacement</strong>.</li>
 <li>Use the <code>infer</code> package to create a bootstrap distribution.</li>
@@ -738,7 +686,7 @@ percentile_ci
 <div class="dcc-important">
 **Lab Task 1
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-15-non-parametric-methods-for-hypothesis-testing"><a class="header" href="#lab-15-non-parametric-methods-for-hypothesis-testing">Lab 15: Non-parametric Methods for Hypothesis Testing</a></h1>
-<h2 id="learning-objectives-9"><a class="header" href="#learning-objectives-9">Learning Objectives</a></h2>
+<h2 id="learning-objectives-8"><a class="header" href="#learning-objectives-8">Learning Objectives</a></h2>
 <ul>
 <li>Identify when to use <strong>Non-parametric</strong> tests instead of Parametric tests.</li>
 <li>Conduct a <strong>Wilcoxon Rank-Sum Test</strong> (Mann-Whitney U).</li>
@@ -791,7 +739,7 @@ wilcox.test(mass ~ species, data = comparison_data)
 <h2 id="pro-tip-when-in-doubt-rank-it-out"><a class="header" href="#pro-tip-when-in-doubt-rank-it-out">Pro-Tip: When in Doubt, Rank it Out</a></h2>
 <p>If you are presenting data to a stakeholder and you are worried about one or two "crazy" outliers ruining your average, the Wilcoxon test is your best friend. It treats the outlier as just "the highest rank," preventing it from pulling the results in its direction.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-16-analysis-of-variance-anova"><a class="header" href="#lab-16-analysis-of-variance-anova">Lab 16: Analysis of Variance (ANOVA)</a></h1>
-<h2 id="learning-objectives-10"><a class="header" href="#learning-objectives-10">Learning Objectives</a></h2>
+<h2 id="learning-objectives-9"><a class="header" href="#learning-objectives-9">Learning Objectives</a></h2>
 <ul>
 <li>Understand when to use <strong>ANOVA</strong> instead of multiple t-tests.</li>
 <li>State the Null ($H_0$) and Alternative ($H_a$) hypotheses for multiple groups.</li>
@@ -856,7 +804,7 @@ TukeyHSD(model)
 <h2 id="pro-tip-the-equal-variance-assumption"><a class="header" href="#pro-tip-the-equal-variance-assumption">Pro-Tip: The "Equal Variance" Assumption</a></h2>
 <p>ANOVA assumes that the "spread" (variance) is roughly the same for all groups. If one boxplot is massive and another is tiny, the math might be unreliable. In those cases, we go back to the <strong>Non-parametric</strong> methods from Lab 15!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-17-regression-models"><a class="header" href="#lab-17-regression-models">Lab 17: Regression Models</a></h1>
-<h2 id="learning-objectives-11"><a class="header" href="#learning-objectives-11">Learning Objectives</a></h2>
+<h2 id="learning-objectives-10"><a class="header" href="#learning-objectives-10">Learning Objectives</a></h2>
 <ul>
 <li>Understand the Linear Regression equation: $y = \beta_0 + \beta_1x + \epsilon$.</li>
 <li>Calculate and interpret the <strong>Correlation Coefficient ($r$)</strong>.</li>
