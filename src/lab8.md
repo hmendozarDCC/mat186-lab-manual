@@ -1,0 +1,93 @@
+# Lab 8: Data Exploration and Visualization with ggplot2
+
+## Learning Objectives
+* Calculate "Summary Statistics" using `dplyr`.
+* Understand the **Grammar of Graphics** (Data, Aesthetics, and Geoms).
+* Create distributions (Histograms) and relationships (Scatter Plots).
+* Identify outliers and patterns through visual-first discovery.
+
+---
+
+## Part 1: Numerical Exploration
+Before we draw, we must understand the "center" and "spread" of our data. We use `summarize()` to get the hard numbers.
+
+~~~r
+library(tidyverse)
+
+# Analyzing the Star Wars dataset
+starwars |>
+  drop_na(height) |>
+  summarize(
+    mean_height = mean(height),
+    median_height = median(height),
+    sd_height = sd(height)
+  )
+~~~
+
+
+
+---
+
+## Part 2: The Grammar of ggplot2
+In `ggplot2`, every plot has three essential ingredients:
+1. **Data:** The dataframe we are using.
+2. **Aesthetics (aes):** The mapping of data to the axes (x and y).
+3. **Geoms:** The geometric shapes used to represent the data (points, bars, lines).
+
+---
+
+## Part 3: Visualizing Distributions (Histograms)
+A histogram helps us see where the data is "clumped." If the mean and median are very different, the histogram will show a "skew."
+
+~~~r
+ggplot(data = starwars, mapping = aes(x = height)) +
+  geom_histogram(binwidth = 15, fill = "steelblue", color = "white") +
+  labs(
+    title = "Distribution of Character Heights",
+    x = "Height (cm)",
+    y = "Frequency"
+  )
+~~~
+
+
+
+---
+
+## Part 4: Visualizing Relationships (Scatter Plots)
+To see if two numeric variables are related (like height and weight), we use `geom_point()`.
+
+~~~r
+# Removing the extreme outlier (Jabba the Hutt) for a better view
+starwars_filtered <- starwars |> filter(mass < 500)
+
+ggplot(data = starwars_filtered, mapping = aes(x = height, y = mass)) +
+  geom_point(color = "darkgreen", alpha = 0.6) +
+  geom_smooth(method = "lm", se = FALSE, color = "red") + 
+  labs(title = "Relationship between Height and Mass")
+~~~
+
+
+
+---
+
+## Part 5: Comparing Groups (Boxplots)
+Boxplots are the best way to see how a numeric variable varies across different categories.
+
+~~~r
+ggplot(data = starwars, mapping = aes(x = gender, y = height)) +
+  geom_boxplot(fill = "lightgray") +
+  labs(title = "Height Distribution by Gender")
+~~~
+
+
+
+---
+
+<div class="dcc-important">
+**Lab Task 8:**
+1. Using your cleaned dataset from Lab 7, calculate the **Mean** and **Standard Deviation** for your main numeric variable.
+2. Create a **Histogram** of that variable. Is the data bell-shaped or skewed?
+3. Create a **Scatter Plot** comparing two numeric variables. Add a trend line using `geom_smooth()`.
+4. Create a **Boxplot** that compares one numeric variable across different categories.
+5. **Observation:** In your Quarto document, write 3 sentences describing the most interesting pattern or outlier you found in your plots.
+</div>
