@@ -1,0 +1,77 @@
+# Lab 10: Statistical Inference for One Mean
+
+## Learning Objectives
+* Understand the logic of **Null ($H_0$)** and **Alternative ($H_a$)** Hypotheses.
+* Calculate and interpret **Confidence Intervals**.
+* Conduct a **One-Sample t-test** in R.
+* Interpret the **p-value** to make a statistical decision.
+
+---
+
+## Part 1: The Logic of Inference
+We rarely have data for an entire population (like every person in New York). Instead, we use a **Sample** to make an educated guess about the **Population**.
+
+1. **Null Hypothesis ($H_0$):** The status quo. There is "nothing going on" or no difference.
+2. **Alternative Hypothesis ($H_a$):** What we are trying to prove. There is a significant difference.
+
+
+
+---
+
+## Part 2: Confidence Intervals
+A confidence interval gives us a range of plausible values for the true population mean. We usually use a **95% Confidence Level**.
+
+~~~r
+library(tidyverse)
+
+# Let's look at the average height of Star Wars characters
+# We want to estimate the true mean height of all characters in the galaxy
+starwars_heights <- starwars |> drop_na(height)
+
+# Calculating a 95% Confidence Interval manually
+t.test(starwars_heights$height, conf.level = 0.95)
+~~~
+
+---
+
+## Part 3: The One-Sample t-test
+Imagine a claim that the "Average height of a galactic citizen is 175 cm." Does our data support this?
+
+~~~r
+# Testing if the mean height is significantly different from 175
+t_test_results <- t.test(starwars_heights$height, mu = 175)
+
+# View the results
+t_test_results
+~~~
+
+### How to read the output:
+* **t:** The test statistic (how many standard errors we are from the claim).
+* **df:** Degrees of freedom (sample size minus 1).
+* **p-value:** The probability that we would see our result if the Null Hypothesis were true.
+
+
+
+---
+
+## Part 4: Making a Decision
+In MAT 186, we typically use an **alpha ($\alpha$) level of 0.05**.
+* **If p-value < 0.05:** We **Reject** the Null Hypothesis. The result is "Statistically Significant."
+* **If p-value > 0.05:** We **Fail to Reject** the Null Hypothesis. We do not have enough evidence to support the change.
+
+---
+
+<div class="dcc-important">
+**Lab Task 10:**
+1. Use your personal dataset from previous labs.
+2. Pick a numeric variable (e.g., age, price, or score).
+3. **State your Hypotheses:** * $H_0: \mu = \text{choose a number close to your average}$
+   * $H_a: \mu \neq \text{that same number}$
+4. Run a `t.test()` in R using your variable and your chosen `mu`.
+5. **The Conclusion:** In your Quarto document, write a formal conclusion. "Since the p-value was [insert p-value], we [reject/fail to reject] the null hypothesis. There [is/is not] sufficient evidence to suggest the mean is different from [insert mu]."
+</div>
+
+---
+
+## Accessibility Tip: Reporting Results
+When writing your report, always include the **Confidence Interval**. This helps readers (and screen readers) understand the *magnitude* of your finding, not just whether it was "significant" or not.
