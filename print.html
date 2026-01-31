@@ -1126,9 +1126,78 @@ TukeyHSD(model)
 <hr />
 <h2 id="pro-tip-the-equal-variance-assumption"><a class="header" href="#pro-tip-the-equal-variance-assumption">Pro-Tip: The "Equal Variance" Assumption</a></h2>
 <p>ANOVA assumes that the "spread" (variance) is roughly the same for all groups. If one boxplot is massive and another is tiny, the math might be unreliable. In those cases, we go back to the <strong>Non-parametric</strong> methods from Lab 15!</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-17-regression-models"><a class="header" href="#lab-17-regression-models">Lab 17: Regression models</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-3-mathematical-notation-in-quarto-1"><a class="header" href="#lab-3-mathematical-notation-in-quarto-1">Lab 3: Mathematical Notation in Quarto</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-17-regression-models"><a class="header" href="#lab-17-regression-models">Lab 17: Regression Models</a></h1>
 <h2 id="learning-objectives-16"><a class="header" href="#learning-objectives-16">Learning Objectives</a></h2>
+<ul>
+<li>Understand the Linear Regression equation: $y = \beta_0 + \beta_1x + \epsilon$.</li>
+<li>Calculate and interpret the <strong>Correlation Coefficient ($r$)</strong>.</li>
+<li>Fit a Linear Model in R using the <code>lm()</code> function.</li>
+<li>Evaluate model fit using <strong>R-squared ($R^2$)</strong>.</li>
+</ul>
+<hr />
+<h2 id="part-1-correlation-r"><a class="header" href="#part-1-correlation-r">Part 1: Correlation ($r$)</a></h2>
+<p>Before building a model, we need to know if a linear relationship even exists. The correlation coefficient ($r$) ranges from <strong>-1</strong> to <strong>1</strong>.</p>
+<ul>
+<li><strong>1</strong>: Perfect positive relationship.</li>
+<li><strong>0</strong>: No relationship at all.</li>
+<li><strong>-1</strong>: Perfect negative relationship.</li>
+</ul>
+<pre><code class="language-r">library(tidyverse)
+
+# Calculate correlation between height and mass
+starwars |&gt;
+  drop_na(height, mass) |&gt;
+  summarize(correlation = cor(height, mass))
+</code></pre>
+<hr />
+<h2 id="part-2-visualizing-the-best-fit-line"><a class="header" href="#part-2-visualizing-the-best-fit-line">Part 2: Visualizing the Best Fit Line</a></h2>
+<p>We use <code>geom_smooth(method = "lm")</code> to draw the line that minimizes the distance between all data points (the "Ordinary Least Squares" method).</p>
+<pre><code class="language-r"># Scatter plot with a regression line
+ggplot(starwars |&gt; filter(mass &lt; 500), aes(x = height, y = mass)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", color = "blue", se = TRUE) +
+  labs(title = "Predicting Mass based on Height",
+       subtitle = "The blue line represents our regression model")
+</code></pre>
+<hr />
+<h2 id="part-3-building-the-model-in-r"><a class="header" href="#part-3-building-the-model-in-r">Part 3: Building the Model in R</a></h2>
+<p>In R, the "Linear Model" function is <code>lm()</code>. The syntax is <code>lm(dependent_variable ~ independent_variable)</code>.</p>
+<pre><code class="language-r"># 1. Create the model
+my_model &lt;- lm(mass ~ height, data = starwars |&gt; filter(mass &lt; 500))
+
+# 2. View the results
+summary(my_model)
+</code></pre>
+<h3 id="how-to-interpret-the-summary"><a class="header" href="#how-to-interpret-the-summary">How to interpret the summary:</a></h3>
+<ul>
+<li><strong>Intercept ($\beta_0$):</strong> The predicted value of $y$ when $x$ is zero.</li>
+<li><strong>Slope ($\beta_1$):</strong> For every 1 unit increase in $x$, how much $y$ is expected to change.</li>
+<li><strong>R-squared ($R^2$):</strong> The percentage of variation in $y$ explained by your model. (e.g., $0.75$ means your model explains 75% of the data).</li>
+</ul>
+<hr />
+<h2 id="part-4-making-predictions"><a class="header" href="#part-4-making-predictions">Part 4: Making Predictions</a></h2>
+<p>Once you have a model, you can plug in a value for $x$ to predict $y$. If our model is $Mass = -100 + 1.2(Height)$, we can predict the mass of a character who is 200cm tall.</p>
+<pre><code class="language-r"># Predict mass for a height of 200cm
+new_data &lt;- data.frame(height = 200)
+predict(my_model, newdata = new_data)
+</code></pre>
+<hr />
+<div class="dcc-important">
+**Lab Task 17:**
+1. Pick two numeric variables from your dataset that you think are related.
+2. Create a **Scatter Plot** and add a linear regression line.
+3. Use the `cor()` function to find the correlation coefficient.
+4. Fit a linear model using `lm()` and look at the `summary()`.
+5. **The Report:**
+   * What is the slope of your model? 
+   * What is the $R^2$ value? 
+   * Use your model to make one prediction for a value not in your dataset.
+</div>
+<hr />
+<h2 id="pro-tip-correlation-neq-causation"><a class="header" href="#pro-tip-correlation-neq-causation">Pro-Tip: Correlation $\neq$ Causation</a></h2>
+<p>Just because two variables are mathematically related doesn't mean one</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-3-mathematical-notation-in-quarto-1"><a class="header" href="#lab-3-mathematical-notation-in-quarto-1">Lab 3: Mathematical Notation in Quarto</a></h1>
+<h2 id="learning-objectives-17"><a class="header" href="#learning-objectives-17">Learning Objectives</a></h2>
 <ul>
 <li>Distinguish between <strong>Inline</strong> and <strong>Display</strong> math modes in Quarto.</li>
 <li>Use LaTeX syntax to write essential statistical symbols ($\mu, \sigma, \bar{x}$).</li>
