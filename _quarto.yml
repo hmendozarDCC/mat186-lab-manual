@@ -1,22 +1,21 @@
-project:
-  type: website
-
 website:
-  title: "MAT 186: Data Science Labs"
-  # Place the footer here, inside the website section
+  title: "MAT 186: Data Science"
+  # Navbar Logo (Top Left)
+  navbar:
+    logo: "images/dcc-logo.png"
+    background: "#003366" # Official DCC Blue
+  
+  # Page Footer (Bottom)
   page-footer:
-    left: "© 2026 MAT 186 | Dutchess Community College"
+    left: |
+      ![](images/dcc-logo.png){width=50px}  
+      **Dutchess Community College**
     center: "Last updated: {{< meta date-modified >}}"
     right: "Designed for Accessibility"
-  sidebar:
-    contents:
-      - index.md
-      - labs/lab1.md
 
 format:
   html:
     theme: [cosmo, style.css]
-    # Place the date settings here, inside the html format section
     date-modified: last-modified
     date-format: "MMMM D, YYYY"
     toc: true
