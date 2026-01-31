@@ -76,3 +76,8 @@ percentile_ci
 5. Calculate the 95% Confidence Interval. 
 6. **Reflection:** In your Quarto document, explain in your own words why we "sample with replacement" during bootstrapping.
 </div>
+
+---
+
+## Accessibility Tip: The 'infer' Logic
+The `infer` package uses "verbs" (`specify`, `generate`, `calculate`) that make the code much more readable for students using screen readers. It allows them to follow the logical flow of the experiment step-by-step rather than memorizing complex nested functions.
