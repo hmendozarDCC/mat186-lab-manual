@@ -1,4 +1,16 @@
 /* Global Professional Styling for MAT 186 */
+
+:root {
+    --dcc-blue: #003366; /* The deep Navy used by DCC */
+    --dcc-cerulean: #009EDC; /* The brighter accent blue */
+}
+
+footer {
+    padding-top: 2rem;
+    border-top: 2px solid var(--dcc-cerulean);
+    font-size: 0.9rem;
+    color: #555;
+}
 body {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.8;
