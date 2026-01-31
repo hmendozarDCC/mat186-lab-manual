@@ -240,53 +240,9 @@ If you are using a DCC Chromebook or a computer where you cannot install softwar
 </code></pre>
 </li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-2-rstudio-projects-and-quarto-documents"><a class="header" href="#lab-2-rstudio-projects-and-quarto-documents">Lab 2: RStudio Projects and Quarto Documents</a></h1>
-<h2 id="learning-objectives-1"><a class="header" href="#learning-objectives-1">Learning Objectives</a></h2>
-<ul>
-<li>Create an <strong>RStudio Project</strong> to organize your work.</li>
-<li>Understand the structure of a <strong>Quarto (.qmd)</strong> document.</li>
-<li>"Render" a document into a professional HTML report.</li>
-</ul>
-<hr />
-<h2 id="part-1-rstudio-projects"><a class="header" href="#part-1-rstudio-projects">Part 1: RStudio Projects</a></h2>
-<p>In Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one "folder" so R always knows where to look.</p>
-<ol>
-<li>Open RStudio.</li>
-<li>Click <strong>File &gt; New Project...</strong></li>
-<li>Select <strong>New Directory</strong> &gt; <strong>New Project</strong>.</li>
-<li>Name your directory <code>MAT186_Labs</code> and save it to your Desktop or Documents.</li>
-</ol>
-<div class="dcc-note">
-**Why use Projects?** It sets the "Working Directory" automatically. You'll never have to type long file paths like `C:/Users/Documents/Data...` again!
-</div>
-<hr />
-<h2 id="part-2-creating-a-quarto-document"><a class="header" href="#part-2-creating-a-quarto-document">Part 2: Creating a Quarto Document</a></h2>
-<p>Quarto allows you to combine text, code, and results in one file.</p>
-<ol>
-<li>Click <strong>File &gt; New File &gt; Quarto Document...</strong></li>
-<li>Title it "Lab 2" and put your name as the Author.</li>
-<li>Click <strong>Create</strong>.</li>
-<li>Look at the file. You will see:
-<ul>
-<li><strong>YAML Header:</strong> The stuff between the <code>---</code> lines (Title, Author, Format).</li>
-<li><strong>Code Chunks:</strong> The gray boxes starting with <code>```{r}</code>.</li>
-<li><strong>Markdown:</strong> The plain white areas for your written analysis.</li>
-</ul>
-</li>
-</ol>
-<hr />
-<h2 id="part-3-rendering-the-magic-button"><a class="header" href="#part-3-rendering-the-magic-button">Part 3: Rendering (The "Magic" Button)</a></h2>
-<p>To turn your code into a report:</p>
-<ol>
-<li>Click the <strong>Render</strong> button (blue arrow icon) at the top of the editor.</li>
-<li>RStudio will save the file and pop up a beautiful HTML window.</li>
-</ol>
-<hr />
-<div class="dcc-important">
-**Lab Task 2:** Inside your Quarto document, create a new code chunk and type `2 + 2`. Render the document and verify that the number `4` appears in the final report. Screenshot your rendered HTML for submission.
-</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-2-rstudio-projects-and-quarto"><a class="header" href="#lab-2-rstudio-projects-and-quarto">Lab 2: RStudio Projects and Quarto</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-3-mathematical-notation-in-quarto"><a class="header" href="#lab-3-mathematical-notation-in-quarto">Lab 3: Mathematical Notation in Quarto</a></h1>
-<h2 id="learning-objectives-2"><a class="header" href="#learning-objectives-2">Learning Objectives</a></h2>
+<h2 id="learning-objectives-1"><a class="header" href="#learning-objectives-1">Learning Objectives</a></h2>
 <ul>
 <li>Distinguish between <strong>Inline</strong> and <strong>Display</strong> math modes in Quarto.</li>
 <li>Use LaTeX syntax to write essential statistical symbols ($\mu, \sigma, \bar{x}$).</li>
@@ -351,7 +307,7 @@ $$y = \beta_0 + \beta_1 x + \epsilon$$</p>
 <h3 id="accessibility-check"><a class="header" href="#accessibility-check"><strong>Accessibility Check</strong></a></h3>
 <p>When you use this LaTeX method, students using screen readers can hear the math described clearly (e.g., "x bar equals fraction sum x sub i over n"). This is much better than using an image of an equation, which a screen reader cannot "see."</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-4-creating-your-data-science-portfolio-on-github"><a class="header" href="#lab-4-creating-your-data-science-portfolio-on-github">Lab 4: Creating Your Data Science Portfolio on GitHub</a></h1>
-<h2 id="learning-objectives-3"><a class="header" href="#learning-objectives-3">Learning Objectives</a></h2>
+<h2 id="learning-objectives-2"><a class="header" href="#learning-objectives-2">Learning Objectives</a></h2>
 <ul>
 <li>Create a personal GitHub account.</li>
 <li>Initialize a new repository for MAT 186 work.</li>
@@ -412,7 +368,7 @@ $$y = \beta_0 + \beta_1 x + \epsilon$$</p>
 <h3 id="a-note-on-open-science"><a class="header" href="#a-note-on-open-science"><strong>A Note on Open Science</strong></a></h3>
 <p>By putting your work on GitHub, you are participating in <strong>Open Science</strong>. This allows others to learn from your code and allows you to track your own progress throughout the semester!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-5-getting-data-into-r"><a class="header" href="#lab-5-getting-data-into-r">Lab 5: Getting Data into R</a></h1>
-<h2 id="learning-objectives-4"><a class="header" href="#learning-objectives-4">Learning Objectives</a></h2>
+<h2 id="learning-objectives-3"><a class="header" href="#learning-objectives-3">Learning Objectives</a></h2>
 <ul>
 <li>Understand the difference between <strong>Absolute</strong> and <strong>Relative</strong> file paths.</li>
 <li>Import data from a local <strong>CSV</strong> file.</li>
@@ -471,7 +427,7 @@ head(sw_data)
 4. Render the document and confirm that your data table appears in the HTML.
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-6-data-collection-and-sources"><a class="header" href="#lab-6-data-collection-and-sources">Lab 6: Data Collection and Sources</a></h1>
-<h2 id="learning-objectives-5"><a class="header" href="#learning-objectives-5">Learning Objectives</a></h2>
+<h2 id="learning-objectives-4"><a class="header" href="#learning-objectives-4">Learning Objectives</a></h2>
 <ul>
 <li>Distinguish between <strong>Primary</strong> and <strong>Secondary</strong> data.</li>
 <li>Explore "Open Data" portals (Local, State, and Federal).</li>
@@ -524,7 +480,7 @@ head(sw_data)
 <h2 id="part-4-the-next-step-preview"><a class="header" href="#part-4-the-next-step-preview">Part 4: The Next Step (Preview)</a></h2>
 <p>Data you find "in the wild" is rarely perfect. In the next lab, we will learn how to "clean" the data you just found—removing empty rows and fixing typos!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-7-cleaning-data-with-dplyr"><a class="header" href="#lab-7-cleaning-data-with-dplyr">Lab 7: Cleaning Data with dplyr</a></h1>
-<h2 id="learning-objectives-6"><a class="header" href="#learning-objectives-6">Learning Objectives</a></h2>
+<h2 id="learning-objectives-5"><a class="header" href="#learning-objectives-5">Learning Objectives</a></h2>
 <ul>
 <li>Understand the concept of "Data Wrangling."</li>
 <li>Use the <strong>Pipe Operator</strong> (<code>|&gt;</code>) to chain commands.</li>
@@ -582,7 +538,7 @@ sw_clean &lt;- starwars |&gt;
 <h2 id="pro-tip-the-glimpse"><a class="header" href="#pro-tip-the-glimpse">Pro-Tip: The "Glimpse"</a></h2>
 <p>Always run <code>glimpse(your_data)</code> after cleaning to make sure you haven't accidentally deleted something you meant to keep!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-8-data-exploration-and-visualization-with-ggplot2"><a class="header" href="#lab-8-data-exploration-and-visualization-with-ggplot2">Lab 8: Data Exploration and Visualization with ggplot2</a></h1>
-<h2 id="learning-objectives-7"><a class="header" href="#learning-objectives-7">Learning Objectives</a></h2>
+<h2 id="learning-objectives-6"><a class="header" href="#learning-objectives-6">Learning Objectives</a></h2>
 <ul>
 <li>Calculate "Summary Statistics" using <code>dplyr</code>.</li>
 <li>Understand the <strong>Grammar of Graphics</strong> (Data, Aesthetics, and Geoms).</li>
@@ -650,7 +606,7 @@ ggplot(data = starwars_filtered, mapping = aes(x = height, y = mass)) +
 5. **Observation:** In your Quarto document, write 3 sentences describing the most interesting pattern or outlier you found in your plots.
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-9-probability-and-sampling-distributions"><a class="header" href="#lab-9-probability-and-sampling-distributions">Lab 9: Probability and Sampling Distributions</a></h1>
-<h2 id="learning-objectives-8"><a class="header" href="#learning-objectives-8">Learning Objectives</a></h2>
+<h2 id="learning-objectives-7"><a class="header" href="#learning-objectives-7">Learning Objectives</a></h2>
 <ul>
 <li>Distinguish between <strong>Discrete</strong> and <strong>Continuous</strong> probability distributions.</li>
 <li>Visualize the <strong>Normal Distribution</strong> (the "Bell Curve").</li>
@@ -713,7 +669,7 @@ ggplot(data.frame(samples), aes(x = samples)) +
 5. **Observation:** Write 2 sentences explaining how the "spread" of the histogram changed when you increased the sample size.
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-10-statistical-inference-for-one-mean"><a class="header" href="#lab-10-statistical-inference-for-one-mean">Lab 10: Statistical Inference for One Mean</a></h1>
-<h2 id="learning-objectives-9"><a class="header" href="#learning-objectives-9">Learning Objectives</a></h2>
+<h2 id="learning-objectives-8"><a class="header" href="#learning-objectives-8">Learning Objectives</a></h2>
 <ul>
 <li>Understand the logic of <strong>Null ($H_0$)</strong> and <strong>Alternative ($H_a$)</strong> Hypotheses.</li>
 <li>Calculate and interpret <strong>Confidence Intervals</strong>.</li>
@@ -775,7 +731,7 @@ t_test_results
 <h2 id="accessibility-tip-reporting-results"><a class="header" href="#accessibility-tip-reporting-results">Accessibility Tip: Reporting Results</a></h2>
 <p>When writing your report, always include the <strong>Confidence Interval</strong>. This helps readers (and screen readers) understand the <em>magnitude</em> of your finding, not just whether it was "significant" or not.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-11-statistical-inference-for-one-proportion"><a class="header" href="#lab-11-statistical-inference-for-one-proportion">Lab 11: Statistical Inference for One Proportion</a></h1>
-<h2 id="learning-objectives-10"><a class="header" href="#learning-objectives-10">Learning Objectives</a></h2>
+<h2 id="learning-objectives-9"><a class="header" href="#learning-objectives-9">Learning Objectives</a></h2>
 <ul>
 <li>Understand the conditions for the <strong>Large Sample Proportions Test</strong>.</li>
 <li>State Null ($H_0$) and Alternative ($H_a$) hypotheses for proportions.</li>
@@ -835,7 +791,7 @@ prop_results
 <h2 id="accessibility-note-rounding-for-clarity"><a class="header" href="#accessibility-note-rounding-for-clarity">Accessibility Note: Rounding for Clarity</a></h2>
 <p>When reporting proportions to a general audience, always convert decimals to percentages and round to one decimal place (e.g., $0.4022$ becomes <strong>40.2%</strong>). This makes your findings much easier to digest for readers using assistive technology.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-12-statistical-inference-for-two-means"><a class="header" href="#lab-12-statistical-inference-for-two-means">Lab 12: Statistical Inference for Two Means</a></h1>
-<h2 id="learning-objectives-11"><a class="header" href="#learning-objectives-11">Learning Objectives</a></h2>
+<h2 id="learning-objectives-10"><a class="header" href="#learning-objectives-10">Learning Objectives</a></h2>
 <ul>
 <li>Understand the difference between <strong>Independent</strong> and <strong>Paired</strong> samples.</li>
 <li>State the Null ($H_0$) and Alternative ($H_a$) hypotheses for comparing two groups.</li>
@@ -897,7 +853,7 @@ t_test_results
 <h2 id="accessibility-tip-high-contrast-visuals"><a class="header" href="#accessibility-tip-high-contrast-visuals">Accessibility Tip: High-Contrast Visuals</a></h2>
 <p>When using the <code>fill = species</code> aesthetic in your plots, remember that some students may have color vision deficiencies. Use <code>scale_fill_viridis_d()</code> to ensure your group comparisons are accessible to everyone.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-13-statistical-inference-for-two-proportions"><a class="header" href="#lab-13-statistical-inference-for-two-proportions">Lab 13: Statistical Inference for Two Proportions</a></h1>
-<h2 id="learning-objectives-12"><a class="header" href="#learning-objectives-12">Learning Objectives</a></h2>
+<h2 id="learning-objectives-11"><a class="header" href="#learning-objectives-11">Learning Objectives</a></h2>
 <ul>
 <li>Compare the "success rates" or percentages of two independent groups.</li>
 <li>State the Null ($H_0$) and Alternative ($H_a$) hypotheses for differences in proportions.</li>
@@ -957,7 +913,7 @@ results
 **Lab Task 13:**
 1. Open
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-14-bootstrapping-and-resampling"><a class="header" href="#lab-14-bootstrapping-and-resampling">Lab 14: Bootstrapping and Resampling</a></h1>
-<h2 id="learning-objectives-13"><a class="header" href="#learning-objectives-13">Learning Objectives</a></h2>
+<h2 id="learning-objectives-12"><a class="header" href="#learning-objectives-12">Learning Objectives</a></h2>
 <ul>
 <li>Understand the concept of <strong>Sampling with Replacement</strong>.</li>
 <li>Use the <code>infer</code> package to create a bootstrap distribution.</li>
@@ -1009,7 +965,7 @@ percentile_ci
 <div class="dcc-important">
 **Lab Task 1
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-15-non-parametric-methods-for-hypothesis-testing"><a class="header" href="#lab-15-non-parametric-methods-for-hypothesis-testing">Lab 15: Non-parametric Methods for Hypothesis Testing</a></h1>
-<h2 id="learning-objectives-14"><a class="header" href="#learning-objectives-14">Learning Objectives</a></h2>
+<h2 id="learning-objectives-13"><a class="header" href="#learning-objectives-13">Learning Objectives</a></h2>
 <ul>
 <li>Identify when to use <strong>Non-parametric</strong> tests instead of Parametric tests.</li>
 <li>Conduct a <strong>Wilcoxon Rank-Sum Test</strong> (Mann-Whitney U).</li>
@@ -1062,7 +1018,7 @@ wilcox.test(mass ~ species, data = comparison_data)
 <h2 id="pro-tip-when-in-doubt-rank-it-out"><a class="header" href="#pro-tip-when-in-doubt-rank-it-out">Pro-Tip: When in Doubt, Rank it Out</a></h2>
 <p>If you are presenting data to a stakeholder and you are worried about one or two "crazy" outliers ruining your average, the Wilcoxon test is your best friend. It treats the outlier as just "the highest rank," preventing it from pulling the results in its direction.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-16-analysis-of-variance-anova"><a class="header" href="#lab-16-analysis-of-variance-anova">Lab 16: Analysis of Variance (ANOVA)</a></h1>
-<h2 id="learning-objectives-15"><a class="header" href="#learning-objectives-15">Learning Objectives</a></h2>
+<h2 id="learning-objectives-14"><a class="header" href="#learning-objectives-14">Learning Objectives</a></h2>
 <ul>
 <li>Understand when to use <strong>ANOVA</strong> instead of multiple t-tests.</li>
 <li>State the Null ($H_0$) and Alternative ($H_a$) hypotheses for multiple groups.</li>
@@ -1127,7 +1083,7 @@ TukeyHSD(model)
 <h2 id="pro-tip-the-equal-variance-assumption"><a class="header" href="#pro-tip-the-equal-variance-assumption">Pro-Tip: The "Equal Variance" Assumption</a></h2>
 <p>ANOVA assumes that the "spread" (variance) is roughly the same for all groups. If one boxplot is massive and another is tiny, the math might be unreliable. In those cases, we go back to the <strong>Non-parametric</strong> methods from Lab 15!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-17-regression-models"><a class="header" href="#lab-17-regression-models">Lab 17: Regression Models</a></h1>
-<h2 id="learning-objectives-16"><a class="header" href="#learning-objectives-16">Learning Objectives</a></h2>
+<h2 id="learning-objectives-15"><a class="header" href="#learning-objectives-15">Learning Objectives</a></h2>
 <ul>
 <li>Understand the Linear Regression equation: $y = \beta_0 + \beta_1x + \epsilon$.</li>
 <li>Calculate and interpret the <strong>Correlation Coefficient ($r$)</strong>.</li>
