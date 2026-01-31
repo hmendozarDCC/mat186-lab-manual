@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><a href="accessibility.html">Accessibility Statement</a></li><li class="chapter-item expanded affix "><a href="glossary.html">Glossary</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="lab1.html"><strong aria-hidden="true">1.</strong> Lab 1: R and RStudio Installation</a></li><li class="chapter-item expanded "><a href="lab2.html"><strong aria-hidden="true">2.</strong> Lab 2: RStudio Projects and Quarto</a></li><li class="chapter-item expanded "><a href="lab3.html"><strong aria-hidden="true">3.</strong> Lab 3: Mathematical Notation in Quarto</a></li><li class="chapter-item expanded "><a href="lab4.html"><strong aria-hidden="true">4.</strong> Lab 4: GitHub Repository</a></li><li class="chapter-item expanded "><a href="lab3.html"><strong aria-hidden="true">5.</strong> Lab 3: Data Visualization</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><a href="accessibility.html">Accessibility Statement</a></li><li class="chapter-item expanded affix "><a href="glossary.html">Glossary</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="lab1.html"><strong aria-hidden="true">1.</strong> Lab 1: R and RStudio Installation</a></li><li class="chapter-item expanded "><a href="lab2.html"><strong aria-hidden="true">2.</strong> Lab 2: RStudio Projects and Quarto</a></li><li class="chapter-item expanded "><a href="lab3.html"><strong aria-hidden="true">3.</strong> Lab 3: Mathematical Notation in Quarto</a></li><li class="chapter-item expanded "><a href="lab4.html"><strong aria-hidden="true">4.</strong> Lab 4: GitHub Repository</a></li><li class="chapter-item expanded "><a href="lab5.html"><strong aria-hidden="true">5.</strong> Lab 5: Getting Data into R</a></li><li class="chapter-item expanded "><a href="lab6.html"><strong aria-hidden="true">6.</strong> Lab 6: Data Collection and Sources</a></li><li class="chapter-item expanded "><a href="lab3.html"><strong aria-hidden="true">7.</strong> Lab : Data Visualization</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -411,15 +411,127 @@ $$y = \beta_0 + \beta_1 x + \epsilon$$</p>
 <hr />
 <h3 id="a-note-on-open-science"><a class="header" href="#a-note-on-open-science"><strong>A Note on Open Science</strong></a></h3>
 <p>By putting your work on GitHub, you are participating in <strong>Open Science</strong>. This allows others to learn from your code and allows you to track your own progress throughout the semester!</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-3-mathematical-notation-in-quarto-1"><a class="header" href="#lab-3-mathematical-notation-in-quarto-1">Lab 3: Mathematical Notation in Quarto</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-5-getting-data-into-r"><a class="header" href="#lab-5-getting-data-into-r">Lab 5: Getting Data into R</a></h1>
 <h2 id="learning-objectives-4"><a class="header" href="#learning-objectives-4">Learning Objectives</a></h2>
+<ul>
+<li>Understand the difference between <strong>Absolute</strong> and <strong>Relative</strong> file paths.</li>
+<li>Import data from a local <strong>CSV</strong> file.</li>
+<li>Import data directly from a <strong>URL</strong> (Web).</li>
+<li>Use the <code>readr</code> package (part of the tidyverse).</li>
+</ul>
+<hr />
+<h2 id="introduction-4"><a class="header" href="#introduction-4">Introduction</a></h2>
+<p>Before we can visualize or model data, we have to "import" it into R's memory. Most data you will encounter is stored in <strong>CSV</strong> (Comma Separated Values) format, which looks like an Excel spreadsheet but is much lighter and easier for programs to read.</p>
+<hr />
+<h2 id="part-1-the-working-directory"><a class="header" href="#part-1-the-working-directory">Part 1: The Working Directory</a></h2>
+<p>R needs to know which folder on your computer it should "look" in.</p>
+<div class="dcc-important">
+**Crucial Step:** This is why we use **RStudio Projects** (from Lab 2). When you open your `.Rproj` file, R automatically sets your folder as the "Working Directory."
+</div>
+<p>To check where R is looking, type this in your console:</p>
+<pre><code class="language-r">getwd()
+</code></pre>
+<hr />
+<h2 id="part-2-loading-data-from-a-url"><a class="header" href="#part-2-loading-data-from-a-url">Part 2: Loading Data from a URL</a></h2>
+<p>The easiest way to get started is to pull data directly from the internet. We will use the <code>read_csv()</code> function from the <code>tidyverse</code>.</p>
+<p><strong>Try this code in your Quarto document:</strong></p>
+<pre><code class="language-r">library(tidyverse)
+
+# Loading a dataset about Star Wars characters
+url &lt;- "https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv"
+sw_data &lt;- read_csv(url)
+
+# Preview the data
+head(sw_data)
+</code></pre>
+<hr />
+<h2 id="part-3-loading-a-local-csv"><a class="header" href="#part-3-loading-a-local-csv">Part 3: Loading a Local CSV</a></h2>
+<p>Often, you will download a dataset from a site like Kaggle or a government portal.</p>
+<ol>
+<li>Find a CSV file (or download a sample one).</li>
+<li>Move that file into your <strong>MAT186_Labs</strong> folder.</li>
+<li>Use the following code (replace <code>filename.csv</code> with your actual file name):</li>
+</ol>
+<pre><code class="language-r">my_data &lt;- read_csv("filename.csv")
+</code></pre>
+<hr />
+<h2 id="part-4-dealing-with-common-errors"><a class="header" href="#part-4-dealing-with-common-errors">Part 4: Dealing with Common Errors</a></h2>
+<ul>
+<li><strong>"File not found":</strong> This usually means the file is not in your Project folder, or you misspelled the name (remember: <code>Data.csv</code> is different from <code>data.csv</code>).</li>
+<li><strong>Column Parsing:</strong> Sometimes R guesses the data type wrong (e.g., thinking a zip code is a number instead of a label). We will learn to fix this in future labs!</li>
+</ul>
+<hr />
+<div class="dcc-important">
+**Lab Task 5:** 1. Find any public CSV dataset (or use [this link to DCC-related data](https://example.com/dcc_data.csv)).
+2. Import it into a new Quarto document using `read_csv`.
+3. Use the `glimpse()` command to show the structure of your data:
+   ~~~r
+   glimpse(my_data)
+   ~~~
+4. Render the document and confirm that your data table appears in the HTML.
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-6-data-collection-and-sources"><a class="header" href="#lab-6-data-collection-and-sources">Lab 6: Data Collection and Sources</a></h1>
+<h2 id="learning-objectives-5"><a class="header" href="#learning-objectives-5">Learning Objectives</a></h2>
+<ul>
+<li>Distinguish between <strong>Primary</strong> and <strong>Secondary</strong> data.</li>
+<li>Explore "Open Data" portals (Local, State, and Federal).</li>
+<li>Understand the concept of <strong>Tidy Data</strong>.</li>
+<li>Practice ethical data attribution.</li>
+</ul>
+<hr />
+<h2 id="introduction-5"><a class="header" href="#introduction-5">Introduction</a></h2>
+<p>Data doesn't just appear out of nowhere; it is collected via sensors, surveys, web scraping, or manual entry. As a data scientist at DCC, you should know how to find reliable sources of information to answer real-world questions.</p>
+<hr />
+<h2 id="part-1-finding-open-data"><a class="header" href="#part-1-finding-open-data">Part 1: Finding Open Data</a></h2>
+<p>Government agencies often provide "Open Data" portals where anyone can download datasets for free. These are excellent sources for your final projects.</p>
+<h3 id="recommended-portals"><a class="header" href="#recommended-portals">Recommended Portals:</a></h3>
+<ul>
+<li><strong><a href="https://data.dutchessny.gov/">Dutchess County Open Data</a>:</strong> Local data on parcels, transit, and public safety.</li>
+<li><strong><a href="https://data.ny.gov/">NY State Open Data</a>:</strong> Information on education, health, and the environment across New York.</li>
+<li><strong><a href="https://data.census.gov/">U.S. Census Bureau</a>:</strong> The gold standard for demographic data in the United States.</li>
+</ul>
+<hr />
+<h2 id="part-2-what-is-tidy-data"><a class="header" href="#part-2-what-is-tidy-data">Part 2: What is "Tidy Data"?</a></h2>
+<p>Once you collect data, it needs to be in a specific format for R to read it easily. This is called <strong>Tidy Data</strong>. There are three rules:</p>
+<ol>
+<li>Each <strong>variable</strong> must have its own column.</li>
+<li>Each <strong>observation</strong> (case) must have its own row.</li>
+<li>Each <strong>value</strong> must have its own cell.</li>
+</ol>
+<hr />
+<h2 id="part-3-data-ethics--attribution"><a class="header" href="#part-3-data-ethics--attribution">Part 3: Data Ethics &amp; Attribution</a></h2>
+<p>Whenever you collect data that you didn't create yourself, you must provide a <strong>Data Citation</strong>. This gives credit to the original collectors and allows others to verify your work.</p>
+<p><strong>A good citation includes:</strong></p>
+<ul>
+<li>The name of the organization.</li>
+<li>The year the data was accessed.</li>
+<li>The URL/Link to the dataset.</li>
+</ul>
+<hr />
+<div class="dcc-important">
+**Lab Task 6: The Scavenger Hunt**
+1. Visit the [NY State Open Data Portal](https://data.ny.gov/).
+2. Search for a dataset that interests you (e.g., "Student Enrollment" or "Water Quality").
+3. Download the **CSV** version of that data.
+4. Move the file into your RStudio Project folder.
+5. In a new Quarto document, write a short paragraph describing:
+   * **Where** the data came from.
+   * **Who** collected it.
+   * **What** one row in the dataset represents (the observation).
+6. Use `read_csv()` to load the data and show the first 10 rows using `head()`.
+</div>
+<hr />
+<h2 id="part-4-the-next-step-preview"><a class="header" href="#part-4-the-next-step-preview">Part 4: The Next Step (Preview)</a></h2>
+<p>Data you find "in the wild" is rarely perfect. In the next lab, we will learn how to "clean" the data you just found—removing empty rows and fixing typos!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-3-mathematical-notation-in-quarto-1"><a class="header" href="#lab-3-mathematical-notation-in-quarto-1">Lab 3: Mathematical Notation in Quarto</a></h1>
+<h2 id="learning-objectives-6"><a class="header" href="#learning-objectives-6">Learning Objectives</a></h2>
 <ul>
 <li>Distinguish between <strong>Inline</strong> and <strong>Display</strong> math modes in Quarto.</li>
 <li>Use LaTeX syntax to write essential statistical symbols ($\mu, \sigma, \bar{x}$).</li>
 <li>Format complex equations like Linear Regression for professional lab reports.</li>
 </ul>
 <hr />
-<h2 id="introduction-4"><a class="header" href="#introduction-4">Introduction</a></h2>
+<h2 id="introduction-6"><a class="header" href="#introduction-6">Introduction</a></h2>
 <p>In Data Science, we often need to document the mathematical models we use. Quarto uses a system called <strong>LaTeX</strong> (pronounced "Lay-tek") to render math. This ensures your formulas look professional and are accessible to screen readers.</p>
 <hr />
 <h2 id="part-1-the-two-math-modes-1"><a class="header" href="#part-1-the-two-math-modes-1">Part 1: The Two Math Modes</a></h2>
