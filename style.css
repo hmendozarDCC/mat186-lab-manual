@@ -1,25 +1,30 @@
-project:
-  type: website
+/* Global Professional Styling for MAT 186 */
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.8;
+    color: #333;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
 
-website:
-  title: "MAT 186: Data Science Labs"
-  sidebar:
-    style: "docked"
-    background: "#f8f9fa"
-    contents:
-      - section: "Welcome"
-        contents:
-          - index.md
-      - section: "The Labs"
-        contents:
-          - labs/lab1.md
-          - labs/lab2.md
-          - labs/lab8.md
-          - labs/lab11.md
-          - labs/lab17.md
+h1, h2, h3 {
+    color: #003366; /* DCC Navy Blue */
+    margin-top: 1.5em;
+}
 
-format:
-  html:
-    theme: [cosmo, style.css] # Links your CSS file!
-    toc: true                # Table of contents for accessibility
-    code-copy: true          # Easy for students to copy code
+/* Accessible Callout Boxes */
+.blue-box {
+    background-color: #e7f3ff;
+    border-left: 6px solid #003366;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.task-box {
+    background-color: #fff9e6;
+    border: 2px dashed #d4a017;
+    padding: 20px;
+    border-radius: 8px;
+}
