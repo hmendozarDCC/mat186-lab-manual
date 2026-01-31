@@ -177,68 +177,6 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="lab-9-probability-and-sampling-distributions"><a class="header" href="#lab-9-probability-and-sampling-distributions">Lab 9: Probability and Sampling Distributions</a></h1>
-<h2 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h2>
-<ul>
-<li>Distinguish between <strong>Discrete</strong> and <strong>Continuous</strong> probability distributions.</li>
-<li>Visualize the <strong>Normal Distribution</strong> (the "Bell Curve").</li>
-<li>Demonstrate the <strong>Central Limit Theorem</strong> through simulation.</li>
-<li>Understand how sample size affects the "Standard Error."</li>
-</ul>
-<hr />
-<h2 id="part-1-the-normal-distribution"><a class="header" href="#part-1-the-normal-distribution">Part 1: The Normal Distribution</a></h2>
-<p>In nature and data science, many variables (like heights or exam scores) follow a "Normal" distribution. We can use R to visualize the perfect mathematical curve and compare it to our real data.</p>
-<pre><code class="language-r">library(tidyverse)
-
-# Generating a theoretical normal distribution
-data.frame(x = c(-4, 4)) |&gt;
-  ggplot(aes(x)) +
-  stat_function(fun = dnorm, color = "blue", size = 1) +
-  labs(title = "The Standard Normal Distribution (z-distribution)",
-       subtitle = "Mean = 0, SD = 1",
-       x = "Standard Deviations", y = "Density")
-</code></pre>
-<p>[Image of a standard normal distribution curve with percentages for 68, 95, and 99.7 rules]</p>
-<hr />
-<h2 id="part-2-working-with-the-binomial-distribution"><a class="header" href="#part-2-working-with-the-binomial-distribution">Part 2: Working with the Binomial Distribution</a></h2>
-<p>When we have "Yes/No" outcomes (like a coin flip or a student passing a test), we use the <strong>Binomial Distribution</strong>.</p>
-<pre><code class="language-r"># Simulating 100 people flipping a coin 10 times each
-flips &lt;- rbinom(n = 100, size = 10, prob = 0.5)
-
-ggplot(data.frame(flips), aes(x = flips)) +
-  geom_bar(fill = "darkorange", color = "white") +
-  labs(title = "Binomial Distribution of Coin Flips",
-       x = "Number of Heads", y = "Frequency")
-</code></pre>
-<hr />
-<h2 id="part-3-the-central-limit-theorem-clt"><a class="header" href="#part-3-the-central-limit-theorem-clt">Part 3: The Central Limit Theorem (CLT)</a></h2>
-<p>The CLT is the "Magic" of statistics. It states that if you take enough samples, the <strong>distribution of the sample means</strong> will always look normal, even if the original data is messy or skewed.</p>
-<h3 id="lets-simulate-the-clt"><a class="header" href="#lets-simulate-the-clt">Let's Simulate the CLT:</a></h3>
-<pre><code class="language-r"># 1. Take 1000 samples of size 30 from a random population
-samples &lt;- replicate(1000, mean(rexp(30, rate = 0.5)))
-
-# 2. Visualize the results
-ggplot(data.frame(samples), aes(x = samples)) +
-  geom_histogram(fill = "seagreen", color = "white") +
-  labs(title = "Sampling Distribution of the Mean",
-       subtitle = "Notice the bell shape! This is the Central Limit Theorem in action.",
-       x = "Sample Means", y = "Count")
-</code></pre>
-<hr />
-<h2 id="part-4-probability-in-your-data"><a class="header" href="#part-4-probability-in-your-data">Part 4: Probability in Your Data</a></h2>
-<p>We can use the <code>pnorm()</code> function to calculate the probability of a specific event occurring.</p>
-<p><strong>Example:</strong> If the average height of a character is 170cm with an SD of 10, what is the probability of a character being taller than 190cm?</p>
-<pre><code class="language-r"># 1 - pnorm gives the 'right tail' (the probability of being GREATER than)
-1 - pnorm(190, mean = 170, sd = 10)
-</code></pre>
-<hr />
-<div class="dcc-important">
-**Lab Task 9:**
-1. Create a new Quarto document titled "Lab 9: Probability."
-2. Create a histogram of a variable from your own dataset. Does it look "Normal"?
-3. Use `mean()` and `sd()` to find the center and spread of that variable.
-4. **The Simulation:** Use the "CLT simulation" code above, but change the sample size from `30` to `5`. Render it. Then change it to `100` and render it again.
-5. **Observation:** Write 2 sentences explaining how the "spread" of the histogram changed when you increased the sample size.
-</div>
 
                     </main>
 
