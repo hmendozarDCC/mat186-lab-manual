@@ -176,7 +176,74 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="lab-8-data-exploration-and-visualization"><a class="header" href="#lab-8-data-exploration-and-visualization">Lab 8: Data Exploration and Visualization</a></h1>
+                        <h1 id="lab-8-data-exploration-and-visualization-with-ggplot2"><a class="header" href="#lab-8-data-exploration-and-visualization-with-ggplot2">Lab 8: Data Exploration and Visualization with ggplot2</a></h1>
+<h2 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h2>
+<ul>
+<li>Calculate "Summary Statistics" using <code>dplyr</code>.</li>
+<li>Understand the <strong>Grammar of Graphics</strong> (Data, Aesthetics, and Geoms).</li>
+<li>Create distributions (Histograms) and relationships (Scatter Plots).</li>
+<li>Identify outliers and patterns through visual-first discovery.</li>
+</ul>
+<hr />
+<h2 id="part-1-numerical-exploration"><a class="header" href="#part-1-numerical-exploration">Part 1: Numerical Exploration</a></h2>
+<p>Before we draw, we must understand the "center" and "spread" of our data. We use <code>summarize()</code> to get the hard numbers.</p>
+<pre><code class="language-r">library(tidyverse)
+
+# Analyzing the Star Wars dataset
+starwars |&gt;
+  drop_na(height) |&gt;
+  summarize(
+    mean_height = mean(height),
+    median_height = median(height),
+    sd_height = sd(height)
+  )
+</code></pre>
+<hr />
+<h2 id="part-2-the-grammar-of-ggplot2"><a class="header" href="#part-2-the-grammar-of-ggplot2">Part 2: The Grammar of ggplot2</a></h2>
+<p>In <code>ggplot2</code>, every plot has three essential ingredients:</p>
+<ol>
+<li><strong>Data:</strong> The dataframe we are using.</li>
+<li><strong>Aesthetics (aes):</strong> The mapping of data to the axes (x and y).</li>
+<li><strong>Geoms:</strong> The geometric shapes used to represent the data (points, bars, lines).</li>
+</ol>
+<hr />
+<h2 id="part-3-visualizing-distributions-histograms"><a class="header" href="#part-3-visualizing-distributions-histograms">Part 3: Visualizing Distributions (Histograms)</a></h2>
+<p>A histogram helps us see where the data is "clumped." If the mean and median are very different, the histogram will show a "skew."</p>
+<pre><code class="language-r">ggplot(data = starwars, mapping = aes(x = height)) +
+  geom_histogram(binwidth = 15, fill = "steelblue", color = "white") +
+  labs(
+    title = "Distribution of Character Heights",
+    x = "Height (cm)",
+    y = "Frequency"
+  )
+</code></pre>
+<hr />
+<h2 id="part-4-visualizing-relationships-scatter-plots"><a class="header" href="#part-4-visualizing-relationships-scatter-plots">Part 4: Visualizing Relationships (Scatter Plots)</a></h2>
+<p>To see if two numeric variables are related (like height and weight), we use <code>geom_point()</code>.</p>
+<pre><code class="language-r"># Removing the extreme outlier (Jabba the Hutt) for a better view
+starwars_filtered &lt;- starwars |&gt; filter(mass &lt; 500)
+
+ggplot(data = starwars_filtered, mapping = aes(x = height, y = mass)) +
+  geom_point(color = "darkgreen", alpha = 0.6) +
+  geom_smooth(method = "lm", se = FALSE, color = "red") + 
+  labs(title = "Relationship between Height and Mass")
+</code></pre>
+<hr />
+<h2 id="part-5-comparing-groups-boxplots"><a class="header" href="#part-5-comparing-groups-boxplots">Part 5: Comparing Groups (Boxplots)</a></h2>
+<p>Boxplots are the best way to see how a numeric variable varies across different categories.</p>
+<pre><code class="language-r">ggplot(data = starwars, mapping = aes(x = gender, y = height)) +
+  geom_boxplot(fill = "lightgray") +
+  labs(title = "Height Distribution by Gender")
+</code></pre>
+<hr />
+<div class="dcc-important">
+**Lab Task 8:**
+1. Using your cleaned dataset from Lab 7, calculate the **Mean** and **Standard Deviation** for your main numeric variable.
+2. Create a **Histogram** of that variable. Is the data bell-shaped or skewed?
+3. Create a **Scatter Plot** comparing two numeric variables. Add a trend line using `geom_smooth()`.
+4. Create a **Boxplot** that compares one numeric variable across different categories.
+5. **Observation:** In your Quarto document, write 3 sentences describing the most interesting pattern or outlier you found in your plots.
+</div>
 
                     </main>
 
