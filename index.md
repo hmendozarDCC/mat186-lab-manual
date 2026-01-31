@@ -1,3 +1,9 @@
+# MAT 186: Data Science Lab Manual
+
+Welcome to the official lab manual for **MAT 186: Introduction to Data Science** at Dutchess Community College. This manual will guide you through 17 labs, transitioning from basic data entry to advanced predictive modeling using **R** and **Quarto**.
+
+
+
 ---
 
 ## ♿ Accessibility Statement
@@ -10,14 +16,19 @@ Dutchess Community College is committed to providing equal access to education. 
 * **Keyboard Navigation:** This site is fully navigable via keyboard for students who do not use a mouse.
 * **Accessible Math:** Mathematical formulas are rendered using **LaTeX**, allowing screen readers to interpret mathematical logic accurately.
 
-
-
 ### **Support for Accommodations**
 If you encounter any barriers while using this manual—such as a visualization that is difficult to interpret or code that is hard to navigate—please do not hesitate to contact:
 
-1.  **Your Instructor:** [Insert Your Email Here]
+1.  **Your Instructor:** [Insert Your Name/Email]
 2.  **DCC Office of Accommodative Services:** * **Location:** Library, Room 303
     * **Phone:** 845-431-8050
-    * **Email:** [accommodativeservices@sunydutchess.edu](mailto:accommodativeservices@sunydutchess.edu)
+
+---
+
+## Getting Started
+To begin, select **Lab 1: Introduction to R** from the sidebar. You will need:
+1.  A laptop or tablet.
+2.  An account on **Posit Cloud** (or RStudio Desktop installed).
+3.  Access to our course **Brightspace** page for dataset downloads.
 
 ---
