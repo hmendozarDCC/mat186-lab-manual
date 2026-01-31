@@ -1,42 +1,32 @@
-/* Global Professional Styling for MAT 186 */
-
+/* 1. VARIABLES (The very top) */
 :root {
-    --dcc-blue: #003366; /* The deep Navy used by DCC */
-    --dcc-cerulean: #009EDC; /* The brighter accent blue */
+    --dcc-blue: #003366;
+    --dcc-cerulean: #009EDC;
 }
 
-footer {
-    padding-top: 2rem;
-    border-top: 2px solid var(--dcc-cerulean);
-    font-size: 0.9rem;
-    color: #555;
-}
+/* 2. BASE STYLES (Style the standard tags) */
 body {
-    font-family: 'Open Sans', sans-serif;
-    line-height: 1.8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
     color: #333;
     max-width: 900px;
     margin: auto;
-    padding: 20px;
 }
 
-h1, h2, h3 {
-    color: #003366; /* DCC Navy Blue */
-    margin-top: 1.5em;
+h1, h2 {
+    color: var(--dcc-blue);
 }
 
-/* Accessible Callout Boxes */
+/* 3. CUSTOM BOXES (Specific styles for your labs) */
 .blue-box {
     background-color: #e7f3ff;
-    border-left: 6px solid #003366;
-    padding: 20px;
+    border-left: 5px solid var(--dcc-blue);
+    padding: 15px;
     margin: 20px 0;
-    border-radius: 8px;
 }
 
 .task-box {
-    background-color: #fff9e6;
-    border: 2px dashed #d4a017;
-    padding: 20px;
-    border-radius: 8px;
+    background-color: #f9f9f9;
+    border: 1px dashed #666;
+    padding: 15px;
 }
