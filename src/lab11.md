@@ -1,0 +1,75 @@
+# Lab 11: Statistical Inference for One Proportion
+
+## Learning Objectives
+* Understand the conditions for the **Large Sample Proportions Test**.
+* State Null ($H_0$) and Alternative ($H_a$) hypotheses for proportions.
+* Use `prop.test()` in R to calculate p-values and confidence intervals.
+* Apply these skills to real-world categorical data.
+
+---
+
+## Part 1: Categorical Data and Proportions
+A proportion ($p$) is the ratio of "successes" to the total number of trials. 
+* **Example:** If 45 out of 100 students at DCC use RStudio, the sample proportion ($\hat{p}$) is $0.45$ (or 45%).
+
+
+
+---
+
+## Part 2: Hypotheses for Proportions
+When we test a proportion, we are comparing our sample to a claimed population value ($p_0$).
+
+* **Null Hypothesis ($H_0$):** $p = p_0$ (The proportion is exactly what was claimed).
+* **Alternative Hypothesis ($H_a$):** $p \neq p_0$ (The proportion is different than the claim).
+
+---
+
+## Part 3: Running the Test in R
+We use the `prop.test()` function. You need two numbers: `x` (number of successes) and `n` (total sample size).
+
+**Scenario:** A news report claims that 50% of Star Wars characters are Humans. In our dataset, we find that 35 out of 87 characters are Human. Is the report's 50% claim accurate?
+
+~~~r
+library(tidyverse)
+
+# x = number of humans (35)
+# n = total characters (87)
+# p = the claimed value (0.50)
+
+prop_results <- prop.test(x = 35, n = 87, p = 0.50, correct = FALSE)
+
+# View the results
+prop_results
+~~~
+
+### How to interpret the output:
+* **X-squared:** The test statistic (similar to the $t$ value from Lab 10).
+* **p-value:** If this is below 0.05, we reject the claim that the true proportion is 50%.
+* **sample estimate:** This is your $\hat{p}$ (the $35/87$ from your data).
+
+
+
+---
+
+## Part 4: Confidence Intervals for Proportions
+The `prop.test()` also gives you a **95% Confidence Interval**. This tells you the range where the *true* population proportion likely falls.
+
+If your confidence interval is `(0.301, 0.508)`, it means we are 95% confident that the true percentage of Humans in the galaxy is between 30.1% and 50.8%.
+
+---
+
+<div class="dcc-important">
+**Lab Task 11:**
+1. Pick a categorical variable from your dataset (e.g., Gender, Species, or Success/Failure).
+2. Count how many "successes" (a specific category) you have compared to the total.
+3. **The Test:** Test a claim of your choice. (e.g., "Is the proportion of [category] equal to 0.25?")
+4. Run `prop.test()` in your Quarto document.
+5. **Report:** * What was your sample proportion ($\hat{p}$)? 
+   * Was your p-value significant? 
+   * What is the 95% confidence interval for your proportion?
+</div>
+
+---
+
+## Accessibility Note: Rounding for Clarity
+When reporting proportions to a general audience, always convert decimals to percentages and round to one decimal place (e.g., $0.4022$ becomes **40.2%**). This makes your findings much easier to digest for readers using assistive technology.
