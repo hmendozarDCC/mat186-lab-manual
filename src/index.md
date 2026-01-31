@@ -1,6 +1,6 @@
-# 📊 MAT 186: Data Science Lab Manual
+# 📊 MAT 186: Introduction to Data Science Lab Manual
 
-Welcome to the **Dutchess Community College** Data Science lab manual. This site is your primary resource for learning R and statistical inference.
+Welcome to the **Dutchess Community College** Introduction to Data Science lab manual. This site is your primary resource for learning R, the Data Science toolbox, data exploration, and statistical inference.
 
 ---
 
