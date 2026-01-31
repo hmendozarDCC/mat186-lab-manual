@@ -13,6 +13,7 @@
 - [Lab 4: GitHub Repository](lab4.md)
 - [Lab 5: Getting Data into R](lab5.md)
 - [Lab 6: Data Collection and Sources](lab6.md)
+- [Lab 7: Cleaning Data](lab7.md)
 
 ## Part 2: Data Exploration
 - [Lab : Data Visualization](lab3.md)
