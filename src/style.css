@@ -1,0 +1,30 @@
+/* Global Professional Styling for MAT 186 */
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.8;
+    color: #333;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #003366; /* DCC Navy Blue */
+    margin-top: 1.5em;
+}
+
+/* Accessible Callout Boxes */
+.blue-box {
+    background-color: #e7f3ff;
+    border-left: 6px solid #003366;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.task-box {
+    background-color: #fff9e6;
+    border: 2px dashed #d4a017;
+    padding: 20px;
+    border-radius: 8px;
+}
