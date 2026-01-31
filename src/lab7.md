@@ -1,0 +1,83 @@
+# Lab 7: Cleaning Data with dplyr
+
+## Learning Objectives
+* Understand the concept of "Data Wrangling."
+* Use the **Pipe Operator** (`|>`) to chain commands.
+* Learn core cleaning functions: `filter()`, `select()`, and `rename()`.
+* Handle missing values (`NA`).
+
+---
+
+## Introduction
+"Raw" data is rarely ready for analysis. It might have columns you don't need, rows that aren't relevant to your study, or names that are hard to type. In this lab, we use the `dplyr` package (part of the `tidyverse`) to "tidy up" our datasets.
+
+---
+
+## Part 1: The Pipe Operator (`|>`)
+Think of the pipe operator as saying the words **"and then."** It takes the output of one function and passes it to the next.
+
+Instead of writing:
+`clean_data <- filter(raw_data, age > 18)`
+
+We write:
+`clean_data <- raw_data |> filter(age > 18)`
+
+
+
+---
+
+## Part 2: Core Cleaning Functions
+
+### 1. `select()` - Picking Columns
+If your dataset has 100 columns but you only need 3, use `select()`.
+~~~r
+# Keep only the 'name' and 'height' columns
+sw_small <- starwars |> 
+  select(name, height)
+~~~
+
+### 2. `filter()` - Picking Rows
+If you only want to look at specific observations (e.g., characters taller than 100cm).
+~~~r
+# Keep only rows where height is greater than 100
+tall_characters <- starwars |> 
+  filter(height > 100)
+~~~
+
+### 3. `rename()` - Changing Names
+If a column name is confusing or has spaces, rename it.
+~~~r
+# Change 'homeworld' to 'home_planet'
+sw_clean <- starwars |> 
+  rename(home_planet = homeworld)
+~~~
+
+---
+
+## Part 3: Handling Missing Data (`NA`)
+In R, missing values are represented as `NA` (Not Available). You can't calculate the mean of a column if it has `NA` values without telling R what to do.
+
+To remove rows with *any* missing data:
+~~~r
+tidy_sw <- starwars |> 
+  drop_na(height)
+~~~
+
+
+
+---
+
+<div class="dcc-important">
+**Lab Task 7:**
+1. Open your Quarto document from Lab 6 (the one with your NY State Open Data).
+2. Create a new section called "Data Cleaning."
+3. Use `select()` to keep only the 4 most important columns in your dataset.
+4. Use `filter()` to narrow your data down to one specific category or a certain range of numbers.
+5. Use `rename()` to make at least one column name easier to read.
+6. **Render** your document and check that your new "Cleaned" table looks correct.
+</div>
+
+---
+
+## Pro-Tip: The "Glimpse"
+Always run `glimpse(your_data)` after cleaning to make sure you haven't accidentally deleted something you meant to keep!
