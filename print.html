@@ -201,76 +201,9 @@
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-5-getting-data-into-r"><a class="header" href="#lab-5-getting-data-into-r">Lab 5: Getting Data into R</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-6-data-collection-and-sources"><a class="header" href="#lab-6-data-collection-and-sources">Lab 6: Data Collection and Sources</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-7-cleaning-data"><a class="header" href="#lab-7-cleaning-data">Lab 7: Cleaning Data</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-8-data-exploration-and-visualization-with-ggplot2"><a class="header" href="#lab-8-data-exploration-and-visualization-with-ggplot2">Lab 8: Data Exploration and Visualization with ggplot2</a></h1>
-<h2 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h2>
-<ul>
-<li>Calculate "Summary Statistics" using <code>dplyr</code>.</li>
-<li>Understand the <strong>Grammar of Graphics</strong> (Data, Aesthetics, and Geoms).</li>
-<li>Create distributions (Histograms) and relationships (Scatter Plots).</li>
-<li>Identify outliers and patterns through visual-first discovery.</li>
-</ul>
-<hr />
-<h2 id="part-1-numerical-exploration"><a class="header" href="#part-1-numerical-exploration">Part 1: Numerical Exploration</a></h2>
-<p>Before we draw, we must understand the "center" and "spread" of our data. We use <code>summarize()</code> to get the hard numbers.</p>
-<pre><code class="language-r">library(tidyverse)
-
-# Analyzing the Star Wars dataset
-starwars |&gt;
-  drop_na(height) |&gt;
-  summarize(
-    mean_height = mean(height),
-    median_height = median(height),
-    sd_height = sd(height)
-  )
-</code></pre>
-<hr />
-<h2 id="part-2-the-grammar-of-ggplot2"><a class="header" href="#part-2-the-grammar-of-ggplot2">Part 2: The Grammar of ggplot2</a></h2>
-<p>In <code>ggplot2</code>, every plot has three essential ingredients:</p>
-<ol>
-<li><strong>Data:</strong> The dataframe we are using.</li>
-<li><strong>Aesthetics (aes):</strong> The mapping of data to the axes (x and y).</li>
-<li><strong>Geoms:</strong> The geometric shapes used to represent the data (points, bars, lines).</li>
-</ol>
-<hr />
-<h2 id="part-3-visualizing-distributions-histograms"><a class="header" href="#part-3-visualizing-distributions-histograms">Part 3: Visualizing Distributions (Histograms)</a></h2>
-<p>A histogram helps us see where the data is "clumped." If the mean and median are very different, the histogram will show a "skew."</p>
-<pre><code class="language-r">ggplot(data = starwars, mapping = aes(x = height)) +
-  geom_histogram(binwidth = 15, fill = "steelblue", color = "white") +
-  labs(
-    title = "Distribution of Character Heights",
-    x = "Height (cm)",
-    y = "Frequency"
-  )
-</code></pre>
-<hr />
-<h2 id="part-4-visualizing-relationships-scatter-plots"><a class="header" href="#part-4-visualizing-relationships-scatter-plots">Part 4: Visualizing Relationships (Scatter Plots)</a></h2>
-<p>To see if two numeric variables are related (like height and weight), we use <code>geom_point()</code>.</p>
-<pre><code class="language-r"># Removing the extreme outlier (Jabba the Hutt) for a better view
-starwars_filtered &lt;- starwars |&gt; filter(mass &lt; 500)
-
-ggplot(data = starwars_filtered, mapping = aes(x = height, y = mass)) +
-  geom_point(color = "darkgreen", alpha = 0.6) +
-  geom_smooth(method = "lm", se = FALSE, color = "red") + 
-  labs(title = "Relationship between Height and Mass")
-</code></pre>
-<hr />
-<h2 id="part-5-comparing-groups-boxplots"><a class="header" href="#part-5-comparing-groups-boxplots">Part 5: Comparing Groups (Boxplots)</a></h2>
-<p>Boxplots are the best way to see how a numeric variable varies across different categories.</p>
-<pre><code class="language-r">ggplot(data = starwars, mapping = aes(x = gender, y = height)) +
-  geom_boxplot(fill = "lightgray") +
-  labs(title = "Height Distribution by Gender")
-</code></pre>
-<hr />
-<div class="dcc-important">
-**Lab Task 8:**
-1. Using your cleaned dataset from Lab 7, calculate the **Mean** and **Standard Deviation** for your main numeric variable.
-2. Create a **Histogram** of that variable. Is the data bell-shaped or skewed?
-3. Create a **Scatter Plot** comparing two numeric variables. Add a trend line using `geom_smooth()`.
-4. Create a **Boxplot** that compares one numeric variable across different categories.
-5. **Observation:** In your Quarto document, write 3 sentences describing the most interesting pattern or outlier you found in your plots.
-</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-8-data-exploration-and-visualization"><a class="header" href="#lab-8-data-exploration-and-visualization">Lab 8: Data Exploration and Visualization</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-9-probability-and-sampling-distributions"><a class="header" href="#lab-9-probability-and-sampling-distributions">Lab 9: Probability and Sampling Distributions</a></h1>
-<h2 id="learning-objectives-1"><a class="header" href="#learning-objectives-1">Learning Objectives</a></h2>
+<h2 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h2>
 <ul>
 <li>Distinguish between <strong>Discrete</strong> and <strong>Continuous</strong> probability distributions.</li>
 <li>Visualize the <strong>Normal Distribution</strong> (the "Bell Curve").</li>
@@ -333,7 +266,7 @@ ggplot(data.frame(samples), aes(x = samples)) +
 5. **Observation:** Write 2 sentences explaining how the "spread" of the histogram changed when you increased the sample size.
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-10-statistical-inference-for-one-mean"><a class="header" href="#lab-10-statistical-inference-for-one-mean">Lab 10: Statistical Inference for One Mean</a></h1>
-<h2 id="learning-objectives-2"><a class="header" href="#learning-objectives-2">Learning Objectives</a></h2>
+<h2 id="learning-objectives-1"><a class="header" href="#learning-objectives-1">Learning Objectives</a></h2>
 <ul>
 <li>Understand the logic of <strong>Null ($H_0$)</strong> and <strong>Alternative ($H_a$)</strong> Hypotheses.</li>
 <li>Calculate and interpret <strong>Confidence Intervals</strong>.</li>
@@ -395,7 +328,7 @@ t_test_results
 <h2 id="accessibility-tip-reporting-results"><a class="header" href="#accessibility-tip-reporting-results">Accessibility Tip: Reporting Results</a></h2>
 <p>When writing your report, always include the <strong>Confidence Interval</strong>. This helps readers (and screen readers) understand the <em>magnitude</em> of your finding, not just whether it was "significant" or not.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-11-statistical-inference-for-one-proportion"><a class="header" href="#lab-11-statistical-inference-for-one-proportion">Lab 11: Statistical Inference for One Proportion</a></h1>
-<h2 id="learning-objectives-3"><a class="header" href="#learning-objectives-3">Learning Objectives</a></h2>
+<h2 id="learning-objectives-2"><a class="header" href="#learning-objectives-2">Learning Objectives</a></h2>
 <ul>
 <li>Understand the conditions for the <strong>Large Sample Proportions Test</strong>.</li>
 <li>State Null ($H_0$) and Alternative ($H_a$) hypotheses for proportions.</li>
@@ -455,7 +388,7 @@ prop_results
 <h2 id="accessibility-note-rounding-for-clarity"><a class="header" href="#accessibility-note-rounding-for-clarity">Accessibility Note: Rounding for Clarity</a></h2>
 <p>When reporting proportions to a general audience, always convert decimals to percentages and round to one decimal place (e.g., $0.4022$ becomes <strong>40.2%</strong>). This makes your findings much easier to digest for readers using assistive technology.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-12-statistical-inference-for-two-means"><a class="header" href="#lab-12-statistical-inference-for-two-means">Lab 12: Statistical Inference for Two Means</a></h1>
-<h2 id="learning-objectives-4"><a class="header" href="#learning-objectives-4">Learning Objectives</a></h2>
+<h2 id="learning-objectives-3"><a class="header" href="#learning-objectives-3">Learning Objectives</a></h2>
 <ul>
 <li>Understand the difference between <strong>Independent</strong> and <strong>Paired</strong> samples.</li>
 <li>State the Null ($H_0$) and Alternative ($H_a$) hypotheses for comparing two groups.</li>
@@ -517,7 +450,7 @@ t_test_results
 <h2 id="accessibility-tip-high-contrast-visuals"><a class="header" href="#accessibility-tip-high-contrast-visuals">Accessibility Tip: High-Contrast Visuals</a></h2>
 <p>When using the <code>fill = species</code> aesthetic in your plots, remember that some students may have color vision deficiencies. Use <code>scale_fill_viridis_d()</code> to ensure your group comparisons are accessible to everyone.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-13-statistical-inference-for-two-proportions"><a class="header" href="#lab-13-statistical-inference-for-two-proportions">Lab 13: Statistical Inference for Two Proportions</a></h1>
-<h2 id="learning-objectives-5"><a class="header" href="#learning-objectives-5">Learning Objectives</a></h2>
+<h2 id="learning-objectives-4"><a class="header" href="#learning-objectives-4">Learning Objectives</a></h2>
 <ul>
 <li>Compare the "success rates" or percentages of two independent groups.</li>
 <li>State the Null ($H_0$) and Alternative ($H_a$) hypotheses for differences in proportions.</li>
@@ -577,7 +510,7 @@ results
 **Lab Task 13:**
 1. Open
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-14-bootstrapping-and-resampling"><a class="header" href="#lab-14-bootstrapping-and-resampling">Lab 14: Bootstrapping and Resampling</a></h1>
-<h2 id="learning-objectives-6"><a class="header" href="#learning-objectives-6">Learning Objectives</a></h2>
+<h2 id="learning-objectives-5"><a class="header" href="#learning-objectives-5">Learning Objectives</a></h2>
 <ul>
 <li>Understand the concept of <strong>Sampling with Replacement</strong>.</li>
 <li>Use the <code>infer</code> package to create a bootstrap distribution.</li>
@@ -629,7 +562,7 @@ percentile_ci
 <div class="dcc-important">
 **Lab Task 1
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-15-non-parametric-methods-for-hypothesis-testing"><a class="header" href="#lab-15-non-parametric-methods-for-hypothesis-testing">Lab 15: Non-parametric Methods for Hypothesis Testing</a></h1>
-<h2 id="learning-objectives-7"><a class="header" href="#learning-objectives-7">Learning Objectives</a></h2>
+<h2 id="learning-objectives-6"><a class="header" href="#learning-objectives-6">Learning Objectives</a></h2>
 <ul>
 <li>Identify when to use <strong>Non-parametric</strong> tests instead of Parametric tests.</li>
 <li>Conduct a <strong>Wilcoxon Rank-Sum Test</strong> (Mann-Whitney U).</li>
@@ -682,7 +615,7 @@ wilcox.test(mass ~ species, data = comparison_data)
 <h2 id="pro-tip-when-in-doubt-rank-it-out"><a class="header" href="#pro-tip-when-in-doubt-rank-it-out">Pro-Tip: When in Doubt, Rank it Out</a></h2>
 <p>If you are presenting data to a stakeholder and you are worried about one or two "crazy" outliers ruining your average, the Wilcoxon test is your best friend. It treats the outlier as just "the highest rank," preventing it from pulling the results in its direction.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-16-analysis-of-variance-anova"><a class="header" href="#lab-16-analysis-of-variance-anova">Lab 16: Analysis of Variance (ANOVA)</a></h1>
-<h2 id="learning-objectives-8"><a class="header" href="#learning-objectives-8">Learning Objectives</a></h2>
+<h2 id="learning-objectives-7"><a class="header" href="#learning-objectives-7">Learning Objectives</a></h2>
 <ul>
 <li>Understand when to use <strong>ANOVA</strong> instead of multiple t-tests.</li>
 <li>State the Null ($H_0$) and Alternative ($H_a$) hypotheses for multiple groups.</li>
@@ -747,7 +680,7 @@ TukeyHSD(model)
 <h2 id="pro-tip-the-equal-variance-assumption"><a class="header" href="#pro-tip-the-equal-variance-assumption">Pro-Tip: The "Equal Variance" Assumption</a></h2>
 <p>ANOVA assumes that the "spread" (variance) is roughly the same for all groups. If one boxplot is massive and another is tiny, the math might be unreliable. In those cases, we go back to the <strong>Non-parametric</strong> methods from Lab 15!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lab-17-regression-models"><a class="header" href="#lab-17-regression-models">Lab 17: Regression Models</a></h1>
-<h2 id="learning-objectives-9"><a class="header" href="#learning-objectives-9">Learning Objectives</a></h2>
+<h2 id="learning-objectives-8"><a class="header" href="#learning-objectives-8">Learning Objectives</a></h2>
 <ul>
 <li>Understand the Linear Regression equation: $y = \beta_0 + \beta_1x + \epsilon$.</li>
 <li>Calculate and interpret the <strong>Correlation Coefficient ($r$)</strong>.</li>
