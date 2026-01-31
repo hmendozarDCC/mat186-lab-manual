@@ -176,7 +176,59 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="lab-15-non-parametric-methods-for-hypothesis-testing"><a class="header" href="#lab-15-non-parametric-methods-for-hypothesis-testing">Lab 15: Non-parametric methods for hypothesis testing</a></h1>
+                        <h1 id="lab-15-non-parametric-methods-for-hypothesis-testing"><a class="header" href="#lab-15-non-parametric-methods-for-hypothesis-testing">Lab 15: Non-parametric Methods for Hypothesis Testing</a></h1>
+<h2 id="learning-objectives"><a class="header" href="#learning-objectives">Learning Objectives</a></h2>
+<ul>
+<li>Identify when to use <strong>Non-parametric</strong> tests instead of Parametric tests.</li>
+<li>Conduct a <strong>Wilcoxon Rank-Sum Test</strong> (Mann-Whitney U).</li>
+<li>Conduct a <strong>Wilcoxon Signed-Rank Test</strong> for paired data.</li>
+<li>Understand how "Ranking" data removes the influence of extreme outliers.</li>
+</ul>
+<hr />
+<h2 id="part-1-parametric-vs-non-parametric"><a class="header" href="#part-1-parametric-vs-non-parametric">Part 1: Parametric vs. Non-parametric</a></h2>
+<p>"Parametric" tests (like the t-test) assume your data follows a specific distribution (the Normal Distribution). <strong>Non-parametric</strong> tests make no such assumption. They are often called "Distribution-Free" tests.</p>
+<h3 id="use-a-non-parametric-test-if"><a class="header" href="#use-a-non-parametric-test-if">Use a Non-parametric test if:</a></h3>
+<ol>
+<li>Your sample size is very small (n &lt; 30).</li>
+<li>Your data is heavily skewed and cannot be fixed.</li>
+<li>You have major outliers that you cannot remove.</li>
+<li>Your data is <strong>Ordinal</strong> (e.g., Likert scales: "Satisfied", "Neutral", "Dissatisfied").</li>
+</ol>
+<hr />
+<h2 id="part-2-the-wilcoxon-rank-sum-test"><a class="header" href="#part-2-the-wilcoxon-rank-sum-test">Part 2: The Wilcoxon Rank-Sum Test</a></h2>
+<p>This is the non-parametric alternative to the <strong>Independent Samples t-test</strong> (Lab 12). Instead of comparing means, it compares the <strong>medians</strong> by ranking all the data points from smallest to largest.</p>
+<p><strong>Scenario:</strong> Are the "Mass" values of Droids and Humans different? (Mass is often heavily skewed by outliers like Jabba the Hutt).</p>
+<pre><code class="language-r">library(tidyverse)
+
+# Filtering data
+comparison_data &lt;- starwars |&gt; 
+  filter(species %in% c("Human", "Droid")) |&gt;
+  drop_na(mass)
+
+# Running the Wilcoxon Rank-Sum Test
+wilcox.test(mass ~ species, data = comparison_data)
+</code></pre>
+<hr />
+<h2 id="part-3-the-wilcoxon-signed-rank-test"><a class="header" href="#part-3-the-wilcoxon-signed-rank-test">Part 3: The Wilcoxon Signed-Rank Test</a></h2>
+<p>This is the non-parametric alternative to the <strong>Paired t-test</strong>. Use this when you have "Before" and "After" measurements on the same subjects, but the differences are not normally distributed.</p>
+<pre><code class="language-r"># Example syntax for paired data
+# wilcox.test(before_scores, after_scores, paired = TRUE)
+</code></pre>
+<hr />
+<h2 id="part-4-the-trade-off"><a class="header" href="#part-4-the-trade-off">Part 4: The Trade-off</a></h2>
+<p>While non-parametric tests are safer for "messy" data, they are slightly <strong>less powerful</strong> than parametric tests when the data <em>is</em> actually normal. This means they are less likely to find a significant difference if one actually exists.</p>
+<hr />
+<div class="dcc-important">
+**Lab Task 15:**
+1. Pick a numeric variable from your dataset that looks very skewed (not bell-shaped).
+2. Create a **Boxplot** of this variable grouped by a category.
+3. Run a `wilcox.test()` to compare the two groups.
+4. Run a standard `t.test()` on the **same data**.
+5. **Compare:** In your Quarto document, compare the p-values. Are they similar? Which test do you trust more for this specific data, and why?
+</div>
+<hr />
+<h2 id="pro-tip-when-in-doubt-rank-it-out"><a class="header" href="#pro-tip-when-in-doubt-rank-it-out">Pro-Tip: When in Doubt, Rank it Out</a></h2>
+<p>If you are presenting data to a stakeholder and you are worried about one or two "crazy" outliers ruining your average, the Wilcoxon test is your best friend. It treats the outlier as just "the highest rank," preventing it from pulling the results in its direction.</p>
 
                     </main>
 
