@@ -29,5 +29,4 @@
 
 
 
-## Part 2: Data Exploration
-- [Lab : Data Visualization](lab3.md)
+
