@@ -350,16 +350,76 @@ $$y = \beta_0 + \beta_1 x + \epsilon$$</p>
 <hr />
 <h3 id="accessibility-check"><a class="header" href="#accessibility-check"><strong>Accessibility Check</strong></a></h3>
 <p>When you use this LaTeX method, students using screen readers can hear the math described clearly (e.g., "x bar equals fraction sum x sub i over n"). This is much better than using an image of an equation, which a screen reader cannot "see."</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-4-github-repository"><a class="header" href="#lab-4-github-repository">Lab 4: GitHub Repository</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-3-mathematical-notation-in-quarto-1"><a class="header" href="#lab-3-mathematical-notation-in-quarto-1">Lab 3: Mathematical Notation in Quarto</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-4-creating-your-data-science-portfolio-on-github"><a class="header" href="#lab-4-creating-your-data-science-portfolio-on-github">Lab 4: Creating Your Data Science Portfolio on GitHub</a></h1>
 <h2 id="learning-objectives-3"><a class="header" href="#learning-objectives-3">Learning Objectives</a></h2>
+<ul>
+<li>Create a personal GitHub account.</li>
+<li>Initialize a new repository for MAT 186 work.</li>
+<li>Understand the "Commit" and "Push" workflow.</li>
+<li>Host a live version of a lab report using GitHub Pages.</li>
+</ul>
+<hr />
+<h2 id="introduction-3"><a class="header" href="#introduction-3">Introduction</a></h2>
+<p>Data Science is a collaborative field. GitHub is the industry standard for version control and sharing code. In this lab, you will set up your own "portfolio"—a place where you can showcase the work you do in this class to future employers or transfer institutions.</p>
+<hr />
+<h2 id="part-1-setting-up-your-account"><a class="header" href="#part-1-setting-up-your-account">Part 1: Setting Up Your Account</a></h2>
+<ol>
+<li>Go to <a href="https://github.com">GitHub.com</a>.</li>
+<li>Sign up for a free account.
+<ul>
+<li><strong>Tip:</strong> Choose a professional username (e.g., <code>jsmith-dcc</code>), as you may show this to employers later!</li>
+</ul>
+</li>
+<li>Verify your email address.</li>
+</ol>
+<hr />
+<h2 id="part-2-creating-your-first-repository"><a class="header" href="#part-2-creating-your-first-repository">Part 2: Creating Your First Repository</a></h2>
+<p>A <strong>Repository</strong> (or "Repo") is like a project folder that lives in the cloud.</p>
+<ol>
+<li>Click the <strong>+</strong> icon in the top right and select <strong>New repository</strong>.</li>
+<li><strong>Repository name:</strong> <code>mat186-work</code></li>
+<li><strong>Description:</strong> "Labs and projects for Introduction to Data Science at DCC."</li>
+<li><strong>Public/Private:</strong> Select <strong>Public</strong>.</li>
+<li>Check the box that says <strong>Add a README file</strong>.</li>
+<li>Click <strong>Create repository</strong>.</li>
+</ol>
+<hr />
+<h2 id="part-3-uploading-your-lab-reports"><a class="header" href="#part-3-uploading-your-lab-reports">Part 3: Uploading Your Lab Reports</a></h2>
+<p>Now, let's add the work you've done in previous labs.</p>
+<ol>
+<li>In your new <code>mat186-work</code> repository, click <strong>Add file</strong> &gt; <strong>Upload files</strong>.</li>
+<li>Drag and drop your <strong>HTML files</strong> from Lab 2 and Lab 3 into the browser.</li>
+<li>At the bottom, type a "Commit message" like: <code>Initial upload of Lab 2 and 3</code>.</li>
+<li>Click <strong>Commit changes</strong>.</li>
+</ol>
+<hr />
+<h2 id="part-4-publishing-with-github-pages"><a class="header" href="#part-4-publishing-with-github-pages">Part 4: Publishing with GitHub Pages</a></h2>
+<p>Let's make your lab reports viewable as actual websites.</p>
+<ol>
+<li>Go to your repository <strong>Settings</strong> tab.</li>
+<li>On the left menu, click <strong>Pages</strong>.</li>
+<li>Under <strong>Build and deployment</strong>, set the Branch to <strong>main</strong> and click <strong>Save</strong>.</li>
+<li>After a minute, GitHub will give you a URL (e.g., <code>https://username.github.io/mat186-work/</code>).</li>
+</ol>
+<hr />
+<div class="dcc-important">
+**Lab Task 4:** 1. Create your `mat186-work` repository.
+2. Upload the HTML version of your Lab 3 (Math Formulas).
+3. Enable GitHub Pages.
+4. Paste the link to your live GitHub Page into the Brightspace assignment.
+</div>
+<hr />
+<h3 id="a-note-on-open-science"><a class="header" href="#a-note-on-open-science"><strong>A Note on Open Science</strong></a></h3>
+<p>By putting your work on GitHub, you are participating in <strong>Open Science</strong>. This allows others to learn from your code and allows you to track your own progress throughout the semester!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lab-3-mathematical-notation-in-quarto-1"><a class="header" href="#lab-3-mathematical-notation-in-quarto-1">Lab 3: Mathematical Notation in Quarto</a></h1>
+<h2 id="learning-objectives-4"><a class="header" href="#learning-objectives-4">Learning Objectives</a></h2>
 <ul>
 <li>Distinguish between <strong>Inline</strong> and <strong>Display</strong> math modes in Quarto.</li>
 <li>Use LaTeX syntax to write essential statistical symbols ($\mu, \sigma, \bar{x}$).</li>
 <li>Format complex equations like Linear Regression for professional lab reports.</li>
 </ul>
 <hr />
-<h2 id="introduction-3"><a class="header" href="#introduction-3">Introduction</a></h2>
+<h2 id="introduction-4"><a class="header" href="#introduction-4">Introduction</a></h2>
 <p>In Data Science, we often need to document the mathematical models we use. Quarto uses a system called <strong>LaTeX</strong> (pronounced "Lay-tek") to render math. This ensures your formulas look professional and are accessible to screen readers.</p>
 <hr />
 <h2 id="part-1-the-two-math-modes-1"><a class="header" href="#part-1-the-two-math-modes-1">Part 1: The Two Math Modes</a></h2>
