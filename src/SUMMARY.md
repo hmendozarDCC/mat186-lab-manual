@@ -15,6 +15,7 @@
 - [Lab 6: Data Collection and Sources](lab6.md)
 - [Lab 7: Cleaning Data](lab7.md)
 - [Lab 8: Data Exploration and Visualization](lab8.md)
+- [Lab 9: Probability and Sampling Distributions](lab9.md)
 
 ## Part 2: Data Exploration
 - [Lab : Data Visualization](lab3.md)
