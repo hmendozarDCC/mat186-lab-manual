@@ -17,6 +17,17 @@
 - [Lab 8: Data Exploration and Visualization](lab8.md)
 - [Lab 9: Probability and Sampling Distributions](lab9.md)
 - [Lab 10: Statistical inference for one mean](lab10.md)
+- [Lab 11: Statistical inference for one proportion](lab11.md)
+- [Lab 12: Statistical inference for two means](lab12.md)
+- [Lab 13: Statistical inference for two proportions](lab13.md)
+- [Lab 14: Bootstrapping](lab14.md)
+- [Lab 15: Non-parametric methods for hypothesis testing](lab15.md)
+- [Lab 16: Analysis of variance(ANOVA)](lab16.md)
+- [Lab 17: Regression models](lab17.md)
+
+
+
+
 
 ## Part 2: Data Exploration
 - [Lab : Data Visualization](lab3.md)
