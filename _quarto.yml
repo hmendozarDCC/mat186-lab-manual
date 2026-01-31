@@ -1,1 +1,14 @@
+project:
+  type: website
 
+website:
+  title: "MAT 186 Lab Manual"
+  navbar:
+    background: "#003366" # This makes the top bar DCC Navy Blue
+
+format:
+  html:
+    theme: 
+      - cosmo      # A clean, professional base theme
+      - style.css  # Your custom accessibility and "nice" styling
+    toc: true      # Adds an accessible Table of Contents on the right
