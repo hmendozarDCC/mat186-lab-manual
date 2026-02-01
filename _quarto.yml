@@ -10,30 +10,48 @@ website:
 
   # ADD THIS SECTION: This is what makes the labs visible!
   sidebar:
+    sidebar:
     style: "docked"
+    search: true
     contents:
-      - index.md
-      - section: "Labs"
+      - text: "Welcome"
+        file: index.md
+      - section: "Course Labs"
         contents:
-          - labs/lab01.md   # Check: is it .md or .qmd?
-          - labs/lab02.md
-          - labs/lab03.md
-          - labs/lab4.md
-          - labs/lab05.md
-          - labs/lab06.md
-          - labs/lab07.md
-          - labs/lab08.md
-          - labs/lab09.md
-          - labs/lab10.md
-          - labs/lab11.md
-          - labs/lab12.md
-          - labs/lab13.md
-          - labs/lab14.md
-          - labs/lab15.md
-          - labs/lab16.md
-          - labs/la17.md
-          - labs/lab18.md
-
+          - text: "Lab 01: Introduction to R"
+            file: labs/lab01.md
+          - text: "Lab 02: Data Basics"
+            file: labs/lab02.md
+          - text: "Lab 03: Visualizing Data"
+            file: labs/lab03.md
+          - text: "Lab 04: Formatting Tables"
+            file: labs/lab04.md
+          - text: "Lab 05: Data Wrangling"
+            file: labs/lab05.md
+          - text: "Lab 06: Tidying Data"
+            file: labs/lab06.md
+          - text: "Lab 07: Iteration"
+            file: labs/lab07.md
+          - text: "Lab 08: Functions"
+            file: labs/lab08.md
+          - text: "Lab 09: Logic & Control"
+            file: labs/lab09.md
+          - text: "Lab 10: Exploratory Analysis"
+            file: labs/lab10.md
+          - text: "Lab 11: Probability"
+            file: labs/lab11.md
+          - text: "Lab 12: Distributions"
+            file: labs/lab12.md
+          - text: "Lab 13: Hypothesis Testing"
+            file: labs/lab13.md
+          - text: "Lab 14: Inference"
+          - file: labs/lab14.md
+          - text: "Lab 15: Linear Regression"
+            file: labs/lab15.md
+          - text: "Lab 16: Multiple Regression"
+            file: labs/lab16.md
+          - text: "Lab 17: Final Project"
+            file: labs/lab17.md
 
 
  
