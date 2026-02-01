@@ -4,10 +4,9 @@ project:
 website:
   title: "MAT 186: Data Science"
   
-  # Navbar Logo (Top Left)
-  navbar:
-    logo: "images/dcc-logo.png"
-    background: "#003366" # Official DCC Blue
+ 
+
+
 
   # ADD THIS SECTION: This is what makes the labs visible!
   sidebar:
@@ -20,13 +19,9 @@ website:
           - labs/lab8.md
           - labs/lab17.md
 
-  # Page Footer (Bottom)
-  page-footer:
-    left: |
-      ![](images/dcc-logo.png){width=50px}  
-      **Dutchess Community College**
-    center: "Last updated: {{< meta date-modified >}}"
-    right: "Designed for Accessibility"
+
+
+ 
 
 format:
   html:
