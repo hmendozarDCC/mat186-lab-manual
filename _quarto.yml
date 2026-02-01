@@ -8,6 +8,7 @@ website:
   navbar:
     logo: "images/dcc-logo.png"
     logo-height: "40px"
+    search: true  # This activates the search bar
     background: "#002147" # DCC Navy Blue
     left:
       - href: index.md
