@@ -68,4 +68,11 @@ percentile_ci
 ---
 
 <div class="dcc-important">
-**Lab Task 1
+**Lab Task 14:**
+1. Pick a numeric variable from your dataset.
+2. Create a histogram of the original data. (Is it skewed?)
+3. Run the `infer` code above to generate 1,000 bootstrap reps for the **Median** instead of the mean (`stat = "median"`).
+4. Visualize the bootstrap distribution.
+5. Calculate the 95% Confidence Interval. 
+6. **Reflection:** In your Quarto document, explain in your own words why we "sample with replacement" during bootstrapping.
+</div>
