@@ -7,7 +7,8 @@ website:
   # Navbar Logo (Top Left)
   navbar:
     logo: "images/dcc-logo.png"
-    background: "#003366" # Official DCC Blue
+    logo-height: "40px"
+    background: "#002147" # DCC Navy Blue
     left:
       - href: index.md
         text: Home
