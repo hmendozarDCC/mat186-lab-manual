@@ -9,21 +9,22 @@
 ---
 
 ::: {.callout-note}
-## Download the Dataset
-To complete the exercises in this lab, you will need the regression dataset.
-# Option 1: Reading from the local file they downloaded
-# data <- read.csv("survey_data.csv")
-
-# Option 2: Reading directly from your website (Easiest for students)
-url <- "https://hmendozardcc.github.io/mat186-lab-manual/data/lbw.csv"
-data <- read.csv(url)
-
-# Preview the data
-head(data)
-
-[<i class="bi bi-download"></i> Download survey_data.csv](data/survey_data.csv){.btn .btn-primary .btn-sm role="button"}
+## Data Acquisition: Birth Weight Dataset (lbw.csv)
+To complete the regression exercises, you need the `lbw.csv` dataset. Choose **one** of the methods below to load the data into R.
 :::
 
+::: {.panel-tabset}
+
+## Option 1: Direct Link (Recommended)
+This method pulls the data directly from the lab manual website. No download required!
+
+```r
+# Load data directly from the web
+url <- "[https://hmendozardcc.github.io/mat186-lab-manual/data/lbw.csv](https://hmendozardcc.github.io/mat186-lab-manual/data/lbw.csv)"
+data <- read.csv(url)
+
+# View the first few rows
+head(data)
 
 
 
