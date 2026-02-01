@@ -73,3 +73,4 @@ format:
     date-modified: last-modified
     date-format: "MMMM D, YYYY"
     toc: true
+    toc-location: right
