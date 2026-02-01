@@ -4,51 +4,63 @@ project:
 website:
   title: "MAT 186: Data Science"
   
- 
-  # ADD THIS SECTION: This is what makes the labs visible!
+  # Navbar Logo (Top Left)
+  navbar:
+    logo: "images/dcc-logo.png"
+    background: "#003366" # Official DCC Blue
+    left:
+      - href: index.md
+        text: Home
+
+  # Sidebar Navigation (Matches your 17 Labs)
   sidebar:
-    sidebar:
     style: "docked"
     search: true
     contents:
-      - text: "Welcome"
-        file: index.md
       - section: "Course Labs"
         contents:
-          - text: "Lab 01: Introduction to R"
-            file: labs/lab01.md
-          - text: "Lab 02: Data Basics"
-            file: labs/lab02.md
-          - text: "Lab 03: Visualizing Data"
-            file: labs/lab03.md
-          - text: "Lab 04: Formatting Tables"
-            file: labs/lab04.md
-          - text: "Lab 05: Data Wrangling"
-            file: labs/lab05.md
-          - text: "Lab 06: Tidying Data"
-            file: labs/lab06.md
-          - text: "Lab 07: Iteration"
-            file: labs/lab07.md
-          - text: "Lab 08: Functions"
-            file: labs/lab08.md
-          - text: "Lab 09: Logic & Control"
-            file: labs/lab09.md
-          - text: "Lab 10: Exploratory Analysis"
+          - text: "Lab 1: R and RStudio Installation"
+            file: labs/lab1.md
+          - text: "Lab 2: RStudio Project and RMarkdown Document"
+            file: labs/lab2.md
+          - text: "Lab 3: Writing math formulas in RMarkdown"
+            file: labs/lab3.md
+          - text: "Lab 4: GitHub Repository"
+            file: labs/lab4.md
+          - text: "Lab 5: Getting data into R"
+            file: labs/lab5.md
+          - text: "Lab 6: Data collection"
+            file: labs/lab6.md
+          - text: "Lab 7: Cleaning Data"
+            file: labs/lab7.md
+          - text: "Lab 8: Exploratory Data Analysis"
+            file: labs/lab8.md
+          - text: "Lab 9: Probability distribution"
+            file: labs/lab9.md
+          - text: "Lab 10: Statistical inference for one mean"
             file: labs/lab10.md
-          - text: "Lab 11: Probability"
+          - text: "Lab 11: Statistical inference for one proportion"
             file: labs/lab11.md
-          - text: "Lab 12: Distributions"
+          - text: "Lab 12: Statistical inference for two means"
             file: labs/lab12.md
-          - text: "Lab 13: Hypothesis Testing"
+          - text: "Lab 13: Statistical inference for two proportions"
             file: labs/lab13.md
-          - text: "Lab 14: Inference"
-          - file: labs/lab14.md
-          - text: "Lab 15: Linear Regression"
+          - text: "Lab 14: Bootstrapping"
+            file: labs/lab14.md
+          - text: "Lab 15: Non-parametric methods"
             file: labs/lab15.md
-          - text: "Lab 16: Multiple Regression"
+          - text: "Lab 16: Analysis of variance (ANOVA)"
             file: labs/lab16.md
-          - text: "Lab 17: Final Project"
+          - text: "Lab 17: Regression models"
             file: labs/lab17.md
+
+  # Page Footer (Bottom)
+  page-footer:
+    left: |
+      ![](images/dcc-logo.png){width=50px}  
+      **Dutchess Community College**
+    center: "Last updated: {{< meta date-modified >}}"
+    right: "Designed for Accessibility"
 
 format:
   html:
