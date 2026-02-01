@@ -15,9 +15,24 @@ website:
       - index.md
       - section: "Labs"
         contents:
-          - labs/lab1.md   # Check: is it .md or .qmd?
-          - labs/lab8.md
-          - labs/lab17.md
+          - labs/lab01.md   # Check: is it .md or .qmd?
+          - labs/lab02.md
+          - labs/lab03.md
+          - labs/lab4.md
+          - labs/lab05.md
+          - labs/lab06.md
+          - labs/lab07.md
+          - labs/lab08.md
+          - labs/lab09.md
+          - labs/lab10.md
+          - labs/lab11.md
+          - labs/lab12.md
+          - labs/lab13.md
+          - labs/lab14.md
+          - labs/lab15.md
+          - labs/lab16.md
+          - labs/la17.md
+          - labs/lab18.md
 
 
 
