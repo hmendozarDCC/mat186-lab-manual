@@ -1,10 +1,25 @@
+project:
+  type: website
+
 website:
   title: "MAT 186: Data Science"
+  
   # Navbar Logo (Top Left)
   navbar:
     logo: "images/dcc-logo.png"
     background: "#003366" # Official DCC Blue
-  
+
+  # ADD THIS SECTION: This is what makes the labs visible!
+  sidebar:
+    style: "docked"
+    contents:
+      - index.md
+      - section: "Labs"
+        contents:
+          - labs/lab1.md   # Check: is it .md or .qmd?
+          - labs/lab8.md
+          - labs/lab17.md
+
   # Page Footer (Bottom)
   page-footer:
     left: |
