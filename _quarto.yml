@@ -19,7 +19,7 @@ website:
       - section: "Course Labs"
         contents:
           - text: "Lab 01: Introduction to R"
-            file: labs/lab01.md
+            file: labs/lab1.md
           - text: "Lab 02: Data Basics"
             file: labs/lab02.md
           - text: "Lab 03: Visualizing Data"
