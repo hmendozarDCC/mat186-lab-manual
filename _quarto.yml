@@ -65,6 +65,7 @@ website:
 format:
   html:
     theme: cosmo
-    css: style.css        # Use 'css:' instead of putting it inside 'theme:'
+    css: style.css        # Use 'css:' instead of putting it inside brackets
     date-modified: last-modified
+    date-format: "MMMM D, YYYY"
     toc: true
