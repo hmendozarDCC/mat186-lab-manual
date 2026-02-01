@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MAT 186: Data Science</title>
+<title>lab11 – MAT 186: Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-15cf97dcd811747c02973ce81b90f075.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-15cf97dcd811747c02973ce81b90f075.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,8 +104,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="style.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -80,11 +144,11 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/dcc-logo.png" alt="" class="navbar-logo light-content">
-    <img src="./images/dcc-logo.png" alt="" class="navbar-logo dark-content">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/dcc-logo.png" alt="" class="navbar-logo light-content">
+    <img src="../images/dcc-logo.png" alt="" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">MAT 186: Data Science</span>
     </a>
   </div>
@@ -95,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
@@ -109,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab1.md">Course Labs</a></li><li class="breadcrumb-item"><a href="../labs/lab11.html">Lab 11: Statistical inference for one proportion</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -140,103 +204,103 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab1.md" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab1.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 1: R and RStudio Installation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab2.md" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab2.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 2: RStudio Project and RMarkdown Document</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab3.md" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab3.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 3: Writing math formulas in RMarkdown</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab4.md" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab4.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 4: GitHub Repository</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab5.md" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab5.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 5: Getting data into R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab6.md" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab6.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 6: Data collection</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab7.md" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab7.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 7: Cleaning Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab8.md" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab8.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 8: Exploratory Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab9.md" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab9.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 9: Probability distribution</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab10.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab10.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 10: Statistical inference for one mean</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab11.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab11.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lab 11: Statistical inference for one proportion</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab12.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab12.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 12: Statistical inference for two means</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab13.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab13.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 13: Statistical inference for two proportions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab14.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab14.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 14: Bootstrapping</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab15.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab15.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 15: Non-parametric methods</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab16.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab16.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 16: Analysis of variance (ANOVA)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab17.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab17.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 17: Regression models</span></a>
   </div>
 </li>
@@ -252,14 +316,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#mat-186-data-science-lab-manual" id="toc-mat-186-data-science-lab-manual" class="nav-link active" data-scroll-target="#mat-186-data-science-lab-manual">MAT 186: Data Science Lab Manual</a>
+  <li><a href="#lab-11-statistical-inference-for-one-proportion" id="toc-lab-11-statistical-inference-for-one-proportion" class="nav-link active" data-scroll-target="#lab-11-statistical-inference-for-one-proportion">Lab 11: Statistical Inference for One Proportion</a>
   <ul class="collapse">
-  <li><a href="#accessibility-statement" id="toc-accessibility-statement" class="nav-link" data-scroll-target="#accessibility-statement">♿ Accessibility Statement</a>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#part-1-categorical-data-and-proportions" id="toc-part-1-categorical-data-and-proportions" class="nav-link" data-scroll-target="#part-1-categorical-data-and-proportions">Part 1: Categorical Data and Proportions</a></li>
+  <li><a href="#part-2-hypotheses-for-proportions" id="toc-part-2-hypotheses-for-proportions" class="nav-link" data-scroll-target="#part-2-hypotheses-for-proportions">Part 2: Hypotheses for Proportions</a></li>
+  <li><a href="#part-3-running-the-test-in-r" id="toc-part-3-running-the-test-in-r" class="nav-link" data-scroll-target="#part-3-running-the-test-in-r">Part 3: Running the Test in R</a>
   <ul class="collapse">
-  <li><a href="#features-of-this-manual" id="toc-features-of-this-manual" class="nav-link" data-scroll-target="#features-of-this-manual"><strong>Features of this Manual:</strong></a></li>
-  <li><a href="#support-for-accommodations" id="toc-support-for-accommodations" class="nav-link" data-scroll-target="#support-for-accommodations"><strong>Support for Accommodations</strong></a></li>
+  <li><a href="#how-to-interpret-the-output" id="toc-how-to-interpret-the-output" class="nav-link" data-scroll-target="#how-to-interpret-the-output">How to interpret the output:</a></li>
   </ul></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
+  <li><a href="#part-4-confidence-intervals-for-proportions" id="toc-part-4-confidence-intervals-for-proportions" class="nav-link" data-scroll-target="#part-4-confidence-intervals-for-proportions">Part 4: Confidence Intervals for Proportions</a></li>
+  <li><a href="#accessibility-note-rounding-for-clarity" id="toc-accessibility-note-rounding-for-clarity" class="nav-link" data-scroll-target="#accessibility-note-rounding-for-clarity">Accessibility Note: Rounding for Clarity</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -267,7 +334,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab1.md">Course Labs</a></li><li class="breadcrumb-item"><a href="../labs/lab11.html">Lab 11: Statistical inference for one proportion</a></li></ol></nav>
 <div class="quarto-title">
 </div>
 
@@ -291,39 +358,69 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="mat-186-data-science-lab-manual" class="level1">
-<h1>MAT 186: Data Science Lab Manual</h1>
-<p>Welcome to the official lab manual for <strong>MAT 186: Introduction to Data Science</strong> at Dutchess Community College. This manual will guide you through 17 labs, transitioning from basic data entry to advanced predictive modeling using <strong>R</strong> and <strong>Quarto</strong>.</p>
-<hr>
-<section id="accessibility-statement" class="level2">
-<h2 class="anchored" data-anchor-id="accessibility-statement">♿ Accessibility Statement</h2>
-<p>Dutchess Community College is committed to providing equal access to education. This lab manual is designed with <strong>Universal Design for Learning (UDL)</strong> principles to be accessible to all students, including those using assistive technologies.</p>
-<section id="features-of-this-manual" class="level3">
-<h3 class="anchored" data-anchor-id="features-of-this-manual"><strong>Features of this Manual:</strong></h3>
+<section id="lab-11-statistical-inference-for-one-proportion" class="level1">
+<h1>Lab 11: Statistical Inference for One Proportion</h1>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
 <ul>
-<li><strong>Screen Reader Friendly:</strong> All data visualizations include descriptive captions (<code>fig-cap</code>) that act as Alt-Text.</li>
-<li><strong>Colorblind Accessibility:</strong> All plots utilize the <strong>Viridis</strong> color palette, ensuring data is distinguishable regardless of color vision deficiency.</li>
-<li><strong>Keyboard Navigation:</strong> This site is fully navigable via keyboard for students who do not use a mouse.</li>
-<li><strong>Accessible Math:</strong> Mathematical formulas are rendered using <strong>LaTeX</strong>, allowing screen readers to interpret mathematical logic accurately.</li>
+<li>Understand the conditions for the <strong>Large Sample Proportions Test</strong>.</li>
+<li>State Null (<span class="math inline">\(H_0\)</span>) and Alternative (<span class="math inline">\(H_a\)</span>) hypotheses for proportions.</li>
+<li>Use <code>prop.test()</code> in R to calculate p-values and confidence intervals.</li>
+<li>Apply these skills to real-world categorical data.</li>
 </ul>
+<hr>
 </section>
-<section id="support-for-accommodations" class="level3">
-<h3 class="anchored" data-anchor-id="support-for-accommodations"><strong>Support for Accommodations</strong></h3>
-<p>If you encounter any barriers while using this manual—such as a visualization that is difficult to interpret or code that is hard to navigate—please do not hesitate to contact:</p>
-<ol type="1">
-<li><strong>Your Instructor:</strong> [Insert Your Name/Email]</li>
-<li><strong>DCC Office of Accommodative Services:</strong> * <strong>Location:</strong> Library, Room 303
+<section id="part-1-categorical-data-and-proportions" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-categorical-data-and-proportions">Part 1: Categorical Data and Proportions</h2>
+<p>A proportion (<span class="math inline">\(p\)</span>) is the ratio of “successes” to the total number of trials. * <strong>Example:</strong> If 45 out of 100 students at DCC use RStudio, the sample proportion (<span class="math inline">\(\hat{p}\)</span>) is <span class="math inline">\(0.45\)</span> (or 45%).</p>
+<hr>
+</section>
+<section id="part-2-hypotheses-for-proportions" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-hypotheses-for-proportions">Part 2: Hypotheses for Proportions</h2>
+<p>When we test a proportion, we are comparing our sample to a claimed population value (<span class="math inline">\(p_0\)</span>).</p>
 <ul>
-<li><strong>Phone:</strong> 845-431-8050</li>
-</ul></li>
-</ol>
+<li><strong>Null Hypothesis (<span class="math inline">\(H_0\)</span>):</strong> <span class="math inline">\(p = p_0\)</span> (The proportion is exactly what was claimed).</li>
+<li><strong>Alternative Hypothesis (<span class="math inline">\(H_a\)</span>):</strong> <span class="math inline">\(p \neq p_0\)</span> (The proportion is different than the claim).</li>
+</ul>
+<hr>
+</section>
+<section id="part-3-running-the-test-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="part-3-running-the-test-in-r">Part 3: Running the Test in R</h2>
+<p>We use the <code>prop.test()</code> function. You need two numbers: <code>x</code> (number of successes) and <code>n</code> (total sample size).</p>
+<p><strong>Scenario:</strong> A news report claims that 50% of Star Wars characters are Humans. In our dataset, we find that 35 out of 87 characters are Human. Is the report’s 50% claim accurate?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># x = number of humans (35)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># n = total characters (87)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># p = the claimed value (0.50)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>prop_results <span class="ot">&lt;-</span> <span class="fu">prop.test</span>(<span class="at">x =</span> <span class="dv">35</span>, <span class="at">n =</span> <span class="dv">87</span>, <span class="at">p =</span> <span class="fl">0.50</span>, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># View the results</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>prop_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="how-to-interpret-the-output" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-interpret-the-output">How to interpret the output:</h3>
+<ul>
+<li><strong>X-squared:</strong> The test statistic (similar to the <span class="math inline">\(t\)</span> value from Lab 10).</li>
+<li><strong>p-value:</strong> If this is below 0.05, we reject the claim that the true proportion is 50%.</li>
+<li><strong>sample estimate:</strong> This is your <span class="math inline">\(\hat{p}\)</span> (the <span class="math inline">\(35/87\)</span> from your data).</li>
+</ul>
 <hr>
 </section>
 </section>
-<section id="getting-started" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
-<p>To begin, select <strong>Lab 1: Introduction to R</strong> from the sidebar. You will need: 1. A laptop or tablet. 2. An account on <strong>Posit Cloud</strong> (or RStudio Desktop installed). 3. Access to our course <strong>Brightspace</strong> page for dataset downloads.</p>
+<section id="part-4-confidence-intervals-for-proportions" class="level2">
+<h2 class="anchored" data-anchor-id="part-4-confidence-intervals-for-proportions">Part 4: Confidence Intervals for Proportions</h2>
+<p>The <code>prop.test()</code> also gives you a <strong>95% Confidence Interval</strong>. This tells you the range where the <em>true</em> population proportion likely falls.</p>
+<p>If your confidence interval is <code>(0.301, 0.508)</code>, it means we are 95% confident that the true percentage of Humans in the galaxy is between 30.1% and 50.8%.</p>
 <hr>
+<div class="dcc-important">
+<p><strong>Lab Task 11:</strong> 1. Pick a categorical variable from your dataset (e.g., Gender, Species, or Success/Failure). 2. Count how many “successes” (a specific category) you have compared to the total. 3. <strong>The Test:</strong> Test a claim of your choice. (e.g., “Is the proportion of [category] equal to 0.25?”) 4. Run <code>prop.test()</code> in your Quarto document. 5. <strong>Report:</strong> * What was your sample proportion (<span class="math inline">\(\hat{p}\)</span>)? * Was your p-value significant? * What is the 95% confidence interval for your proportion?</p>
+</div>
+<hr>
+</section>
+<section id="accessibility-note-rounding-for-clarity" class="level2">
+<h2 class="anchored" data-anchor-id="accessibility-note-rounding-for-clarity">Accessibility Note: Rounding for Clarity</h2>
+<p>When reporting proportions to a general audience, always convert decimals to percentages and round to one decimal place (e.g., <span class="math inline">\(0.4022\)</span> becomes <strong>40.2%</strong>). This makes your findings much easier to digest for readers using assistive technology.</p>
 
 
 </section>

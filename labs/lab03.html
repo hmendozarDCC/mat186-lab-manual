@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MAT 186: Data Science</title>
+<title>lab03 – MAT 186: Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-15cf97dcd811747c02973ce81b90f075.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-15cf97dcd811747c02973ce81b90f075.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,8 +69,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="style.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -80,11 +109,11 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/dcc-logo.png" alt="" class="navbar-logo light-content">
-    <img src="./images/dcc-logo.png" alt="" class="navbar-logo dark-content">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/dcc-logo.png" alt="" class="navbar-logo light-content">
+    <img src="../images/dcc-logo.png" alt="" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">MAT 186: Data Science</span>
     </a>
   </div>
@@ -95,7 +124,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
@@ -140,103 +169,103 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab1.md" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab1.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 1: R and RStudio Installation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab2.md" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab2.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 2: RStudio Project and RMarkdown Document</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab3.md" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab3.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 3: Writing math formulas in RMarkdown</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab4.md" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab4.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 4: GitHub Repository</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab5.md" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab5.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 5: Getting data into R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab6.md" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab6.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 6: Data collection</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab7.md" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab7.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 7: Cleaning Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab8.md" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab8.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 8: Exploratory Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab9.md" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab9.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 9: Probability distribution</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab10.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab10.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 10: Statistical inference for one mean</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab11.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab11.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 11: Statistical inference for one proportion</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab12.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab12.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 12: Statistical inference for two means</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab13.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab13.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 13: Statistical inference for two proportions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab14.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab14.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 14: Bootstrapping</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab15.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab15.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 15: Non-parametric methods</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab16.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab16.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 16: Analysis of variance (ANOVA)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab17.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab17.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 17: Regression models</span></a>
   </div>
 </li>
@@ -252,14 +281,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#mat-186-data-science-lab-manual" id="toc-mat-186-data-science-lab-manual" class="nav-link active" data-scroll-target="#mat-186-data-science-lab-manual">MAT 186: Data Science Lab Manual</a>
+  <li><a href="#lab-3-mathematical-notation-in-quarto" id="toc-lab-3-mathematical-notation-in-quarto" class="nav-link active" data-scroll-target="#lab-3-mathematical-notation-in-quarto">Lab 3: Mathematical Notation in Quarto</a>
   <ul class="collapse">
-  <li><a href="#accessibility-statement" id="toc-accessibility-statement" class="nav-link" data-scroll-target="#accessibility-statement">♿ Accessibility Statement</a>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#part-1-the-two-math-modes" id="toc-part-1-the-two-math-modes" class="nav-link" data-scroll-target="#part-1-the-two-math-modes">Part 1: The Two Math Modes</a>
   <ul class="collapse">
-  <li><a href="#features-of-this-manual" id="toc-features-of-this-manual" class="nav-link" data-scroll-target="#features-of-this-manual"><strong>Features of this Manual:</strong></a></li>
-  <li><a href="#support-for-accommodations" id="toc-support-for-accommodations" class="nav-link" data-scroll-target="#support-for-accommodations"><strong>Support for Accommodations</strong></a></li>
+  <li><a href="#inline-math" id="toc-inline-math" class="nav-link" data-scroll-target="#inline-math">1. Inline Math</a></li>
+  <li><a href="#display-math" id="toc-display-math" class="nav-link" data-scroll-target="#display-math">2. Display Math</a></li>
   </ul></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
+  <li><a href="#part-2-common-symbols-for-mat-186" id="toc-part-2-common-symbols-for-mat-186" class="nav-link" data-scroll-target="#part-2-common-symbols-for-mat-186">Part 2: Common Symbols for MAT 186</a></li>
+  <li><a href="#part-3-writing-equations" id="toc-part-3-writing-equations" class="nav-link" data-scroll-target="#part-3-writing-equations">Part 3: Writing Equations</a></li>
+  <li><a href="#troubleshooting-math-errors" id="toc-troubleshooting-math-errors" class="nav-link" data-scroll-target="#troubleshooting-math-errors">Troubleshooting Math Errors</a>
+  <ul class="collapse">
+  <li><a href="#accessibility-check" id="toc-accessibility-check" class="nav-link" data-scroll-target="#accessibility-check"><strong>Accessibility Check</strong></a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -291,41 +327,104 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="mat-186-data-science-lab-manual" class="level1">
-<h1>MAT 186: Data Science Lab Manual</h1>
-<p>Welcome to the official lab manual for <strong>MAT 186: Introduction to Data Science</strong> at Dutchess Community College. This manual will guide you through 17 labs, transitioning from basic data entry to advanced predictive modeling using <strong>R</strong> and <strong>Quarto</strong>.</p>
-<hr>
-<section id="accessibility-statement" class="level2">
-<h2 class="anchored" data-anchor-id="accessibility-statement">♿ Accessibility Statement</h2>
-<p>Dutchess Community College is committed to providing equal access to education. This lab manual is designed with <strong>Universal Design for Learning (UDL)</strong> principles to be accessible to all students, including those using assistive technologies.</p>
-<section id="features-of-this-manual" class="level3">
-<h3 class="anchored" data-anchor-id="features-of-this-manual"><strong>Features of this Manual:</strong></h3>
+<section id="lab-3-mathematical-notation-in-quarto" class="level1">
+<h1>Lab 3: Mathematical Notation in Quarto</h1>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
 <ul>
-<li><strong>Screen Reader Friendly:</strong> All data visualizations include descriptive captions (<code>fig-cap</code>) that act as Alt-Text.</li>
-<li><strong>Colorblind Accessibility:</strong> All plots utilize the <strong>Viridis</strong> color palette, ensuring data is distinguishable regardless of color vision deficiency.</li>
-<li><strong>Keyboard Navigation:</strong> This site is fully navigable via keyboard for students who do not use a mouse.</li>
-<li><strong>Accessible Math:</strong> Mathematical formulas are rendered using <strong>LaTeX</strong>, allowing screen readers to interpret mathematical logic accurately.</li>
+<li>Distinguish between <strong>Inline</strong> and <strong>Display</strong> math modes in Quarto.</li>
+<li>Use LaTeX syntax to write essential statistical symbols (<span class="math inline">\(\mu, \sigma, \bar{x}\)</span>).</li>
+<li>Format complex equations like Linear Regression for professional lab reports.</li>
 </ul>
+<hr>
 </section>
-<section id="support-for-accommodations" class="level3">
-<h3 class="anchored" data-anchor-id="support-for-accommodations"><strong>Support for Accommodations</strong></h3>
-<p>If you encounter any barriers while using this manual—such as a visualization that is difficult to interpret or code that is hard to navigate—please do not hesitate to contact:</p>
-<ol type="1">
-<li><strong>Your Instructor:</strong> [Insert Your Name/Email]</li>
-<li><strong>DCC Office of Accommodative Services:</strong> * <strong>Location:</strong> Library, Room 303
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>In Data Science, we often need to document the mathematical models we use. Quarto uses a system called <strong>LaTeX</strong> (pronounced “Lay-tek”) to render math. This ensures your formulas look professional and are accessible to screen readers.</p>
+<hr>
+</section>
+<section id="part-1-the-two-math-modes" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-the-two-math-modes">Part 1: The Two Math Modes</h2>
+<p>There are two ways to display math in your Quarto documents depending on where you want the formula to appear.</p>
+<section id="inline-math" class="level3">
+<h3 class="anchored" data-anchor-id="inline-math">1. Inline Math</h3>
+<p>Use a single dollar sign <code>$ ... $</code> when the math should stay inside a sentence. * <strong>Code:</strong> <code>The population mean is represented by $\mu$.</code> * <strong>Result:</strong> The population mean is represented by <span class="math inline">\(\mu\)</span>.</p>
+</section>
+<section id="display-math" class="level3">
+<h3 class="anchored" data-anchor-id="display-math">2. Display Math</h3>
+<p>Use double dollar signs <code>$$...$$</code> to put the formula on its own line, centered. * <strong>Code:</strong> <code>$$\bar{x} = \frac{\sum x_i}{n}$$</code> * <strong>Result:</strong> <span class="math display">\[\bar{x} = \frac{\sum x_i}{n}\]</span></p>
+<hr>
+</section>
+</section>
+<section id="part-2-common-symbols-for-mat-186" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-common-symbols-for-mat-186">Part 2: Common Symbols for MAT 186</h2>
+<p>Copy and paste these codes into your Quarto document to practice:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Statistical Term</th>
+<th style="text-align: left;">LaTeX Code</th>
+<th style="text-align: left;">Rendered Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Sample Mean</strong></td>
+<td style="text-align: left;"><code>$\bar{x}$</code></td>
+<td style="text-align: left;"><span class="math inline">\(\bar{x}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Standard Deviation</strong></td>
+<td style="text-align: left;"><code>$\sigma$</code></td>
+<td style="text-align: left;"><span class="math inline">\(\sigma\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Summation</strong></td>
+<td style="text-align: left;"><code>$\sum$</code></td>
+<td style="text-align: left;"><span class="math inline">\(\sum\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Correlation Coefficient</strong></td>
+<td style="text-align: left;"><code>$r$</code></td>
+<td style="text-align: left;"><span class="math inline">\(r\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Coefficient of Determination</strong></td>
+<td style="text-align: left;"><code>$R^2$</code></td>
+<td style="text-align: left;"><span class="math inline">\(R^2\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="part-3-writing-equations" class="level2">
+<h2 class="anchored" data-anchor-id="part-3-writing-equations">Part 3: Writing Equations</h2>
+<p>For Linear Regression, we combine several symbols. Try typing this in your Quarto file:</p>
+<p><strong>Code:</strong> <code>$$y = \beta_0 + \beta_1 x + \epsilon$$</code></p>
+<p><strong>Result:</strong> <span class="math display">\[y = \beta_0 + \beta_1 x + \epsilon\]</span></p>
+<hr>
+<div class="dcc-important">
+<p><strong>Lab Task 3:</strong> 1. Open your <code>MAT186_Labs</code> project in RStudio. 2. Create a new Quarto document (<code>.qmd</code>) titled “Math Practice.” 3. Write the formula for the <strong>Standard Deviation</strong> exactly as shown below: <code>$$s = \sqrt{\frac{\sum (x_i - \bar{x})^2}{n - 1}}$$</code> 4. <strong>Render</strong> the document to HTML and confirm the formula appears correctly.</p>
+</div>
+<hr>
+</section>
+<section id="troubleshooting-math-errors" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting-math-errors">Troubleshooting Math Errors</h2>
 <ul>
-<li><strong>Phone:</strong> 845-431-8050</li>
+<li><strong>Spaces:</strong> Do not put a space between the <code>$</code> and your math code.
+<ul>
+<li><em>Bad:</em> <code>$ \mu $</code></li>
+<li><em>Good:</em> <code>$\mu$</code></li>
 </ul></li>
-</ol>
+<li><strong>Missing Signs:</strong> If your formula looks like plain text, check if you forgot the closing <code>$</code>.</li>
+</ul>
 <hr>
-</section>
-</section>
-<section id="getting-started" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
-<p>To begin, select <strong>Lab 1: Introduction to R</strong> from the sidebar. You will need: 1. A laptop or tablet. 2. An account on <strong>Posit Cloud</strong> (or RStudio Desktop installed). 3. Access to our course <strong>Brightspace</strong> page for dataset downloads.</p>
-<hr>
+<section id="accessibility-check" class="level3">
+<h3 class="anchored" data-anchor-id="accessibility-check"><strong>Accessibility Check</strong></h3>
+<p>When you use this LaTeX method, students using screen readers can hear the math described clearly (e.g., “x bar equals fraction sum x sub i over n”). This is much better than using an image of an equation, which a screen reader cannot “see.”</p>
 
 
+</section>
 </section>
 </section>
 
