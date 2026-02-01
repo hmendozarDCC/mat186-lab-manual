@@ -8,6 +8,28 @@
 
 ---
 
+::: {.callout-note}
+## Data Acquisition: Birth Weight Dataset (lbw.csv)
+To complete the regression exercises, you need the `lbw.csv` dataset. Choose **one** of the methods below to load the data into R.
+:::
+
+::: {.panel-tabset}
+
+## Option 1: Direct Link (Recommended)
+This method pulls the data directly from the lab manual website. No download required!
+
+```r
+# Load data directly from the web
+url <- "[https://hmendozardcc.github.io/mat186-lab-manual/data/lbw.csv](https://hmendozardcc.github.io/mat186-lab-manual/data/lbw.csv)"
+data <- read.csv(url)
+
+# View the first few rows
+head(data)
+
+
+
+
+---
 ## Part 1: Correlation ($r$)
 Before building a model, we need to know if a linear relationship even exists. The correlation coefficient ($r$) ranges from **-1** to **1**.
 * **1**: Perfect positive relationship.

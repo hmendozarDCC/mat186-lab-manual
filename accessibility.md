@@ -1,0 +1,15 @@
+---
+title: "Accessibility Statement"
+---
+
+## Our Commitment
+Dutchess Community College is committed to ensuring that our lab manuals are accessible to all students, including those with disabilities. This site is built using Quarto and follows WCAG 2.1 Level AA standards.
+
+## Accessibility Features
+- **Mathematical Formulas:** We use **MathJax** to render equations. This allows formulas to be read by screen readers and zoomed without loss of resolution.
+- **Keyboard Navigation:** All parts of this site are navigable using the `Tab` key.
+- **High Contrast:** Colors have been selected to meet contrast requirements for readability.
+- **Alternative Text:** All structural images include descriptive alt-text.
+
+## Support
+If you encounter any accessibility barriers or have difficulty accessing the content in these labs, please contact your instructor or the DCC Office of Accommodative Services.

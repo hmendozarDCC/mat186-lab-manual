@@ -1,0 +1,17 @@
+# --- System Files ---
+.DS_Store
+Thumbs.db
+.ipynb_checkpoints/
+
+# --- Quarto & R Specific ---
+/.quarto/
+/_site/
+/site_libs/
+*.html
+*.log
+
+# --- R Statistics Junk ---
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
