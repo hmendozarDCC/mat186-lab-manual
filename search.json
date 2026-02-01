@@ -25,49 +25,84 @@
     "href": "labs/lab07.html",
     "title": "Lab 7: Cleaning Data with dplyr",
     "section": "",
-    "text": "Understand the concept of “Data Wrangling.”\nUse the Pipe Operator (|&gt;) to chain commands.\nLearn core cleaning functions: filter(), select(), and rename().\nHandle missing values (NA).\n\n\n\n\n\n“Raw” data is rarely ready for analysis. It might have columns you don’t need, rows that aren’t relevant to your study, or names that are hard to type. In this lab, we use the dplyr package (part of the tidyverse) to “tidy up” our datasets.\n\n\n\n\nThink of the pipe operator as saying the words “and then.” It takes the output of one function and passes it to the next.\nInstead of writing: clean_data &lt;- filter(raw_data, age &gt; 18)\nWe write: clean_data &lt;- raw_data |&gt; filter(age &gt; 18)\n\n\n\n\n\n\nIf your dataset has 100 columns but you only need 3, use select(). ~r # Keep only the ‘name’ and ‘height’ columns sw_small &lt;- starwars |&gt; select(name, height)~\n\n\n\nIf you only want to look at specific observations (e.g., characters taller than 100cm). ~r # Keep only rows where height is greater than 100 tall_characters &lt;- starwars |&gt; filter(height &gt; 100)~\n\n\n\nIf a column name is confusing or has spaces, rename it. ~r # Change ‘homeworld’ to ‘home_planet’ sw_clean &lt;- starwars |&gt; rename(home_planet = homeworld)~\n\n\n\n\n\nIn R, missing values are represented as NA (Not Available). You can’t calculate the mean of a column if it has NA values without telling R what to do.\nTo remove rows with any missing data: ~r tidy_sw &lt;- starwars |&gt; drop_na(height)~\n\n\nLab Task 7: 1. Open your Quarto document from Lab 6 (the one with your NY State Open Data). 2. Create a new section called “Data Cleaning.” 3. Use select() to keep only the 4 most important columns in your dataset. 4. Use filter() to narrow your data down to one specific category or a certain range of numbers. 5. Use rename() to make at least one column name easier to read. 6. Render your document and check that your new “Cleaned” table looks correct.\n\n\n\n\n\nAlways run glimpse(your_data) after cleaning to make sure you haven’t accidentally deleted something you meant to keep!"
+    "text": "Understand the concept of “Data Wrangling.”\nUse the Pipe Operator (|&gt;) to chain commands.\nLearn core cleaning functions: filter(), select(), and rename().\nHandle missing values (NA).\n\n\n\n\n\n“Raw” data is rarely ready for analysis. It might have columns you don’t need, rows that aren’t relevant to your study, or names that are hard to type. In this lab, we use the dplyr package (part of the tidyverse) to “tidy up” our datasets.\n\n\n\n\nThink of the pipe operator as saying the words “and then.” It takes the output of one function and passes it to the next.\nInstead of writing: clean_data &lt;- filter(raw_data, age &gt; 18)\nWe write: clean_data &lt;- raw_data |&gt; filter(age &gt; 18)\n\n\n\n\n\n\nIf your dataset has 100 columns but you only need 3, use select(). ~r # Keep only the ‘name’ and ‘height’ columns sw_small &lt;- starwars |&gt; select(name, height)~\n\n\n\nIf you only want to look at specific observations (e.g., characters taller than 100cm). ~r # Keep only rows where height is greater than 100 tall_characters &lt;- starwars |&gt; filter(height &gt; 100)~\n\n\n\nIf a column name is confusing or has spaces, rename it. ~r # Change ‘homeworld’ to ‘home_planet’ sw_clean &lt;- starwars |&gt; rename(home_planet = homeworld)~\n\n\n\n\n\nIn R, missing values are represented as NA (Not Available). You can’t calculate the mean of a column if it has NA values without telling R what to do.\nTo remove rows with any missing data: ~r tidy_sw &lt;- starwars |&gt; drop_na(height)~\n\n\nLab Task 7: 1. Open your Quarto document from Lab 6 (the one with your NY State Open Data). 2. Create a new section called “Data Cleaning.” 3. Use select() to keep only the 4 most important columns in your dataset. 4. Use filter() to narrow your data down to one specific category or a certain range of numbers. 5. Use rename() to make at least one column name easier to read. 6. Render your document and check that your new “Cleaned” table looks correct.\n\n\n\n\n\nAlways run glimpse(your_data) after cleaning to make sure you haven’t accidentally deleted something you meant to keep!",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 7: Cleaning Data"
+    ]
   },
   {
     "objectID": "labs/lab07.html#learning-objectives",
     "href": "labs/lab07.html#learning-objectives",
     "title": "Lab 7: Cleaning Data with dplyr",
     "section": "",
-    "text": "Understand the concept of “Data Wrangling.”\nUse the Pipe Operator (|&gt;) to chain commands.\nLearn core cleaning functions: filter(), select(), and rename().\nHandle missing values (NA)."
+    "text": "Understand the concept of “Data Wrangling.”\nUse the Pipe Operator (|&gt;) to chain commands.\nLearn core cleaning functions: filter(), select(), and rename().\nHandle missing values (NA).",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 7: Cleaning Data"
+    ]
   },
   {
     "objectID": "labs/lab07.html#introduction",
     "href": "labs/lab07.html#introduction",
     "title": "Lab 7: Cleaning Data with dplyr",
     "section": "",
-    "text": "“Raw” data is rarely ready for analysis. It might have columns you don’t need, rows that aren’t relevant to your study, or names that are hard to type. In this lab, we use the dplyr package (part of the tidyverse) to “tidy up” our datasets."
+    "text": "“Raw” data is rarely ready for analysis. It might have columns you don’t need, rows that aren’t relevant to your study, or names that are hard to type. In this lab, we use the dplyr package (part of the tidyverse) to “tidy up” our datasets.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 7: Cleaning Data"
+    ]
   },
   {
     "objectID": "labs/lab07.html#part-1-the-pipe-operator",
     "href": "labs/lab07.html#part-1-the-pipe-operator",
     "title": "Lab 7: Cleaning Data with dplyr",
     "section": "",
-    "text": "Think of the pipe operator as saying the words “and then.” It takes the output of one function and passes it to the next.\nInstead of writing: clean_data &lt;- filter(raw_data, age &gt; 18)\nWe write: clean_data &lt;- raw_data |&gt; filter(age &gt; 18)"
+    "text": "Think of the pipe operator as saying the words “and then.” It takes the output of one function and passes it to the next.\nInstead of writing: clean_data &lt;- filter(raw_data, age &gt; 18)\nWe write: clean_data &lt;- raw_data |&gt; filter(age &gt; 18)",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 7: Cleaning Data"
+    ]
   },
   {
     "objectID": "labs/lab07.html#part-2-core-cleaning-functions",
     "href": "labs/lab07.html#part-2-core-cleaning-functions",
     "title": "Lab 7: Cleaning Data with dplyr",
     "section": "",
-    "text": "If your dataset has 100 columns but you only need 3, use select(). ~r # Keep only the ‘name’ and ‘height’ columns sw_small &lt;- starwars |&gt; select(name, height)~\n\n\n\nIf you only want to look at specific observations (e.g., characters taller than 100cm). ~r # Keep only rows where height is greater than 100 tall_characters &lt;- starwars |&gt; filter(height &gt; 100)~\n\n\n\nIf a column name is confusing or has spaces, rename it. ~r # Change ‘homeworld’ to ‘home_planet’ sw_clean &lt;- starwars |&gt; rename(home_planet = homeworld)~"
+    "text": "If your dataset has 100 columns but you only need 3, use select(). ~r # Keep only the ‘name’ and ‘height’ columns sw_small &lt;- starwars |&gt; select(name, height)~\n\n\n\nIf you only want to look at specific observations (e.g., characters taller than 100cm). ~r # Keep only rows where height is greater than 100 tall_characters &lt;- starwars |&gt; filter(height &gt; 100)~\n\n\n\nIf a column name is confusing or has spaces, rename it. ~r # Change ‘homeworld’ to ‘home_planet’ sw_clean &lt;- starwars |&gt; rename(home_planet = homeworld)~",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 7: Cleaning Data"
+    ]
   },
   {
     "objectID": "labs/lab07.html#part-3-handling-missing-data-na",
     "href": "labs/lab07.html#part-3-handling-missing-data-na",
     "title": "Lab 7: Cleaning Data with dplyr",
     "section": "",
-    "text": "In R, missing values are represented as NA (Not Available). You can’t calculate the mean of a column if it has NA values without telling R what to do.\nTo remove rows with any missing data: ~r tidy_sw &lt;- starwars |&gt; drop_na(height)~\n\n\nLab Task 7: 1. Open your Quarto document from Lab 6 (the one with your NY State Open Data). 2. Create a new section called “Data Cleaning.” 3. Use select() to keep only the 4 most important columns in your dataset. 4. Use filter() to narrow your data down to one specific category or a certain range of numbers. 5. Use rename() to make at least one column name easier to read. 6. Render your document and check that your new “Cleaned” table looks correct."
+    "text": "In R, missing values are represented as NA (Not Available). You can’t calculate the mean of a column if it has NA values without telling R what to do.\nTo remove rows with any missing data: ~r tidy_sw &lt;- starwars |&gt; drop_na(height)~\n\n\nLab Task 7: 1. Open your Quarto document from Lab 6 (the one with your NY State Open Data). 2. Create a new section called “Data Cleaning.” 3. Use select() to keep only the 4 most important columns in your dataset. 4. Use filter() to narrow your data down to one specific category or a certain range of numbers. 5. Use rename() to make at least one column name easier to read. 6. Render your document and check that your new “Cleaned” table looks correct.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 7: Cleaning Data"
+    ]
   },
   {
     "objectID": "labs/lab07.html#pro-tip-the-glimpse",
     "href": "labs/lab07.html#pro-tip-the-glimpse",
     "title": "Lab 7: Cleaning Data with dplyr",
     "section": "",
-    "text": "Always run glimpse(your_data) after cleaning to make sure you haven’t accidentally deleted something you meant to keep!"
+    "text": "Always run glimpse(your_data) after cleaning to make sure you haven’t accidentally deleted something you meant to keep!",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 7: Cleaning Data"
+    ]
   },
   {
     "objectID": "labs/lab11.html",
@@ -254,42 +289,72 @@
     "href": "labs/lab09.html",
     "title": "Lab 9: Probability and Sampling Distributions",
     "section": "",
-    "text": "Distinguish between Discrete and Continuous probability distributions.\nVisualize the Normal Distribution (the “Bell Curve”).\nDemonstrate the Central Limit Theorem through simulation.\nUnderstand how sample size affects the “Standard Error.”\n\n\n\n\n\nIn nature and data science, many variables (like heights or exam scores) follow a “Normal” distribution. We can use R to visualize the perfect mathematical curve and compare it to our real data.\nlibrary(tidyverse)\n\n# Generating a theoretical normal distribution\ndata.frame(x = c(-4, 4)) |&gt;\n  ggplot(aes(x)) +\n  stat_function(fun = dnorm, color = \"blue\", size = 1) +\n  labs(title = \"The Standard Normal Distribution (z-distribution)\",\n       subtitle = \"Mean = 0, SD = 1\",\n       x = \"Standard Deviations\", y = \"Density\")\n[Image of a standard normal distribution curve with percentages for 68, 95, and 99.7 rules]\n\n\n\n\nWhen we have “Yes/No” outcomes (like a coin flip or a student passing a test), we use the Binomial Distribution.\n# Simulating 100 people flipping a coin 10 times each\nflips &lt;- rbinom(n = 100, size = 10, prob = 0.5)\n\nggplot(data.frame(flips), aes(x = flips)) +\n  geom_bar(fill = \"darkorange\", color = \"white\") +\n  labs(title = \"Binomial Distribution of Coin Flips\",\n       x = \"Number of Heads\", y = \"Frequency\")\n\n\n\n\nThe CLT is the “Magic” of statistics. It states that if you take enough samples, the distribution of the sample means will always look normal, even if the original data is messy or skewed.\n\n\n# 1. Take 1000 samples of size 30 from a random population\nsamples &lt;- replicate(1000, mean(rexp(30, rate = 0.5)))\n\n# 2. Visualize the results\nggplot(data.frame(samples), aes(x = samples)) +\n  geom_histogram(fill = \"seagreen\", color = \"white\") +\n  labs(title = \"Sampling Distribution of the Mean\",\n       subtitle = \"Notice the bell shape! This is the Central Limit Theorem in action.\",\n       x = \"Sample Means\", y = \"Count\")\n\n\n\n\n\nWe can use the pnorm() function to calculate the probability of a specific event occurring.\nExample: If the average height of a character is 170cm with an SD of 10, what is the probability of a character being taller than 190cm? ~r # 1 - pnorm gives the ‘right tail’ (the probability of being GREATER than) 1 - pnorm(190, mean = 170, sd = 10)~\n\n\nLab Task 9: 1. Create a new Quarto document titled “Lab 9: Probability.” 2. Create a histogram of a variable from your own dataset. Does it look “Normal”? 3. Use mean() and sd() to find the center and spread of that variable. 4. The Simulation: Use the “CLT simulation” code above, but change the sample size from 30 to 5. Render it. Then change it to 100 and render it again. 5. Observation: Write 2 sentences explaining how the “spread” of the histogram changed when you increased the sample size."
+    "text": "Distinguish between Discrete and Continuous probability distributions.\nVisualize the Normal Distribution (the “Bell Curve”).\nDemonstrate the Central Limit Theorem through simulation.\nUnderstand how sample size affects the “Standard Error.”\n\n\n\n\n\nIn nature and data science, many variables (like heights or exam scores) follow a “Normal” distribution. We can use R to visualize the perfect mathematical curve and compare it to our real data.\nlibrary(tidyverse)\n\n# Generating a theoretical normal distribution\ndata.frame(x = c(-4, 4)) |&gt;\n  ggplot(aes(x)) +\n  stat_function(fun = dnorm, color = \"blue\", size = 1) +\n  labs(title = \"The Standard Normal Distribution (z-distribution)\",\n       subtitle = \"Mean = 0, SD = 1\",\n       x = \"Standard Deviations\", y = \"Density\")\n[Image of a standard normal distribution curve with percentages for 68, 95, and 99.7 rules]\n\n\n\n\nWhen we have “Yes/No” outcomes (like a coin flip or a student passing a test), we use the Binomial Distribution.\n# Simulating 100 people flipping a coin 10 times each\nflips &lt;- rbinom(n = 100, size = 10, prob = 0.5)\n\nggplot(data.frame(flips), aes(x = flips)) +\n  geom_bar(fill = \"darkorange\", color = \"white\") +\n  labs(title = \"Binomial Distribution of Coin Flips\",\n       x = \"Number of Heads\", y = \"Frequency\")\n\n\n\n\nThe CLT is the “Magic” of statistics. It states that if you take enough samples, the distribution of the sample means will always look normal, even if the original data is messy or skewed.\n\n\n# 1. Take 1000 samples of size 30 from a random population\nsamples &lt;- replicate(1000, mean(rexp(30, rate = 0.5)))\n\n# 2. Visualize the results\nggplot(data.frame(samples), aes(x = samples)) +\n  geom_histogram(fill = \"seagreen\", color = \"white\") +\n  labs(title = \"Sampling Distribution of the Mean\",\n       subtitle = \"Notice the bell shape! This is the Central Limit Theorem in action.\",\n       x = \"Sample Means\", y = \"Count\")\n\n\n\n\n\nWe can use the pnorm() function to calculate the probability of a specific event occurring.\nExample: If the average height of a character is 170cm with an SD of 10, what is the probability of a character being taller than 190cm? ~r # 1 - pnorm gives the ‘right tail’ (the probability of being GREATER than) 1 - pnorm(190, mean = 170, sd = 10)~\n\n\nLab Task 9: 1. Create a new Quarto document titled “Lab 9: Probability.” 2. Create a histogram of a variable from your own dataset. Does it look “Normal”? 3. Use mean() and sd() to find the center and spread of that variable. 4. The Simulation: Use the “CLT simulation” code above, but change the sample size from 30 to 5. Render it. Then change it to 100 and render it again. 5. Observation: Write 2 sentences explaining how the “spread” of the histogram changed when you increased the sample size.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 9: Probability distribution"
+    ]
   },
   {
     "objectID": "labs/lab09.html#learning-objectives",
     "href": "labs/lab09.html#learning-objectives",
     "title": "Lab 9: Probability and Sampling Distributions",
     "section": "",
-    "text": "Distinguish between Discrete and Continuous probability distributions.\nVisualize the Normal Distribution (the “Bell Curve”).\nDemonstrate the Central Limit Theorem through simulation.\nUnderstand how sample size affects the “Standard Error.”"
+    "text": "Distinguish between Discrete and Continuous probability distributions.\nVisualize the Normal Distribution (the “Bell Curve”).\nDemonstrate the Central Limit Theorem through simulation.\nUnderstand how sample size affects the “Standard Error.”",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 9: Probability distribution"
+    ]
   },
   {
     "objectID": "labs/lab09.html#part-1-the-normal-distribution",
     "href": "labs/lab09.html#part-1-the-normal-distribution",
     "title": "Lab 9: Probability and Sampling Distributions",
     "section": "",
-    "text": "In nature and data science, many variables (like heights or exam scores) follow a “Normal” distribution. We can use R to visualize the perfect mathematical curve and compare it to our real data.\nlibrary(tidyverse)\n\n# Generating a theoretical normal distribution\ndata.frame(x = c(-4, 4)) |&gt;\n  ggplot(aes(x)) +\n  stat_function(fun = dnorm, color = \"blue\", size = 1) +\n  labs(title = \"The Standard Normal Distribution (z-distribution)\",\n       subtitle = \"Mean = 0, SD = 1\",\n       x = \"Standard Deviations\", y = \"Density\")\n[Image of a standard normal distribution curve with percentages for 68, 95, and 99.7 rules]"
+    "text": "In nature and data science, many variables (like heights or exam scores) follow a “Normal” distribution. We can use R to visualize the perfect mathematical curve and compare it to our real data.\nlibrary(tidyverse)\n\n# Generating a theoretical normal distribution\ndata.frame(x = c(-4, 4)) |&gt;\n  ggplot(aes(x)) +\n  stat_function(fun = dnorm, color = \"blue\", size = 1) +\n  labs(title = \"The Standard Normal Distribution (z-distribution)\",\n       subtitle = \"Mean = 0, SD = 1\",\n       x = \"Standard Deviations\", y = \"Density\")\n[Image of a standard normal distribution curve with percentages for 68, 95, and 99.7 rules]",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 9: Probability distribution"
+    ]
   },
   {
     "objectID": "labs/lab09.html#part-2-working-with-the-binomial-distribution",
     "href": "labs/lab09.html#part-2-working-with-the-binomial-distribution",
     "title": "Lab 9: Probability and Sampling Distributions",
     "section": "",
-    "text": "When we have “Yes/No” outcomes (like a coin flip or a student passing a test), we use the Binomial Distribution.\n# Simulating 100 people flipping a coin 10 times each\nflips &lt;- rbinom(n = 100, size = 10, prob = 0.5)\n\nggplot(data.frame(flips), aes(x = flips)) +\n  geom_bar(fill = \"darkorange\", color = \"white\") +\n  labs(title = \"Binomial Distribution of Coin Flips\",\n       x = \"Number of Heads\", y = \"Frequency\")"
+    "text": "When we have “Yes/No” outcomes (like a coin flip or a student passing a test), we use the Binomial Distribution.\n# Simulating 100 people flipping a coin 10 times each\nflips &lt;- rbinom(n = 100, size = 10, prob = 0.5)\n\nggplot(data.frame(flips), aes(x = flips)) +\n  geom_bar(fill = \"darkorange\", color = \"white\") +\n  labs(title = \"Binomial Distribution of Coin Flips\",\n       x = \"Number of Heads\", y = \"Frequency\")",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 9: Probability distribution"
+    ]
   },
   {
     "objectID": "labs/lab09.html#part-3-the-central-limit-theorem-clt",
     "href": "labs/lab09.html#part-3-the-central-limit-theorem-clt",
     "title": "Lab 9: Probability and Sampling Distributions",
     "section": "",
-    "text": "The CLT is the “Magic” of statistics. It states that if you take enough samples, the distribution of the sample means will always look normal, even if the original data is messy or skewed.\n\n\n# 1. Take 1000 samples of size 30 from a random population\nsamples &lt;- replicate(1000, mean(rexp(30, rate = 0.5)))\n\n# 2. Visualize the results\nggplot(data.frame(samples), aes(x = samples)) +\n  geom_histogram(fill = \"seagreen\", color = \"white\") +\n  labs(title = \"Sampling Distribution of the Mean\",\n       subtitle = \"Notice the bell shape! This is the Central Limit Theorem in action.\",\n       x = \"Sample Means\", y = \"Count\")"
+    "text": "The CLT is the “Magic” of statistics. It states that if you take enough samples, the distribution of the sample means will always look normal, even if the original data is messy or skewed.\n\n\n# 1. Take 1000 samples of size 30 from a random population\nsamples &lt;- replicate(1000, mean(rexp(30, rate = 0.5)))\n\n# 2. Visualize the results\nggplot(data.frame(samples), aes(x = samples)) +\n  geom_histogram(fill = \"seagreen\", color = \"white\") +\n  labs(title = \"Sampling Distribution of the Mean\",\n       subtitle = \"Notice the bell shape! This is the Central Limit Theorem in action.\",\n       x = \"Sample Means\", y = \"Count\")",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 9: Probability distribution"
+    ]
   },
   {
     "objectID": "labs/lab09.html#part-4-probability-in-your-data",
     "href": "labs/lab09.html#part-4-probability-in-your-data",
     "title": "Lab 9: Probability and Sampling Distributions",
     "section": "",
-    "text": "We can use the pnorm() function to calculate the probability of a specific event occurring.\nExample: If the average height of a character is 170cm with an SD of 10, what is the probability of a character being taller than 190cm? ~r # 1 - pnorm gives the ‘right tail’ (the probability of being GREATER than) 1 - pnorm(190, mean = 170, sd = 10)~\n\n\nLab Task 9: 1. Create a new Quarto document titled “Lab 9: Probability.” 2. Create a histogram of a variable from your own dataset. Does it look “Normal”? 3. Use mean() and sd() to find the center and spread of that variable. 4. The Simulation: Use the “CLT simulation” code above, but change the sample size from 30 to 5. Render it. Then change it to 100 and render it again. 5. Observation: Write 2 sentences explaining how the “spread” of the histogram changed when you increased the sample size."
+    "text": "We can use the pnorm() function to calculate the probability of a specific event occurring.\nExample: If the average height of a character is 170cm with an SD of 10, what is the probability of a character being taller than 190cm? ~r # 1 - pnorm gives the ‘right tail’ (the probability of being GREATER than) 1 - pnorm(190, mean = 170, sd = 10)~\n\n\nLab Task 9: 1. Create a new Quarto document titled “Lab 9: Probability.” 2. Create a histogram of a variable from your own dataset. Does it look “Normal”? 3. Use mean() and sd() to find the center and spread of that variable. 4. The Simulation: Use the “CLT simulation” code above, but change the sample size from 30 to 5. Render it. Then change it to 100 and render it again. 5. Observation: Write 2 sentences explaining how the “spread” of the histogram changed when you increased the sample size.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 9: Probability distribution"
+    ]
   },
   {
     "objectID": "labs/lab14.html",
@@ -471,49 +536,84 @@
     "href": "labs/lab06.html",
     "title": "Lab 6: Data Collection and Sources",
     "section": "",
-    "text": "Distinguish between Primary and Secondary data.\nExplore “Open Data” portals (Local, State, and Federal).\nUnderstand the concept of Tidy Data.\nPractice ethical data attribution.\n\n\n\n\n\nData doesn’t just appear out of nowhere; it is collected via sensors, surveys, web scraping, or manual entry. As a data scientist at DCC, you should know how to find reliable sources of information to answer real-world questions.\n\n\n\n\nGovernment agencies often provide “Open Data” portals where anyone can download datasets for free. These are excellent sources for your final projects.\n\n\n\nDutchess County Open Data: Local data on parcels, transit, and public safety.\nNY State Open Data: Information on education, health, and the environment across New York.\nU.S. Census Bureau: The gold standard for demographic data in the United States.\n\n\n\n\n\n\nOnce you collect data, it needs to be in a specific format for R to read it easily. This is called Tidy Data. There are three rules: 1. Each variable must have its own column. 2. Each observation (case) must have its own row. 3. Each value must have its own cell.\n\n\n\n\nWhenever you collect data that you didn’t create yourself, you must provide a Data Citation. This gives credit to the original collectors and allows others to verify your work.\nA good citation includes: * The name of the organization. * The year the data was accessed. * The URL/Link to the dataset.\n\n\nLab Task 6: The Scavenger Hunt 1. Visit the NY State Open Data Portal. 2. Search for a dataset that interests you (e.g., “Student Enrollment” or “Water Quality”). 3. Download the CSV version of that data. 4. Move the file into your RStudio Project folder. 5. In a new Quarto document, write a short paragraph describing: * Where the data came from. * Who collected it. * What one row in the dataset represents (the observation). 6. Use read_csv() to load the data and show the first 10 rows using head().\n\n\n\n\n\nData you find “in the wild” is rarely perfect. In the next lab, we will learn how to “clean” the data you just found—removing empty rows and fixing typos!"
+    "text": "Distinguish between Primary and Secondary data.\nExplore “Open Data” portals (Local, State, and Federal).\nUnderstand the concept of Tidy Data.\nPractice ethical data attribution.\n\n\n\n\n\nData doesn’t just appear out of nowhere; it is collected via sensors, surveys, web scraping, or manual entry. As a data scientist at DCC, you should know how to find reliable sources of information to answer real-world questions.\n\n\n\n\nGovernment agencies often provide “Open Data” portals where anyone can download datasets for free. These are excellent sources for your final projects.\n\n\n\nDutchess County Open Data: Local data on parcels, transit, and public safety.\nNY State Open Data: Information on education, health, and the environment across New York.\nU.S. Census Bureau: The gold standard for demographic data in the United States.\n\n\n\n\n\n\nOnce you collect data, it needs to be in a specific format for R to read it easily. This is called Tidy Data. There are three rules: 1. Each variable must have its own column. 2. Each observation (case) must have its own row. 3. Each value must have its own cell.\n\n\n\n\nWhenever you collect data that you didn’t create yourself, you must provide a Data Citation. This gives credit to the original collectors and allows others to verify your work.\nA good citation includes: * The name of the organization. * The year the data was accessed. * The URL/Link to the dataset.\n\n\nLab Task 6: The Scavenger Hunt 1. Visit the NY State Open Data Portal. 2. Search for a dataset that interests you (e.g., “Student Enrollment” or “Water Quality”). 3. Download the CSV version of that data. 4. Move the file into your RStudio Project folder. 5. In a new Quarto document, write a short paragraph describing: * Where the data came from. * Who collected it. * What one row in the dataset represents (the observation). 6. Use read_csv() to load the data and show the first 10 rows using head().\n\n\n\n\n\nData you find “in the wild” is rarely perfect. In the next lab, we will learn how to “clean” the data you just found—removing empty rows and fixing typos!",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 6: Data collection"
+    ]
   },
   {
     "objectID": "labs/lab06.html#learning-objectives",
     "href": "labs/lab06.html#learning-objectives",
     "title": "Lab 6: Data Collection and Sources",
     "section": "",
-    "text": "Distinguish between Primary and Secondary data.\nExplore “Open Data” portals (Local, State, and Federal).\nUnderstand the concept of Tidy Data.\nPractice ethical data attribution."
+    "text": "Distinguish between Primary and Secondary data.\nExplore “Open Data” portals (Local, State, and Federal).\nUnderstand the concept of Tidy Data.\nPractice ethical data attribution.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 6: Data collection"
+    ]
   },
   {
     "objectID": "labs/lab06.html#introduction",
     "href": "labs/lab06.html#introduction",
     "title": "Lab 6: Data Collection and Sources",
     "section": "",
-    "text": "Data doesn’t just appear out of nowhere; it is collected via sensors, surveys, web scraping, or manual entry. As a data scientist at DCC, you should know how to find reliable sources of information to answer real-world questions."
+    "text": "Data doesn’t just appear out of nowhere; it is collected via sensors, surveys, web scraping, or manual entry. As a data scientist at DCC, you should know how to find reliable sources of information to answer real-world questions.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 6: Data collection"
+    ]
   },
   {
     "objectID": "labs/lab06.html#part-1-finding-open-data",
     "href": "labs/lab06.html#part-1-finding-open-data",
     "title": "Lab 6: Data Collection and Sources",
     "section": "",
-    "text": "Government agencies often provide “Open Data” portals where anyone can download datasets for free. These are excellent sources for your final projects.\n\n\n\nDutchess County Open Data: Local data on parcels, transit, and public safety.\nNY State Open Data: Information on education, health, and the environment across New York.\nU.S. Census Bureau: The gold standard for demographic data in the United States."
+    "text": "Government agencies often provide “Open Data” portals where anyone can download datasets for free. These are excellent sources for your final projects.\n\n\n\nDutchess County Open Data: Local data on parcels, transit, and public safety.\nNY State Open Data: Information on education, health, and the environment across New York.\nU.S. Census Bureau: The gold standard for demographic data in the United States.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 6: Data collection"
+    ]
   },
   {
     "objectID": "labs/lab06.html#part-2-what-is-tidy-data",
     "href": "labs/lab06.html#part-2-what-is-tidy-data",
     "title": "Lab 6: Data Collection and Sources",
     "section": "",
-    "text": "Once you collect data, it needs to be in a specific format for R to read it easily. This is called Tidy Data. There are three rules: 1. Each variable must have its own column. 2. Each observation (case) must have its own row. 3. Each value must have its own cell."
+    "text": "Once you collect data, it needs to be in a specific format for R to read it easily. This is called Tidy Data. There are three rules: 1. Each variable must have its own column. 2. Each observation (case) must have its own row. 3. Each value must have its own cell.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 6: Data collection"
+    ]
   },
   {
     "objectID": "labs/lab06.html#part-3-data-ethics-attribution",
     "href": "labs/lab06.html#part-3-data-ethics-attribution",
     "title": "Lab 6: Data Collection and Sources",
     "section": "",
-    "text": "Whenever you collect data that you didn’t create yourself, you must provide a Data Citation. This gives credit to the original collectors and allows others to verify your work.\nA good citation includes: * The name of the organization. * The year the data was accessed. * The URL/Link to the dataset.\n\n\nLab Task 6: The Scavenger Hunt 1. Visit the NY State Open Data Portal. 2. Search for a dataset that interests you (e.g., “Student Enrollment” or “Water Quality”). 3. Download the CSV version of that data. 4. Move the file into your RStudio Project folder. 5. In a new Quarto document, write a short paragraph describing: * Where the data came from. * Who collected it. * What one row in the dataset represents (the observation). 6. Use read_csv() to load the data and show the first 10 rows using head()."
+    "text": "Whenever you collect data that you didn’t create yourself, you must provide a Data Citation. This gives credit to the original collectors and allows others to verify your work.\nA good citation includes: * The name of the organization. * The year the data was accessed. * The URL/Link to the dataset.\n\n\nLab Task 6: The Scavenger Hunt 1. Visit the NY State Open Data Portal. 2. Search for a dataset that interests you (e.g., “Student Enrollment” or “Water Quality”). 3. Download the CSV version of that data. 4. Move the file into your RStudio Project folder. 5. In a new Quarto document, write a short paragraph describing: * Where the data came from. * Who collected it. * What one row in the dataset represents (the observation). 6. Use read_csv() to load the data and show the first 10 rows using head().",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 6: Data collection"
+    ]
   },
   {
     "objectID": "labs/lab06.html#part-4-the-next-step-preview",
     "href": "labs/lab06.html#part-4-the-next-step-preview",
     "title": "Lab 6: Data Collection and Sources",
     "section": "",
-    "text": "Data you find “in the wild” is rarely perfect. In the next lab, we will learn how to “clean” the data you just found—removing empty rows and fixing typos!"
+    "text": "Data you find “in the wild” is rarely perfect. In the next lab, we will learn how to “clean” the data you just found—removing empty rows and fixing typos!",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 6: Data collection"
+    ]
   },
   {
     "objectID": "labs/lab15.html",
@@ -604,84 +704,144 @@
     "href": "labs/lab02.html",
     "title": "Lab 2: RStudio Projects and Quarto Documents",
     "section": "",
-    "text": "Create an RStudio Project to organize your work.\nUnderstand the structure of a Quarto (.qmd) document.\n“Render” a document into a professional HTML report.\n\n\n\n\n\nIn Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\nOpen RStudio.\nClick File &gt; New Project…\nSelect New Directory &gt; New Project.\nName your directory MAT186_Labs and save it to your Desktop or Documents.\n\n\nWhy use Projects? It sets the “Working Directory” automatically. You’ll never have to type long file paths like C:/Users/Documents/Data... again!\n\n\n\n\n\nQuarto allows you to combine text, code, and results in one file.\n\nClick File &gt; New File &gt; Quarto Document…\nTitle it “Lab 2” and put your name as the Author.\nClick Create.\nLook at the file. You will see:\n\nYAML Header: The stuff between the --- lines (Title, Author, Format).\nCode Chunks: The gray boxes starting with ```{r}.\nMarkdown: The plain white areas for your written analysis.\n\n\n\n\n\n\nTo turn your code into a report: 1. Click the Render button (blue arrow icon) at the top of the editor. 2. RStudio will save the file and pop up a beautiful HTML window.\n\n\nLab Task 2: Inside your Quarto document, create a new code chunk and type 2 + 2. Render the document and verify that the number 4 appears in the final report. Screenshot your rendered HTML for submission."
+    "text": "Create an RStudio Project to organize your work.\nUnderstand the structure of a Quarto (.qmd) document.\n“Render” a document into a professional HTML report.\n\n\n\n\n\nIn Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\nOpen RStudio.\nClick File &gt; New Project…\nSelect New Directory &gt; New Project.\nName your directory MAT186_Labs and save it to your Desktop or Documents.\n\n\nWhy use Projects? It sets the “Working Directory” automatically. You’ll never have to type long file paths like C:/Users/Documents/Data... again!\n\n\n\n\n\nQuarto allows you to combine text, code, and results in one file.\n\nClick File &gt; New File &gt; Quarto Document…\nTitle it “Lab 2” and put your name as the Author.\nClick Create.\nLook at the file. You will see:\n\nYAML Header: The stuff between the --- lines (Title, Author, Format).\nCode Chunks: The gray boxes starting with ```{r}.\nMarkdown: The plain white areas for your written analysis.\n\n\n\n\n\n\nTo turn your code into a report: 1. Click the Render button (blue arrow icon) at the top of the editor. 2. RStudio will save the file and pop up a beautiful HTML window.\n\n\nLab Task 2: Inside your Quarto document, create a new code chunk and type 2 + 2. Render the document and verify that the number 4 appears in the final report. Screenshot your rendered HTML for submission.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 2: RStudio Project and RMarkdown Document"
+    ]
   },
   {
     "objectID": "labs/lab02.html#learning-objectives",
     "href": "labs/lab02.html#learning-objectives",
     "title": "Lab 2: RStudio Projects and Quarto Documents",
     "section": "",
-    "text": "Create an RStudio Project to organize your work.\nUnderstand the structure of a Quarto (.qmd) document.\n“Render” a document into a professional HTML report."
+    "text": "Create an RStudio Project to organize your work.\nUnderstand the structure of a Quarto (.qmd) document.\n“Render” a document into a professional HTML report.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 2: RStudio Project and RMarkdown Document"
+    ]
   },
   {
     "objectID": "labs/lab02.html#part-1-rstudio-projects",
     "href": "labs/lab02.html#part-1-rstudio-projects",
     "title": "Lab 2: RStudio Projects and Quarto Documents",
     "section": "",
-    "text": "In Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\nOpen RStudio.\nClick File &gt; New Project…\nSelect New Directory &gt; New Project.\nName your directory MAT186_Labs and save it to your Desktop or Documents.\n\n\nWhy use Projects? It sets the “Working Directory” automatically. You’ll never have to type long file paths like C:/Users/Documents/Data... again!"
+    "text": "In Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\nOpen RStudio.\nClick File &gt; New Project…\nSelect New Directory &gt; New Project.\nName your directory MAT186_Labs and save it to your Desktop or Documents.\n\n\nWhy use Projects? It sets the “Working Directory” automatically. You’ll never have to type long file paths like C:/Users/Documents/Data... again!",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 2: RStudio Project and RMarkdown Document"
+    ]
   },
   {
     "objectID": "labs/lab02.html#part-2-creating-a-quarto-document",
     "href": "labs/lab02.html#part-2-creating-a-quarto-document",
     "title": "Lab 2: RStudio Projects and Quarto Documents",
     "section": "",
-    "text": "Quarto allows you to combine text, code, and results in one file.\n\nClick File &gt; New File &gt; Quarto Document…\nTitle it “Lab 2” and put your name as the Author.\nClick Create.\nLook at the file. You will see:\n\nYAML Header: The stuff between the --- lines (Title, Author, Format).\nCode Chunks: The gray boxes starting with ```{r}.\nMarkdown: The plain white areas for your written analysis."
+    "text": "Quarto allows you to combine text, code, and results in one file.\n\nClick File &gt; New File &gt; Quarto Document…\nTitle it “Lab 2” and put your name as the Author.\nClick Create.\nLook at the file. You will see:\n\nYAML Header: The stuff between the --- lines (Title, Author, Format).\nCode Chunks: The gray boxes starting with ```{r}.\nMarkdown: The plain white areas for your written analysis.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 2: RStudio Project and RMarkdown Document"
+    ]
   },
   {
     "objectID": "labs/lab02.html#part-3-rendering-the-magic-button",
     "href": "labs/lab02.html#part-3-rendering-the-magic-button",
     "title": "Lab 2: RStudio Projects and Quarto Documents",
     "section": "",
-    "text": "To turn your code into a report: 1. Click the Render button (blue arrow icon) at the top of the editor. 2. RStudio will save the file and pop up a beautiful HTML window.\n\n\nLab Task 2: Inside your Quarto document, create a new code chunk and type 2 + 2. Render the document and verify that the number 4 appears in the final report. Screenshot your rendered HTML for submission."
+    "text": "To turn your code into a report: 1. Click the Render button (blue arrow icon) at the top of the editor. 2. RStudio will save the file and pop up a beautiful HTML window.\n\n\nLab Task 2: Inside your Quarto document, create a new code chunk and type 2 + 2. Render the document and verify that the number 4 appears in the final report. Screenshot your rendered HTML for submission.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 2: RStudio Project and RMarkdown Document"
+    ]
   },
   {
     "objectID": "labs/lab04.html",
     "href": "labs/lab04.html",
     "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
     "section": "",
-    "text": "Create a personal GitHub account.\nInitialize a new repository for MAT 186 work.\nUnderstand the “Commit” and “Push” workflow.\nHost a live version of a lab report using GitHub Pages.\n\n\n\n\n\nData Science is a collaborative field. GitHub is the industry standard for version control and sharing code. In this lab, you will set up your own “portfolio”—a place where you can showcase the work you do in this class to future employers or transfer institutions.\n\n\n\n\n\nGo to GitHub.com.\nSign up for a free account.\n\nTip: Choose a professional username (e.g., jsmith-dcc), as you may show this to employers later!\n\nVerify your email address.\n\n\n\n\n\nA Repository (or “Repo”) is like a project folder that lives in the cloud.\n\nClick the + icon in the top right and select New repository.\nRepository name: mat186-work\nDescription: “Labs and projects for Introduction to Data Science at DCC.”\nPublic/Private: Select Public.\nCheck the box that says Add a README file.\nClick Create repository.\n\n\n\n\n\nNow, let’s add the work you’ve done in previous labs.\n\nIn your new mat186-work repository, click Add file &gt; Upload files.\nDrag and drop your HTML files from Lab 2 and Lab 3 into the browser.\nAt the bottom, type a “Commit message” like: Initial upload of Lab 2 and 3.\nClick Commit changes.\n\n\n\n\n\nLet’s make your lab reports viewable as actual websites.\n\nGo to your repository Settings tab.\nOn the left menu, click Pages.\nUnder Build and deployment, set the Branch to main and click Save.\nAfter a minute, GitHub will give you a URL (e.g., https://username.github.io/mat186-work/).\n\n\n\nLab Task 4: 1. Create your mat186-work repository. 2. Upload the HTML version of your Lab 3 (Math Formulas). 3. Enable GitHub Pages. 4. Paste the link to your live GitHub Page into the Brightspace assignment.\n\n\n\n\nBy putting your work on GitHub, you are participating in Open Science. This allows others to learn from your code and allows you to track your own progress throughout the semester!"
+    "text": "Create a personal GitHub account.\nInitialize a new repository for MAT 186 work.\nUnderstand the “Commit” and “Push” workflow.\nHost a live version of a lab report using GitHub Pages.\n\n\n\n\n\nData Science is a collaborative field. GitHub is the industry standard for version control and sharing code. In this lab, you will set up your own “portfolio”—a place where you can showcase the work you do in this class to future employers or transfer institutions.\n\n\n\n\n\nGo to GitHub.com.\nSign up for a free account.\n\nTip: Choose a professional username (e.g., jsmith-dcc), as you may show this to employers later!\n\nVerify your email address.\n\n\n\n\n\nA Repository (or “Repo”) is like a project folder that lives in the cloud.\n\nClick the + icon in the top right and select New repository.\nRepository name: mat186-work\nDescription: “Labs and projects for Introduction to Data Science at DCC.”\nPublic/Private: Select Public.\nCheck the box that says Add a README file.\nClick Create repository.\n\n\n\n\n\nNow, let’s add the work you’ve done in previous labs.\n\nIn your new mat186-work repository, click Add file &gt; Upload files.\nDrag and drop your HTML files from Lab 2 and Lab 3 into the browser.\nAt the bottom, type a “Commit message” like: Initial upload of Lab 2 and 3.\nClick Commit changes.\n\n\n\n\n\nLet’s make your lab reports viewable as actual websites.\n\nGo to your repository Settings tab.\nOn the left menu, click Pages.\nUnder Build and deployment, set the Branch to main and click Save.\nAfter a minute, GitHub will give you a URL (e.g., https://username.github.io/mat186-work/).\n\n\n\nLab Task 4: 1. Create your mat186-work repository. 2. Upload the HTML version of your Lab 3 (Math Formulas). 3. Enable GitHub Pages. 4. Paste the link to your live GitHub Page into the Brightspace assignment.\n\n\n\n\nBy putting your work on GitHub, you are participating in Open Science. This allows others to learn from your code and allows you to track your own progress throughout the semester!",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 4: GitHub Repository"
+    ]
   },
   {
     "objectID": "labs/lab04.html#learning-objectives",
     "href": "labs/lab04.html#learning-objectives",
     "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
     "section": "",
-    "text": "Create a personal GitHub account.\nInitialize a new repository for MAT 186 work.\nUnderstand the “Commit” and “Push” workflow.\nHost a live version of a lab report using GitHub Pages."
+    "text": "Create a personal GitHub account.\nInitialize a new repository for MAT 186 work.\nUnderstand the “Commit” and “Push” workflow.\nHost a live version of a lab report using GitHub Pages.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 4: GitHub Repository"
+    ]
   },
   {
     "objectID": "labs/lab04.html#introduction",
     "href": "labs/lab04.html#introduction",
     "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
     "section": "",
-    "text": "Data Science is a collaborative field. GitHub is the industry standard for version control and sharing code. In this lab, you will set up your own “portfolio”—a place where you can showcase the work you do in this class to future employers or transfer institutions."
+    "text": "Data Science is a collaborative field. GitHub is the industry standard for version control and sharing code. In this lab, you will set up your own “portfolio”—a place where you can showcase the work you do in this class to future employers or transfer institutions.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 4: GitHub Repository"
+    ]
   },
   {
     "objectID": "labs/lab04.html#part-1-setting-up-your-account",
     "href": "labs/lab04.html#part-1-setting-up-your-account",
     "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
     "section": "",
-    "text": "Go to GitHub.com.\nSign up for a free account.\n\nTip: Choose a professional username (e.g., jsmith-dcc), as you may show this to employers later!\n\nVerify your email address."
+    "text": "Go to GitHub.com.\nSign up for a free account.\n\nTip: Choose a professional username (e.g., jsmith-dcc), as you may show this to employers later!\n\nVerify your email address.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 4: GitHub Repository"
+    ]
   },
   {
     "objectID": "labs/lab04.html#part-2-creating-your-first-repository",
     "href": "labs/lab04.html#part-2-creating-your-first-repository",
     "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
     "section": "",
-    "text": "A Repository (or “Repo”) is like a project folder that lives in the cloud.\n\nClick the + icon in the top right and select New repository.\nRepository name: mat186-work\nDescription: “Labs and projects for Introduction to Data Science at DCC.”\nPublic/Private: Select Public.\nCheck the box that says Add a README file.\nClick Create repository."
+    "text": "A Repository (or “Repo”) is like a project folder that lives in the cloud.\n\nClick the + icon in the top right and select New repository.\nRepository name: mat186-work\nDescription: “Labs and projects for Introduction to Data Science at DCC.”\nPublic/Private: Select Public.\nCheck the box that says Add a README file.\nClick Create repository.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 4: GitHub Repository"
+    ]
   },
   {
     "objectID": "labs/lab04.html#part-3-uploading-your-lab-reports",
     "href": "labs/lab04.html#part-3-uploading-your-lab-reports",
     "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
     "section": "",
-    "text": "Now, let’s add the work you’ve done in previous labs.\n\nIn your new mat186-work repository, click Add file &gt; Upload files.\nDrag and drop your HTML files from Lab 2 and Lab 3 into the browser.\nAt the bottom, type a “Commit message” like: Initial upload of Lab 2 and 3.\nClick Commit changes."
+    "text": "Now, let’s add the work you’ve done in previous labs.\n\nIn your new mat186-work repository, click Add file &gt; Upload files.\nDrag and drop your HTML files from Lab 2 and Lab 3 into the browser.\nAt the bottom, type a “Commit message” like: Initial upload of Lab 2 and 3.\nClick Commit changes.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 4: GitHub Repository"
+    ]
   },
   {
     "objectID": "labs/lab04.html#part-4-publishing-with-github-pages",
     "href": "labs/lab04.html#part-4-publishing-with-github-pages",
     "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
     "section": "",
-    "text": "Let’s make your lab reports viewable as actual websites.\n\nGo to your repository Settings tab.\nOn the left menu, click Pages.\nUnder Build and deployment, set the Branch to main and click Save.\nAfter a minute, GitHub will give you a URL (e.g., https://username.github.io/mat186-work/).\n\n\n\nLab Task 4: 1. Create your mat186-work repository. 2. Upload the HTML version of your Lab 3 (Math Formulas). 3. Enable GitHub Pages. 4. Paste the link to your live GitHub Page into the Brightspace assignment.\n\n\n\n\nBy putting your work on GitHub, you are participating in Open Science. This allows others to learn from your code and allows you to track your own progress throughout the semester!"
+    "text": "Let’s make your lab reports viewable as actual websites.\n\nGo to your repository Settings tab.\nOn the left menu, click Pages.\nUnder Build and deployment, set the Branch to main and click Save.\nAfter a minute, GitHub will give you a URL (e.g., https://username.github.io/mat186-work/).\n\n\n\nLab Task 4: 1. Create your mat186-work repository. 2. Upload the HTML version of your Lab 3 (Math Formulas). 3. Enable GitHub Pages. 4. Paste the link to your live GitHub Page into the Brightspace assignment.\n\n\n\n\nBy putting your work on GitHub, you are participating in Open Science. This allows others to learn from your code and allows you to track your own progress throughout the semester!",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 4: GitHub Repository"
+    ]
   },
   {
     "objectID": "labs/lab12.html",
@@ -772,42 +932,72 @@
     "href": "labs/lab01.html",
     "title": "Lab 1: R and RStudio Installation",
     "section": "",
-    "text": "By the end of this lab, students will be able to: * Successfully install the R programming language. * Install the RStudio Desktop Integrated Development Environment (IDE). * Verify the installation by running a simple command.\n\n\n\n\nTo perform data science at DCC, we use two primary tools. Think of R as the “engine” of a car and RStudio as the “dashboard.” You need the engine to go, but you need the dashboard to steer and see where you are going.\n\nIf you are using a DCC Chromebook or a computer where you cannot install software, please contact the instructor about using Posit Cloud (the web-based version of RStudio).\n\n\n\n\n\nYou must install R before you install RStudio.\n\nGo to the CRAN (Comprehensive R Archive Network) website.\nSelect the download link for your operating system:\n\nDownload R for Windows -&gt; Click “base” -&gt; Click “Download R 4.x.x for Windows.”\nDownload R for (macOS) -&gt; Download the .pkg file that matches your chip (Apple silicon M1/M2 or Intel).\n\nRun the downloaded installer and keep all default settings by clicking “Next” or “Continue.”\n\n\n\n\n\nRStudio is the interface where you will write your code and view your data visualizations.\n\nVisit the Posit Download Page.\nScroll down to “2: Install RStudio” and click the button for your operating system.\nRun the installer. Like R, it is best to keep all default settings.\n\n\n\n\n\nLet’s make sure the “engine” and “dashboard” are talking to each other.\n\nOpen RStudio from your applications folder or start menu.\nFind the Console pane (usually on the bottom left).\nType the following code and press Enter: ```r print(“Hello, MAT 186!”)"
+    "text": "By the end of this lab, students will be able to: * Successfully install the R programming language. * Install the RStudio Desktop Integrated Development Environment (IDE). * Verify the installation by running a simple command.\n\n\n\n\nTo perform data science at DCC, we use two primary tools. Think of R as the “engine” of a car and RStudio as the “dashboard.” You need the engine to go, but you need the dashboard to steer and see where you are going.\n\nIf you are using a DCC Chromebook or a computer where you cannot install software, please contact the instructor about using Posit Cloud (the web-based version of RStudio).\n\n\n\n\n\nYou must install R before you install RStudio.\n\nGo to the CRAN (Comprehensive R Archive Network) website.\nSelect the download link for your operating system:\n\nDownload R for Windows -&gt; Click “base” -&gt; Click “Download R 4.x.x for Windows.”\nDownload R for (macOS) -&gt; Download the .pkg file that matches your chip (Apple silicon M1/M2 or Intel).\n\nRun the downloaded installer and keep all default settings by clicking “Next” or “Continue.”\n\n\n\n\n\nRStudio is the interface where you will write your code and view your data visualizations.\n\nVisit the Posit Download Page.\nScroll down to “2: Install RStudio” and click the button for your operating system.\nRun the installer. Like R, it is best to keep all default settings.\n\n\n\n\n\nLet’s make sure the “engine” and “dashboard” are talking to each other.\n\nOpen RStudio from your applications folder or start menu.\nFind the Console pane (usually on the bottom left).\nType the following code and press Enter: ```r print(“Hello, MAT 186!”)",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 1: R and RStudio Installation"
+    ]
   },
   {
     "objectID": "labs/lab01.html#learning-objectives",
     "href": "labs/lab01.html#learning-objectives",
     "title": "Lab 1: R and RStudio Installation",
     "section": "",
-    "text": "By the end of this lab, students will be able to: * Successfully install the R programming language. * Install the RStudio Desktop Integrated Development Environment (IDE). * Verify the installation by running a simple command."
+    "text": "By the end of this lab, students will be able to: * Successfully install the R programming language. * Install the RStudio Desktop Integrated Development Environment (IDE). * Verify the installation by running a simple command.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 1: R and RStudio Installation"
+    ]
   },
   {
     "objectID": "labs/lab01.html#introduction",
     "href": "labs/lab01.html#introduction",
     "title": "Lab 1: R and RStudio Installation",
     "section": "",
-    "text": "To perform data science at DCC, we use two primary tools. Think of R as the “engine” of a car and RStudio as the “dashboard.” You need the engine to go, but you need the dashboard to steer and see where you are going.\n\nIf you are using a DCC Chromebook or a computer where you cannot install software, please contact the instructor about using Posit Cloud (the web-based version of RStudio)."
+    "text": "To perform data science at DCC, we use two primary tools. Think of R as the “engine” of a car and RStudio as the “dashboard.” You need the engine to go, but you need the dashboard to steer and see where you are going.\n\nIf you are using a DCC Chromebook or a computer where you cannot install software, please contact the instructor about using Posit Cloud (the web-based version of RStudio).",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 1: R and RStudio Installation"
+    ]
   },
   {
     "objectID": "labs/lab01.html#step-1-install-r-the-engine",
     "href": "labs/lab01.html#step-1-install-r-the-engine",
     "title": "Lab 1: R and RStudio Installation",
     "section": "",
-    "text": "You must install R before you install RStudio.\n\nGo to the CRAN (Comprehensive R Archive Network) website.\nSelect the download link for your operating system:\n\nDownload R for Windows -&gt; Click “base” -&gt; Click “Download R 4.x.x for Windows.”\nDownload R for (macOS) -&gt; Download the .pkg file that matches your chip (Apple silicon M1/M2 or Intel).\n\nRun the downloaded installer and keep all default settings by clicking “Next” or “Continue.”"
+    "text": "You must install R before you install RStudio.\n\nGo to the CRAN (Comprehensive R Archive Network) website.\nSelect the download link for your operating system:\n\nDownload R for Windows -&gt; Click “base” -&gt; Click “Download R 4.x.x for Windows.”\nDownload R for (macOS) -&gt; Download the .pkg file that matches your chip (Apple silicon M1/M2 or Intel).\n\nRun the downloaded installer and keep all default settings by clicking “Next” or “Continue.”",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 1: R and RStudio Installation"
+    ]
   },
   {
     "objectID": "labs/lab01.html#step-2-install-rstudio-the-dashboard",
     "href": "labs/lab01.html#step-2-install-rstudio-the-dashboard",
     "title": "Lab 1: R and RStudio Installation",
     "section": "",
-    "text": "RStudio is the interface where you will write your code and view your data visualizations.\n\nVisit the Posit Download Page.\nScroll down to “2: Install RStudio” and click the button for your operating system.\nRun the installer. Like R, it is best to keep all default settings."
+    "text": "RStudio is the interface where you will write your code and view your data visualizations.\n\nVisit the Posit Download Page.\nScroll down to “2: Install RStudio” and click the button for your operating system.\nRun the installer. Like R, it is best to keep all default settings.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 1: R and RStudio Installation"
+    ]
   },
   {
     "objectID": "labs/lab01.html#step-3-verify-your-setup",
     "href": "labs/lab01.html#step-3-verify-your-setup",
     "title": "Lab 1: R and RStudio Installation",
     "section": "",
-    "text": "Let’s make sure the “engine” and “dashboard” are talking to each other.\n\nOpen RStudio from your applications folder or start menu.\nFind the Console pane (usually on the bottom left).\nType the following code and press Enter: ```r print(“Hello, MAT 186!”)"
+    "text": "Let’s make sure the “engine” and “dashboard” are talking to each other.\n\nOpen RStudio from your applications folder or start menu.\nFind the Console pane (usually on the bottom left).\nType the following code and press Enter: ```r print(“Hello, MAT 186!”)",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 1: R and RStudio Installation"
+    ]
   },
   {
     "objectID": "labs/lab10.html",
@@ -982,146 +1172,251 @@
     "href": "labs/lab03.html",
     "title": "Lab 3: Mathematical Notation in Quarto",
     "section": "",
-    "text": "Distinguish between Inline and Display math modes in Quarto.\nUse LaTeX syntax to write essential statistical symbols (\\(\\mu, \\sigma, \\bar{x}\\)).\nFormat complex equations like Linear Regression for professional lab reports.\n\n\n\n\n\nIn Data Science, we often need to document the mathematical models we use. Quarto uses a system called LaTeX (pronounced “Lay-tek”) to render math. This ensures your formulas look professional and are accessible to screen readers.\n\n\n\n\nThere are two ways to display math in your Quarto documents depending on where you want the formula to appear.\n\n\nUse a single dollar sign $ ... $ when the math should stay inside a sentence. * Code: The population mean is represented by $\\mu$. * Result: The population mean is represented by \\(\\mu\\).\n\n\n\nUse double dollar signs $$...$$ to put the formula on its own line, centered. * Code: $$\\bar{x} = \\frac{\\sum x_i}{n}$$ * Result: \\[\\bar{x} = \\frac{\\sum x_i}{n}\\]\n\n\n\n\n\nCopy and paste these codes into your Quarto document to practice:\n\n\n\nStatistical Term\nLaTeX Code\nRendered Result\n\n\n\n\nSample Mean\n$\\bar{x}$\n\\(\\bar{x}\\)\n\n\nStandard Deviation\n$\\sigma$\n\\(\\sigma\\)\n\n\nSummation\n$\\sum$\n\\(\\sum\\)\n\n\nCorrelation Coefficient\n$r$\n\\(r\\)\n\n\nCoefficient of Determination\n$R^2$\n\\(R^2\\)\n\n\n\n\n\n\n\nFor Linear Regression, we combine several symbols. Try typing this in your Quarto file:\nCode: $$y = \\beta_0 + \\beta_1 x + \\epsilon$$\nResult: \\[y = \\beta_0 + \\beta_1 x + \\epsilon\\]\n\n\nLab Task 3: 1. Open your MAT186_Labs project in RStudio. 2. Create a new Quarto document (.qmd) titled “Math Practice.” 3. Write the formula for the Standard Deviation exactly as shown below: $$s = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{n - 1}}$$ 4. Render the document to HTML and confirm the formula appears correctly.\n\n\n\n\n\n\nSpaces: Do not put a space between the $ and your math code.\n\nBad: $ \\mu $\nGood: $\\mu$\n\nMissing Signs: If your formula looks like plain text, check if you forgot the closing $.\n\n\n\n\nWhen you use this LaTeX method, students using screen readers can hear the math described clearly (e.g., “x bar equals fraction sum x sub i over n”). This is much better than using an image of an equation, which a screen reader cannot “see.”"
+    "text": "Distinguish between Inline and Display math modes in Quarto.\nUse LaTeX syntax to write essential statistical symbols (\\(\\mu, \\sigma, \\bar{x}\\)).\nFormat complex equations like Linear Regression for professional lab reports.\n\n\n\n\n\nIn Data Science, we often need to document the mathematical models we use. Quarto uses a system called LaTeX (pronounced “Lay-tek”) to render math. This ensures your formulas look professional and are accessible to screen readers.\n\n\n\n\nThere are two ways to display math in your Quarto documents depending on where you want the formula to appear.\n\n\nUse a single dollar sign $ ... $ when the math should stay inside a sentence. * Code: The population mean is represented by $\\mu$. * Result: The population mean is represented by \\(\\mu\\).\n\n\n\nUse double dollar signs $$...$$ to put the formula on its own line, centered. * Code: $$\\bar{x} = \\frac{\\sum x_i}{n}$$ * Result: \\[\\bar{x} = \\frac{\\sum x_i}{n}\\]\n\n\n\n\n\nCopy and paste these codes into your Quarto document to practice:\n\n\n\nStatistical Term\nLaTeX Code\nRendered Result\n\n\n\n\nSample Mean\n$\\bar{x}$\n\\(\\bar{x}\\)\n\n\nStandard Deviation\n$\\sigma$\n\\(\\sigma\\)\n\n\nSummation\n$\\sum$\n\\(\\sum\\)\n\n\nCorrelation Coefficient\n$r$\n\\(r\\)\n\n\nCoefficient of Determination\n$R^2$\n\\(R^2\\)\n\n\n\n\n\n\n\nFor Linear Regression, we combine several symbols. Try typing this in your Quarto file:\nCode: $$y = \\beta_0 + \\beta_1 x + \\epsilon$$\nResult: \\[y = \\beta_0 + \\beta_1 x + \\epsilon\\]\n\n\nLab Task 3: 1. Open your MAT186_Labs project in RStudio. 2. Create a new Quarto document (.qmd) titled “Math Practice.” 3. Write the formula for the Standard Deviation exactly as shown below: $$s = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{n - 1}}$$ 4. Render the document to HTML and confirm the formula appears correctly.\n\n\n\n\n\n\nSpaces: Do not put a space between the $ and your math code.\n\nBad: $ \\mu $\nGood: $\\mu$\n\nMissing Signs: If your formula looks like plain text, check if you forgot the closing $.\n\n\n\n\nWhen you use this LaTeX method, students using screen readers can hear the math described clearly (e.g., “x bar equals fraction sum x sub i over n”). This is much better than using an image of an equation, which a screen reader cannot “see.”",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 3: Writing math formulas in RMarkdown"
+    ]
   },
   {
     "objectID": "labs/lab03.html#learning-objectives",
     "href": "labs/lab03.html#learning-objectives",
     "title": "Lab 3: Mathematical Notation in Quarto",
     "section": "",
-    "text": "Distinguish between Inline and Display math modes in Quarto.\nUse LaTeX syntax to write essential statistical symbols (\\(\\mu, \\sigma, \\bar{x}\\)).\nFormat complex equations like Linear Regression for professional lab reports."
+    "text": "Distinguish between Inline and Display math modes in Quarto.\nUse LaTeX syntax to write essential statistical symbols (\\(\\mu, \\sigma, \\bar{x}\\)).\nFormat complex equations like Linear Regression for professional lab reports.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 3: Writing math formulas in RMarkdown"
+    ]
   },
   {
     "objectID": "labs/lab03.html#introduction",
     "href": "labs/lab03.html#introduction",
     "title": "Lab 3: Mathematical Notation in Quarto",
     "section": "",
-    "text": "In Data Science, we often need to document the mathematical models we use. Quarto uses a system called LaTeX (pronounced “Lay-tek”) to render math. This ensures your formulas look professional and are accessible to screen readers."
+    "text": "In Data Science, we often need to document the mathematical models we use. Quarto uses a system called LaTeX (pronounced “Lay-tek”) to render math. This ensures your formulas look professional and are accessible to screen readers.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 3: Writing math formulas in RMarkdown"
+    ]
   },
   {
     "objectID": "labs/lab03.html#part-1-the-two-math-modes",
     "href": "labs/lab03.html#part-1-the-two-math-modes",
     "title": "Lab 3: Mathematical Notation in Quarto",
     "section": "",
-    "text": "There are two ways to display math in your Quarto documents depending on where you want the formula to appear.\n\n\nUse a single dollar sign $ ... $ when the math should stay inside a sentence. * Code: The population mean is represented by $\\mu$. * Result: The population mean is represented by \\(\\mu\\).\n\n\n\nUse double dollar signs $$...$$ to put the formula on its own line, centered. * Code: $$\\bar{x} = \\frac{\\sum x_i}{n}$$ * Result: \\[\\bar{x} = \\frac{\\sum x_i}{n}\\]"
+    "text": "There are two ways to display math in your Quarto documents depending on where you want the formula to appear.\n\n\nUse a single dollar sign $ ... $ when the math should stay inside a sentence. * Code: The population mean is represented by $\\mu$. * Result: The population mean is represented by \\(\\mu\\).\n\n\n\nUse double dollar signs $$...$$ to put the formula on its own line, centered. * Code: $$\\bar{x} = \\frac{\\sum x_i}{n}$$ * Result: \\[\\bar{x} = \\frac{\\sum x_i}{n}\\]",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 3: Writing math formulas in RMarkdown"
+    ]
   },
   {
     "objectID": "labs/lab03.html#part-2-common-symbols-for-mat-186",
     "href": "labs/lab03.html#part-2-common-symbols-for-mat-186",
     "title": "Lab 3: Mathematical Notation in Quarto",
     "section": "",
-    "text": "Copy and paste these codes into your Quarto document to practice:\n\n\n\nStatistical Term\nLaTeX Code\nRendered Result\n\n\n\n\nSample Mean\n$\\bar{x}$\n\\(\\bar{x}\\)\n\n\nStandard Deviation\n$\\sigma$\n\\(\\sigma\\)\n\n\nSummation\n$\\sum$\n\\(\\sum\\)\n\n\nCorrelation Coefficient\n$r$\n\\(r\\)\n\n\nCoefficient of Determination\n$R^2$\n\\(R^2\\)"
+    "text": "Copy and paste these codes into your Quarto document to practice:\n\n\n\nStatistical Term\nLaTeX Code\nRendered Result\n\n\n\n\nSample Mean\n$\\bar{x}$\n\\(\\bar{x}\\)\n\n\nStandard Deviation\n$\\sigma$\n\\(\\sigma\\)\n\n\nSummation\n$\\sum$\n\\(\\sum\\)\n\n\nCorrelation Coefficient\n$r$\n\\(r\\)\n\n\nCoefficient of Determination\n$R^2$\n\\(R^2\\)",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 3: Writing math formulas in RMarkdown"
+    ]
   },
   {
     "objectID": "labs/lab03.html#part-3-writing-equations",
     "href": "labs/lab03.html#part-3-writing-equations",
     "title": "Lab 3: Mathematical Notation in Quarto",
     "section": "",
-    "text": "For Linear Regression, we combine several symbols. Try typing this in your Quarto file:\nCode: $$y = \\beta_0 + \\beta_1 x + \\epsilon$$\nResult: \\[y = \\beta_0 + \\beta_1 x + \\epsilon\\]\n\n\nLab Task 3: 1. Open your MAT186_Labs project in RStudio. 2. Create a new Quarto document (.qmd) titled “Math Practice.” 3. Write the formula for the Standard Deviation exactly as shown below: $$s = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{n - 1}}$$ 4. Render the document to HTML and confirm the formula appears correctly."
+    "text": "For Linear Regression, we combine several symbols. Try typing this in your Quarto file:\nCode: $$y = \\beta_0 + \\beta_1 x + \\epsilon$$\nResult: \\[y = \\beta_0 + \\beta_1 x + \\epsilon\\]\n\n\nLab Task 3: 1. Open your MAT186_Labs project in RStudio. 2. Create a new Quarto document (.qmd) titled “Math Practice.” 3. Write the formula for the Standard Deviation exactly as shown below: $$s = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{n - 1}}$$ 4. Render the document to HTML and confirm the formula appears correctly.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 3: Writing math formulas in RMarkdown"
+    ]
   },
   {
     "objectID": "labs/lab03.html#troubleshooting-math-errors",
     "href": "labs/lab03.html#troubleshooting-math-errors",
     "title": "Lab 3: Mathematical Notation in Quarto",
     "section": "",
-    "text": "Spaces: Do not put a space between the $ and your math code.\n\nBad: $ \\mu $\nGood: $\\mu$\n\nMissing Signs: If your formula looks like plain text, check if you forgot the closing $.\n\n\n\n\nWhen you use this LaTeX method, students using screen readers can hear the math described clearly (e.g., “x bar equals fraction sum x sub i over n”). This is much better than using an image of an equation, which a screen reader cannot “see.”"
+    "text": "Spaces: Do not put a space between the $ and your math code.\n\nBad: $ \\mu $\nGood: $\\mu$\n\nMissing Signs: If your formula looks like plain text, check if you forgot the closing $.\n\n\n\n\nWhen you use this LaTeX method, students using screen readers can hear the math described clearly (e.g., “x bar equals fraction sum x sub i over n”). This is much better than using an image of an equation, which a screen reader cannot “see.”",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 3: Writing math formulas in RMarkdown"
+    ]
   },
   {
     "objectID": "labs/lab08.html",
     "href": "labs/lab08.html",
     "title": "Lab 8: Data Exploration and Visualization with ggplot2",
     "section": "",
-    "text": "Calculate “Summary Statistics” using dplyr.\nUnderstand the Grammar of Graphics (Data, Aesthetics, and Geoms).\nCreate distributions (Histograms) and relationships (Scatter Plots).\nIdentify outliers and patterns through visual-first discovery.\n\n\n\n\n\nBefore we draw, we must understand the “center” and “spread” of our data. We use summarize() to get the hard numbers.\nlibrary(tidyverse)\n\n# Analyzing the Star Wars dataset\nstarwars |&gt;\n  drop_na(height) |&gt;\n  summarize(\n    mean_height = mean(height),\n    median_height = median(height),\n    sd_height = sd(height)\n  )\n\n\n\n\nIn ggplot2, every plot has three essential ingredients: 1. Data: The dataframe we are using. 2. Aesthetics (aes): The mapping of data to the axes (x and y). 3. Geoms: The geometric shapes used to represent the data (points, bars, lines).\n\n\n\n\nA histogram helps us see where the data is “clumped.” If the mean and median are very different, the histogram will show a “skew.”\nggplot(data = starwars, mapping = aes(x = height)) +\n  geom_histogram(binwidth = 15, fill = \"steelblue\", color = \"white\") +\n  labs(\n    title = \"Distribution of Character Heights\",\n    x = \"Height (cm)\",\n    y = \"Frequency\"\n  )\n\n\n\n\nTo see if two numeric variables are related (like height and weight), we use geom_point().\n# Removing the extreme outlier (Jabba the Hutt) for a better view\nstarwars_filtered &lt;- starwars |&gt; filter(mass &lt; 500)\n\nggplot(data = starwars_filtered, mapping = aes(x = height, y = mass)) +\n  geom_point(color = \"darkgreen\", alpha = 0.6) +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"red\") + \n  labs(title = \"Relationship between Height and Mass\")\n\n\n\n\nBoxplots are the best way to see how a numeric variable varies across different categories.\nggplot(data = starwars, mapping = aes(x = gender, y = height)) +\n  geom_boxplot(fill = \"lightgray\") +\n  labs(title = \"Height Distribution by Gender\")\n\n\nLab Task 8: 1. Using your cleaned dataset from Lab 7, calculate the Mean and Standard Deviation for your main numeric variable. 2. Create a Histogram of that variable. Is the data bell-shaped or skewed? 3. Create a Scatter Plot comparing two numeric variables. Add a trend line using geom_smooth(). 4. Create a Boxplot that compares one numeric variable across different categories. 5. Observation: In your Quarto document, write 3 sentences describing the most interesting pattern or outlier you found in your plots."
+    "text": "Calculate “Summary Statistics” using dplyr.\nUnderstand the Grammar of Graphics (Data, Aesthetics, and Geoms).\nCreate distributions (Histograms) and relationships (Scatter Plots).\nIdentify outliers and patterns through visual-first discovery.\n\n\n\n\n\nBefore we draw, we must understand the “center” and “spread” of our data. We use summarize() to get the hard numbers.\nlibrary(tidyverse)\n\n# Analyzing the Star Wars dataset\nstarwars |&gt;\n  drop_na(height) |&gt;\n  summarize(\n    mean_height = mean(height),\n    median_height = median(height),\n    sd_height = sd(height)\n  )\n\n\n\n\nIn ggplot2, every plot has three essential ingredients: 1. Data: The dataframe we are using. 2. Aesthetics (aes): The mapping of data to the axes (x and y). 3. Geoms: The geometric shapes used to represent the data (points, bars, lines).\n\n\n\n\nA histogram helps us see where the data is “clumped.” If the mean and median are very different, the histogram will show a “skew.”\nggplot(data = starwars, mapping = aes(x = height)) +\n  geom_histogram(binwidth = 15, fill = \"steelblue\", color = \"white\") +\n  labs(\n    title = \"Distribution of Character Heights\",\n    x = \"Height (cm)\",\n    y = \"Frequency\"\n  )\n\n\n\n\nTo see if two numeric variables are related (like height and weight), we use geom_point().\n# Removing the extreme outlier (Jabba the Hutt) for a better view\nstarwars_filtered &lt;- starwars |&gt; filter(mass &lt; 500)\n\nggplot(data = starwars_filtered, mapping = aes(x = height, y = mass)) +\n  geom_point(color = \"darkgreen\", alpha = 0.6) +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"red\") + \n  labs(title = \"Relationship between Height and Mass\")\n\n\n\n\nBoxplots are the best way to see how a numeric variable varies across different categories.\nggplot(data = starwars, mapping = aes(x = gender, y = height)) +\n  geom_boxplot(fill = \"lightgray\") +\n  labs(title = \"Height Distribution by Gender\")\n\n\nLab Task 8: 1. Using your cleaned dataset from Lab 7, calculate the Mean and Standard Deviation for your main numeric variable. 2. Create a Histogram of that variable. Is the data bell-shaped or skewed? 3. Create a Scatter Plot comparing two numeric variables. Add a trend line using geom_smooth(). 4. Create a Boxplot that compares one numeric variable across different categories. 5. Observation: In your Quarto document, write 3 sentences describing the most interesting pattern or outlier you found in your plots.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 8: Exploratory Data Analysis"
+    ]
   },
   {
     "objectID": "labs/lab08.html#learning-objectives",
     "href": "labs/lab08.html#learning-objectives",
     "title": "Lab 8: Data Exploration and Visualization with ggplot2",
     "section": "",
-    "text": "Calculate “Summary Statistics” using dplyr.\nUnderstand the Grammar of Graphics (Data, Aesthetics, and Geoms).\nCreate distributions (Histograms) and relationships (Scatter Plots).\nIdentify outliers and patterns through visual-first discovery."
+    "text": "Calculate “Summary Statistics” using dplyr.\nUnderstand the Grammar of Graphics (Data, Aesthetics, and Geoms).\nCreate distributions (Histograms) and relationships (Scatter Plots).\nIdentify outliers and patterns through visual-first discovery.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 8: Exploratory Data Analysis"
+    ]
   },
   {
     "objectID": "labs/lab08.html#part-1-numerical-exploration",
     "href": "labs/lab08.html#part-1-numerical-exploration",
     "title": "Lab 8: Data Exploration and Visualization with ggplot2",
     "section": "",
-    "text": "Before we draw, we must understand the “center” and “spread” of our data. We use summarize() to get the hard numbers.\nlibrary(tidyverse)\n\n# Analyzing the Star Wars dataset\nstarwars |&gt;\n  drop_na(height) |&gt;\n  summarize(\n    mean_height = mean(height),\n    median_height = median(height),\n    sd_height = sd(height)\n  )"
+    "text": "Before we draw, we must understand the “center” and “spread” of our data. We use summarize() to get the hard numbers.\nlibrary(tidyverse)\n\n# Analyzing the Star Wars dataset\nstarwars |&gt;\n  drop_na(height) |&gt;\n  summarize(\n    mean_height = mean(height),\n    median_height = median(height),\n    sd_height = sd(height)\n  )",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 8: Exploratory Data Analysis"
+    ]
   },
   {
     "objectID": "labs/lab08.html#part-2-the-grammar-of-ggplot2",
     "href": "labs/lab08.html#part-2-the-grammar-of-ggplot2",
     "title": "Lab 8: Data Exploration and Visualization with ggplot2",
     "section": "",
-    "text": "In ggplot2, every plot has three essential ingredients: 1. Data: The dataframe we are using. 2. Aesthetics (aes): The mapping of data to the axes (x and y). 3. Geoms: The geometric shapes used to represent the data (points, bars, lines)."
+    "text": "In ggplot2, every plot has three essential ingredients: 1. Data: The dataframe we are using. 2. Aesthetics (aes): The mapping of data to the axes (x and y). 3. Geoms: The geometric shapes used to represent the data (points, bars, lines).",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 8: Exploratory Data Analysis"
+    ]
   },
   {
     "objectID": "labs/lab08.html#part-3-visualizing-distributions-histograms",
     "href": "labs/lab08.html#part-3-visualizing-distributions-histograms",
     "title": "Lab 8: Data Exploration and Visualization with ggplot2",
     "section": "",
-    "text": "A histogram helps us see where the data is “clumped.” If the mean and median are very different, the histogram will show a “skew.”\nggplot(data = starwars, mapping = aes(x = height)) +\n  geom_histogram(binwidth = 15, fill = \"steelblue\", color = \"white\") +\n  labs(\n    title = \"Distribution of Character Heights\",\n    x = \"Height (cm)\",\n    y = \"Frequency\"\n  )"
+    "text": "A histogram helps us see where the data is “clumped.” If the mean and median are very different, the histogram will show a “skew.”\nggplot(data = starwars, mapping = aes(x = height)) +\n  geom_histogram(binwidth = 15, fill = \"steelblue\", color = \"white\") +\n  labs(\n    title = \"Distribution of Character Heights\",\n    x = \"Height (cm)\",\n    y = \"Frequency\"\n  )",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 8: Exploratory Data Analysis"
+    ]
   },
   {
     "objectID": "labs/lab08.html#part-4-visualizing-relationships-scatter-plots",
     "href": "labs/lab08.html#part-4-visualizing-relationships-scatter-plots",
     "title": "Lab 8: Data Exploration and Visualization with ggplot2",
     "section": "",
-    "text": "To see if two numeric variables are related (like height and weight), we use geom_point().\n# Removing the extreme outlier (Jabba the Hutt) for a better view\nstarwars_filtered &lt;- starwars |&gt; filter(mass &lt; 500)\n\nggplot(data = starwars_filtered, mapping = aes(x = height, y = mass)) +\n  geom_point(color = \"darkgreen\", alpha = 0.6) +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"red\") + \n  labs(title = \"Relationship between Height and Mass\")"
+    "text": "To see if two numeric variables are related (like height and weight), we use geom_point().\n# Removing the extreme outlier (Jabba the Hutt) for a better view\nstarwars_filtered &lt;- starwars |&gt; filter(mass &lt; 500)\n\nggplot(data = starwars_filtered, mapping = aes(x = height, y = mass)) +\n  geom_point(color = \"darkgreen\", alpha = 0.6) +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"red\") + \n  labs(title = \"Relationship between Height and Mass\")",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 8: Exploratory Data Analysis"
+    ]
   },
   {
     "objectID": "labs/lab08.html#part-5-comparing-groups-boxplots",
     "href": "labs/lab08.html#part-5-comparing-groups-boxplots",
     "title": "Lab 8: Data Exploration and Visualization with ggplot2",
     "section": "",
-    "text": "Boxplots are the best way to see how a numeric variable varies across different categories.\nggplot(data = starwars, mapping = aes(x = gender, y = height)) +\n  geom_boxplot(fill = \"lightgray\") +\n  labs(title = \"Height Distribution by Gender\")\n\n\nLab Task 8: 1. Using your cleaned dataset from Lab 7, calculate the Mean and Standard Deviation for your main numeric variable. 2. Create a Histogram of that variable. Is the data bell-shaped or skewed? 3. Create a Scatter Plot comparing two numeric variables. Add a trend line using geom_smooth(). 4. Create a Boxplot that compares one numeric variable across different categories. 5. Observation: In your Quarto document, write 3 sentences describing the most interesting pattern or outlier you found in your plots."
+    "text": "Boxplots are the best way to see how a numeric variable varies across different categories.\nggplot(data = starwars, mapping = aes(x = gender, y = height)) +\n  geom_boxplot(fill = \"lightgray\") +\n  labs(title = \"Height Distribution by Gender\")\n\n\nLab Task 8: 1. Using your cleaned dataset from Lab 7, calculate the Mean and Standard Deviation for your main numeric variable. 2. Create a Histogram of that variable. Is the data bell-shaped or skewed? 3. Create a Scatter Plot comparing two numeric variables. Add a trend line using geom_smooth(). 4. Create a Boxplot that compares one numeric variable across different categories. 5. Observation: In your Quarto document, write 3 sentences describing the most interesting pattern or outlier you found in your plots.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 8: Exploratory Data Analysis"
+    ]
   },
   {
     "objectID": "labs/lab05.html",
     "href": "labs/lab05.html",
     "title": "Lab 5: Getting Data into R",
     "section": "",
-    "text": "Understand the difference between Absolute and Relative file paths.\nImport data from a local CSV file.\nImport data directly from a URL (Web).\nUse the readr package (part of the tidyverse).\n\n\n\n\n\nBefore we can visualize or model data, we have to “import” it into R’s memory. Most data you will encounter is stored in CSV (Comma Separated Values) format, which looks like an Excel spreadsheet but is much lighter and easier for programs to read.\n\n\n\n\nR needs to know which folder on your computer it should “look” in.\n\nCrucial Step: This is why we use RStudio Projects (from Lab 2). When you open your .Rproj file, R automatically sets your folder as the “Working Directory.”\n\nTo check where R is looking, type this in your console: ~r getwd()~\n\n\n\n\nThe easiest way to get started is to pull data directly from the internet. We will use the read_csv() function from the tidyverse.\nTry this code in your Quarto document: ~~~r library(tidyverse)"
+    "text": "Understand the difference between Absolute and Relative file paths.\nImport data from a local CSV file.\nImport data directly from a URL (Web).\nUse the readr package (part of the tidyverse).\n\n\n\n\n\nBefore we can visualize or model data, we have to “import” it into R’s memory. Most data you will encounter is stored in CSV (Comma Separated Values) format, which looks like an Excel spreadsheet but is much lighter and easier for programs to read.\n\n\n\n\nR needs to know which folder on your computer it should “look” in.\n\nCrucial Step: This is why we use RStudio Projects (from Lab 2). When you open your .Rproj file, R automatically sets your folder as the “Working Directory.”\n\nTo check where R is looking, type this in your console: ~r getwd()~\n\n\n\n\nThe easiest way to get started is to pull data directly from the internet. We will use the read_csv() function from the tidyverse.\nTry this code in your Quarto document: ~~~r library(tidyverse)",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 5: Getting data into R"
+    ]
   },
   {
     "objectID": "labs/lab05.html#learning-objectives",
     "href": "labs/lab05.html#learning-objectives",
     "title": "Lab 5: Getting Data into R",
     "section": "",
-    "text": "Understand the difference between Absolute and Relative file paths.\nImport data from a local CSV file.\nImport data directly from a URL (Web).\nUse the readr package (part of the tidyverse)."
+    "text": "Understand the difference between Absolute and Relative file paths.\nImport data from a local CSV file.\nImport data directly from a URL (Web).\nUse the readr package (part of the tidyverse).",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 5: Getting data into R"
+    ]
   },
   {
     "objectID": "labs/lab05.html#introduction",
     "href": "labs/lab05.html#introduction",
     "title": "Lab 5: Getting Data into R",
     "section": "",
-    "text": "Before we can visualize or model data, we have to “import” it into R’s memory. Most data you will encounter is stored in CSV (Comma Separated Values) format, which looks like an Excel spreadsheet but is much lighter and easier for programs to read."
+    "text": "Before we can visualize or model data, we have to “import” it into R’s memory. Most data you will encounter is stored in CSV (Comma Separated Values) format, which looks like an Excel spreadsheet but is much lighter and easier for programs to read.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 5: Getting data into R"
+    ]
   },
   {
     "objectID": "labs/lab05.html#part-1-the-working-directory",
     "href": "labs/lab05.html#part-1-the-working-directory",
     "title": "Lab 5: Getting Data into R",
     "section": "",
-    "text": "R needs to know which folder on your computer it should “look” in.\n\nCrucial Step: This is why we use RStudio Projects (from Lab 2). When you open your .Rproj file, R automatically sets your folder as the “Working Directory.”\n\nTo check where R is looking, type this in your console: ~r getwd()~"
+    "text": "R needs to know which folder on your computer it should “look” in.\n\nCrucial Step: This is why we use RStudio Projects (from Lab 2). When you open your .Rproj file, R automatically sets your folder as the “Working Directory.”\n\nTo check where R is looking, type this in your console: ~r getwd()~",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 5: Getting data into R"
+    ]
   },
   {
     "objectID": "labs/lab05.html#part-2-loading-data-from-a-url",
     "href": "labs/lab05.html#part-2-loading-data-from-a-url",
     "title": "Lab 5: Getting Data into R",
     "section": "",
-    "text": "The easiest way to get started is to pull data directly from the internet. We will use the read_csv() function from the tidyverse.\nTry this code in your Quarto document: ~~~r library(tidyverse)"
+    "text": "The easiest way to get started is to pull data directly from the internet. We will use the read_csv() function from the tidyverse.\nTry this code in your Quarto document: ~~~r library(tidyverse)",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 5: Getting data into R"
+    ]
   },
   {
     "objectID": "labs/lab05.html#part-3-loading-a-local-csv",
     "href": "labs/lab05.html#part-3-loading-a-local-csv",
     "title": "Lab 5: Getting Data into R",
     "section": "Part 3: Loading a Local CSV",
-    "text": "Part 3: Loading a Local CSV\nOften, you will download a dataset from a site like Kaggle or a government portal.\n\nFind a CSV file (or download a sample one).\nMove that file into your MAT186_Labs folder.\nUse the following code (replace filename.csv with your actual file name):\n\nmy_data &lt;- read_csv(\"filename.csv\")"
+    "text": "Part 3: Loading a Local CSV\nOften, you will download a dataset from a site like Kaggle or a government portal.\n\nFind a CSV file (or download a sample one).\nMove that file into your MAT186_Labs folder.\nUse the following code (replace filename.csv with your actual file name):\n\nmy_data &lt;- read_csv(\"filename.csv\")",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 5: Getting data into R"
+    ]
   },
   {
     "objectID": "labs/lab05.html#part-4-dealing-with-common-errors",
     "href": "labs/lab05.html#part-4-dealing-with-common-errors",
     "title": "Lab 5: Getting Data into R",
     "section": "Part 4: Dealing with Common Errors",
-    "text": "Part 4: Dealing with Common Errors\n\n“File not found”: This usually means the file is not in your Project folder, or you misspelled the name (remember: Data.csv is different from data.csv).\nColumn Parsing: Sometimes R guesses the data type wrong (e.g., thinking a zip code is a number instead of a label). We will learn to fix this in future labs!\n\n\n\nLab Task 5: 1. Find any public CSV dataset (or use this link to DCC-related data). 2. Import it into a new Quarto document using read_csv. 3. Use the glimpse() command to show the structure of your data: ~r glimpse(my_data)~ 4. Render the document and confirm that your data table appears in the HTML."
+    "text": "Part 4: Dealing with Common Errors\n\n“File not found”: This usually means the file is not in your Project folder, or you misspelled the name (remember: Data.csv is different from data.csv).\nColumn Parsing: Sometimes R guesses the data type wrong (e.g., thinking a zip code is a number instead of a label). We will learn to fix this in future labs!\n\n\n\nLab Task 5: 1. Find any public CSV dataset (or use this link to DCC-related data). 2. Import it into a new Quarto document using read_csv. 3. Use the glimpse() command to show the structure of your data: ~r glimpse(my_data)~ 4. Render the document and confirm that your data table appears in the HTML.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 5: Getting data into R"
+    ]
   }
 ]
