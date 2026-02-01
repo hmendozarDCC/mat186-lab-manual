@@ -11,20 +11,21 @@
 ::: {.callout-note}
 ## Download the Dataset
 To complete the exercises in this lab, you will need the regression dataset.
+# Option 1: Reading from the local file they downloaded
+# data <- read.csv("survey_data.csv")
+
+# Option 2: Reading directly from your website (Easiest for students)
+url <- "https://hmendozardcc.github.io/mat186-lab-manual/data/lbw.csv"
+data <- read.csv(url)
+
+# Preview the data
+head(data)
 
 [<i class="bi bi-download"></i> Download survey_data.csv](data/survey_data.csv){.btn .btn-primary .btn-sm role="button"}
 :::
 
 
-# Option 1: Reading from the local file they downloaded
-# data <- read.csv("survey_data.csv")
 
-# Option 2: Reading directly from your website (Easiest for students)
-url <- "https://hmendozardcc.github.io/mat186-lab-manual/data/survey_data.csv"
-data <- read.csv(url)
-
-# Preview the data
-head(data)
 
 
 ---
