@@ -59,11 +59,12 @@ website:
 
   # Page Footer (Bottom)
   page-footer:
-    left: |
-      ![](images/dcc-logo.png){width=50px}  
-      **Dutchess Community College**
-    center: "Last updated: {{< meta date-modified >}}"
-    right: "Designed for Accessibility"
+  left: |
+    ![](images/dcc-logo.png){width=50px fig-alt="DCC Logo"}  
+    **Dutchess Community College**
+  center: "Last updated: {{< meta date-modified >}}"
+  right: |
+    [Accessibility Statement](accessibility.md) | Designed for Accessibility
 
 format:
   html:
