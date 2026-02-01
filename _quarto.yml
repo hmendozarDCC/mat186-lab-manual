@@ -20,23 +20,23 @@ website:
       - section: "Course Labs"
         contents:
           - text: "Lab 1: R and RStudio Installation"
-            file: labs/lab1.md
+            file: labs/lab01.md
           - text: "Lab 2: RStudio Project and RMarkdown Document"
-            file: labs/lab2.md
+            file: labs/lab02.md
           - text: "Lab 3: Writing math formulas in RMarkdown"
-            file: labs/lab3.md
+            file: labs/lab03.md
           - text: "Lab 4: GitHub Repository"
-            file: labs/lab4.md
+            file: labs/lab04.md
           - text: "Lab 5: Getting data into R"
-            file: labs/lab5.md
+            file: labs/lab05.md
           - text: "Lab 6: Data collection"
-            file: labs/lab6.md
+            file: labs/lab06.md
           - text: "Lab 7: Cleaning Data"
-            file: labs/lab7.md
+            file: labs/lab07.md
           - text: "Lab 8: Exploratory Data Analysis"
-            file: labs/lab8.md
+            file: labs/lab08.md
           - text: "Lab 9: Probability distribution"
-            file: labs/lab9.md
+            file: labs/lab09.md
           - text: "Lab 10: Statistical inference for one mean"
             file: labs/lab10.md
           - text: "Lab 11: Statistical inference for one proportion"
