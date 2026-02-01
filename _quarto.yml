@@ -8,6 +8,7 @@ website:
   navbar:
     logo: "images/dcc-logo.png"
     logo-height: "30px"
+    logo-alt: "Dutchess Community College Logo" # Required for accessibility
     search: true  # This activates the search bar
     background: "#002147" # DCC Navy Blue
     left:
@@ -66,6 +67,7 @@ website:
 
 format:
   html:
+    html-math-method: mathjax
     theme: cosmo
     css: style.css        # Use 'css:' instead of putting it inside brackets
     date-modified: last-modified
