@@ -15,6 +15,19 @@ To complete the exercises in this lab, you will need the regression dataset.
 [<i class="bi bi-download"></i> Download survey_data.csv](data/survey_data.csv){.btn .btn-primary .btn-sm role="button"}
 :::
 
+
+# Option 1: Reading from the local file they downloaded
+# data <- read.csv("survey_data.csv")
+
+# Option 2: Reading directly from your website (Easiest for students)
+url <- "https://hmendozardcc.github.io/mat186-lab-manual/data/survey_data.csv"
+data <- read.csv(url)
+
+# Preview the data
+head(data)
+
+
+---
 ## Part 1: Correlation ($r$)
 Before building a model, we need to know if a linear relationship even exists. The correlation coefficient ($r$) ranges from **-1** to **1**.
 * **1**: Perfect positive relationship.
