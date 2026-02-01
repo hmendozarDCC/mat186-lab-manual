@@ -65,7 +65,7 @@ website:
       **Dutchess Community College**
     center: "Last updated: {{< meta date-modified >}}"
     right: |
-      [Accessibility Statement](accessibility.md)
+      [Accessibility Statement](/accessibility.md)
 
 format:
   html:
