@@ -58,13 +58,14 @@ website:
             file: labs/lab17.md
 
   # Page Footer (Bottom)
+
   page-footer:
-  left: |
-    ![](images/dcc-logo.png){width=50px fig-alt="DCC Logo"}  
-    **Dutchess Community College**
-  center: "Last updated: {{< meta date-modified >}}"
-  right: |
-    [Accessibility Statement](accessibility.md)
+    left: |
+      ![](images/dcc-logo.png){width=50px fig-alt="DCC Logo"}  
+      **Dutchess Community College**
+    center: "Last updated: {{< meta date-modified >}}"
+    right: |
+      [Accessibility Statement](accessibility.md)
 
 format:
   html:
