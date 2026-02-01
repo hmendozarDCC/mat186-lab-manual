@@ -8,6 +8,13 @@
 
 ---
 
+::: {.callout-note}
+## Download the Dataset
+To complete the exercises in this lab, you will need the regression dataset.
+
+[<i class="bi bi-download"></i> Download survey_data.csv](data/survey_data.csv){.btn .btn-primary .btn-sm role="button"}
+:::
+
 ## Part 1: Correlation ($r$)
 Before building a model, we need to know if a linear relationship even exists. The correlation coefficient ($r$) ranges from **-1** to **1**.
 * **1**: Perfect positive relationship.
