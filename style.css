@@ -25,15 +25,31 @@ body {
     padding: 20px;
 }
 
+/* Ensure the Navbar text is Pure White for maximum contrast */
+.navbar-title, .nav-link {
+  color: #ffffff !important;
+}
+
+/* Make links in the body a darker, accessible blue */
+/* Standard light blue often fails on white backgrounds */
+a {
+  color: #0056b3; 
+  text-decoration: underline;
+}
+
 /* 3. HEADINGS */
+/* Ensure headings are dark enough to be legible */
 h1, h2, h3, h4 {
-    color: var(--dcc-blue);
+    color: #002147; /* DCC Navy */
     font-weight: 700;
     margin-top: 1.5em;
     border-bottom: 1px solid #eee; /* Helps visual separation */
     padding-bottom: 8px;
 }
-
+/* Add a focus ring for keyboard navigation (for students using Tab keys) */
+a:focus {
+  outline: 3px solid #ffcc00; /* High-contrast gold focus ring */
+}
 /* 4. LINKS */
 a {
     color: var(--link-color);
