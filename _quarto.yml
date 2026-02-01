@@ -24,9 +24,9 @@ website:
         contents:
           - text: "Lab 1: R and RStudio Installation"
             file: labs/lab01.md
-          - text: "Lab 2: RStudio Project and RMarkdown Document"
+          - text: "Lab 2: RStudio Project and Quarto Documents"
             file: labs/lab02.md
-          - text: "Lab 3: Writing math formulas in RMarkdown"
+          - text: "Lab 3: Mathematical Notation in Quarto"
             file: labs/lab03.md
           - text: "Lab 4: GitHub Repository"
             file: labs/lab04.md
