@@ -1112,6 +1112,30 @@
     ]
   },
   {
+    "objectID": "labs/lab17_F26.html",
+    "href": "labs/lab17_F26.html",
+    "title": "Lab 17: Linear Regression",
+    "section": "",
+    "text": "Understand the Linear Regression equation: \\(y = \\beta_0 + \\beta_1x + \\epsilon\\).\nCalculate and interpret the Correlation Coefficient (\\(r\\)).\nFit a Linear Model in R using the lm() function.\nEvaluate model fit using R-squared (\\(R^2\\)).",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 17_F26: Regression models"
+    ]
+  },
+  {
+    "objectID": "labs/lab17_F26.html#learning-objectives",
+    "href": "labs/lab17_F26.html#learning-objectives",
+    "title": "Lab 17: Linear Regression",
+    "section": "",
+    "text": "Understand the Linear Regression equation: \\(y = \\beta_0 + \\beta_1x + \\epsilon\\).\nCalculate and interpret the Correlation Coefficient (\\(r\\)).\nFit a Linear Model in R using the lm() function.\nEvaluate model fit using R-squared (\\(R^2\\)).",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 17_F26: Regression models"
+    ]
+  },
+  {
     "objectID": "labs/lab03.html",
     "href": "labs/lab03.html",
     "title": "Lab 3: Mathematical Notation in Quarto",
