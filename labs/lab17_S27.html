@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="MAT186: Introduction to Data Science">
 
-<title>MAT 186: Data Science</title>
+<title>Lab 17: Linear Regression – MAT 186: Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +24,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-20ee48386a4b45868ab0b2e414518e75.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-20ee48386a4b45868ab0b2e414518e75.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -80,11 +81,11 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/dcc-logo.png" alt="Dutchess Community College Logo" class="navbar-logo light-content">
-    <img src="./images/dcc-logo.png" alt="Dutchess Community College Logo" class="navbar-logo dark-content">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/dcc-logo.png" alt="Dutchess Community College Logo" class="navbar-logo light-content">
+    <img src="../images/dcc-logo.png" alt="Dutchess Community College Logo" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">MAT 186: Data Science</span>
     </a>
   </div>
@@ -95,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
@@ -109,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Lab 17: Linear Regression</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -140,103 +141,103 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab01.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 1: R and RStudio Installation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab02.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 2: RStudio Project and Quarto Documents</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab03.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab03.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 3: Mathematical Notation in Quarto</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab04.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab04.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 4: GitHub Repository</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab05.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab05.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 5: Getting data into R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab06.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab06.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 6: Data collection</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab07.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab07.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 7: Cleaning Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab08.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab08.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 8: Exploratory Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab09.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab09.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 9: Probability distribution</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab10.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab10.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 10: Statistical inference for one mean</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab11.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab11.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 11: Statistical inference for one proportion</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab12.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab12.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 12: Statistical inference for two means</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab13.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab13.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 13: Statistical inference for two proportions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab14.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab14.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 14: Bootstrapping</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab15.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab15.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 15: Non-parametric methods</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab16.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab16.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 16: Analysis of variance (ANOVA)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab17_F26.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab17_F26.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 17_F26: Regression models</span></a>
   </div>
 </li>
@@ -247,34 +248,27 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#mat-186-data-science-lab-manual" id="toc-mat-186-data-science-lab-manual" class="nav-link active" data-scroll-target="#mat-186-data-science-lab-manual">MAT 186: Data Science Lab Manual</a>
-  <ul class="collapse">
-  <li><a href="#accessibility-statement" id="toc-accessibility-statement" class="nav-link" data-scroll-target="#accessibility-statement">♿ Accessibility Statement</a>
-  <ul class="collapse">
-  <li><a href="#features-of-this-manual" id="toc-features-of-this-manual" class="nav-link" data-scroll-target="#features-of-this-manual"><strong>Features of this Manual:</strong></a></li>
-  <li><a href="#support-for-accommodations" id="toc-support-for-accommodations" class="nav-link" data-scroll-target="#support-for-accommodations"><strong>Support for Accommodations</strong></a></li>
-  </ul></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
+<h1 class="title">Lab 17: Linear Regression</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>MAT186: Introduction to Data Science </p>
+          </div>
+  </div>
     
   
     <div>
@@ -291,43 +285,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="mat-186-data-science-lab-manual" class="level1">
-<h1>MAT 186: Data Science Lab Manual</h1>
-<p>Welcome to the official lab manual for <strong>MAT 186: Introduction to Data Science</strong> at Dutchess Community College. This manual will guide you through 17 labs, transitioning from basic data entry to advanced predictive modeling using <strong>R</strong> and <strong>Quarto</strong>.</p>
-<hr>
-<section id="accessibility-statement" class="level2">
-<h2 class="anchored" data-anchor-id="accessibility-statement">♿ Accessibility Statement</h2>
-<p>Dutchess Community College is committed to providing equal access to education. This lab manual is designed with <strong>Universal Design for Learning (UDL)</strong> principles to be accessible to all students, including those using assistive technologies.</p>
-<section id="features-of-this-manual" class="level3">
-<h3 class="anchored" data-anchor-id="features-of-this-manual"><strong>Features of this Manual:</strong></h3>
-<ul>
-<li><strong>Screen Reader Friendly:</strong> All data visualizations include descriptive captions (<code>fig-cap</code>) that act as Alt-Text.</li>
-<li><strong>Colorblind Accessibility:</strong> All plots utilize the <strong>Viridis</strong> color palette, ensuring data is distinguishable regardless of color vision deficiency.</li>
-<li><strong>Keyboard Navigation:</strong> This site is fully navigable via keyboard for students who do not use a mouse.</li>
-<li><strong>Accessible Math:</strong> Mathematical formulas are rendered using <strong>LaTeX</strong>, allowing screen readers to interpret mathematical logic accurately.</li>
-</ul>
-</section>
-<section id="support-for-accommodations" class="level3">
-<h3 class="anchored" data-anchor-id="support-for-accommodations"><strong>Support for Accommodations</strong></h3>
-<p>If you encounter any barriers while using this manual—such as a visualization that is difficult to interpret or code that is hard to navigate—please do not hesitate to contact:</p>
-<ol type="1">
-<li><strong>Your Instructor:</strong> [Insert Your Name/Email]</li>
-<li><strong>DCC Office of Accommodative Services:</strong> * <strong>Location:</strong> Library, Room 303
-<ul>
-<li><strong>Phone:</strong> 845-431-8050</li>
-</ul></li>
-</ol>
-<hr>
-</section>
-</section>
-<section id="getting-started" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
-<p>To begin, select <strong>Lab 1: Introduction to R</strong> from the sidebar. You will need: 1. A laptop or tablet. 2. An account on <strong>Posit Cloud</strong> (or RStudio Desktop installed). 3. Access to our course <strong>Brightspace</strong> page for dataset downloads.</p>
-<hr>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -741,7 +700,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Last updated: February 2, 2026</p>
 </div>
     <div class="nav-footer-right">
-<p><a href="./accessibility.html">Accessibility Statement</a></p>
+<p><a href="../accessibility.html">Accessibility Statement</a></p>
 </div>
   </div>
 </footer>

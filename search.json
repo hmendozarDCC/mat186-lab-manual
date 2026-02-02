@@ -448,87 +448,259 @@
     "text": "Glossary of Data Science Terms\nThis glossary provides definitions for key terms used throughout MAT 186. If you encounter a term you don’t understand in the labs, check here first.\n\n\nC\nCRAN (Comprehensive R Archive Network): The global network of servers that stores and distributes R and its packages. Think of it as the “App Store” for R.\n\n\nD\nData Frame: A table-like structure in R where each column represents a variable and each row represents an observation.\n\n\nI\nIDE (Integrated Development Environment): A software application (like RStudio) that provides comprehensive facilities to computer programmers for software development.\n\n\nM\nMarkdown: A lightweight markup language with plain-text-formatting syntax. It allows you to write formatted text that can be easily converted to HTML.\n\n\nQ\nQuarto: The next-generation version of RMarkdown. It is an open-source scientific and technical publishing system used to create documents, books, and websites.\n\n\nY\nYAML: Stands for “Yet Another Markup Language.” In Quarto, the YAML header (at the top of the file) is where you define settings like the title, author, and output format."
   },
   {
-    "objectID": "labs/lab16.html",
-    "href": "labs/lab16.html",
-    "title": "Lab 16: Analysis of Variance (ANOVA)",
+    "objectID": "labs/lab04.html",
+    "href": "labs/lab04.html",
+    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
     "section": "",
-    "text": "Understand when to use ANOVA instead of multiple t-tests.\nState the Null (\\(H_0\\)) and Alternative (\\(H_a\\)) hypotheses for multiple groups.\nConduct a One-Way ANOVA in R.\nPerform Post-hoc testing (Tukey’s HSD) to find exactly where differences lie.\n\n\n\n\n\nIf you have three groups (e.g., Freshman, Sophomores, Juniors) and you want to compare their average GPA, you could run three separate t-tests. However, every time you run a test, there is a 5% chance of being wrong. By the third test, your error rate has ballooned!\nANOVA tests all groups at once, keeping our error rate at 5%.\n\nNull Hypothesis (\\(H_0\\)): All group means are equal (\\(\\mu_1 = \\mu_2 = \\mu_3\\)).\nAlternative Hypothesis (\\(H_a\\)): At least one group mean is different.\n\n\n\n\n\nWith ANOVA, side-by-side boxplots are essential. They allow us to see if the “spread” within groups is smaller than the “distance” between groups.\nlibrary(tidyverse)\n\n# Example: Do different 'eye colors' in Star Wars have different average heights?\n# We'll filter for the most common eye colors\neye_data &lt;- starwars |&gt; \n  filter(eye_color %in% c(\"blue\", \"brown\", \"yellow\", \"orange\")) |&gt;\n  drop_na(height)\n\nggplot(eye_data, aes(x = eye_color, y = height, fill = eye_color)) +\n  geom_boxplot() +\n  theme_minimal() +\n  labs(title = \"Height Distribution by Eye Color\")\n\n\n\n\nWe use the aov() function. Like the t-test, we use the formula numeric_variable ~ categorical_variable.\n# 1. Fit the ANOVA model\nmodel &lt;- aov(height ~ eye_color, data = eye_data)\n\n# 2. View the summary table\nsummary(model)\n\n\n\nDf: Degrees of freedom.\nF value: The ratio of variance between groups to variance within groups. A large F-value usually leads to a small p-value.\nPr(&gt;F): This is your p-value. If it is &lt; 0.05, we reject the Null.\n\n\n\n\n\n\nIf your ANOVA p-value is significant, you know someone is different, but you don’t know who. We use Tukey’s Honest Significant Difference to compare every possible pair.\n# Running Tukey's HSD\nTukeyHSD(model)\n\n\nLab Task 16: 1. Identify a categorical variable in your data with 3 or more groups (e.g., County, Year, or Category). 2. Create a Boxplot comparing a numeric variable across these groups. 3. Run the aov() function and look at the summary(). 4. Conclusion: * If p &gt; 0.05: State that there is no significant difference between any groups. * If p &lt; 0.05: Run TukeyHSD() and identify which specific pairs are actually different.\n\n\n\n\n\nANOVA assumes that the “spread” (variance) is roughly the same for all groups. If one boxplot is massive and another is tiny, the math might be unreliable. In those cases, we go back to the Non-parametric methods from Lab 15!",
+    "text": "Create a personal GitHub account.\nInitialize a new repository for MAT 186 work.\nUnderstand the “Commit” and “Push” workflow.\nHost a live version of a lab report using GitHub Pages.\n\n\n\n\n\nData Science is a collaborative field. GitHub is the industry standard for version control and sharing code. In this lab, you will set up your own “portfolio”—a place where you can showcase the work you do in this class to future employers or transfer institutions.\n\n\n\n\n\nGo to GitHub.com.\nSign up for a free account.\n\nTip: Choose a professional username (e.g., jsmith-dcc), as you may show this to employers later!\n\nVerify your email address.\n\n\n\n\n\nA Repository (or “Repo”) is like a project folder that lives in the cloud.\n\nClick the + icon in the top right and select New repository.\nRepository name: mat186-work\nDescription: “Labs and projects for Introduction to Data Science at DCC.”\nPublic/Private: Select Public.\nCheck the box that says Add a README file.\nClick Create repository.\n\n\n\n\n\nNow, let’s add the work you’ve done in previous labs.\n\nIn your new mat186-work repository, click Add file &gt; Upload files.\nDrag and drop your HTML files from Lab 2 and Lab 3 into the browser.\nAt the bottom, type a “Commit message” like: Initial upload of Lab 2 and 3.\nClick Commit changes.\n\n\n\n\n\nLet’s make your lab reports viewable as actual websites.\n\nGo to your repository Settings tab.\nOn the left menu, click Pages.\nUnder Build and deployment, set the Branch to main and click Save.\nAfter a minute, GitHub will give you a URL (e.g., https://username.github.io/mat186-work/).\n\n\n\nLab Task 4: 1. Create your mat186-work repository. 2. Upload the HTML version of your Lab 3 (Math Formulas). 3. Enable GitHub Pages. 4. Paste the link to your live GitHub Page into the Brightspace assignment.\n\n\n\n\nBy putting your work on GitHub, you are participating in Open Science. This allows others to learn from your code and allows you to track your own progress throughout the semester!",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 16: Analysis of variance (ANOVA)"
+      "Lab 4: GitHub Repository"
     ]
   },
   {
-    "objectID": "labs/lab16.html#learning-objectives",
-    "href": "labs/lab16.html#learning-objectives",
-    "title": "Lab 16: Analysis of Variance (ANOVA)",
+    "objectID": "labs/lab04.html#learning-objectives",
+    "href": "labs/lab04.html#learning-objectives",
+    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
     "section": "",
-    "text": "Understand when to use ANOVA instead of multiple t-tests.\nState the Null (\\(H_0\\)) and Alternative (\\(H_a\\)) hypotheses for multiple groups.\nConduct a One-Way ANOVA in R.\nPerform Post-hoc testing (Tukey’s HSD) to find exactly where differences lie.",
+    "text": "Create a personal GitHub account.\nInitialize a new repository for MAT 186 work.\nUnderstand the “Commit” and “Push” workflow.\nHost a live version of a lab report using GitHub Pages.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 16: Analysis of variance (ANOVA)"
+      "Lab 4: GitHub Repository"
     ]
   },
   {
-    "objectID": "labs/lab16.html#part-1-why-anova",
-    "href": "labs/lab16.html#part-1-why-anova",
-    "title": "Lab 16: Analysis of Variance (ANOVA)",
+    "objectID": "labs/lab04.html#introduction",
+    "href": "labs/lab04.html#introduction",
+    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
     "section": "",
-    "text": "If you have three groups (e.g., Freshman, Sophomores, Juniors) and you want to compare their average GPA, you could run three separate t-tests. However, every time you run a test, there is a 5% chance of being wrong. By the third test, your error rate has ballooned!\nANOVA tests all groups at once, keeping our error rate at 5%.\n\nNull Hypothesis (\\(H_0\\)): All group means are equal (\\(\\mu_1 = \\mu_2 = \\mu_3\\)).\nAlternative Hypothesis (\\(H_a\\)): At least one group mean is different.",
+    "text": "Data Science is a collaborative field. GitHub is the industry standard for version control and sharing code. In this lab, you will set up your own “portfolio”—a place where you can showcase the work you do in this class to future employers or transfer institutions.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 16: Analysis of variance (ANOVA)"
+      "Lab 4: GitHub Repository"
     ]
   },
   {
-    "objectID": "labs/lab16.html#part-2-visualizing-multiple-groups",
-    "href": "labs/lab16.html#part-2-visualizing-multiple-groups",
-    "title": "Lab 16: Analysis of Variance (ANOVA)",
+    "objectID": "labs/lab04.html#part-1-setting-up-your-account",
+    "href": "labs/lab04.html#part-1-setting-up-your-account",
+    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
     "section": "",
-    "text": "With ANOVA, side-by-side boxplots are essential. They allow us to see if the “spread” within groups is smaller than the “distance” between groups.\nlibrary(tidyverse)\n\n# Example: Do different 'eye colors' in Star Wars have different average heights?\n# We'll filter for the most common eye colors\neye_data &lt;- starwars |&gt; \n  filter(eye_color %in% c(\"blue\", \"brown\", \"yellow\", \"orange\")) |&gt;\n  drop_na(height)\n\nggplot(eye_data, aes(x = eye_color, y = height, fill = eye_color)) +\n  geom_boxplot() +\n  theme_minimal() +\n  labs(title = \"Height Distribution by Eye Color\")",
+    "text": "Go to GitHub.com.\nSign up for a free account.\n\nTip: Choose a professional username (e.g., jsmith-dcc), as you may show this to employers later!\n\nVerify your email address.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 16: Analysis of variance (ANOVA)"
+      "Lab 4: GitHub Repository"
     ]
   },
   {
-    "objectID": "labs/lab16.html#part-3-running-the-anova-in-r",
-    "href": "labs/lab16.html#part-3-running-the-anova-in-r",
-    "title": "Lab 16: Analysis of Variance (ANOVA)",
+    "objectID": "labs/lab04.html#part-2-creating-your-first-repository",
+    "href": "labs/lab04.html#part-2-creating-your-first-repository",
+    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
     "section": "",
-    "text": "We use the aov() function. Like the t-test, we use the formula numeric_variable ~ categorical_variable.\n# 1. Fit the ANOVA model\nmodel &lt;- aov(height ~ eye_color, data = eye_data)\n\n# 2. View the summary table\nsummary(model)\n\n\n\nDf: Degrees of freedom.\nF value: The ratio of variance between groups to variance within groups. A large F-value usually leads to a small p-value.\nPr(&gt;F): This is your p-value. If it is &lt; 0.05, we reject the Null.",
+    "text": "A Repository (or “Repo”) is like a project folder that lives in the cloud.\n\nClick the + icon in the top right and select New repository.\nRepository name: mat186-work\nDescription: “Labs and projects for Introduction to Data Science at DCC.”\nPublic/Private: Select Public.\nCheck the box that says Add a README file.\nClick Create repository.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 16: Analysis of variance (ANOVA)"
+      "Lab 4: GitHub Repository"
     ]
   },
   {
-    "objectID": "labs/lab16.html#part-4-post-hoc-testing-tukeys-hsd",
-    "href": "labs/lab16.html#part-4-post-hoc-testing-tukeys-hsd",
-    "title": "Lab 16: Analysis of Variance (ANOVA)",
+    "objectID": "labs/lab04.html#part-3-uploading-your-lab-reports",
+    "href": "labs/lab04.html#part-3-uploading-your-lab-reports",
+    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
     "section": "",
-    "text": "If your ANOVA p-value is significant, you know someone is different, but you don’t know who. We use Tukey’s Honest Significant Difference to compare every possible pair.\n# Running Tukey's HSD\nTukeyHSD(model)\n\n\nLab Task 16: 1. Identify a categorical variable in your data with 3 or more groups (e.g., County, Year, or Category). 2. Create a Boxplot comparing a numeric variable across these groups. 3. Run the aov() function and look at the summary(). 4. Conclusion: * If p &gt; 0.05: State that there is no significant difference between any groups. * If p &lt; 0.05: Run TukeyHSD() and identify which specific pairs are actually different.",
+    "text": "Now, let’s add the work you’ve done in previous labs.\n\nIn your new mat186-work repository, click Add file &gt; Upload files.\nDrag and drop your HTML files from Lab 2 and Lab 3 into the browser.\nAt the bottom, type a “Commit message” like: Initial upload of Lab 2 and 3.\nClick Commit changes.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 16: Analysis of variance (ANOVA)"
+      "Lab 4: GitHub Repository"
     ]
   },
   {
-    "objectID": "labs/lab16.html#pro-tip-the-equal-variance-assumption",
-    "href": "labs/lab16.html#pro-tip-the-equal-variance-assumption",
-    "title": "Lab 16: Analysis of Variance (ANOVA)",
+    "objectID": "labs/lab04.html#part-4-publishing-with-github-pages",
+    "href": "labs/lab04.html#part-4-publishing-with-github-pages",
+    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
     "section": "",
-    "text": "ANOVA assumes that the “spread” (variance) is roughly the same for all groups. If one boxplot is massive and another is tiny, the math might be unreliable. In those cases, we go back to the Non-parametric methods from Lab 15!",
+    "text": "Let’s make your lab reports viewable as actual websites.\n\nGo to your repository Settings tab.\nOn the left menu, click Pages.\nUnder Build and deployment, set the Branch to main and click Save.\nAfter a minute, GitHub will give you a URL (e.g., https://username.github.io/mat186-work/).\n\n\n\nLab Task 4: 1. Create your mat186-work repository. 2. Upload the HTML version of your Lab 3 (Math Formulas). 3. Enable GitHub Pages. 4. Paste the link to your live GitHub Page into the Brightspace assignment.\n\n\n\n\nBy putting your work on GitHub, you are participating in Open Science. This allows others to learn from your code and allows you to track your own progress throughout the semester!",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 16: Analysis of variance (ANOVA)"
+      "Lab 4: GitHub Repository"
+    ]
+  },
+  {
+    "objectID": "labs/lab02.html",
+    "href": "labs/lab02.html",
+    "title": "Lab 2: RStudio Projects and Quarto Documents",
+    "section": "",
+    "text": "Create an RStudio Project to organize your work.\nUnderstand the structure of a Quarto (.qmd) document.\n“Render” a document into a professional HTML report.\n\n\n\n\n\nIn Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\nOpen RStudio.\nClick File &gt; New Project…\nSelect New Directory &gt; New Project.\nName your directory MAT186_Labs and save it to your Desktop or Documents.\n\n\nWhy use Projects? It sets the “Working Directory” automatically. You’ll never have to type long file paths like C:/Users/Documents/Data... again!\n\n\n\n\n\nQuarto allows you to combine text, code, and results in one file.\n\nClick File &gt; New File &gt; Quarto Document…\nTitle it “Lab 2” and put your name as the Author.\nClick Create.\nLook at the file. You will see:\n\nYAML Header: The stuff between the --- lines (Title, Author, Format).\nCode Chunks: The gray boxes starting with ```{r}.\nMarkdown: The plain white areas for your written analysis.\n\n\n\n\n\n\nTo turn your code into a report: 1. Click the Render button (blue arrow icon) at the top of the editor. 2. RStudio will save the file and pop up a beautiful HTML window.\n\n\nLab Task 2: Inside your Quarto document, create a new code chunk and type 2 + 2. Render the document and verify that the number 4 appears in the final report. Screenshot your rendered HTML for submission.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 2: RStudio Project and Quarto Documents"
+    ]
+  },
+  {
+    "objectID": "labs/lab02.html#learning-objectives",
+    "href": "labs/lab02.html#learning-objectives",
+    "title": "Lab 2: RStudio Projects and Quarto Documents",
+    "section": "",
+    "text": "Create an RStudio Project to organize your work.\nUnderstand the structure of a Quarto (.qmd) document.\n“Render” a document into a professional HTML report.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 2: RStudio Project and Quarto Documents"
+    ]
+  },
+  {
+    "objectID": "labs/lab02.html#part-1-rstudio-projects",
+    "href": "labs/lab02.html#part-1-rstudio-projects",
+    "title": "Lab 2: RStudio Projects and Quarto Documents",
+    "section": "",
+    "text": "In Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\nOpen RStudio.\nClick File &gt; New Project…\nSelect New Directory &gt; New Project.\nName your directory MAT186_Labs and save it to your Desktop or Documents.\n\n\nWhy use Projects? It sets the “Working Directory” automatically. You’ll never have to type long file paths like C:/Users/Documents/Data... again!",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 2: RStudio Project and Quarto Documents"
+    ]
+  },
+  {
+    "objectID": "labs/lab02.html#part-2-creating-a-quarto-document",
+    "href": "labs/lab02.html#part-2-creating-a-quarto-document",
+    "title": "Lab 2: RStudio Projects and Quarto Documents",
+    "section": "",
+    "text": "Quarto allows you to combine text, code, and results in one file.\n\nClick File &gt; New File &gt; Quarto Document…\nTitle it “Lab 2” and put your name as the Author.\nClick Create.\nLook at the file. You will see:\n\nYAML Header: The stuff between the --- lines (Title, Author, Format).\nCode Chunks: The gray boxes starting with ```{r}.\nMarkdown: The plain white areas for your written analysis.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 2: RStudio Project and Quarto Documents"
+    ]
+  },
+  {
+    "objectID": "labs/lab02.html#part-3-rendering-the-magic-button",
+    "href": "labs/lab02.html#part-3-rendering-the-magic-button",
+    "title": "Lab 2: RStudio Projects and Quarto Documents",
+    "section": "",
+    "text": "To turn your code into a report: 1. Click the Render button (blue arrow icon) at the top of the editor. 2. RStudio will save the file and pop up a beautiful HTML window.\n\n\nLab Task 2: Inside your Quarto document, create a new code chunk and type 2 + 2. Render the document and verify that the number 4 appears in the final report. Screenshot your rendered HTML for submission.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 2: RStudio Project and Quarto Documents"
+    ]
+  },
+  {
+    "objectID": "accessibility.html",
+    "href": "accessibility.html",
+    "title": "Accessibility Statement",
+    "section": "",
+    "text": "Dutchess Community College is committed to ensuring that our lab manuals are accessible to all students, including those with disabilities. This site is built using Quarto and follows WCAG 2.1 Level AA standards."
+  },
+  {
+    "objectID": "accessibility.html#our-commitment",
+    "href": "accessibility.html#our-commitment",
+    "title": "Accessibility Statement",
+    "section": "",
+    "text": "Dutchess Community College is committed to ensuring that our lab manuals are accessible to all students, including those with disabilities. This site is built using Quarto and follows WCAG 2.1 Level AA standards."
+  },
+  {
+    "objectID": "accessibility.html#accessibility-features",
+    "href": "accessibility.html#accessibility-features",
+    "title": "Accessibility Statement",
+    "section": "Accessibility Features",
+    "text": "Accessibility Features\n\nMathematical Formulas: We use MathJax to render equations. This allows formulas to be read by screen readers and zoomed without loss of resolution.\nKeyboard Navigation: All parts of this site are navigable using the Tab key.\nHigh Contrast: Colors have been selected to meet contrast requirements for readability.\nAlternative Text: All structural images include descriptive alt-text."
+  },
+  {
+    "objectID": "accessibility.html#support",
+    "href": "accessibility.html#support",
+    "title": "Accessibility Statement",
+    "section": "Support",
+    "text": "Support\nIf you encounter any accessibility barriers or have difficulty accessing the content in these labs, please contact your instructor or the DCC Office of Accommodative Services."
+  },
+  {
+    "objectID": "labs/lab15.html",
+    "href": "labs/lab15.html",
+    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
+    "section": "",
+    "text": "Identify when to use Non-parametric tests instead of Parametric tests.\nConduct a Wilcoxon Rank-Sum Test (Mann-Whitney U).\nConduct a Wilcoxon Signed-Rank Test for paired data.\nUnderstand how “Ranking” data removes the influence of extreme outliers.\n\n\n\n\n\n“Parametric” tests (like the t-test) assume your data follows a specific distribution (the Normal Distribution). Non-parametric tests make no such assumption. They are often called “Distribution-Free” tests.\n\n\n\nYour sample size is very small (n &lt; 30).\nYour data is heavily skewed and cannot be fixed.\nYou have major outliers that you cannot remove.\nYour data is Ordinal (e.g., Likert scales: “Satisfied”, “Neutral”, “Dissatisfied”).\n\n\n\n\n\n\nThis is the non-parametric alternative to the Independent Samples t-test (Lab 12). Instead of comparing means, it compares the medians by ranking all the data points from smallest to largest.\nScenario: Are the “Mass” values of Droids and Humans different? (Mass is often heavily skewed by outliers like Jabba the Hutt).\nlibrary(tidyverse)\n\n# Filtering data\ncomparison_data &lt;- starwars |&gt; \n  filter(species %in% c(\"Human\", \"Droid\")) |&gt;\n  drop_na(mass)\n\n# Running the Wilcoxon Rank-Sum Test\nwilcox.test(mass ~ species, data = comparison_data)\n\n\n\n\nThis is the non-parametric alternative to the Paired t-test. Use this when you have “Before” and “After” measurements on the same subjects, but the differences are not normally distributed.\n# Example syntax for paired data\n# wilcox.test(before_scores, after_scores, paired = TRUE)\n\n\n\n\nWhile non-parametric tests are safer for “messy” data, they are slightly less powerful than parametric tests when the data is actually normal. This means they are less likely to find a significant difference if one actually exists.\n\n\nLab Task 15: 1. Pick a numeric variable from your dataset that looks very skewed (not bell-shaped). 2. Create a Boxplot of this variable grouped by a category. 3. Run a wilcox.test() to compare the two groups. 4. Run a standard t.test() on the same data. 5. Compare: In your Quarto document, compare the p-values. Are they similar? Which test do you trust more for this specific data, and why?\n\n\n\n\n\nIf you are presenting data to a stakeholder and you are worried about one or two “crazy” outliers ruining your average, the Wilcoxon test is your best friend. It treats the outlier as just “the highest rank,” preventing it from pulling the results in its direction.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 15: Non-parametric methods"
+    ]
+  },
+  {
+    "objectID": "labs/lab15.html#learning-objectives",
+    "href": "labs/lab15.html#learning-objectives",
+    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
+    "section": "",
+    "text": "Identify when to use Non-parametric tests instead of Parametric tests.\nConduct a Wilcoxon Rank-Sum Test (Mann-Whitney U).\nConduct a Wilcoxon Signed-Rank Test for paired data.\nUnderstand how “Ranking” data removes the influence of extreme outliers.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 15: Non-parametric methods"
+    ]
+  },
+  {
+    "objectID": "labs/lab15.html#part-1-parametric-vs.-non-parametric",
+    "href": "labs/lab15.html#part-1-parametric-vs.-non-parametric",
+    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
+    "section": "",
+    "text": "“Parametric” tests (like the t-test) assume your data follows a specific distribution (the Normal Distribution). Non-parametric tests make no such assumption. They are often called “Distribution-Free” tests.\n\n\n\nYour sample size is very small (n &lt; 30).\nYour data is heavily skewed and cannot be fixed.\nYou have major outliers that you cannot remove.\nYour data is Ordinal (e.g., Likert scales: “Satisfied”, “Neutral”, “Dissatisfied”).",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 15: Non-parametric methods"
+    ]
+  },
+  {
+    "objectID": "labs/lab15.html#part-2-the-wilcoxon-rank-sum-test",
+    "href": "labs/lab15.html#part-2-the-wilcoxon-rank-sum-test",
+    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
+    "section": "",
+    "text": "This is the non-parametric alternative to the Independent Samples t-test (Lab 12). Instead of comparing means, it compares the medians by ranking all the data points from smallest to largest.\nScenario: Are the “Mass” values of Droids and Humans different? (Mass is often heavily skewed by outliers like Jabba the Hutt).\nlibrary(tidyverse)\n\n# Filtering data\ncomparison_data &lt;- starwars |&gt; \n  filter(species %in% c(\"Human\", \"Droid\")) |&gt;\n  drop_na(mass)\n\n# Running the Wilcoxon Rank-Sum Test\nwilcox.test(mass ~ species, data = comparison_data)",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 15: Non-parametric methods"
+    ]
+  },
+  {
+    "objectID": "labs/lab15.html#part-3-the-wilcoxon-signed-rank-test",
+    "href": "labs/lab15.html#part-3-the-wilcoxon-signed-rank-test",
+    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
+    "section": "",
+    "text": "This is the non-parametric alternative to the Paired t-test. Use this when you have “Before” and “After” measurements on the same subjects, but the differences are not normally distributed.\n# Example syntax for paired data\n# wilcox.test(before_scores, after_scores, paired = TRUE)",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 15: Non-parametric methods"
+    ]
+  },
+  {
+    "objectID": "labs/lab15.html#part-4-the-trade-off",
+    "href": "labs/lab15.html#part-4-the-trade-off",
+    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
+    "section": "",
+    "text": "While non-parametric tests are safer for “messy” data, they are slightly less powerful than parametric tests when the data is actually normal. This means they are less likely to find a significant difference if one actually exists.\n\n\nLab Task 15: 1. Pick a numeric variable from your dataset that looks very skewed (not bell-shaped). 2. Create a Boxplot of this variable grouped by a category. 3. Run a wilcox.test() to compare the two groups. 4. Run a standard t.test() on the same data. 5. Compare: In your Quarto document, compare the p-values. Are they similar? Which test do you trust more for this specific data, and why?",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 15: Non-parametric methods"
+    ]
+  },
+  {
+    "objectID": "labs/lab15.html#pro-tip-when-in-doubt-rank-it-out",
+    "href": "labs/lab15.html#pro-tip-when-in-doubt-rank-it-out",
+    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
+    "section": "",
+    "text": "If you are presenting data to a stakeholder and you are worried about one or two “crazy” outliers ruining your average, the Wilcoxon test is your best friend. It treats the outlier as just “the highest rank,” preventing it from pulling the results in its direction.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 15: Non-parametric methods"
     ]
   },
   {
@@ -616,231 +788,87 @@
     ]
   },
   {
-    "objectID": "labs/lab15.html",
-    "href": "labs/lab15.html",
-    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
+    "objectID": "labs/lab16.html",
+    "href": "labs/lab16.html",
+    "title": "Lab 16: Analysis of Variance (ANOVA)",
     "section": "",
-    "text": "Identify when to use Non-parametric tests instead of Parametric tests.\nConduct a Wilcoxon Rank-Sum Test (Mann-Whitney U).\nConduct a Wilcoxon Signed-Rank Test for paired data.\nUnderstand how “Ranking” data removes the influence of extreme outliers.\n\n\n\n\n\n“Parametric” tests (like the t-test) assume your data follows a specific distribution (the Normal Distribution). Non-parametric tests make no such assumption. They are often called “Distribution-Free” tests.\n\n\n\nYour sample size is very small (n &lt; 30).\nYour data is heavily skewed and cannot be fixed.\nYou have major outliers that you cannot remove.\nYour data is Ordinal (e.g., Likert scales: “Satisfied”, “Neutral”, “Dissatisfied”).\n\n\n\n\n\n\nThis is the non-parametric alternative to the Independent Samples t-test (Lab 12). Instead of comparing means, it compares the medians by ranking all the data points from smallest to largest.\nScenario: Are the “Mass” values of Droids and Humans different? (Mass is often heavily skewed by outliers like Jabba the Hutt).\nlibrary(tidyverse)\n\n# Filtering data\ncomparison_data &lt;- starwars |&gt; \n  filter(species %in% c(\"Human\", \"Droid\")) |&gt;\n  drop_na(mass)\n\n# Running the Wilcoxon Rank-Sum Test\nwilcox.test(mass ~ species, data = comparison_data)\n\n\n\n\nThis is the non-parametric alternative to the Paired t-test. Use this when you have “Before” and “After” measurements on the same subjects, but the differences are not normally distributed.\n# Example syntax for paired data\n# wilcox.test(before_scores, after_scores, paired = TRUE)\n\n\n\n\nWhile non-parametric tests are safer for “messy” data, they are slightly less powerful than parametric tests when the data is actually normal. This means they are less likely to find a significant difference if one actually exists.\n\n\nLab Task 15: 1. Pick a numeric variable from your dataset that looks very skewed (not bell-shaped). 2. Create a Boxplot of this variable grouped by a category. 3. Run a wilcox.test() to compare the two groups. 4. Run a standard t.test() on the same data. 5. Compare: In your Quarto document, compare the p-values. Are they similar? Which test do you trust more for this specific data, and why?\n\n\n\n\n\nIf you are presenting data to a stakeholder and you are worried about one or two “crazy” outliers ruining your average, the Wilcoxon test is your best friend. It treats the outlier as just “the highest rank,” preventing it from pulling the results in its direction.",
+    "text": "Understand when to use ANOVA instead of multiple t-tests.\nState the Null (\\(H_0\\)) and Alternative (\\(H_a\\)) hypotheses for multiple groups.\nConduct a One-Way ANOVA in R.\nPerform Post-hoc testing (Tukey’s HSD) to find exactly where differences lie.\n\n\n\n\n\nIf you have three groups (e.g., Freshman, Sophomores, Juniors) and you want to compare their average GPA, you could run three separate t-tests. However, every time you run a test, there is a 5% chance of being wrong. By the third test, your error rate has ballooned!\nANOVA tests all groups at once, keeping our error rate at 5%.\n\nNull Hypothesis (\\(H_0\\)): All group means are equal (\\(\\mu_1 = \\mu_2 = \\mu_3\\)).\nAlternative Hypothesis (\\(H_a\\)): At least one group mean is different.\n\n\n\n\n\nWith ANOVA, side-by-side boxplots are essential. They allow us to see if the “spread” within groups is smaller than the “distance” between groups.\nlibrary(tidyverse)\n\n# Example: Do different 'eye colors' in Star Wars have different average heights?\n# We'll filter for the most common eye colors\neye_data &lt;- starwars |&gt; \n  filter(eye_color %in% c(\"blue\", \"brown\", \"yellow\", \"orange\")) |&gt;\n  drop_na(height)\n\nggplot(eye_data, aes(x = eye_color, y = height, fill = eye_color)) +\n  geom_boxplot() +\n  theme_minimal() +\n  labs(title = \"Height Distribution by Eye Color\")\n\n\n\n\nWe use the aov() function. Like the t-test, we use the formula numeric_variable ~ categorical_variable.\n# 1. Fit the ANOVA model\nmodel &lt;- aov(height ~ eye_color, data = eye_data)\n\n# 2. View the summary table\nsummary(model)\n\n\n\nDf: Degrees of freedom.\nF value: The ratio of variance between groups to variance within groups. A large F-value usually leads to a small p-value.\nPr(&gt;F): This is your p-value. If it is &lt; 0.05, we reject the Null.\n\n\n\n\n\n\nIf your ANOVA p-value is significant, you know someone is different, but you don’t know who. We use Tukey’s Honest Significant Difference to compare every possible pair.\n# Running Tukey's HSD\nTukeyHSD(model)\n\n\nLab Task 16: 1. Identify a categorical variable in your data with 3 or more groups (e.g., County, Year, or Category). 2. Create a Boxplot comparing a numeric variable across these groups. 3. Run the aov() function and look at the summary(). 4. Conclusion: * If p &gt; 0.05: State that there is no significant difference between any groups. * If p &lt; 0.05: Run TukeyHSD() and identify which specific pairs are actually different.\n\n\n\n\n\nANOVA assumes that the “spread” (variance) is roughly the same for all groups. If one boxplot is massive and another is tiny, the math might be unreliable. In those cases, we go back to the Non-parametric methods from Lab 15!",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 15: Non-parametric methods"
+      "Lab 16: Analysis of variance (ANOVA)"
     ]
   },
   {
-    "objectID": "labs/lab15.html#learning-objectives",
-    "href": "labs/lab15.html#learning-objectives",
-    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
+    "objectID": "labs/lab16.html#learning-objectives",
+    "href": "labs/lab16.html#learning-objectives",
+    "title": "Lab 16: Analysis of Variance (ANOVA)",
     "section": "",
-    "text": "Identify when to use Non-parametric tests instead of Parametric tests.\nConduct a Wilcoxon Rank-Sum Test (Mann-Whitney U).\nConduct a Wilcoxon Signed-Rank Test for paired data.\nUnderstand how “Ranking” data removes the influence of extreme outliers.",
+    "text": "Understand when to use ANOVA instead of multiple t-tests.\nState the Null (\\(H_0\\)) and Alternative (\\(H_a\\)) hypotheses for multiple groups.\nConduct a One-Way ANOVA in R.\nPerform Post-hoc testing (Tukey’s HSD) to find exactly where differences lie.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 15: Non-parametric methods"
+      "Lab 16: Analysis of variance (ANOVA)"
     ]
   },
   {
-    "objectID": "labs/lab15.html#part-1-parametric-vs.-non-parametric",
-    "href": "labs/lab15.html#part-1-parametric-vs.-non-parametric",
-    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
+    "objectID": "labs/lab16.html#part-1-why-anova",
+    "href": "labs/lab16.html#part-1-why-anova",
+    "title": "Lab 16: Analysis of Variance (ANOVA)",
     "section": "",
-    "text": "“Parametric” tests (like the t-test) assume your data follows a specific distribution (the Normal Distribution). Non-parametric tests make no such assumption. They are often called “Distribution-Free” tests.\n\n\n\nYour sample size is very small (n &lt; 30).\nYour data is heavily skewed and cannot be fixed.\nYou have major outliers that you cannot remove.\nYour data is Ordinal (e.g., Likert scales: “Satisfied”, “Neutral”, “Dissatisfied”).",
+    "text": "If you have three groups (e.g., Freshman, Sophomores, Juniors) and you want to compare their average GPA, you could run three separate t-tests. However, every time you run a test, there is a 5% chance of being wrong. By the third test, your error rate has ballooned!\nANOVA tests all groups at once, keeping our error rate at 5%.\n\nNull Hypothesis (\\(H_0\\)): All group means are equal (\\(\\mu_1 = \\mu_2 = \\mu_3\\)).\nAlternative Hypothesis (\\(H_a\\)): At least one group mean is different.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 15: Non-parametric methods"
+      "Lab 16: Analysis of variance (ANOVA)"
     ]
   },
   {
-    "objectID": "labs/lab15.html#part-2-the-wilcoxon-rank-sum-test",
-    "href": "labs/lab15.html#part-2-the-wilcoxon-rank-sum-test",
-    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
+    "objectID": "labs/lab16.html#part-2-visualizing-multiple-groups",
+    "href": "labs/lab16.html#part-2-visualizing-multiple-groups",
+    "title": "Lab 16: Analysis of Variance (ANOVA)",
     "section": "",
-    "text": "This is the non-parametric alternative to the Independent Samples t-test (Lab 12). Instead of comparing means, it compares the medians by ranking all the data points from smallest to largest.\nScenario: Are the “Mass” values of Droids and Humans different? (Mass is often heavily skewed by outliers like Jabba the Hutt).\nlibrary(tidyverse)\n\n# Filtering data\ncomparison_data &lt;- starwars |&gt; \n  filter(species %in% c(\"Human\", \"Droid\")) |&gt;\n  drop_na(mass)\n\n# Running the Wilcoxon Rank-Sum Test\nwilcox.test(mass ~ species, data = comparison_data)",
+    "text": "With ANOVA, side-by-side boxplots are essential. They allow us to see if the “spread” within groups is smaller than the “distance” between groups.\nlibrary(tidyverse)\n\n# Example: Do different 'eye colors' in Star Wars have different average heights?\n# We'll filter for the most common eye colors\neye_data &lt;- starwars |&gt; \n  filter(eye_color %in% c(\"blue\", \"brown\", \"yellow\", \"orange\")) |&gt;\n  drop_na(height)\n\nggplot(eye_data, aes(x = eye_color, y = height, fill = eye_color)) +\n  geom_boxplot() +\n  theme_minimal() +\n  labs(title = \"Height Distribution by Eye Color\")",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 15: Non-parametric methods"
+      "Lab 16: Analysis of variance (ANOVA)"
     ]
   },
   {
-    "objectID": "labs/lab15.html#part-3-the-wilcoxon-signed-rank-test",
-    "href": "labs/lab15.html#part-3-the-wilcoxon-signed-rank-test",
-    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
+    "objectID": "labs/lab16.html#part-3-running-the-anova-in-r",
+    "href": "labs/lab16.html#part-3-running-the-anova-in-r",
+    "title": "Lab 16: Analysis of Variance (ANOVA)",
     "section": "",
-    "text": "This is the non-parametric alternative to the Paired t-test. Use this when you have “Before” and “After” measurements on the same subjects, but the differences are not normally distributed.\n# Example syntax for paired data\n# wilcox.test(before_scores, after_scores, paired = TRUE)",
+    "text": "We use the aov() function. Like the t-test, we use the formula numeric_variable ~ categorical_variable.\n# 1. Fit the ANOVA model\nmodel &lt;- aov(height ~ eye_color, data = eye_data)\n\n# 2. View the summary table\nsummary(model)\n\n\n\nDf: Degrees of freedom.\nF value: The ratio of variance between groups to variance within groups. A large F-value usually leads to a small p-value.\nPr(&gt;F): This is your p-value. If it is &lt; 0.05, we reject the Null.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 15: Non-parametric methods"
+      "Lab 16: Analysis of variance (ANOVA)"
     ]
   },
   {
-    "objectID": "labs/lab15.html#part-4-the-trade-off",
-    "href": "labs/lab15.html#part-4-the-trade-off",
-    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
+    "objectID": "labs/lab16.html#part-4-post-hoc-testing-tukeys-hsd",
+    "href": "labs/lab16.html#part-4-post-hoc-testing-tukeys-hsd",
+    "title": "Lab 16: Analysis of Variance (ANOVA)",
     "section": "",
-    "text": "While non-parametric tests are safer for “messy” data, they are slightly less powerful than parametric tests when the data is actually normal. This means they are less likely to find a significant difference if one actually exists.\n\n\nLab Task 15: 1. Pick a numeric variable from your dataset that looks very skewed (not bell-shaped). 2. Create a Boxplot of this variable grouped by a category. 3. Run a wilcox.test() to compare the two groups. 4. Run a standard t.test() on the same data. 5. Compare: In your Quarto document, compare the p-values. Are they similar? Which test do you trust more for this specific data, and why?",
+    "text": "If your ANOVA p-value is significant, you know someone is different, but you don’t know who. We use Tukey’s Honest Significant Difference to compare every possible pair.\n# Running Tukey's HSD\nTukeyHSD(model)\n\n\nLab Task 16: 1. Identify a categorical variable in your data with 3 or more groups (e.g., County, Year, or Category). 2. Create a Boxplot comparing a numeric variable across these groups. 3. Run the aov() function and look at the summary(). 4. Conclusion: * If p &gt; 0.05: State that there is no significant difference between any groups. * If p &lt; 0.05: Run TukeyHSD() and identify which specific pairs are actually different.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 15: Non-parametric methods"
+      "Lab 16: Analysis of variance (ANOVA)"
     ]
   },
   {
-    "objectID": "labs/lab15.html#pro-tip-when-in-doubt-rank-it-out",
-    "href": "labs/lab15.html#pro-tip-when-in-doubt-rank-it-out",
-    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
+    "objectID": "labs/lab16.html#pro-tip-the-equal-variance-assumption",
+    "href": "labs/lab16.html#pro-tip-the-equal-variance-assumption",
+    "title": "Lab 16: Analysis of Variance (ANOVA)",
     "section": "",
-    "text": "If you are presenting data to a stakeholder and you are worried about one or two “crazy” outliers ruining your average, the Wilcoxon test is your best friend. It treats the outlier as just “the highest rank,” preventing it from pulling the results in its direction.",
+    "text": "ANOVA assumes that the “spread” (variance) is roughly the same for all groups. If one boxplot is massive and another is tiny, the math might be unreliable. In those cases, we go back to the Non-parametric methods from Lab 15!",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 15: Non-parametric methods"
-    ]
-  },
-  {
-    "objectID": "labs/lab02.html",
-    "href": "labs/lab02.html",
-    "title": "Lab 2: RStudio Projects and Quarto Documents",
-    "section": "",
-    "text": "Create an RStudio Project to organize your work.\nUnderstand the structure of a Quarto (.qmd) document.\n“Render” a document into a professional HTML report.\n\n\n\n\n\nIn Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\nOpen RStudio.\nClick File &gt; New Project…\nSelect New Directory &gt; New Project.\nName your directory MAT186_Labs and save it to your Desktop or Documents.\n\n\nWhy use Projects? It sets the “Working Directory” automatically. You’ll never have to type long file paths like C:/Users/Documents/Data... again!\n\n\n\n\n\nQuarto allows you to combine text, code, and results in one file.\n\nClick File &gt; New File &gt; Quarto Document…\nTitle it “Lab 2” and put your name as the Author.\nClick Create.\nLook at the file. You will see:\n\nYAML Header: The stuff between the --- lines (Title, Author, Format).\nCode Chunks: The gray boxes starting with ```{r}.\nMarkdown: The plain white areas for your written analysis.\n\n\n\n\n\n\nTo turn your code into a report: 1. Click the Render button (blue arrow icon) at the top of the editor. 2. RStudio will save the file and pop up a beautiful HTML window.\n\n\nLab Task 2: Inside your Quarto document, create a new code chunk and type 2 + 2. Render the document and verify that the number 4 appears in the final report. Screenshot your rendered HTML for submission.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 2: RStudio Project and RMarkdown Document"
-    ]
-  },
-  {
-    "objectID": "labs/lab02.html#learning-objectives",
-    "href": "labs/lab02.html#learning-objectives",
-    "title": "Lab 2: RStudio Projects and Quarto Documents",
-    "section": "",
-    "text": "Create an RStudio Project to organize your work.\nUnderstand the structure of a Quarto (.qmd) document.\n“Render” a document into a professional HTML report.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 2: RStudio Project and RMarkdown Document"
-    ]
-  },
-  {
-    "objectID": "labs/lab02.html#part-1-rstudio-projects",
-    "href": "labs/lab02.html#part-1-rstudio-projects",
-    "title": "Lab 2: RStudio Projects and Quarto Documents",
-    "section": "",
-    "text": "In Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\nOpen RStudio.\nClick File &gt; New Project…\nSelect New Directory &gt; New Project.\nName your directory MAT186_Labs and save it to your Desktop or Documents.\n\n\nWhy use Projects? It sets the “Working Directory” automatically. You’ll never have to type long file paths like C:/Users/Documents/Data... again!",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 2: RStudio Project and RMarkdown Document"
-    ]
-  },
-  {
-    "objectID": "labs/lab02.html#part-2-creating-a-quarto-document",
-    "href": "labs/lab02.html#part-2-creating-a-quarto-document",
-    "title": "Lab 2: RStudio Projects and Quarto Documents",
-    "section": "",
-    "text": "Quarto allows you to combine text, code, and results in one file.\n\nClick File &gt; New File &gt; Quarto Document…\nTitle it “Lab 2” and put your name as the Author.\nClick Create.\nLook at the file. You will see:\n\nYAML Header: The stuff between the --- lines (Title, Author, Format).\nCode Chunks: The gray boxes starting with ```{r}.\nMarkdown: The plain white areas for your written analysis.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 2: RStudio Project and RMarkdown Document"
-    ]
-  },
-  {
-    "objectID": "labs/lab02.html#part-3-rendering-the-magic-button",
-    "href": "labs/lab02.html#part-3-rendering-the-magic-button",
-    "title": "Lab 2: RStudio Projects and Quarto Documents",
-    "section": "",
-    "text": "To turn your code into a report: 1. Click the Render button (blue arrow icon) at the top of the editor. 2. RStudio will save the file and pop up a beautiful HTML window.\n\n\nLab Task 2: Inside your Quarto document, create a new code chunk and type 2 + 2. Render the document and verify that the number 4 appears in the final report. Screenshot your rendered HTML for submission.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 2: RStudio Project and RMarkdown Document"
-    ]
-  },
-  {
-    "objectID": "labs/lab04.html",
-    "href": "labs/lab04.html",
-    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
-    "section": "",
-    "text": "Create a personal GitHub account.\nInitialize a new repository for MAT 186 work.\nUnderstand the “Commit” and “Push” workflow.\nHost a live version of a lab report using GitHub Pages.\n\n\n\n\n\nData Science is a collaborative field. GitHub is the industry standard for version control and sharing code. In this lab, you will set up your own “portfolio”—a place where you can showcase the work you do in this class to future employers or transfer institutions.\n\n\n\n\n\nGo to GitHub.com.\nSign up for a free account.\n\nTip: Choose a professional username (e.g., jsmith-dcc), as you may show this to employers later!\n\nVerify your email address.\n\n\n\n\n\nA Repository (or “Repo”) is like a project folder that lives in the cloud.\n\nClick the + icon in the top right and select New repository.\nRepository name: mat186-work\nDescription: “Labs and projects for Introduction to Data Science at DCC.”\nPublic/Private: Select Public.\nCheck the box that says Add a README file.\nClick Create repository.\n\n\n\n\n\nNow, let’s add the work you’ve done in previous labs.\n\nIn your new mat186-work repository, click Add file &gt; Upload files.\nDrag and drop your HTML files from Lab 2 and Lab 3 into the browser.\nAt the bottom, type a “Commit message” like: Initial upload of Lab 2 and 3.\nClick Commit changes.\n\n\n\n\n\nLet’s make your lab reports viewable as actual websites.\n\nGo to your repository Settings tab.\nOn the left menu, click Pages.\nUnder Build and deployment, set the Branch to main and click Save.\nAfter a minute, GitHub will give you a URL (e.g., https://username.github.io/mat186-work/).\n\n\n\nLab Task 4: 1. Create your mat186-work repository. 2. Upload the HTML version of your Lab 3 (Math Formulas). 3. Enable GitHub Pages. 4. Paste the link to your live GitHub Page into the Brightspace assignment.\n\n\n\n\nBy putting your work on GitHub, you are participating in Open Science. This allows others to learn from your code and allows you to track your own progress throughout the semester!",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 4: GitHub Repository"
-    ]
-  },
-  {
-    "objectID": "labs/lab04.html#learning-objectives",
-    "href": "labs/lab04.html#learning-objectives",
-    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
-    "section": "",
-    "text": "Create a personal GitHub account.\nInitialize a new repository for MAT 186 work.\nUnderstand the “Commit” and “Push” workflow.\nHost a live version of a lab report using GitHub Pages.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 4: GitHub Repository"
-    ]
-  },
-  {
-    "objectID": "labs/lab04.html#introduction",
-    "href": "labs/lab04.html#introduction",
-    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
-    "section": "",
-    "text": "Data Science is a collaborative field. GitHub is the industry standard for version control and sharing code. In this lab, you will set up your own “portfolio”—a place where you can showcase the work you do in this class to future employers or transfer institutions.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 4: GitHub Repository"
-    ]
-  },
-  {
-    "objectID": "labs/lab04.html#part-1-setting-up-your-account",
-    "href": "labs/lab04.html#part-1-setting-up-your-account",
-    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
-    "section": "",
-    "text": "Go to GitHub.com.\nSign up for a free account.\n\nTip: Choose a professional username (e.g., jsmith-dcc), as you may show this to employers later!\n\nVerify your email address.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 4: GitHub Repository"
-    ]
-  },
-  {
-    "objectID": "labs/lab04.html#part-2-creating-your-first-repository",
-    "href": "labs/lab04.html#part-2-creating-your-first-repository",
-    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
-    "section": "",
-    "text": "A Repository (or “Repo”) is like a project folder that lives in the cloud.\n\nClick the + icon in the top right and select New repository.\nRepository name: mat186-work\nDescription: “Labs and projects for Introduction to Data Science at DCC.”\nPublic/Private: Select Public.\nCheck the box that says Add a README file.\nClick Create repository.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 4: GitHub Repository"
-    ]
-  },
-  {
-    "objectID": "labs/lab04.html#part-3-uploading-your-lab-reports",
-    "href": "labs/lab04.html#part-3-uploading-your-lab-reports",
-    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
-    "section": "",
-    "text": "Now, let’s add the work you’ve done in previous labs.\n\nIn your new mat186-work repository, click Add file &gt; Upload files.\nDrag and drop your HTML files from Lab 2 and Lab 3 into the browser.\nAt the bottom, type a “Commit message” like: Initial upload of Lab 2 and 3.\nClick Commit changes.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 4: GitHub Repository"
-    ]
-  },
-  {
-    "objectID": "labs/lab04.html#part-4-publishing-with-github-pages",
-    "href": "labs/lab04.html#part-4-publishing-with-github-pages",
-    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
-    "section": "",
-    "text": "Let’s make your lab reports viewable as actual websites.\n\nGo to your repository Settings tab.\nOn the left menu, click Pages.\nUnder Build and deployment, set the Branch to main and click Save.\nAfter a minute, GitHub will give you a URL (e.g., https://username.github.io/mat186-work/).\n\n\n\nLab Task 4: 1. Create your mat186-work repository. 2. Upload the HTML version of your Lab 3 (Math Formulas). 3. Enable GitHub Pages. 4. Paste the link to your live GitHub Page into the Brightspace assignment.\n\n\n\n\nBy putting your work on GitHub, you are participating in Open Science. This allows others to learn from your code and allows you to track your own progress throughout the semester!",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 4: GitHub Repository"
+      "Lab 16: Analysis of variance (ANOVA)"
     ]
   },
   {
@@ -1084,90 +1112,6 @@
     ]
   },
   {
-    "objectID": "labs/lab17.html",
-    "href": "labs/lab17.html",
-    "title": "Lab 17: Regression Models",
-    "section": "",
-    "text": "Understand the Linear Regression equation: \\(y = \\beta_0 + \\beta_1x + \\epsilon\\).\nCalculate and interpret the Correlation Coefficient (\\(r\\)).\nFit a Linear Model in R using the lm() function.\nEvaluate model fit using R-squared (\\(R^2\\)).\n\n\n\n\n\nBefore building a model, we need to know if a linear relationship even exists. The correlation coefficient (\\(r\\)) ranges from -1 to 1. * 1: Perfect positive relationship. * 0: No relationship at all. * -1: Perfect negative relationship.\nlibrary(tidyverse)\n\n# Calculate correlation between height and mass\nstarwars |&gt;\n  drop_na(height, mass) |&gt;\n  summarize(correlation = cor(height, mass))\n\n\n\n\nWe use geom_smooth(method = \"lm\") to draw the line that minimizes the distance between all data points (the “Ordinary Least Squares” method).\n# Scatter plot with a regression line\nggplot(starwars |&gt; filter(mass &lt; 500), aes(x = height, y = mass)) +\n  geom_point(alpha = 0.5) +\n  geom_smooth(method = \"lm\", color = \"blue\", se = TRUE) +\n  labs(title = \"Predicting Mass based on Height\",\n       subtitle = \"The blue line represents our regression model\")\n\n\n\n\nIn R, the “Linear Model” function is lm(). The syntax is lm(dependent_variable ~ independent_variable).\n# 1. Create the model\nmy_model &lt;- lm(mass ~ height, data = starwars |&gt; filter(mass &lt; 500))\n\n# 2. View the results\nsummary(my_model)\n\n\n\nIntercept (\\(\\beta_0\\)): The predicted value of \\(y\\) when \\(x\\) is zero.\nSlope (\\(\\beta_1\\)): For every 1 unit increase in \\(x\\), how much \\(y\\) is expected to change.\nR-squared (\\(R^2\\)): The percentage of variation in \\(y\\) explained by your model. (e.g., \\(0.75\\) means your model explains 75% of the data).\n\n\n\n\n\n\nOnce you have a model, you can plug in a value for \\(x\\) to predict \\(y\\). If our model is \\(Mass = -100 + 1.2(Height)\\), we can predict the mass of a character who is 200cm tall.\n# Predict mass for a height of 200cm\nnew_data &lt;- data.frame(height = 200)\npredict(my_model, newdata = new_data)\n\n\nLab Task 17: 1. Pick two numeric variables from your dataset that you think are related. 2. Create a Scatter Plot and add a linear regression line. 3. Use the cor() function to find the correlation coefficient. 4. Fit a linear model using lm() and look at the summary(). 5. The Report: * What is the slope of your model? * What is the \\(R^2\\) value? * Use your model to make one prediction for a value not in your dataset.\n\n\n\n\n\nJust because two variables are mathematically related doesn’t mean one",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 17: Regression models"
-    ]
-  },
-  {
-    "objectID": "labs/lab17.html#learning-objectives",
-    "href": "labs/lab17.html#learning-objectives",
-    "title": "Lab 17: Regression Models",
-    "section": "",
-    "text": "Understand the Linear Regression equation: \\(y = \\beta_0 + \\beta_1x + \\epsilon\\).\nCalculate and interpret the Correlation Coefficient (\\(r\\)).\nFit a Linear Model in R using the lm() function.\nEvaluate model fit using R-squared (\\(R^2\\)).",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 17: Regression models"
-    ]
-  },
-  {
-    "objectID": "labs/lab17.html#part-1-correlation-r",
-    "href": "labs/lab17.html#part-1-correlation-r",
-    "title": "Lab 17: Regression Models",
-    "section": "",
-    "text": "Before building a model, we need to know if a linear relationship even exists. The correlation coefficient (\\(r\\)) ranges from -1 to 1. * 1: Perfect positive relationship. * 0: No relationship at all. * -1: Perfect negative relationship.\nlibrary(tidyverse)\n\n# Calculate correlation between height and mass\nstarwars |&gt;\n  drop_na(height, mass) |&gt;\n  summarize(correlation = cor(height, mass))",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 17: Regression models"
-    ]
-  },
-  {
-    "objectID": "labs/lab17.html#part-2-visualizing-the-best-fit-line",
-    "href": "labs/lab17.html#part-2-visualizing-the-best-fit-line",
-    "title": "Lab 17: Regression Models",
-    "section": "",
-    "text": "We use geom_smooth(method = \"lm\") to draw the line that minimizes the distance between all data points (the “Ordinary Least Squares” method).\n# Scatter plot with a regression line\nggplot(starwars |&gt; filter(mass &lt; 500), aes(x = height, y = mass)) +\n  geom_point(alpha = 0.5) +\n  geom_smooth(method = \"lm\", color = \"blue\", se = TRUE) +\n  labs(title = \"Predicting Mass based on Height\",\n       subtitle = \"The blue line represents our regression model\")",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 17: Regression models"
-    ]
-  },
-  {
-    "objectID": "labs/lab17.html#part-3-building-the-model-in-r",
-    "href": "labs/lab17.html#part-3-building-the-model-in-r",
-    "title": "Lab 17: Regression Models",
-    "section": "",
-    "text": "In R, the “Linear Model” function is lm(). The syntax is lm(dependent_variable ~ independent_variable).\n# 1. Create the model\nmy_model &lt;- lm(mass ~ height, data = starwars |&gt; filter(mass &lt; 500))\n\n# 2. View the results\nsummary(my_model)\n\n\n\nIntercept (\\(\\beta_0\\)): The predicted value of \\(y\\) when \\(x\\) is zero.\nSlope (\\(\\beta_1\\)): For every 1 unit increase in \\(x\\), how much \\(y\\) is expected to change.\nR-squared (\\(R^2\\)): The percentage of variation in \\(y\\) explained by your model. (e.g., \\(0.75\\) means your model explains 75% of the data).",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 17: Regression models"
-    ]
-  },
-  {
-    "objectID": "labs/lab17.html#part-4-making-predictions",
-    "href": "labs/lab17.html#part-4-making-predictions",
-    "title": "Lab 17: Regression Models",
-    "section": "",
-    "text": "Once you have a model, you can plug in a value for \\(x\\) to predict \\(y\\). If our model is \\(Mass = -100 + 1.2(Height)\\), we can predict the mass of a character who is 200cm tall.\n# Predict mass for a height of 200cm\nnew_data &lt;- data.frame(height = 200)\npredict(my_model, newdata = new_data)\n\n\nLab Task 17: 1. Pick two numeric variables from your dataset that you think are related. 2. Create a Scatter Plot and add a linear regression line. 3. Use the cor() function to find the correlation coefficient. 4. Fit a linear model using lm() and look at the summary(). 5. The Report: * What is the slope of your model? * What is the \\(R^2\\) value? * Use your model to make one prediction for a value not in your dataset.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 17: Regression models"
-    ]
-  },
-  {
-    "objectID": "labs/lab17.html#pro-tip-correlation-neq-causation",
-    "href": "labs/lab17.html#pro-tip-correlation-neq-causation",
-    "title": "Lab 17: Regression Models",
-    "section": "",
-    "text": "Just because two variables are mathematically related doesn’t mean one",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 17: Regression models"
-    ]
-  },
-  {
     "objectID": "labs/lab03.html",
     "href": "labs/lab03.html",
     "title": "Lab 3: Mathematical Notation in Quarto",
@@ -1176,7 +1120,7 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 3: Writing math formulas in RMarkdown"
+      "Lab 3: Mathematical Notation in Quarto"
     ]
   },
   {
@@ -1188,7 +1132,7 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 3: Writing math formulas in RMarkdown"
+      "Lab 3: Mathematical Notation in Quarto"
     ]
   },
   {
@@ -1200,7 +1144,7 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 3: Writing math formulas in RMarkdown"
+      "Lab 3: Mathematical Notation in Quarto"
     ]
   },
   {
@@ -1212,7 +1156,7 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 3: Writing math formulas in RMarkdown"
+      "Lab 3: Mathematical Notation in Quarto"
     ]
   },
   {
@@ -1224,7 +1168,7 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 3: Writing math formulas in RMarkdown"
+      "Lab 3: Mathematical Notation in Quarto"
     ]
   },
   {
@@ -1236,7 +1180,7 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 3: Writing math formulas in RMarkdown"
+      "Lab 3: Mathematical Notation in Quarto"
     ]
   },
   {
@@ -1248,7 +1192,7 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 3: Writing math formulas in RMarkdown"
+      "Lab 3: Mathematical Notation in Quarto"
     ]
   },
   {
