@@ -1176,7 +1176,7 @@
     "href": "labs/lab17_F26.html#part-1-correlation-r",
     "title": "Lab 17: Linear Regression",
     "section": "Part 1: Correlation (\\(r\\))",
-    "text": "Part 1: Correlation (\\(r\\))\nBefore building a model, we need to know if a linear relationship even exists. The correlation coefficient (\\(r\\)) ranges from -1 to 1. * 1: Perfect positive relationship. * 0: No relationship at all. * -1: Perfect negative relationship.\nlibrary(tidyverse)\n\n# Calculate correlation between Mother's Weight (lwt) and Birth Weight (bwt)\ndata |&gt;\n  drop_na(lwt, bwt) |&gt;\n  summarize(correlation = cor(lwt, bwt))",
+    "text": "Part 1: Correlation (\\(r\\))\nBefore building a model, we need to know if a linear relationship even exists. The correlation coefficient (\\(r\\)) ranges from -1 to 1. * 1: Perfect positive relationship. * 0: No relationship at all. * -1: Perfect negative relationship.\nlibrary(tidyverse)\n# Calculate correlation between Mother's Weight (lwt) and Birth Weight (bwt)\ndata |&gt;\n  drop_na(lwt, bwt) |&gt;\n  summarize(correlation = cor(lwt, bwt))",
     "crumbs": [
       "Home",
       "Course Labs",
