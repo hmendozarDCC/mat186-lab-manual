@@ -54,7 +54,7 @@ website:
             file: labs/lab15.md
           - text: "Lab 16: Analysis of variance (ANOVA)"
             file: labs/lab16.md
-          - text: "Lab 17_F26: Regression models"
+          - text: "Lab 17: Regression models"
             file: labs/lab17_F26.md
 
   # Page Footer (Bottom)
