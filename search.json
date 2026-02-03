@@ -1116,7 +1116,7 @@
     "href": "labs/lab17_F26.html",
     "title": "Lab 17: Linear Regression",
     "section": "",
-    "text": "Understand the Linear Regression equation: \\(y = \\beta_0 + \\beta_1x + \\epsilon\\).\nCalculate and interpret the Correlation Coefficient (\\(r\\)).\nFit a Linear Model in R using the lm() function.\nEvaluate model fit using R-squared (\\(R^2\\)).\n\n\n\n\n\n\n\nNoteData Acquisition: Birth Weight Dataset (lbw.csv)\n\n\n\nTo complete the regression exercises, you need the lbw.csv dataset. Choose one of the methods below to load the data into R.\n\nOption 1: Direct Link (Recommended)Option 2: Local File\n\n\nThis method pulls the data directly from the lab manual website.\n# Load data directly from the web\nurl &lt;- \"[https://hmendozardcc.github.io/mat186-lab-manual/data/2026_Fall/lbw.csv](https://hmendozardcc.github.io/mat186-lab-manual/data/2026_Fall/lbw.csv)\"\ndata &lt;- read.csv(url)\n\n# View the first few rows to confirm it loaded\nhead(data)\n\n\nUse this if the file is saved in your project folder.\n# Load data from your local data folder\ndata &lt;- read.csv(\"data/lbw.csv\")\nhead(data)",
+    "text": "Understand the Linear Regression equation: \\(y = \\beta_0 + \\beta_1x + \\epsilon\\).\nCalculate and interpret the Correlation Coefficient (\\(r\\)).\nFit a Linear Model in R using the lm() function.\nEvaluate model fit using R-squared (\\(R^2\\)).\n\n\n\n\n\n\n\nNoteData Acquisition: Birth Weight Dataset (lbw.csv)\n\n\n\nTo complete the regression exercises, you need the lbw.csv dataset. Choose one of the methods below to load the data into R. ::: {.panel-tabset}\n\n\nThis method pulls the data directly from the lab manual website.\n# Load data directly from the web\nurl &lt;- \"[https://hmendozardcc.github.io/mat186-lab-manual/data/2026_Fall/lbw.csv](https://hmendozardcc.github.io/mat186-lab-manual/data/2026_Fall/lbw.csv)\"\ndata &lt;- read.csv(url)\n\n# View the first few rows to confirm it loaded\nhead(data)\n\n\n\nUse this if the file is saved in your project folder.\n# Load data from your local data folder\ndata &lt;- read.csv(\"data/lbw.csv\")\nhead(data)\n\n\n\n:::",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -1128,7 +1128,31 @@
     "href": "labs/lab17_F26.html#learning-objectives",
     "title": "Lab 17: Linear Regression",
     "section": "",
-    "text": "Understand the Linear Regression equation: \\(y = \\beta_0 + \\beta_1x + \\epsilon\\).\nCalculate and interpret the Correlation Coefficient (\\(r\\)).\nFit a Linear Model in R using the lm() function.\nEvaluate model fit using R-squared (\\(R^2\\)).\n\n\n\n\n\n\n\nNoteData Acquisition: Birth Weight Dataset (lbw.csv)\n\n\n\nTo complete the regression exercises, you need the lbw.csv dataset. Choose one of the methods below to load the data into R.\n\nOption 1: Direct Link (Recommended)Option 2: Local File\n\n\nThis method pulls the data directly from the lab manual website.\n# Load data directly from the web\nurl &lt;- \"[https://hmendozardcc.github.io/mat186-lab-manual/data/2026_Fall/lbw.csv](https://hmendozardcc.github.io/mat186-lab-manual/data/2026_Fall/lbw.csv)\"\ndata &lt;- read.csv(url)\n\n# View the first few rows to confirm it loaded\nhead(data)\n\n\nUse this if the file is saved in your project folder.\n# Load data from your local data folder\ndata &lt;- read.csv(\"data/lbw.csv\")\nhead(data)",
+    "text": "Understand the Linear Regression equation: \\(y = \\beta_0 + \\beta_1x + \\epsilon\\).\nCalculate and interpret the Correlation Coefficient (\\(r\\)).\nFit a Linear Model in R using the lm() function.\nEvaluate model fit using R-squared (\\(R^2\\)).\n\n\n\n\n\n\n\nNoteData Acquisition: Birth Weight Dataset (lbw.csv)\n\n\n\nTo complete the regression exercises, you need the lbw.csv dataset. Choose one of the methods below to load the data into R. ::: {.panel-tabset}\n\n\nThis method pulls the data directly from the lab manual website.\n# Load data directly from the web\nurl &lt;- \"[https://hmendozardcc.github.io/mat186-lab-manual/data/2026_Fall/lbw.csv](https://hmendozardcc.github.io/mat186-lab-manual/data/2026_Fall/lbw.csv)\"\ndata &lt;- read.csv(url)\n\n# View the first few rows to confirm it loaded\nhead(data)\n\n\n\nUse this if the file is saved in your project folder.\n# Load data from your local data folder\ndata &lt;- read.csv(\"data/lbw.csv\")\nhead(data)\n\n\n\n:::",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 17: Regression models"
+    ]
+  },
+  {
+    "objectID": "labs/lab17_F26.html#option-1-direct-link-recommended",
+    "href": "labs/lab17_F26.html#option-1-direct-link-recommended",
+    "title": "Lab 17: Linear Regression",
+    "section": "",
+    "text": "This method pulls the data directly from the lab manual website.\n# Load data directly from the web\nurl &lt;- \"[https://hmendozardcc.github.io/mat186-lab-manual/data/2026_Fall/lbw.csv](https://hmendozardcc.github.io/mat186-lab-manual/data/2026_Fall/lbw.csv)\"\ndata &lt;- read.csv(url)\n\n# View the first few rows to confirm it loaded\nhead(data)",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 17: Regression models"
+    ]
+  },
+  {
+    "objectID": "labs/lab17_F26.html#option-2-local-file",
+    "href": "labs/lab17_F26.html#option-2-local-file",
+    "title": "Lab 17: Linear Regression",
+    "section": "",
+    "text": "Use this if the file is saved in your project folder.\n# Load data from your local data folder\ndata &lt;- read.csv(\"data/lbw.csv\")\nhead(data)",
     "crumbs": [
       "Home",
       "Course Labs",
