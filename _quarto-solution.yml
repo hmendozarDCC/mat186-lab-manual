@@ -1,2 +1,2 @@
 project:
-  output-dir: "solutions-2026-x9z2-private"
+  output-dir: _site/solutions-key-2026  # This puts solutions in a subfolder
