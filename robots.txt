@@ -1,1 +1,2 @@
-Sitemap: https://hmendozarDCC.github.io/mat186-lab-manual/sitemap.xml
+User-agent: *
+Disallow: /solutions-2026-x9z2-private/
