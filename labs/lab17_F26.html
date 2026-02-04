@@ -323,6 +323,10 @@ window.Quarto = {
   <li><a href="#option-2-local-file" id="toc-option-2-local-file" class="nav-link" data-scroll-target="#option-2-local-file">Option 2: Local File</a></li>
   <li><a href="#part-1-correlation-r" id="toc-part-1-correlation-r" class="nav-link" data-scroll-target="#part-1-correlation-r">Part 1: Correlation (<span class="math inline">\(r\)</span>)</a></li>
   <li><a href="#part-2-visualizing-the-best-fit-line" id="toc-part-2-visualizing-the-best-fit-line" class="nav-link" data-scroll-target="#part-2-visualizing-the-best-fit-line">Part 2: Visualizing the Best Fit Line</a></li>
+  <li><a href="#part-3-building-the-model-in-r" id="toc-part-3-building-the-model-in-r" class="nav-link" data-scroll-target="#part-3-building-the-model-in-r">Part 3: Building the Model in R</a>
+  <ul class="collapse">
+  <li><a href="#how-to-interpret-the-summary" id="toc-how-to-interpret-the-summary" class="nav-link" data-scroll-target="#how-to-interpret-the-summary">How to interpret the summary:</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -413,8 +417,25 @@ window.Quarto = {
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Predicting Birth Weight based on Mother's Weight"</span>,</span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Mother's Weight (lbs)"</span>,</span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Birth Weight (grams)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="part-3-building-the-model-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="part-3-building-the-model-in-r">Part 3: Building the Model in R</h2>
+<p>In R, the “Linear Model” function is <code>lm()</code>. The syntax is <code>lm(dependent_variable ~ independent_variable)</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Create the model</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>lbw_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(bwt <span class="sc">~</span> lwt, <span class="at">data =</span> data)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. View the results</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lbw_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="how-to-interpret-the-summary" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-interpret-the-summary">How to interpret the summary:</h3>
+<ul>
+<li><strong>Intercept (<span class="math inline">\(\beta_0\)</span>):</strong> The predicted value of <span class="math inline">\(y\)</span> when <span class="math inline">\(x\)</span> is zero.</li>
+<li><strong>Slope (<span class="math inline">\(\beta_1\)</span>):</strong> For every 1 unit increase in <span class="math inline">\(x\)</span>, how much <span class="math inline">\(y\)</span> is expected to change.</li>
+<li><strong>R-squared (<span class="math inline">\(R^2\)</span>):</strong> The percentage of variation in <span class="math inline">\(y\)</span> explained by your model. (e.g., <span class="math inline">\(0.75\)</span> means your model explains 75% of the data).</li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

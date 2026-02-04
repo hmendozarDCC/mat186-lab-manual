@@ -1196,6 +1196,18 @@
     ]
   },
   {
+    "objectID": "labs/lab17_F26.html#part-3-building-the-model-in-r",
+    "href": "labs/lab17_F26.html#part-3-building-the-model-in-r",
+    "title": "Lab 17: Linear Regression",
+    "section": "Part 3: Building the Model in R",
+    "text": "Part 3: Building the Model in R\nIn R, the “Linear Model” function is lm(). The syntax is lm(dependent_variable ~ independent_variable).\n# 1. Create the model\nlbw_model &lt;- lm(bwt ~ lwt, data = data)\n\n# 2. View the results\nsummary(lbw_model)\n\nHow to interpret the summary:\n\nIntercept (\\(\\beta_0\\)): The predicted value of \\(y\\) when \\(x\\) is zero.\nSlope (\\(\\beta_1\\)): For every 1 unit increase in \\(x\\), how much \\(y\\) is expected to change.\nR-squared (\\(R^2\\)): The percentage of variation in \\(y\\) explained by your model. (e.g., \\(0.75\\) means your model explains 75% of the data).",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 17: Regression models"
+    ]
+  },
+  {
     "objectID": "labs/lab03.html",
     "href": "labs/lab03.html",
     "title": "Lab 3: Mathematical Notation in Quarto",
