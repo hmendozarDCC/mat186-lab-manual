@@ -1,0 +1,9 @@
+::: {.content-visible when-profile="solution"}
+::: {.callout-tip appearance="simple"}
+### 🎓 Instructor Version
+You are viewing the solutions. [← Back to Schedule] (index.qmd)
+:::
+
+[Download PDF Version]{.btn .btn-primary .btn-sm role="button"}
+---
+:::

@@ -17,12 +17,16 @@ There are two ways to display math in your Quarto documents depending on where y
 
 ### 1. Inline Math
 Use a single dollar sign `$ ... $` when the math should stay inside a sentence.
+
 * **Code:** `The population mean is represented by $\mu$.`
+  
 * **Result:** The population mean is represented by $\mu$.
 
 ### 2. Display Math
-Use double dollar signs `$$...$$` to put the formula on its own line, centered.
+Use double dollar signs `$$...$$` to center the formula on its own line.
+
 * **Code:** `$$\bar{x} = \frac{\sum x_i}{n}$$`
+  
 * **Result:** $$\bar{x} = \frac{\sum x_i}{n}$$
 
 
