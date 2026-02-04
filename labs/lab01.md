@@ -48,3 +48,4 @@ Let's make sure the "engine" and "dashboard" are talking to each other.
 3. Type the following code and press **Enter**:
    ```r
    print("Hello, MAT 186!")
+```
