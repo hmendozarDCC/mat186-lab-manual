@@ -1208,6 +1208,18 @@
     ]
   },
   {
+    "objectID": "labs/lab17_F26.html#part-4-making-predictions",
+    "href": "labs/lab17_F26.html#part-4-making-predictions",
+    "title": "Lab 17: Linear Regression",
+    "section": "Part 4: Making Predictions",
+    "text": "Part 4: Making Predictions\nOnce you have a model, you can plug in a value for \\(x\\) to predict \\(y\\). If our model is \\(Mass = -100 + 1.2(Height)\\), we can predict the mass of a character who is 200cm tall.\n# Predict birth weight for a mother weighing 150 lbs\nnew_mom &lt;- data.frame(lwt = 150)\npredict(lbw_model, newdata = new_mom)",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 17: Regression models"
+    ]
+  },
+  {
     "objectID": "labs/lab03.html",
     "href": "labs/lab03.html",
     "title": "Lab 3: Mathematical Notation in Quarto",

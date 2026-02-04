@@ -327,6 +327,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#how-to-interpret-the-summary" id="toc-how-to-interpret-the-summary" class="nav-link" data-scroll-target="#how-to-interpret-the-summary">How to interpret the summary:</a></li>
   </ul></li>
+  <li><a href="#part-4-making-predictions" id="toc-part-4-making-predictions" class="nav-link" data-scroll-target="#part-4-making-predictions">Part 4: Making Predictions</a></li>
   </ul>
 </nav>
     </div>
@@ -433,9 +434,16 @@ window.Quarto = {
 <li><strong>Slope (<span class="math inline">\(\beta_1\)</span>):</strong> For every 1 unit increase in <span class="math inline">\(x\)</span>, how much <span class="math inline">\(y\)</span> is expected to change.</li>
 <li><strong>R-squared (<span class="math inline">\(R^2\)</span>):</strong> The percentage of variation in <span class="math inline">\(y\)</span> explained by your model. (e.g., <span class="math inline">\(0.75\)</span> means your model explains 75% of the data).</li>
 </ul>
-
-
 </section>
+</section>
+<section id="part-4-making-predictions" class="level2">
+<h2 class="anchored" data-anchor-id="part-4-making-predictions">Part 4: Making Predictions</h2>
+<p>Once you have a model, you can plug in a value for <span class="math inline">\(x\)</span> to predict <span class="math inline">\(y\)</span>. If our model is <span class="math inline">\(Mass = -100 + 1.2(Height)\)</span>, we can predict the mass of a character who is 200cm tall.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict birth weight for a mother weighing 150 lbs</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>new_mom <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">lwt =</span> <span class="dv">150</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(lbw_model, <span class="at">newdata =</span> new_mom)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+
 </section>
 
 </main> <!-- /main -->
