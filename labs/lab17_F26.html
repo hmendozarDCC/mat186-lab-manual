@@ -322,6 +322,7 @@ window.Quarto = {
   <li><a href="#option-1-direct-link-recommended" id="toc-option-1-direct-link-recommended" class="nav-link" data-scroll-target="#option-1-direct-link-recommended">Option 1: Direct Link (Recommended)</a></li>
   <li><a href="#option-2-local-file" id="toc-option-2-local-file" class="nav-link" data-scroll-target="#option-2-local-file">Option 2: Local File</a></li>
   <li><a href="#part-1-correlation-r" id="toc-part-1-correlation-r" class="nav-link" data-scroll-target="#part-1-correlation-r">Part 1: Correlation (<span class="math inline">\(r\)</span>)</a></li>
+  <li><a href="#part-2-visualizing-the-best-fit-line" id="toc-part-2-visualizing-the-best-fit-line" class="nav-link" data-scroll-target="#part-2-visualizing-the-best-fit-line">Part 2: Visualizing the Best Fit Line</a></li>
   </ul>
 </nav>
     </div>
@@ -397,6 +398,21 @@ window.Quarto = {
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(lwt, bwt) <span class="sc">|&gt;</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">correlation =</span> <span class="fu">cor</span>(lwt, bwt))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="part-2-visualizing-the-best-fit-line" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-visualizing-the-best-fit-line">Part 2: Visualizing the Best Fit Line</h2>
+<p>We use <code>geom_smooth(method = "lm")</code> to draw the line that minimizes the distance between all data points (the “Ordinary Least Squares” method).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-regression</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Regression of Birth Weight on Mother's Weight"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-alt: "Scatter plot showing a positive trend between mother's weight and infant birth weight with a blue regression line."</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> lwt, <span class="at">y =</span> bwt)) <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"#002147"</span>) <span class="sc">+</span> <span class="co"># DCC Navy</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Predicting Birth Weight based on Mother's Weight"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Mother's Weight (lbs)"</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Birth Weight (grams)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>

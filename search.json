@@ -1184,6 +1184,18 @@
     ]
   },
   {
+    "objectID": "labs/lab17_F26.html#part-2-visualizing-the-best-fit-line",
+    "href": "labs/lab17_F26.html#part-2-visualizing-the-best-fit-line",
+    "title": "Lab 17: Linear Regression",
+    "section": "Part 2: Visualizing the Best Fit Line",
+    "text": "Part 2: Visualizing the Best Fit Line\nWe use geom_smooth(method = \"lm\") to draw the line that minimizes the distance between all data points (the “Ordinary Least Squares” method).\n#| label: fig-regression\n#| fig-cap: \"Regression of Birth Weight on Mother's Weight\"\n#| fig-alt: \"Scatter plot showing a positive trend between mother's weight and infant birth weight with a blue regression line.\"\n\nggplot(data, aes(x = lwt, y = bwt)) +\n  geom_point(alpha = 0.5, color = \"#002147\") + # DCC Navy\n  geom_smooth(method = \"lm\", color = \"red\", se = TRUE) +\n  theme_minimal() +\n  labs(title = \"Predicting Birth Weight based on Mother's Weight\",\n       x = \"Mother's Weight (lbs)\",\n       y = \"Birth Weight (grams)\")",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 17: Regression models"
+    ]
+  },
+  {
     "objectID": "labs/lab03.html",
     "href": "labs/lab03.html",
     "title": "Lab 3: Mathematical Notation in Quarto",
