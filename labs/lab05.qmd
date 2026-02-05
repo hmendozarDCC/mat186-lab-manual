@@ -21,9 +21,9 @@ R needs to know which folder on your computer it should "look" in.
 </div>
 
 To check where R is looking, type this in your console:
-~~~r
+```r
 getwd()
-~~~
+```
 
 ---
 
@@ -31,7 +31,7 @@ getwd()
 The easiest way to get started is to pull data directly from the internet. We will use the `read_csv()` function from the `tidyverse`.
 
 **Try this code in your Quarto document:**
-~~~r
+```r
 library(tidyverse)
 
 # Loading a dataset about Star Wars characters
@@ -40,7 +40,7 @@ sw_data <- read_csv(url)
 
 # Preview the data
 head(sw_data)
-~~~
+```
 
 
 
