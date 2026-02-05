@@ -71,7 +71,9 @@ my_data <- read_csv("filename.csv")
 ---
 
 <div class="dcc-important">
-**Lab Task 5:** 1. Find any public CSV dataset (or use [this link to DCC-related data](https://example.com/dcc_data.csv)).
+**Lab Task 5:** 
+
+1. Find any public CSV dataset (or use [this link to DCC-related data](https://example.com/dcc_data.csv)).
 
 2. Import it into a new Quarto document using `read_csv`.
 
