@@ -27,8 +27,11 @@ If you encounter any barriers while using this manual—such as a visualization 
 
 ## Getting Started
 To begin, select **Lab 1: Introduction to R** from the sidebar. You will need:
+
 1.  A laptop or tablet.
+
 2.  An account on **Posit Cloud** (or RStudio Desktop installed).
+
 3.  Access to our course **Brightspace** page for dataset downloads.
 
 ---
