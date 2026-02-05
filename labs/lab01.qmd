@@ -1,4 +1,4 @@
-{{< include _solution_header.qmd >}}
+{{< include ../_solution_header.qmd >}}
 # Lab 1: R and RStudio Installation
 
 ## Learning Objectives
