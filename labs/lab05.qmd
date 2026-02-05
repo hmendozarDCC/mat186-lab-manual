@@ -21,6 +21,11 @@ R needs to know which folder on your computer it should "look" in.
 </div>
 
 To check where R is looking, type this in your console:
+
+* Locate the Console pane (typically in the bottom-left of RStudio).
+* Type getwd() at the command prompt (>). It is important to include the parentheses () because it is a function.
+* Press the Enter (or Return) key on your keyboard.
+
 ```r
 getwd()
 ```
@@ -53,9 +58,9 @@ Often, you will download a dataset from a site like Kaggle or a government porta
 2. Move that file into your **MAT186_Labs** folder.
 3. Use the following code (replace `filename.csv` with your actual file name):
 
-~~~r
+```r
 my_data <- read_csv("filename.csv")
-~~~
+```
 
 ---
 
@@ -69,8 +74,8 @@ my_data <- read_csv("filename.csv")
 **Lab Task 5:** 1. Find any public CSV dataset (or use [this link to DCC-related data](https://example.com/dcc_data.csv)).
 2. Import it into a new Quarto document using `read_csv`.
 3. Use the `glimpse()` command to show the structure of your data:
-   ~~~r
+   ```r
    glimpse(my_data)
-   ~~~
+   ```
 4. Render the document and confirm that your data table appears in the HTML.
 </div>
