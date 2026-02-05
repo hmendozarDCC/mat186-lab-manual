@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -206,7 +241,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab12.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab12.md" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 12: Statistical inference for two means</span></a>
   </div>
 </li>
@@ -268,6 +303,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab01.html">Course Labs</a></li><li class="breadcrumb-item"><a href="../labs/lab01.html">Lab 1: R and RStudio Installation</a></li></ol></nav>
 <div class="quarto-title">
+<h1 class="title">Lab 1</h1>
 </div>
 
 
@@ -279,7 +315,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 4, 2026</p>
+      <p class="date-modified">February 5, 2026</p>
     </div>
   </div>
     
@@ -294,7 +330,12 @@ ul.task-list li input[type="checkbox"] {
 <h1>Lab 1: R and RStudio Installation</h1>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
-<p><em>By the end of this lab, students will be able to:</em> * Successfully install the <strong>R</strong> programming language. * Install the <strong>RStudio Desktop</strong> Integrated Development Environment (IDE). * Verify the installation by running a simple command.</p>
+<p>By the end of this lab, students will be able to:</p>
+<ul>
+<li>Successfully install the <strong>R</strong> programming language.</li>
+<li>Install the <strong>RStudio Desktop</strong> Integrated Development Environment (IDE).</li>
+<li>Verify the installation by running a simple command.</li>
+</ul>
 <hr>
 </section>
 <section id="introduction" class="level2">
@@ -333,9 +374,10 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="step-3-verify-your-setup">Step 3: Verify Your Setup</h2>
 <p>Let’s make sure the “engine” and “dashboard” are talking to each other.</p>
 <ol type="1">
-<li>Open <strong>RStudio</strong> from your applications folder or start menu.</li>
-<li>Find the <strong>Console</strong> pane (usually on the bottom left).</li>
-<li>Type the following code and press <strong>Enter</strong>: ```r print(“Hello, MAT 186!”)</li>
+<li><p>Open <strong>RStudio</strong> from your applications folder or start menu.</p></li>
+<li><p>Find the <strong>Console</strong> pane (usually on the bottom left).</p></li>
+<li><p>Type the following code and press <strong>Enter</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Hello, MAT 186!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ol>
 
 
@@ -751,10 +793,10 @@ ul.task-list li input[type="checkbox"] {
 <strong>Dutchess Community College</strong></p>
 </div>   
     <div class="nav-footer-center">
-<p>Last updated: February 4, 2026</p>
+<p>Last updated: February 5, 2026</p>
 </div>
     <div class="nav-footer-right">
-<p><a href="../accessibility.html">Accessibility Statement</a></p>
+<p><a href="../accessibility.md">Accessibility Statement</a></p>
 </div>
   </div>
 </footer>

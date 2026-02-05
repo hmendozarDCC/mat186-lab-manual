@@ -1,107 +1,114 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "MAT 186: Data Science Lab Manual",
+    "objectID": "accessibility.html",
+    "href": "accessibility.html",
+    "title": "Accessibility Statement",
     "section": "",
-    "text": "Welcome to the official lab manual for MAT 186: Introduction to Data Science at Dutchess Community College. This manual will guide you through 17 labs, transitioning from basic data entry to advanced predictive modeling using R and Quarto.\n\n\n\nDutchess Community College is committed to providing equal access to education. This lab manual is designed with Universal Design for Learning (UDL) principles to be accessible to all students, including those using assistive technologies.\n\n\n\nScreen Reader Friendly: All data visualizations include descriptive captions (fig-cap) that act as Alt-Text.\nColorblind Accessibility: All plots utilize the Viridis color palette, ensuring data is distinguishable regardless of color vision deficiency.\nKeyboard Navigation: This site is fully navigable via keyboard for students who do not use a mouse.\nAccessible Math: Mathematical formulas are rendered using LaTeX, allowing screen readers to interpret mathematical logic accurately.\n\n\n\n\nIf you encounter any barriers while using this manual—such as a visualization that is difficult to interpret or code that is hard to navigate—please do not hesitate to contact:\n\nYour Instructor: [Insert Your Name/Email]\nDCC Office of Accommodative Services: * Location: Library, Room 303\n\nPhone: 845-431-8050\n\n\n\n\n\n\n\nTo begin, select Lab 1: Introduction to R from the sidebar. You will need: 1. A laptop or tablet. 2. An account on Posit Cloud (or RStudio Desktop installed). 3. Access to our course Brightspace page for dataset downloads."
+    "text": "Dutchess Community College is committed to ensuring that our lab manuals are accessible to all students, including those with disabilities. This site is built using Quarto and follows WCAG 2.1 Level AA standards."
   },
   {
-    "objectID": "index.html#accessibility-statement",
-    "href": "index.html#accessibility-statement",
-    "title": "MAT 186: Data Science Lab Manual",
+    "objectID": "accessibility.html#our-commitment",
+    "href": "accessibility.html#our-commitment",
+    "title": "Accessibility Statement",
     "section": "",
-    "text": "Dutchess Community College is committed to providing equal access to education. This lab manual is designed with Universal Design for Learning (UDL) principles to be accessible to all students, including those using assistive technologies.\n\n\n\nScreen Reader Friendly: All data visualizations include descriptive captions (fig-cap) that act as Alt-Text.\nColorblind Accessibility: All plots utilize the Viridis color palette, ensuring data is distinguishable regardless of color vision deficiency.\nKeyboard Navigation: This site is fully navigable via keyboard for students who do not use a mouse.\nAccessible Math: Mathematical formulas are rendered using LaTeX, allowing screen readers to interpret mathematical logic accurately.\n\n\n\n\nIf you encounter any barriers while using this manual—such as a visualization that is difficult to interpret or code that is hard to navigate—please do not hesitate to contact:\n\nYour Instructor: [Insert Your Name/Email]\nDCC Office of Accommodative Services: * Location: Library, Room 303\n\nPhone: 845-431-8050"
+    "text": "Dutchess Community College is committed to ensuring that our lab manuals are accessible to all students, including those with disabilities. This site is built using Quarto and follows WCAG 2.1 Level AA standards."
   },
   {
-    "objectID": "index.html#getting-started",
-    "href": "index.html#getting-started",
-    "title": "MAT 186: Data Science Lab Manual",
-    "section": "",
-    "text": "To begin, select Lab 1: Introduction to R from the sidebar. You will need: 1. A laptop or tablet. 2. An account on Posit Cloud (or RStudio Desktop installed). 3. Access to our course Brightspace page for dataset downloads."
+    "objectID": "accessibility.html#accessibility-features",
+    "href": "accessibility.html#accessibility-features",
+    "title": "Accessibility Statement",
+    "section": "Accessibility Features",
+    "text": "Accessibility Features\n\nMathematical Formulas: We use MathJax to render equations. This allows formulas to be read by screen readers and zoomed without loss of resolution.\nKeyboard Navigation: All parts of this site are navigable using the Tab key.\nHigh Contrast: Colors have been selected to meet contrast requirements for readability.\nAlternative Text: All structural images include descriptive alt-text."
   },
   {
-    "objectID": "labs/lab07.html",
-    "href": "labs/lab07.html",
-    "title": "Lab 7: Cleaning Data with dplyr",
+    "objectID": "accessibility.html#support",
+    "href": "accessibility.html#support",
+    "title": "Accessibility Statement",
+    "section": "Support",
+    "text": "Support\nIf you encounter any accessibility barriers or have difficulty accessing the content in these labs, please contact your instructor or the DCC Office of Accommodative Services."
+  },
+  {
+    "objectID": "labs/lab06.html",
+    "href": "labs/lab06.html",
+    "title": "Lab 6: Data Collection and Sources",
     "section": "",
-    "text": "Understand the concept of “Data Wrangling.”\nUse the Pipe Operator (|&gt;) to chain commands.\nLearn core cleaning functions: filter(), select(), and rename().\nHandle missing values (NA).\n\n\n\n\n\n“Raw” data is rarely ready for analysis. It might have columns you don’t need, rows that aren’t relevant to your study, or names that are hard to type. In this lab, we use the dplyr package (part of the tidyverse) to “tidy up” our datasets.\n\n\n\n\nThink of the pipe operator as saying the words “and then.” It takes the output of one function and passes it to the next.\nInstead of writing: clean_data &lt;- filter(raw_data, age &gt; 18)\nWe write: clean_data &lt;- raw_data |&gt; filter(age &gt; 18)\n\n\n\n\n\n\nIf your dataset has 100 columns but you only need 3, use select(). ~r # Keep only the ‘name’ and ‘height’ columns sw_small &lt;- starwars |&gt; select(name, height)~\n\n\n\nIf you only want to look at specific observations (e.g., characters taller than 100cm). ~r # Keep only rows where height is greater than 100 tall_characters &lt;- starwars |&gt; filter(height &gt; 100)~\n\n\n\nIf a column name is confusing or has spaces, rename it. ~r # Change ‘homeworld’ to ‘home_planet’ sw_clean &lt;- starwars |&gt; rename(home_planet = homeworld)~\n\n\n\n\n\nIn R, missing values are represented as NA (Not Available). You can’t calculate the mean of a column if it has NA values without telling R what to do.\nTo remove rows with any missing data: ~r tidy_sw &lt;- starwars |&gt; drop_na(height)~\n\n\nLab Task 7: 1. Open your Quarto document from Lab 6 (the one with your NY State Open Data). 2. Create a new section called “Data Cleaning.” 3. Use select() to keep only the 4 most important columns in your dataset. 4. Use filter() to narrow your data down to one specific category or a certain range of numbers. 5. Use rename() to make at least one column name easier to read. 6. Render your document and check that your new “Cleaned” table looks correct.\n\n\n\n\n\nAlways run glimpse(your_data) after cleaning to make sure you haven’t accidentally deleted something you meant to keep!",
+    "text": "Distinguish between Primary and Secondary data.\nExplore “Open Data” portals (Local, State, and Federal).\nUnderstand the concept of Tidy Data.\nPractice ethical data attribution.\n\n\n\n\n\nData doesn’t just appear out of nowhere; it is collected via sensors, surveys, web scraping, or manual entry. As a data scientist at DCC, you should know how to find reliable sources of information to answer real-world questions.\n\n\n\n\nGovernment agencies often provide “Open Data” portals where anyone can download datasets for free. These are excellent sources for your final projects.\n\n\n\nDutchess County Open Data: Local data on parcels, transit, and public safety.\nNY State Open Data: Information on education, health, and the environment across New York.\nU.S. Census Bureau: The gold standard for demographic data in the United States.\n\n\n\n\n\n\nOnce you collect data, it needs to be in a specific format for R to read it easily. This is called Tidy Data. There are three rules: 1. Each variable must have its own column. 2. Each observation (case) must have its own row. 3. Each value must have its own cell.\n\n\n\n\nWhenever you collect data that you didn’t create yourself, you must provide a Data Citation. This gives credit to the original collectors and allows others to verify your work.\nA good citation includes: * The name of the organization. * The year the data was accessed. * The URL/Link to the dataset.\n\n\nLab Task 6: The Scavenger Hunt 1. Visit the NY State Open Data Portal. 2. Search for a dataset that interests you (e.g., “Student Enrollment” or “Water Quality”). 3. Download the CSV version of that data. 4. Move the file into your RStudio Project folder. 5. In a new Quarto document, write a short paragraph describing: * Where the data came from. * Who collected it. * What one row in the dataset represents (the observation). 6. Use read_csv() to load the data and show the first 10 rows using head().\n\n\n\n\n\nData you find “in the wild” is rarely perfect. In the next lab, we will learn how to “clean” the data you just found—removing empty rows and fixing typos!",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 7: Cleaning Data"
+      "Lab 6: Data collection"
     ]
   },
   {
-    "objectID": "labs/lab07.html#learning-objectives",
-    "href": "labs/lab07.html#learning-objectives",
-    "title": "Lab 7: Cleaning Data with dplyr",
+    "objectID": "labs/lab06.html#learning-objectives",
+    "href": "labs/lab06.html#learning-objectives",
+    "title": "Lab 6: Data Collection and Sources",
     "section": "",
-    "text": "Understand the concept of “Data Wrangling.”\nUse the Pipe Operator (|&gt;) to chain commands.\nLearn core cleaning functions: filter(), select(), and rename().\nHandle missing values (NA).",
+    "text": "Distinguish between Primary and Secondary data.\nExplore “Open Data” portals (Local, State, and Federal).\nUnderstand the concept of Tidy Data.\nPractice ethical data attribution.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 7: Cleaning Data"
+      "Lab 6: Data collection"
     ]
   },
   {
-    "objectID": "labs/lab07.html#introduction",
-    "href": "labs/lab07.html#introduction",
-    "title": "Lab 7: Cleaning Data with dplyr",
+    "objectID": "labs/lab06.html#introduction",
+    "href": "labs/lab06.html#introduction",
+    "title": "Lab 6: Data Collection and Sources",
     "section": "",
-    "text": "“Raw” data is rarely ready for analysis. It might have columns you don’t need, rows that aren’t relevant to your study, or names that are hard to type. In this lab, we use the dplyr package (part of the tidyverse) to “tidy up” our datasets.",
+    "text": "Data doesn’t just appear out of nowhere; it is collected via sensors, surveys, web scraping, or manual entry. As a data scientist at DCC, you should know how to find reliable sources of information to answer real-world questions.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 7: Cleaning Data"
+      "Lab 6: Data collection"
     ]
   },
   {
-    "objectID": "labs/lab07.html#part-1-the-pipe-operator",
-    "href": "labs/lab07.html#part-1-the-pipe-operator",
-    "title": "Lab 7: Cleaning Data with dplyr",
+    "objectID": "labs/lab06.html#part-1-finding-open-data",
+    "href": "labs/lab06.html#part-1-finding-open-data",
+    "title": "Lab 6: Data Collection and Sources",
     "section": "",
-    "text": "Think of the pipe operator as saying the words “and then.” It takes the output of one function and passes it to the next.\nInstead of writing: clean_data &lt;- filter(raw_data, age &gt; 18)\nWe write: clean_data &lt;- raw_data |&gt; filter(age &gt; 18)",
+    "text": "Government agencies often provide “Open Data” portals where anyone can download datasets for free. These are excellent sources for your final projects.\n\n\n\nDutchess County Open Data: Local data on parcels, transit, and public safety.\nNY State Open Data: Information on education, health, and the environment across New York.\nU.S. Census Bureau: The gold standard for demographic data in the United States.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 7: Cleaning Data"
+      "Lab 6: Data collection"
     ]
   },
   {
-    "objectID": "labs/lab07.html#part-2-core-cleaning-functions",
-    "href": "labs/lab07.html#part-2-core-cleaning-functions",
-    "title": "Lab 7: Cleaning Data with dplyr",
+    "objectID": "labs/lab06.html#part-2-what-is-tidy-data",
+    "href": "labs/lab06.html#part-2-what-is-tidy-data",
+    "title": "Lab 6: Data Collection and Sources",
     "section": "",
-    "text": "If your dataset has 100 columns but you only need 3, use select(). ~r # Keep only the ‘name’ and ‘height’ columns sw_small &lt;- starwars |&gt; select(name, height)~\n\n\n\nIf you only want to look at specific observations (e.g., characters taller than 100cm). ~r # Keep only rows where height is greater than 100 tall_characters &lt;- starwars |&gt; filter(height &gt; 100)~\n\n\n\nIf a column name is confusing or has spaces, rename it. ~r # Change ‘homeworld’ to ‘home_planet’ sw_clean &lt;- starwars |&gt; rename(home_planet = homeworld)~",
+    "text": "Once you collect data, it needs to be in a specific format for R to read it easily. This is called Tidy Data. There are three rules: 1. Each variable must have its own column. 2. Each observation (case) must have its own row. 3. Each value must have its own cell.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 7: Cleaning Data"
+      "Lab 6: Data collection"
     ]
   },
   {
-    "objectID": "labs/lab07.html#part-3-handling-missing-data-na",
-    "href": "labs/lab07.html#part-3-handling-missing-data-na",
-    "title": "Lab 7: Cleaning Data with dplyr",
+    "objectID": "labs/lab06.html#part-3-data-ethics-attribution",
+    "href": "labs/lab06.html#part-3-data-ethics-attribution",
+    "title": "Lab 6: Data Collection and Sources",
     "section": "",
-    "text": "In R, missing values are represented as NA (Not Available). You can’t calculate the mean of a column if it has NA values without telling R what to do.\nTo remove rows with any missing data: ~r tidy_sw &lt;- starwars |&gt; drop_na(height)~\n\n\nLab Task 7: 1. Open your Quarto document from Lab 6 (the one with your NY State Open Data). 2. Create a new section called “Data Cleaning.” 3. Use select() to keep only the 4 most important columns in your dataset. 4. Use filter() to narrow your data down to one specific category or a certain range of numbers. 5. Use rename() to make at least one column name easier to read. 6. Render your document and check that your new “Cleaned” table looks correct.",
+    "text": "Whenever you collect data that you didn’t create yourself, you must provide a Data Citation. This gives credit to the original collectors and allows others to verify your work.\nA good citation includes: * The name of the organization. * The year the data was accessed. * The URL/Link to the dataset.\n\n\nLab Task 6: The Scavenger Hunt 1. Visit the NY State Open Data Portal. 2. Search for a dataset that interests you (e.g., “Student Enrollment” or “Water Quality”). 3. Download the CSV version of that data. 4. Move the file into your RStudio Project folder. 5. In a new Quarto document, write a short paragraph describing: * Where the data came from. * Who collected it. * What one row in the dataset represents (the observation). 6. Use read_csv() to load the data and show the first 10 rows using head().",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 7: Cleaning Data"
+      "Lab 6: Data collection"
     ]
   },
   {
-    "objectID": "labs/lab07.html#pro-tip-the-glimpse",
-    "href": "labs/lab07.html#pro-tip-the-glimpse",
-    "title": "Lab 7: Cleaning Data with dplyr",
+    "objectID": "labs/lab06.html#part-4-the-next-step-preview",
+    "href": "labs/lab06.html#part-4-the-next-step-preview",
+    "title": "Lab 6: Data Collection and Sources",
     "section": "",
-    "text": "Always run glimpse(your_data) after cleaning to make sure you haven’t accidentally deleted something you meant to keep!",
+    "text": "Data you find “in the wild” is rarely perfect. In the next lab, we will learn how to “clean” the data you just found—removing empty rows and fixing typos!",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 7: Cleaning Data"
+      "Lab 6: Data collection"
     ]
   },
   {
@@ -186,6 +193,90 @@
       "Home",
       "Course Labs",
       "Lab 11: Statistical inference for one proportion"
+    ]
+  },
+  {
+    "objectID": "labs/lab05.html",
+    "href": "labs/lab05.html",
+    "title": "Lab 5: Getting Data into R",
+    "section": "",
+    "text": "Understand the difference between Absolute and Relative file paths.\nImport data from a local CSV file.\nImport data directly from a URL (Web).\nUse the readr package (part of the tidyverse).\n\n\n\n\n\nBefore we can visualize or model data, we have to “import” it into R’s memory. Most data you will encounter is stored in CSV (Comma Separated Values) format, which looks like an Excel spreadsheet but is much lighter and easier for programs to read.\n\n\n\n\nR needs to know which folder on your computer it should “look” in.\n\nCrucial Step: This is why we use RStudio Projects (from Lab 2). When you open your .Rproj file, R automatically sets your folder as the “Working Directory.”\n\nTo check where R is looking, type this in your console: ~r getwd()~\n\n\n\n\nThe easiest way to get started is to pull data directly from the internet. We will use the read_csv() function from the tidyverse.\nTry this code in your Quarto document: ~~~r library(tidyverse)",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 5: Getting data into R"
+    ]
+  },
+  {
+    "objectID": "labs/lab05.html#learning-objectives",
+    "href": "labs/lab05.html#learning-objectives",
+    "title": "Lab 5: Getting Data into R",
+    "section": "",
+    "text": "Understand the difference between Absolute and Relative file paths.\nImport data from a local CSV file.\nImport data directly from a URL (Web).\nUse the readr package (part of the tidyverse).",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 5: Getting data into R"
+    ]
+  },
+  {
+    "objectID": "labs/lab05.html#introduction",
+    "href": "labs/lab05.html#introduction",
+    "title": "Lab 5: Getting Data into R",
+    "section": "",
+    "text": "Before we can visualize or model data, we have to “import” it into R’s memory. Most data you will encounter is stored in CSV (Comma Separated Values) format, which looks like an Excel spreadsheet but is much lighter and easier for programs to read.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 5: Getting data into R"
+    ]
+  },
+  {
+    "objectID": "labs/lab05.html#part-1-the-working-directory",
+    "href": "labs/lab05.html#part-1-the-working-directory",
+    "title": "Lab 5: Getting Data into R",
+    "section": "",
+    "text": "R needs to know which folder on your computer it should “look” in.\n\nCrucial Step: This is why we use RStudio Projects (from Lab 2). When you open your .Rproj file, R automatically sets your folder as the “Working Directory.”\n\nTo check where R is looking, type this in your console: ~r getwd()~",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 5: Getting data into R"
+    ]
+  },
+  {
+    "objectID": "labs/lab05.html#part-2-loading-data-from-a-url",
+    "href": "labs/lab05.html#part-2-loading-data-from-a-url",
+    "title": "Lab 5: Getting Data into R",
+    "section": "",
+    "text": "The easiest way to get started is to pull data directly from the internet. We will use the read_csv() function from the tidyverse.\nTry this code in your Quarto document: ~~~r library(tidyverse)",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 5: Getting data into R"
+    ]
+  },
+  {
+    "objectID": "labs/lab05.html#part-3-loading-a-local-csv",
+    "href": "labs/lab05.html#part-3-loading-a-local-csv",
+    "title": "Lab 5: Getting Data into R",
+    "section": "Part 3: Loading a Local CSV",
+    "text": "Part 3: Loading a Local CSV\nOften, you will download a dataset from a site like Kaggle or a government portal.\n\nFind a CSV file (or download a sample one).\nMove that file into your MAT186_Labs folder.\nUse the following code (replace filename.csv with your actual file name):\n\nmy_data &lt;- read_csv(\"filename.csv\")",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 5: Getting data into R"
+    ]
+  },
+  {
+    "objectID": "labs/lab05.html#part-4-dealing-with-common-errors",
+    "href": "labs/lab05.html#part-4-dealing-with-common-errors",
+    "title": "Lab 5: Getting Data into R",
+    "section": "Part 4: Dealing with Common Errors",
+    "text": "Part 4: Dealing with Common Errors\n\n“File not found”: This usually means the file is not in your Project folder, or you misspelled the name (remember: Data.csv is different from data.csv).\nColumn Parsing: Sometimes R guesses the data type wrong (e.g., thinking a zip code is a number instead of a label). We will learn to fix this in future labs!\n\n\n\nLab Task 5: 1. Find any public CSV dataset (or use this link to DCC-related data). 2. Import it into a new Quarto document using read_csv. 3. Use the glimpse() command to show the structure of your data: ~r glimpse(my_data)~ 4. Render the document and confirm that your data table appears in the HTML.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 5: Getting data into R"
     ]
   },
   {
@@ -282,833 +373,6 @@
       "Home",
       "Course Labs",
       "Lab 13: Statistical inference for two proportions"
-    ]
-  },
-  {
-    "objectID": "labs/lab09.html",
-    "href": "labs/lab09.html",
-    "title": "Lab 9: Probability and Sampling Distributions",
-    "section": "",
-    "text": "Distinguish between Discrete and Continuous probability distributions.\nVisualize the Normal Distribution (the “Bell Curve”).\nDemonstrate the Central Limit Theorem through simulation.\nUnderstand how sample size affects the “Standard Error.”\n\n\n\n\n\nIn nature and data science, many variables (like heights or exam scores) follow a “Normal” distribution. We can use R to visualize the perfect mathematical curve and compare it to our real data.\nlibrary(tidyverse)\n\n# Generating a theoretical normal distribution\ndata.frame(x = c(-4, 4)) |&gt;\n  ggplot(aes(x)) +\n  stat_function(fun = dnorm, color = \"blue\", size = 1) +\n  labs(title = \"The Standard Normal Distribution (z-distribution)\",\n       subtitle = \"Mean = 0, SD = 1\",\n       x = \"Standard Deviations\", y = \"Density\")\n[Image of a standard normal distribution curve with percentages for 68, 95, and 99.7 rules]\n\n\n\n\nWhen we have “Yes/No” outcomes (like a coin flip or a student passing a test), we use the Binomial Distribution.\n# Simulating 100 people flipping a coin 10 times each\nflips &lt;- rbinom(n = 100, size = 10, prob = 0.5)\n\nggplot(data.frame(flips), aes(x = flips)) +\n  geom_bar(fill = \"darkorange\", color = \"white\") +\n  labs(title = \"Binomial Distribution of Coin Flips\",\n       x = \"Number of Heads\", y = \"Frequency\")\n\n\n\n\nThe CLT is the “Magic” of statistics. It states that if you take enough samples, the distribution of the sample means will always look normal, even if the original data is messy or skewed.\n\n\n# 1. Take 1000 samples of size 30 from a random population\nsamples &lt;- replicate(1000, mean(rexp(30, rate = 0.5)))\n\n# 2. Visualize the results\nggplot(data.frame(samples), aes(x = samples)) +\n  geom_histogram(fill = \"seagreen\", color = \"white\") +\n  labs(title = \"Sampling Distribution of the Mean\",\n       subtitle = \"Notice the bell shape! This is the Central Limit Theorem in action.\",\n       x = \"Sample Means\", y = \"Count\")\n\n\n\n\n\nWe can use the pnorm() function to calculate the probability of a specific event occurring.\nExample: If the average height of a character is 170cm with an SD of 10, what is the probability of a character being taller than 190cm? ~r # 1 - pnorm gives the ‘right tail’ (the probability of being GREATER than) 1 - pnorm(190, mean = 170, sd = 10)~\n\n\nLab Task 9: 1. Create a new Quarto document titled “Lab 9: Probability.” 2. Create a histogram of a variable from your own dataset. Does it look “Normal”? 3. Use mean() and sd() to find the center and spread of that variable. 4. The Simulation: Use the “CLT simulation” code above, but change the sample size from 30 to 5. Render it. Then change it to 100 and render it again. 5. Observation: Write 2 sentences explaining how the “spread” of the histogram changed when you increased the sample size.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 9: Probability distribution"
-    ]
-  },
-  {
-    "objectID": "labs/lab09.html#learning-objectives",
-    "href": "labs/lab09.html#learning-objectives",
-    "title": "Lab 9: Probability and Sampling Distributions",
-    "section": "",
-    "text": "Distinguish between Discrete and Continuous probability distributions.\nVisualize the Normal Distribution (the “Bell Curve”).\nDemonstrate the Central Limit Theorem through simulation.\nUnderstand how sample size affects the “Standard Error.”",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 9: Probability distribution"
-    ]
-  },
-  {
-    "objectID": "labs/lab09.html#part-1-the-normal-distribution",
-    "href": "labs/lab09.html#part-1-the-normal-distribution",
-    "title": "Lab 9: Probability and Sampling Distributions",
-    "section": "",
-    "text": "In nature and data science, many variables (like heights or exam scores) follow a “Normal” distribution. We can use R to visualize the perfect mathematical curve and compare it to our real data.\nlibrary(tidyverse)\n\n# Generating a theoretical normal distribution\ndata.frame(x = c(-4, 4)) |&gt;\n  ggplot(aes(x)) +\n  stat_function(fun = dnorm, color = \"blue\", size = 1) +\n  labs(title = \"The Standard Normal Distribution (z-distribution)\",\n       subtitle = \"Mean = 0, SD = 1\",\n       x = \"Standard Deviations\", y = \"Density\")\n[Image of a standard normal distribution curve with percentages for 68, 95, and 99.7 rules]",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 9: Probability distribution"
-    ]
-  },
-  {
-    "objectID": "labs/lab09.html#part-2-working-with-the-binomial-distribution",
-    "href": "labs/lab09.html#part-2-working-with-the-binomial-distribution",
-    "title": "Lab 9: Probability and Sampling Distributions",
-    "section": "",
-    "text": "When we have “Yes/No” outcomes (like a coin flip or a student passing a test), we use the Binomial Distribution.\n# Simulating 100 people flipping a coin 10 times each\nflips &lt;- rbinom(n = 100, size = 10, prob = 0.5)\n\nggplot(data.frame(flips), aes(x = flips)) +\n  geom_bar(fill = \"darkorange\", color = \"white\") +\n  labs(title = \"Binomial Distribution of Coin Flips\",\n       x = \"Number of Heads\", y = \"Frequency\")",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 9: Probability distribution"
-    ]
-  },
-  {
-    "objectID": "labs/lab09.html#part-3-the-central-limit-theorem-clt",
-    "href": "labs/lab09.html#part-3-the-central-limit-theorem-clt",
-    "title": "Lab 9: Probability and Sampling Distributions",
-    "section": "",
-    "text": "The CLT is the “Magic” of statistics. It states that if you take enough samples, the distribution of the sample means will always look normal, even if the original data is messy or skewed.\n\n\n# 1. Take 1000 samples of size 30 from a random population\nsamples &lt;- replicate(1000, mean(rexp(30, rate = 0.5)))\n\n# 2. Visualize the results\nggplot(data.frame(samples), aes(x = samples)) +\n  geom_histogram(fill = \"seagreen\", color = \"white\") +\n  labs(title = \"Sampling Distribution of the Mean\",\n       subtitle = \"Notice the bell shape! This is the Central Limit Theorem in action.\",\n       x = \"Sample Means\", y = \"Count\")",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 9: Probability distribution"
-    ]
-  },
-  {
-    "objectID": "labs/lab09.html#part-4-probability-in-your-data",
-    "href": "labs/lab09.html#part-4-probability-in-your-data",
-    "title": "Lab 9: Probability and Sampling Distributions",
-    "section": "",
-    "text": "We can use the pnorm() function to calculate the probability of a specific event occurring.\nExample: If the average height of a character is 170cm with an SD of 10, what is the probability of a character being taller than 190cm? ~r # 1 - pnorm gives the ‘right tail’ (the probability of being GREATER than) 1 - pnorm(190, mean = 170, sd = 10)~\n\n\nLab Task 9: 1. Create a new Quarto document titled “Lab 9: Probability.” 2. Create a histogram of a variable from your own dataset. Does it look “Normal”? 3. Use mean() and sd() to find the center and spread of that variable. 4. The Simulation: Use the “CLT simulation” code above, but change the sample size from 30 to 5. Render it. Then change it to 100 and render it again. 5. Observation: Write 2 sentences explaining how the “spread” of the histogram changed when you increased the sample size.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 9: Probability distribution"
-    ]
-  },
-  {
-    "objectID": "labs/lab14.html",
-    "href": "labs/lab14.html",
-    "title": "Lab 14: Bootstrapping and Resampling",
-    "section": "",
-    "text": "Understand the concept of Sampling with Replacement.\nUse the infer package to create a bootstrap distribution.\nEstimate a Confidence Interval without assuming the data is “Normal.”\nCompare Bootstrap results to traditional T-test results.\n\n\n\n\n\nWhat if your data is skewed, or you have a very small sample size? Traditional math might fail you. Bootstrapping solves this by treating your sample like a “mini-population.” We take thousands of samples from our own data to see how much the mean varies.\n\n\n\n\nIn R, the infer package makes the logic of bootstrapping very clear. We follow four steps: specify, generate, calculate, and visualize.\n# Install and load the infer package\nif(!require(infer)) install.packages(\"infer\")\nlibrary(tidyverse)\nlibrary(infer)\n\n# Let's bootstrap the mean height of Star Wars characters\nboot_dist &lt;- starwars |&gt;\n  drop_na(height) |&gt;\n  specify(response = height) |&gt;              # 1. What variable?\n  generate(reps = 1000, type = \"bootstrap\") |&gt; # 2. Resample 1000 times\n  calculate(stat = \"mean\")                   # 3. Find the mean each time\n\n\n\n\nInstead of a theoretical curve, we look at the actual distribution of our 1,000 “fake” means.\nvisualize(boot_dist) +\n  labs(title = \"Bootstrap Distribution of the Mean\",\n       x = \"Sample Mean Height\", y = \"Count\")\n\n\n\n\nTo find a 95% Confidence Interval, we simply look at where the middle 95% of our 1,000 bootstrap means fall.\npercentile_ci &lt;- boot_dist |&gt;\n  get_confidence_interval(level = 0.95, type = \"percentile\")\n\n# View the interval\npercentile_ci\n\n\n\n\n\nNo “Normality” Required: It works even if your data is weirdly shaped.\nAny Statistic: You can bootstrap the mean, the median, the standard deviation, or even the correlation coefficient.\nVisual Logic: It helps you see the uncertainty in your estimate.\n\n\n\nLab Task 14: 1. Pick a numeric variable from your dataset. 2. Create a histogram of the original data. (Is it skewed?) 3. Run the infer code above to generate 1,000 bootstrap reps for the Median instead of the mean (stat = \"median\"). 4. Visualize the bootstrap distribution. 5. Calculate the 95% Confidence Interval. 6. Reflection: In your Quarto document, explain in your own words why we “sample with replacement” during bootstrapping.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 14: Bootstrapping"
-    ]
-  },
-  {
-    "objectID": "labs/lab14.html#learning-objectives",
-    "href": "labs/lab14.html#learning-objectives",
-    "title": "Lab 14: Bootstrapping and Resampling",
-    "section": "",
-    "text": "Understand the concept of Sampling with Replacement.\nUse the infer package to create a bootstrap distribution.\nEstimate a Confidence Interval without assuming the data is “Normal.”\nCompare Bootstrap results to traditional T-test results.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 14: Bootstrapping"
-    ]
-  },
-  {
-    "objectID": "labs/lab14.html#introduction-pulling-yourself-up-by-your-boots",
-    "href": "labs/lab14.html#introduction-pulling-yourself-up-by-your-boots",
-    "title": "Lab 14: Bootstrapping and Resampling",
-    "section": "",
-    "text": "What if your data is skewed, or you have a very small sample size? Traditional math might fail you. Bootstrapping solves this by treating your sample like a “mini-population.” We take thousands of samples from our own data to see how much the mean varies.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 14: Bootstrapping"
-    ]
-  },
-  {
-    "objectID": "labs/lab14.html#part-1-the-infer-package",
-    "href": "labs/lab14.html#part-1-the-infer-package",
-    "title": "Lab 14: Bootstrapping and Resampling",
-    "section": "",
-    "text": "In R, the infer package makes the logic of bootstrapping very clear. We follow four steps: specify, generate, calculate, and visualize.\n# Install and load the infer package\nif(!require(infer)) install.packages(\"infer\")\nlibrary(tidyverse)\nlibrary(infer)\n\n# Let's bootstrap the mean height of Star Wars characters\nboot_dist &lt;- starwars |&gt;\n  drop_na(height) |&gt;\n  specify(response = height) |&gt;              # 1. What variable?\n  generate(reps = 1000, type = \"bootstrap\") |&gt; # 2. Resample 1000 times\n  calculate(stat = \"mean\")                   # 3. Find the mean each time",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 14: Bootstrapping"
-    ]
-  },
-  {
-    "objectID": "labs/lab14.html#part-2-visualizing-the-bootstrap-distribution",
-    "href": "labs/lab14.html#part-2-visualizing-the-bootstrap-distribution",
-    "title": "Lab 14: Bootstrapping and Resampling",
-    "section": "",
-    "text": "Instead of a theoretical curve, we look at the actual distribution of our 1,000 “fake” means.\nvisualize(boot_dist) +\n  labs(title = \"Bootstrap Distribution of the Mean\",\n       x = \"Sample Mean Height\", y = \"Count\")",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 14: Bootstrapping"
-    ]
-  },
-  {
-    "objectID": "labs/lab14.html#part-3-the-percentile-method",
-    "href": "labs/lab14.html#part-3-the-percentile-method",
-    "title": "Lab 14: Bootstrapping and Resampling",
-    "section": "",
-    "text": "To find a 95% Confidence Interval, we simply look at where the middle 95% of our 1,000 bootstrap means fall.\npercentile_ci &lt;- boot_dist |&gt;\n  get_confidence_interval(level = 0.95, type = \"percentile\")\n\n# View the interval\npercentile_ci",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 14: Bootstrapping"
-    ]
-  },
-  {
-    "objectID": "labs/lab14.html#part-4-why-use-bootstrapping",
-    "href": "labs/lab14.html#part-4-why-use-bootstrapping",
-    "title": "Lab 14: Bootstrapping and Resampling",
-    "section": "",
-    "text": "No “Normality” Required: It works even if your data is weirdly shaped.\nAny Statistic: You can bootstrap the mean, the median, the standard deviation, or even the correlation coefficient.\nVisual Logic: It helps you see the uncertainty in your estimate.\n\n\n\nLab Task 14: 1. Pick a numeric variable from your dataset. 2. Create a histogram of the original data. (Is it skewed?) 3. Run the infer code above to generate 1,000 bootstrap reps for the Median instead of the mean (stat = \"median\"). 4. Visualize the bootstrap distribution. 5. Calculate the 95% Confidence Interval. 6. Reflection: In your Quarto document, explain in your own words why we “sample with replacement” during bootstrapping.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 14: Bootstrapping"
-    ]
-  },
-  {
-    "objectID": "labs/glossary.html",
-    "href": "labs/glossary.html",
-    "title": "Glossary of Data Science Terms",
-    "section": "",
-    "text": "Glossary of Data Science Terms\nThis glossary provides definitions for key terms used throughout MAT 186. If you encounter a term you don’t understand in the labs, check here first.\n\n\nC\nCRAN (Comprehensive R Archive Network): The global network of servers that stores and distributes R and its packages. Think of it as the “App Store” for R.\n\n\nD\nData Frame: A table-like structure in R where each column represents a variable and each row represents an observation.\n\n\nI\nIDE (Integrated Development Environment): A software application (like RStudio) that provides comprehensive facilities to computer programmers for software development.\n\n\nM\nMarkdown: A lightweight markup language with plain-text-formatting syntax. It allows you to write formatted text that can be easily converted to HTML.\n\n\nQ\nQuarto: The next-generation version of RMarkdown. It is an open-source scientific and technical publishing system used to create documents, books, and websites.\n\n\nY\nYAML: Stands for “Yet Another Markup Language.” In Quarto, the YAML header (at the top of the file) is where you define settings like the title, author, and output format."
-  },
-  {
-    "objectID": "labs/lab04.html",
-    "href": "labs/lab04.html",
-    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
-    "section": "",
-    "text": "Create a personal GitHub account.\nInitialize a new repository for MAT 186 work.\nUnderstand the “Commit” and “Push” workflow.\nHost a live version of a lab report using GitHub Pages.\n\n\n\n\n\nData Science is a collaborative field. GitHub is the industry standard for version control and sharing code. In this lab, you will set up your own “portfolio”—a place where you can showcase the work you do in this class to future employers or transfer institutions.\n\n\n\n\n\nGo to GitHub.com.\nSign up for a free account.\n\nTip: Choose a professional username (e.g., jsmith-dcc), as you may show this to employers later!\n\nVerify your email address.\n\n\n\n\n\nA Repository (or “Repo”) is like a project folder that lives in the cloud.\n\nClick the + icon in the top right and select New repository.\nRepository name: mat186-work\nDescription: “Labs and projects for Introduction to Data Science at DCC.”\nPublic/Private: Select Public.\nCheck the box that says Add a README file.\nClick Create repository.\n\n\n\n\n\nNow, let’s add the work you’ve done in previous labs.\n\nIn your new mat186-work repository, click Add file &gt; Upload files.\nDrag and drop your HTML files from Lab 2 and Lab 3 into the browser.\nAt the bottom, type a “Commit message” like: Initial upload of Lab 2 and 3.\nClick Commit changes.\n\n\n\n\n\nLet’s make your lab reports viewable as actual websites.\n\nGo to your repository Settings tab.\nOn the left menu, click Pages.\nUnder Build and deployment, set the Branch to main and click Save.\nAfter a minute, GitHub will give you a URL (e.g., https://username.github.io/mat186-work/).\n\n\n\nLab Task 4: 1. Create your mat186-work repository. 2. Upload the HTML version of your Lab 3 (Math Formulas). 3. Enable GitHub Pages. 4. Paste the link to your live GitHub Page into the Brightspace assignment.\n\n\n\n\nBy putting your work on GitHub, you are participating in Open Science. This allows others to learn from your code and allows you to track your own progress throughout the semester!",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 4: GitHub Repository"
-    ]
-  },
-  {
-    "objectID": "labs/lab04.html#learning-objectives",
-    "href": "labs/lab04.html#learning-objectives",
-    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
-    "section": "",
-    "text": "Create a personal GitHub account.\nInitialize a new repository for MAT 186 work.\nUnderstand the “Commit” and “Push” workflow.\nHost a live version of a lab report using GitHub Pages.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 4: GitHub Repository"
-    ]
-  },
-  {
-    "objectID": "labs/lab04.html#introduction",
-    "href": "labs/lab04.html#introduction",
-    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
-    "section": "",
-    "text": "Data Science is a collaborative field. GitHub is the industry standard for version control and sharing code. In this lab, you will set up your own “portfolio”—a place where you can showcase the work you do in this class to future employers or transfer institutions.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 4: GitHub Repository"
-    ]
-  },
-  {
-    "objectID": "labs/lab04.html#part-1-setting-up-your-account",
-    "href": "labs/lab04.html#part-1-setting-up-your-account",
-    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
-    "section": "",
-    "text": "Go to GitHub.com.\nSign up for a free account.\n\nTip: Choose a professional username (e.g., jsmith-dcc), as you may show this to employers later!\n\nVerify your email address.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 4: GitHub Repository"
-    ]
-  },
-  {
-    "objectID": "labs/lab04.html#part-2-creating-your-first-repository",
-    "href": "labs/lab04.html#part-2-creating-your-first-repository",
-    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
-    "section": "",
-    "text": "A Repository (or “Repo”) is like a project folder that lives in the cloud.\n\nClick the + icon in the top right and select New repository.\nRepository name: mat186-work\nDescription: “Labs and projects for Introduction to Data Science at DCC.”\nPublic/Private: Select Public.\nCheck the box that says Add a README file.\nClick Create repository.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 4: GitHub Repository"
-    ]
-  },
-  {
-    "objectID": "labs/lab04.html#part-3-uploading-your-lab-reports",
-    "href": "labs/lab04.html#part-3-uploading-your-lab-reports",
-    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
-    "section": "",
-    "text": "Now, let’s add the work you’ve done in previous labs.\n\nIn your new mat186-work repository, click Add file &gt; Upload files.\nDrag and drop your HTML files from Lab 2 and Lab 3 into the browser.\nAt the bottom, type a “Commit message” like: Initial upload of Lab 2 and 3.\nClick Commit changes.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 4: GitHub Repository"
-    ]
-  },
-  {
-    "objectID": "labs/lab04.html#part-4-publishing-with-github-pages",
-    "href": "labs/lab04.html#part-4-publishing-with-github-pages",
-    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
-    "section": "",
-    "text": "Let’s make your lab reports viewable as actual websites.\n\nGo to your repository Settings tab.\nOn the left menu, click Pages.\nUnder Build and deployment, set the Branch to main and click Save.\nAfter a minute, GitHub will give you a URL (e.g., https://username.github.io/mat186-work/).\n\n\n\nLab Task 4: 1. Create your mat186-work repository. 2. Upload the HTML version of your Lab 3 (Math Formulas). 3. Enable GitHub Pages. 4. Paste the link to your live GitHub Page into the Brightspace assignment.\n\n\n\n\nBy putting your work on GitHub, you are participating in Open Science. This allows others to learn from your code and allows you to track your own progress throughout the semester!",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 4: GitHub Repository"
-    ]
-  },
-  {
-    "objectID": "labs/lab02.html",
-    "href": "labs/lab02.html",
-    "title": "Lab 2: RStudio Projects and Quarto Documents",
-    "section": "",
-    "text": "Create an RStudio Project to organize your work.\nUnderstand the structure of a Quarto (.qmd) document.\n“Render” a document into a professional HTML report.\n\n\n\n\n\nIn Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\nOpen RStudio.\nClick File &gt; New Project…\nSelect New Directory &gt; New Project.\nName your directory MAT186_Labs and save it to your Desktop or Documents.\n\n\nWhy use Projects? It sets the “Working Directory” automatically. You’ll never have to type long file paths like C:/Users/Documents/Data... again!\n\n\n\n\n\nQuarto allows you to combine text, code, and results in one file.\n\nClick File &gt; New File &gt; Quarto Document…\nTitle it “Lab 2” and put your name as the Author.\nClick Create.\nLook at the file. You will see:\n\nYAML Header: The stuff between the --- lines (Title, Author, Format).\nCode Chunks: The gray boxes starting with ```{r}.\nMarkdown: The plain white areas for your written analysis.\n\n\n\n\n\n\nTo turn your code into a report: 1. Click the Render button (blue arrow icon) at the top of the editor. 2. RStudio will save the file and pop up a beautiful HTML window.\n\n\nLab Task 2: Inside your Quarto document, create a new code chunk and type 2 + 2. Render the document and verify that the number 4 appears in the final report. Screenshot your rendered HTML for submission.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 2: RStudio Project and Quarto Documents"
-    ]
-  },
-  {
-    "objectID": "labs/lab02.html#learning-objectives",
-    "href": "labs/lab02.html#learning-objectives",
-    "title": "Lab 2: RStudio Projects and Quarto Documents",
-    "section": "",
-    "text": "Create an RStudio Project to organize your work.\nUnderstand the structure of a Quarto (.qmd) document.\n“Render” a document into a professional HTML report.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 2: RStudio Project and Quarto Documents"
-    ]
-  },
-  {
-    "objectID": "labs/lab02.html#part-1-rstudio-projects",
-    "href": "labs/lab02.html#part-1-rstudio-projects",
-    "title": "Lab 2: RStudio Projects and Quarto Documents",
-    "section": "",
-    "text": "In Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\nOpen RStudio.\nClick File &gt; New Project…\nSelect New Directory &gt; New Project.\nName your directory MAT186_Labs and save it to your Desktop or Documents.\n\n\nWhy use Projects? It sets the “Working Directory” automatically. You’ll never have to type long file paths like C:/Users/Documents/Data... again!",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 2: RStudio Project and Quarto Documents"
-    ]
-  },
-  {
-    "objectID": "labs/lab02.html#part-2-creating-a-quarto-document",
-    "href": "labs/lab02.html#part-2-creating-a-quarto-document",
-    "title": "Lab 2: RStudio Projects and Quarto Documents",
-    "section": "",
-    "text": "Quarto allows you to combine text, code, and results in one file.\n\nClick File &gt; New File &gt; Quarto Document…\nTitle it “Lab 2” and put your name as the Author.\nClick Create.\nLook at the file. You will see:\n\nYAML Header: The stuff between the --- lines (Title, Author, Format).\nCode Chunks: The gray boxes starting with ```{r}.\nMarkdown: The plain white areas for your written analysis.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 2: RStudio Project and Quarto Documents"
-    ]
-  },
-  {
-    "objectID": "labs/lab02.html#part-3-rendering-the-magic-button",
-    "href": "labs/lab02.html#part-3-rendering-the-magic-button",
-    "title": "Lab 2: RStudio Projects and Quarto Documents",
-    "section": "",
-    "text": "To turn your code into a report: 1. Click the Render button (blue arrow icon) at the top of the editor. 2. RStudio will save the file and pop up a beautiful HTML window.\n\n\nLab Task 2: Inside your Quarto document, create a new code chunk and type 2 + 2. Render the document and verify that the number 4 appears in the final report. Screenshot your rendered HTML for submission.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 2: RStudio Project and Quarto Documents"
-    ]
-  },
-  {
-    "objectID": "accessibility.html",
-    "href": "accessibility.html",
-    "title": "Accessibility Statement",
-    "section": "",
-    "text": "Dutchess Community College is committed to ensuring that our lab manuals are accessible to all students, including those with disabilities. This site is built using Quarto and follows WCAG 2.1 Level AA standards."
-  },
-  {
-    "objectID": "accessibility.html#our-commitment",
-    "href": "accessibility.html#our-commitment",
-    "title": "Accessibility Statement",
-    "section": "",
-    "text": "Dutchess Community College is committed to ensuring that our lab manuals are accessible to all students, including those with disabilities. This site is built using Quarto and follows WCAG 2.1 Level AA standards."
-  },
-  {
-    "objectID": "accessibility.html#accessibility-features",
-    "href": "accessibility.html#accessibility-features",
-    "title": "Accessibility Statement",
-    "section": "Accessibility Features",
-    "text": "Accessibility Features\n\nMathematical Formulas: We use MathJax to render equations. This allows formulas to be read by screen readers and zoomed without loss of resolution.\nKeyboard Navigation: All parts of this site are navigable using the Tab key.\nHigh Contrast: Colors have been selected to meet contrast requirements for readability.\nAlternative Text: All structural images include descriptive alt-text."
-  },
-  {
-    "objectID": "accessibility.html#support",
-    "href": "accessibility.html#support",
-    "title": "Accessibility Statement",
-    "section": "Support",
-    "text": "Support\nIf you encounter any accessibility barriers or have difficulty accessing the content in these labs, please contact your instructor or the DCC Office of Accommodative Services."
-  },
-  {
-    "objectID": "labs/lab15.html",
-    "href": "labs/lab15.html",
-    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
-    "section": "",
-    "text": "Identify when to use Non-parametric tests instead of Parametric tests.\nConduct a Wilcoxon Rank-Sum Test (Mann-Whitney U).\nConduct a Wilcoxon Signed-Rank Test for paired data.\nUnderstand how “Ranking” data removes the influence of extreme outliers.\n\n\n\n\n\n“Parametric” tests (like the t-test) assume your data follows a specific distribution (the Normal Distribution). Non-parametric tests make no such assumption. They are often called “Distribution-Free” tests.\n\n\n\nYour sample size is very small (n &lt; 30).\nYour data is heavily skewed and cannot be fixed.\nYou have major outliers that you cannot remove.\nYour data is Ordinal (e.g., Likert scales: “Satisfied”, “Neutral”, “Dissatisfied”).\n\n\n\n\n\n\nThis is the non-parametric alternative to the Independent Samples t-test (Lab 12). Instead of comparing means, it compares the medians by ranking all the data points from smallest to largest.\nScenario: Are the “Mass” values of Droids and Humans different? (Mass is often heavily skewed by outliers like Jabba the Hutt).\nlibrary(tidyverse)\n\n# Filtering data\ncomparison_data &lt;- starwars |&gt; \n  filter(species %in% c(\"Human\", \"Droid\")) |&gt;\n  drop_na(mass)\n\n# Running the Wilcoxon Rank-Sum Test\nwilcox.test(mass ~ species, data = comparison_data)\n\n\n\n\nThis is the non-parametric alternative to the Paired t-test. Use this when you have “Before” and “After” measurements on the same subjects, but the differences are not normally distributed.\n# Example syntax for paired data\n# wilcox.test(before_scores, after_scores, paired = TRUE)\n\n\n\n\nWhile non-parametric tests are safer for “messy” data, they are slightly less powerful than parametric tests when the data is actually normal. This means they are less likely to find a significant difference if one actually exists.\n\n\nLab Task 15: 1. Pick a numeric variable from your dataset that looks very skewed (not bell-shaped). 2. Create a Boxplot of this variable grouped by a category. 3. Run a wilcox.test() to compare the two groups. 4. Run a standard t.test() on the same data. 5. Compare: In your Quarto document, compare the p-values. Are they similar? Which test do you trust more for this specific data, and why?\n\n\n\n\n\nIf you are presenting data to a stakeholder and you are worried about one or two “crazy” outliers ruining your average, the Wilcoxon test is your best friend. It treats the outlier as just “the highest rank,” preventing it from pulling the results in its direction.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 15: Non-parametric methods"
-    ]
-  },
-  {
-    "objectID": "labs/lab15.html#learning-objectives",
-    "href": "labs/lab15.html#learning-objectives",
-    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
-    "section": "",
-    "text": "Identify when to use Non-parametric tests instead of Parametric tests.\nConduct a Wilcoxon Rank-Sum Test (Mann-Whitney U).\nConduct a Wilcoxon Signed-Rank Test for paired data.\nUnderstand how “Ranking” data removes the influence of extreme outliers.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 15: Non-parametric methods"
-    ]
-  },
-  {
-    "objectID": "labs/lab15.html#part-1-parametric-vs.-non-parametric",
-    "href": "labs/lab15.html#part-1-parametric-vs.-non-parametric",
-    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
-    "section": "",
-    "text": "“Parametric” tests (like the t-test) assume your data follows a specific distribution (the Normal Distribution). Non-parametric tests make no such assumption. They are often called “Distribution-Free” tests.\n\n\n\nYour sample size is very small (n &lt; 30).\nYour data is heavily skewed and cannot be fixed.\nYou have major outliers that you cannot remove.\nYour data is Ordinal (e.g., Likert scales: “Satisfied”, “Neutral”, “Dissatisfied”).",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 15: Non-parametric methods"
-    ]
-  },
-  {
-    "objectID": "labs/lab15.html#part-2-the-wilcoxon-rank-sum-test",
-    "href": "labs/lab15.html#part-2-the-wilcoxon-rank-sum-test",
-    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
-    "section": "",
-    "text": "This is the non-parametric alternative to the Independent Samples t-test (Lab 12). Instead of comparing means, it compares the medians by ranking all the data points from smallest to largest.\nScenario: Are the “Mass” values of Droids and Humans different? (Mass is often heavily skewed by outliers like Jabba the Hutt).\nlibrary(tidyverse)\n\n# Filtering data\ncomparison_data &lt;- starwars |&gt; \n  filter(species %in% c(\"Human\", \"Droid\")) |&gt;\n  drop_na(mass)\n\n# Running the Wilcoxon Rank-Sum Test\nwilcox.test(mass ~ species, data = comparison_data)",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 15: Non-parametric methods"
-    ]
-  },
-  {
-    "objectID": "labs/lab15.html#part-3-the-wilcoxon-signed-rank-test",
-    "href": "labs/lab15.html#part-3-the-wilcoxon-signed-rank-test",
-    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
-    "section": "",
-    "text": "This is the non-parametric alternative to the Paired t-test. Use this when you have “Before” and “After” measurements on the same subjects, but the differences are not normally distributed.\n# Example syntax for paired data\n# wilcox.test(before_scores, after_scores, paired = TRUE)",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 15: Non-parametric methods"
-    ]
-  },
-  {
-    "objectID": "labs/lab15.html#part-4-the-trade-off",
-    "href": "labs/lab15.html#part-4-the-trade-off",
-    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
-    "section": "",
-    "text": "While non-parametric tests are safer for “messy” data, they are slightly less powerful than parametric tests when the data is actually normal. This means they are less likely to find a significant difference if one actually exists.\n\n\nLab Task 15: 1. Pick a numeric variable from your dataset that looks very skewed (not bell-shaped). 2. Create a Boxplot of this variable grouped by a category. 3. Run a wilcox.test() to compare the two groups. 4. Run a standard t.test() on the same data. 5. Compare: In your Quarto document, compare the p-values. Are they similar? Which test do you trust more for this specific data, and why?",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 15: Non-parametric methods"
-    ]
-  },
-  {
-    "objectID": "labs/lab15.html#pro-tip-when-in-doubt-rank-it-out",
-    "href": "labs/lab15.html#pro-tip-when-in-doubt-rank-it-out",
-    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
-    "section": "",
-    "text": "If you are presenting data to a stakeholder and you are worried about one or two “crazy” outliers ruining your average, the Wilcoxon test is your best friend. It treats the outlier as just “the highest rank,” preventing it from pulling the results in its direction.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 15: Non-parametric methods"
-    ]
-  },
-  {
-    "objectID": "labs/lab06.html",
-    "href": "labs/lab06.html",
-    "title": "Lab 6: Data Collection and Sources",
-    "section": "",
-    "text": "Distinguish between Primary and Secondary data.\nExplore “Open Data” portals (Local, State, and Federal).\nUnderstand the concept of Tidy Data.\nPractice ethical data attribution.\n\n\n\n\n\nData doesn’t just appear out of nowhere; it is collected via sensors, surveys, web scraping, or manual entry. As a data scientist at DCC, you should know how to find reliable sources of information to answer real-world questions.\n\n\n\n\nGovernment agencies often provide “Open Data” portals where anyone can download datasets for free. These are excellent sources for your final projects.\n\n\n\nDutchess County Open Data: Local data on parcels, transit, and public safety.\nNY State Open Data: Information on education, health, and the environment across New York.\nU.S. Census Bureau: The gold standard for demographic data in the United States.\n\n\n\n\n\n\nOnce you collect data, it needs to be in a specific format for R to read it easily. This is called Tidy Data. There are three rules: 1. Each variable must have its own column. 2. Each observation (case) must have its own row. 3. Each value must have its own cell.\n\n\n\n\nWhenever you collect data that you didn’t create yourself, you must provide a Data Citation. This gives credit to the original collectors and allows others to verify your work.\nA good citation includes: * The name of the organization. * The year the data was accessed. * The URL/Link to the dataset.\n\n\nLab Task 6: The Scavenger Hunt 1. Visit the NY State Open Data Portal. 2. Search for a dataset that interests you (e.g., “Student Enrollment” or “Water Quality”). 3. Download the CSV version of that data. 4. Move the file into your RStudio Project folder. 5. In a new Quarto document, write a short paragraph describing: * Where the data came from. * Who collected it. * What one row in the dataset represents (the observation). 6. Use read_csv() to load the data and show the first 10 rows using head().\n\n\n\n\n\nData you find “in the wild” is rarely perfect. In the next lab, we will learn how to “clean” the data you just found—removing empty rows and fixing typos!",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 6: Data collection"
-    ]
-  },
-  {
-    "objectID": "labs/lab06.html#learning-objectives",
-    "href": "labs/lab06.html#learning-objectives",
-    "title": "Lab 6: Data Collection and Sources",
-    "section": "",
-    "text": "Distinguish between Primary and Secondary data.\nExplore “Open Data” portals (Local, State, and Federal).\nUnderstand the concept of Tidy Data.\nPractice ethical data attribution.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 6: Data collection"
-    ]
-  },
-  {
-    "objectID": "labs/lab06.html#introduction",
-    "href": "labs/lab06.html#introduction",
-    "title": "Lab 6: Data Collection and Sources",
-    "section": "",
-    "text": "Data doesn’t just appear out of nowhere; it is collected via sensors, surveys, web scraping, or manual entry. As a data scientist at DCC, you should know how to find reliable sources of information to answer real-world questions.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 6: Data collection"
-    ]
-  },
-  {
-    "objectID": "labs/lab06.html#part-1-finding-open-data",
-    "href": "labs/lab06.html#part-1-finding-open-data",
-    "title": "Lab 6: Data Collection and Sources",
-    "section": "",
-    "text": "Government agencies often provide “Open Data” portals where anyone can download datasets for free. These are excellent sources for your final projects.\n\n\n\nDutchess County Open Data: Local data on parcels, transit, and public safety.\nNY State Open Data: Information on education, health, and the environment across New York.\nU.S. Census Bureau: The gold standard for demographic data in the United States.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 6: Data collection"
-    ]
-  },
-  {
-    "objectID": "labs/lab06.html#part-2-what-is-tidy-data",
-    "href": "labs/lab06.html#part-2-what-is-tidy-data",
-    "title": "Lab 6: Data Collection and Sources",
-    "section": "",
-    "text": "Once you collect data, it needs to be in a specific format for R to read it easily. This is called Tidy Data. There are three rules: 1. Each variable must have its own column. 2. Each observation (case) must have its own row. 3. Each value must have its own cell.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 6: Data collection"
-    ]
-  },
-  {
-    "objectID": "labs/lab06.html#part-3-data-ethics-attribution",
-    "href": "labs/lab06.html#part-3-data-ethics-attribution",
-    "title": "Lab 6: Data Collection and Sources",
-    "section": "",
-    "text": "Whenever you collect data that you didn’t create yourself, you must provide a Data Citation. This gives credit to the original collectors and allows others to verify your work.\nA good citation includes: * The name of the organization. * The year the data was accessed. * The URL/Link to the dataset.\n\n\nLab Task 6: The Scavenger Hunt 1. Visit the NY State Open Data Portal. 2. Search for a dataset that interests you (e.g., “Student Enrollment” or “Water Quality”). 3. Download the CSV version of that data. 4. Move the file into your RStudio Project folder. 5. In a new Quarto document, write a short paragraph describing: * Where the data came from. * Who collected it. * What one row in the dataset represents (the observation). 6. Use read_csv() to load the data and show the first 10 rows using head().",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 6: Data collection"
-    ]
-  },
-  {
-    "objectID": "labs/lab06.html#part-4-the-next-step-preview",
-    "href": "labs/lab06.html#part-4-the-next-step-preview",
-    "title": "Lab 6: Data Collection and Sources",
-    "section": "",
-    "text": "Data you find “in the wild” is rarely perfect. In the next lab, we will learn how to “clean” the data you just found—removing empty rows and fixing typos!",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 6: Data collection"
-    ]
-  },
-  {
-    "objectID": "labs/lab16.html",
-    "href": "labs/lab16.html",
-    "title": "Lab 16: Analysis of Variance (ANOVA)",
-    "section": "",
-    "text": "Understand when to use ANOVA instead of multiple t-tests.\nState the Null (\\(H_0\\)) and Alternative (\\(H_a\\)) hypotheses for multiple groups.\nConduct a One-Way ANOVA in R.\nPerform Post-hoc testing (Tukey’s HSD) to find exactly where differences lie.\n\n\n\n\n\nIf you have three groups (e.g., Freshman, Sophomores, Juniors) and you want to compare their average GPA, you could run three separate t-tests. However, every time you run a test, there is a 5% chance of being wrong. By the third test, your error rate has ballooned!\nANOVA tests all groups at once, keeping our error rate at 5%.\n\nNull Hypothesis (\\(H_0\\)): All group means are equal (\\(\\mu_1 = \\mu_2 = \\mu_3\\)).\nAlternative Hypothesis (\\(H_a\\)): At least one group mean is different.\n\n\n\n\n\nWith ANOVA, side-by-side boxplots are essential. They allow us to see if the “spread” within groups is smaller than the “distance” between groups.\nlibrary(tidyverse)\n\n# Example: Do different 'eye colors' in Star Wars have different average heights?\n# We'll filter for the most common eye colors\neye_data &lt;- starwars |&gt; \n  filter(eye_color %in% c(\"blue\", \"brown\", \"yellow\", \"orange\")) |&gt;\n  drop_na(height)\n\nggplot(eye_data, aes(x = eye_color, y = height, fill = eye_color)) +\n  geom_boxplot() +\n  theme_minimal() +\n  labs(title = \"Height Distribution by Eye Color\")\n\n\n\n\nWe use the aov() function. Like the t-test, we use the formula numeric_variable ~ categorical_variable.\n# 1. Fit the ANOVA model\nmodel &lt;- aov(height ~ eye_color, data = eye_data)\n\n# 2. View the summary table\nsummary(model)\n\n\n\nDf: Degrees of freedom.\nF value: The ratio of variance between groups to variance within groups. A large F-value usually leads to a small p-value.\nPr(&gt;F): This is your p-value. If it is &lt; 0.05, we reject the Null.\n\n\n\n\n\n\nIf your ANOVA p-value is significant, you know someone is different, but you don’t know who. We use Tukey’s Honest Significant Difference to compare every possible pair.\n# Running Tukey's HSD\nTukeyHSD(model)\n\n\nLab Task 16: 1. Identify a categorical variable in your data with 3 or more groups (e.g., County, Year, or Category). 2. Create a Boxplot comparing a numeric variable across these groups. 3. Run the aov() function and look at the summary(). 4. Conclusion: * If p &gt; 0.05: State that there is no significant difference between any groups. * If p &lt; 0.05: Run TukeyHSD() and identify which specific pairs are actually different.\n\n\n\n\n\nANOVA assumes that the “spread” (variance) is roughly the same for all groups. If one boxplot is massive and another is tiny, the math might be unreliable. In those cases, we go back to the Non-parametric methods from Lab 15!",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 16: Analysis of variance (ANOVA)"
-    ]
-  },
-  {
-    "objectID": "labs/lab16.html#learning-objectives",
-    "href": "labs/lab16.html#learning-objectives",
-    "title": "Lab 16: Analysis of Variance (ANOVA)",
-    "section": "",
-    "text": "Understand when to use ANOVA instead of multiple t-tests.\nState the Null (\\(H_0\\)) and Alternative (\\(H_a\\)) hypotheses for multiple groups.\nConduct a One-Way ANOVA in R.\nPerform Post-hoc testing (Tukey’s HSD) to find exactly where differences lie.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 16: Analysis of variance (ANOVA)"
-    ]
-  },
-  {
-    "objectID": "labs/lab16.html#part-1-why-anova",
-    "href": "labs/lab16.html#part-1-why-anova",
-    "title": "Lab 16: Analysis of Variance (ANOVA)",
-    "section": "",
-    "text": "If you have three groups (e.g., Freshman, Sophomores, Juniors) and you want to compare their average GPA, you could run three separate t-tests. However, every time you run a test, there is a 5% chance of being wrong. By the third test, your error rate has ballooned!\nANOVA tests all groups at once, keeping our error rate at 5%.\n\nNull Hypothesis (\\(H_0\\)): All group means are equal (\\(\\mu_1 = \\mu_2 = \\mu_3\\)).\nAlternative Hypothesis (\\(H_a\\)): At least one group mean is different.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 16: Analysis of variance (ANOVA)"
-    ]
-  },
-  {
-    "objectID": "labs/lab16.html#part-2-visualizing-multiple-groups",
-    "href": "labs/lab16.html#part-2-visualizing-multiple-groups",
-    "title": "Lab 16: Analysis of Variance (ANOVA)",
-    "section": "",
-    "text": "With ANOVA, side-by-side boxplots are essential. They allow us to see if the “spread” within groups is smaller than the “distance” between groups.\nlibrary(tidyverse)\n\n# Example: Do different 'eye colors' in Star Wars have different average heights?\n# We'll filter for the most common eye colors\neye_data &lt;- starwars |&gt; \n  filter(eye_color %in% c(\"blue\", \"brown\", \"yellow\", \"orange\")) |&gt;\n  drop_na(height)\n\nggplot(eye_data, aes(x = eye_color, y = height, fill = eye_color)) +\n  geom_boxplot() +\n  theme_minimal() +\n  labs(title = \"Height Distribution by Eye Color\")",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 16: Analysis of variance (ANOVA)"
-    ]
-  },
-  {
-    "objectID": "labs/lab16.html#part-3-running-the-anova-in-r",
-    "href": "labs/lab16.html#part-3-running-the-anova-in-r",
-    "title": "Lab 16: Analysis of Variance (ANOVA)",
-    "section": "",
-    "text": "We use the aov() function. Like the t-test, we use the formula numeric_variable ~ categorical_variable.\n# 1. Fit the ANOVA model\nmodel &lt;- aov(height ~ eye_color, data = eye_data)\n\n# 2. View the summary table\nsummary(model)\n\n\n\nDf: Degrees of freedom.\nF value: The ratio of variance between groups to variance within groups. A large F-value usually leads to a small p-value.\nPr(&gt;F): This is your p-value. If it is &lt; 0.05, we reject the Null.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 16: Analysis of variance (ANOVA)"
-    ]
-  },
-  {
-    "objectID": "labs/lab16.html#part-4-post-hoc-testing-tukeys-hsd",
-    "href": "labs/lab16.html#part-4-post-hoc-testing-tukeys-hsd",
-    "title": "Lab 16: Analysis of Variance (ANOVA)",
-    "section": "",
-    "text": "If your ANOVA p-value is significant, you know someone is different, but you don’t know who. We use Tukey’s Honest Significant Difference to compare every possible pair.\n# Running Tukey's HSD\nTukeyHSD(model)\n\n\nLab Task 16: 1. Identify a categorical variable in your data with 3 or more groups (e.g., County, Year, or Category). 2. Create a Boxplot comparing a numeric variable across these groups. 3. Run the aov() function and look at the summary(). 4. Conclusion: * If p &gt; 0.05: State that there is no significant difference between any groups. * If p &lt; 0.05: Run TukeyHSD() and identify which specific pairs are actually different.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 16: Analysis of variance (ANOVA)"
-    ]
-  },
-  {
-    "objectID": "labs/lab16.html#pro-tip-the-equal-variance-assumption",
-    "href": "labs/lab16.html#pro-tip-the-equal-variance-assumption",
-    "title": "Lab 16: Analysis of Variance (ANOVA)",
-    "section": "",
-    "text": "ANOVA assumes that the “spread” (variance) is roughly the same for all groups. If one boxplot is massive and another is tiny, the math might be unreliable. In those cases, we go back to the Non-parametric methods from Lab 15!",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 16: Analysis of variance (ANOVA)"
-    ]
-  },
-  {
-    "objectID": "labs/lab12.html",
-    "href": "labs/lab12.html",
-    "title": "Lab 12: Statistical Inference for Two Means",
-    "section": "",
-    "text": "Understand the difference between Independent and Paired samples.\nState the Null (\\(H_0\\)) and Alternative (\\(H_a\\)) hypotheses for comparing two groups.\nConduct an Independent Samples t-test in R.\nVisualize the difference between groups using Boxplots.\n\n\n\n\n\nWe use an Independent Samples t-test when we want to compare the means of two distinct, unrelated groups. * Example: Do “Humans” have a different average height than “Droids”? * Example: Is the average house price in Poughkeepsie different from the average price in Fishkill?\n\n\n\n\nIn this test, we are looking at the difference between the two population means (\\(\\mu_1 - \\mu_2\\)).\n\nNull Hypothesis (\\(H_0\\)): \\(\\mu_1 = \\mu_2\\) (The means are the same; the difference is zero).\nAlternative Hypothesis (\\(H_a\\)): \\(\\mu_1 \\neq \\mu_2\\) (The means are significantly different).\n\n\n\n\n\nBefore running the math, we should always visualize the two groups side-by-side using a Boxplot.\nlibrary(tidyverse)\n\n# Comparing heights of Humans and Droids\ncomparison_data &lt;- starwars |&gt; \n  filter(species %in% c(\"Human\", \"Droid\")) |&gt;\n  drop_na(height)\n\nggplot(comparison_data, aes(x = species, y = height, fill = species)) +\n  geom_boxplot() +\n  labs(title = \"Height Comparison: Humans vs. Droids\")\n\n\n\n\nIn R, we use the “formula” syntax: y ~ x (where y is the numeric value and x is the grouping category).\n# Conducting the Independent Samples t-test\nt_test_results &lt;- t.test(height ~ species, data = comparison_data)\n\n# View results\nt_test_results\n\n\n\np-value: If p &lt; 0.05, we conclude that the average heights of Humans and Droids are significantly different.\n95% Confidence Interval: This gives the range of the difference between the two means. If the interval contains 0, the results are usually not significant.\n\n\n\nLab Task 12: 1. Pick a dataset that has at least one categorical variable with two groups (e.g., Male/Female, Treatment/Control, Yes/No). 2. Create a Boxplot to visually compare a numeric variable across those two groups. 3. State your Null and Alternative hypotheses. 4. Run the t.test() using the formula syntax. 5. The Conclusion: Report your p-value and state whether you reject or fail to reject the null hypothesis. Does the data suggest the groups are truly different?\n\n\n\n\n\n\nWhen using the fill = species aesthetic in your plots, remember that some students may have color vision deficiencies. Use scale_fill_viridis_d() to ensure your group comparisons are accessible to everyone.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 12: Statistical inference for two means"
-    ]
-  },
-  {
-    "objectID": "labs/lab12.html#learning-objectives",
-    "href": "labs/lab12.html#learning-objectives",
-    "title": "Lab 12: Statistical Inference for Two Means",
-    "section": "",
-    "text": "Understand the difference between Independent and Paired samples.\nState the Null (\\(H_0\\)) and Alternative (\\(H_a\\)) hypotheses for comparing two groups.\nConduct an Independent Samples t-test in R.\nVisualize the difference between groups using Boxplots.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 12: Statistical inference for two means"
-    ]
-  },
-  {
-    "objectID": "labs/lab12.html#part-1-comparing-two-independent-groups",
-    "href": "labs/lab12.html#part-1-comparing-two-independent-groups",
-    "title": "Lab 12: Statistical Inference for Two Means",
-    "section": "",
-    "text": "We use an Independent Samples t-test when we want to compare the means of two distinct, unrelated groups. * Example: Do “Humans” have a different average height than “Droids”? * Example: Is the average house price in Poughkeepsie different from the average price in Fishkill?",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 12: Statistical inference for two means"
-    ]
-  },
-  {
-    "objectID": "labs/lab12.html#part-2-hypotheses-for-two-means",
-    "href": "labs/lab12.html#part-2-hypotheses-for-two-means",
-    "title": "Lab 12: Statistical Inference for Two Means",
-    "section": "",
-    "text": "In this test, we are looking at the difference between the two population means (\\(\\mu_1 - \\mu_2\\)).\n\nNull Hypothesis (\\(H_0\\)): \\(\\mu_1 = \\mu_2\\) (The means are the same; the difference is zero).\nAlternative Hypothesis (\\(H_a\\)): \\(\\mu_1 \\neq \\mu_2\\) (The means are significantly different).",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 12: Statistical inference for two means"
-    ]
-  },
-  {
-    "objectID": "labs/lab12.html#part-3-visualizing-the-comparison",
-    "href": "labs/lab12.html#part-3-visualizing-the-comparison",
-    "title": "Lab 12: Statistical Inference for Two Means",
-    "section": "",
-    "text": "Before running the math, we should always visualize the two groups side-by-side using a Boxplot.\nlibrary(tidyverse)\n\n# Comparing heights of Humans and Droids\ncomparison_data &lt;- starwars |&gt; \n  filter(species %in% c(\"Human\", \"Droid\")) |&gt;\n  drop_na(height)\n\nggplot(comparison_data, aes(x = species, y = height, fill = species)) +\n  geom_boxplot() +\n  labs(title = \"Height Comparison: Humans vs. Droids\")",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 12: Statistical inference for two means"
-    ]
-  },
-  {
-    "objectID": "labs/lab12.html#part-4-running-the-t-test-in-r",
-    "href": "labs/lab12.html#part-4-running-the-t-test-in-r",
-    "title": "Lab 12: Statistical Inference for Two Means",
-    "section": "",
-    "text": "In R, we use the “formula” syntax: y ~ x (where y is the numeric value and x is the grouping category).\n# Conducting the Independent Samples t-test\nt_test_results &lt;- t.test(height ~ species, data = comparison_data)\n\n# View results\nt_test_results\n\n\n\np-value: If p &lt; 0.05, we conclude that the average heights of Humans and Droids are significantly different.\n95% Confidence Interval: This gives the range of the difference between the two means. If the interval contains 0, the results are usually not significant.\n\n\n\nLab Task 12: 1. Pick a dataset that has at least one categorical variable with two groups (e.g., Male/Female, Treatment/Control, Yes/No). 2. Create a Boxplot to visually compare a numeric variable across those two groups. 3. State your Null and Alternative hypotheses. 4. Run the t.test() using the formula syntax. 5. The Conclusion: Report your p-value and state whether you reject or fail to reject the null hypothesis. Does the data suggest the groups are truly different?",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 12: Statistical inference for two means"
-    ]
-  },
-  {
-    "objectID": "labs/lab12.html#accessibility-tip-high-contrast-visuals",
-    "href": "labs/lab12.html#accessibility-tip-high-contrast-visuals",
-    "title": "Lab 12: Statistical Inference for Two Means",
-    "section": "",
-    "text": "When using the fill = species aesthetic in your plots, remember that some students may have color vision deficiencies. Use scale_fill_viridis_d() to ensure your group comparisons are accessible to everyone.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 12: Statistical inference for two means"
-    ]
-  },
-  {
-    "objectID": "labs/lab01.html",
-    "href": "labs/lab01.html",
-    "title": "Lab 1: R and RStudio Installation",
-    "section": "",
-    "text": "By the end of this lab, students will be able to: * Successfully install the R programming language. * Install the RStudio Desktop Integrated Development Environment (IDE). * Verify the installation by running a simple command.\n\n\n\n\nTo perform data science at DCC, we use two primary tools. Think of R as the “engine” of a car and RStudio as the “dashboard.” You need the engine to go, but you need the dashboard to steer and see where you are going.\n\nIf you are using a DCC Chromebook or a computer where you cannot install software, please contact the instructor about using Posit Cloud (the web-based version of RStudio).\n\n\n\n\n\nYou must install R before you install RStudio.\n\nGo to the CRAN (Comprehensive R Archive Network) website.\nSelect the download link for your operating system:\n\nDownload R for Windows -&gt; Click “base” -&gt; Click “Download R 4.x.x for Windows.”\nDownload R for (macOS) -&gt; Download the .pkg file that matches your chip (Apple silicon M1/M2 or Intel).\n\nRun the downloaded installer and keep all default settings by clicking “Next” or “Continue.”\n\n\n\n\n\nRStudio is the interface where you will write your code and view your data visualizations.\n\nVisit the Posit Download Page.\nScroll down to “2: Install RStudio” and click the button for your operating system.\nRun the installer. Like R, it is best to keep all default settings.\n\n\n\n\n\nLet’s make sure the “engine” and “dashboard” are talking to each other.\n\nOpen RStudio from your applications folder or start menu.\nFind the Console pane (usually on the bottom left).\nType the following code and press Enter: ```r print(“Hello, MAT 186!”)",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 1: R and RStudio Installation"
-    ]
-  },
-  {
-    "objectID": "labs/lab01.html#learning-objectives",
-    "href": "labs/lab01.html#learning-objectives",
-    "title": "Lab 1: R and RStudio Installation",
-    "section": "",
-    "text": "By the end of this lab, students will be able to: * Successfully install the R programming language. * Install the RStudio Desktop Integrated Development Environment (IDE). * Verify the installation by running a simple command.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 1: R and RStudio Installation"
-    ]
-  },
-  {
-    "objectID": "labs/lab01.html#introduction",
-    "href": "labs/lab01.html#introduction",
-    "title": "Lab 1: R and RStudio Installation",
-    "section": "",
-    "text": "To perform data science at DCC, we use two primary tools. Think of R as the “engine” of a car and RStudio as the “dashboard.” You need the engine to go, but you need the dashboard to steer and see where you are going.\n\nIf you are using a DCC Chromebook or a computer where you cannot install software, please contact the instructor about using Posit Cloud (the web-based version of RStudio).",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 1: R and RStudio Installation"
-    ]
-  },
-  {
-    "objectID": "labs/lab01.html#step-1-install-r-the-engine",
-    "href": "labs/lab01.html#step-1-install-r-the-engine",
-    "title": "Lab 1: R and RStudio Installation",
-    "section": "",
-    "text": "You must install R before you install RStudio.\n\nGo to the CRAN (Comprehensive R Archive Network) website.\nSelect the download link for your operating system:\n\nDownload R for Windows -&gt; Click “base” -&gt; Click “Download R 4.x.x for Windows.”\nDownload R for (macOS) -&gt; Download the .pkg file that matches your chip (Apple silicon M1/M2 or Intel).\n\nRun the downloaded installer and keep all default settings by clicking “Next” or “Continue.”",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 1: R and RStudio Installation"
-    ]
-  },
-  {
-    "objectID": "labs/lab01.html#step-2-install-rstudio-the-dashboard",
-    "href": "labs/lab01.html#step-2-install-rstudio-the-dashboard",
-    "title": "Lab 1: R and RStudio Installation",
-    "section": "",
-    "text": "RStudio is the interface where you will write your code and view your data visualizations.\n\nVisit the Posit Download Page.\nScroll down to “2: Install RStudio” and click the button for your operating system.\nRun the installer. Like R, it is best to keep all default settings.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 1: R and RStudio Installation"
-    ]
-  },
-  {
-    "objectID": "labs/lab01.html#step-3-verify-your-setup",
-    "href": "labs/lab01.html#step-3-verify-your-setup",
-    "title": "Lab 1: R and RStudio Installation",
-    "section": "",
-    "text": "Let’s make sure the “engine” and “dashboard” are talking to each other.\n\nOpen RStudio from your applications folder or start menu.\nFind the Console pane (usually on the bottom left).\nType the following code and press Enter: ```r print(“Hello, MAT 186!”)",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 1: R and RStudio Installation"
-    ]
-  },
-  {
-    "objectID": "labs/lab10.html",
-    "href": "labs/lab10.html",
-    "title": "Lab 10: Statistical Inference for One Mean",
-    "section": "",
-    "text": "Understand the logic of Null (\\(H_0\\)) and Alternative (\\(H_a\\)) Hypotheses.\nCalculate and interpret Confidence Intervals.\nConduct a One-Sample t-test in R.\nInterpret the p-value to make a statistical decision.\n\n\n\n\n\nWe rarely have data for an entire population (like every person in New York). Instead, we use a Sample to make an educated guess about the Population.\n\nNull Hypothesis (\\(H_0\\)): The status quo. There is “nothing going on” or no difference.\nAlternative Hypothesis (\\(H_a\\)): What we are trying to prove. There is a significant difference.\n\n\n\n\n\nA confidence interval gives us a range of plausible values for the true population mean. We usually use a 95% Confidence Level.\nlibrary(tidyverse)\n\n# Let's look at the average height of Star Wars characters\n# We want to estimate the true mean height of all characters in the galaxy\nstarwars_heights &lt;- starwars |&gt; drop_na(height)\n\n# Calculating a 95% Confidence Interval manually\nt.test(starwars_heights$height, conf.level = 0.95)\n\n\n\n\nImagine a claim that the “Average height of a galactic citizen is 175 cm.” Does our data support this?\n# Testing if the mean height is significantly different from 175\nt_test_results &lt;- t.test(starwars_heights$height, mu = 175)\n\n# View the results\nt_test_results\n\n\n\nt: The test statistic (how many standard errors we are from the claim).\ndf: Degrees of freedom (sample size minus 1).\np-value: The probability that we would see our result if the Null Hypothesis were true.\n\n\n\n\n\n\nIn MAT 186, we typically use an alpha (\\(\\alpha\\)) level of 0.05. * If p-value &lt; 0.05: We Reject the Null Hypothesis. The result is “Statistically Significant.” * If p-value &gt; 0.05: We Fail to Reject the Null Hypothesis. We do not have enough evidence to support the change.\n\n\nLab Task 10: 1. Use your personal dataset from previous labs. 2. Pick a numeric variable (e.g., age, price, or score). 3. State your Hypotheses: * \\(H_0: \\mu = \\text{choose a number close to your average}\\) * \\(H_a: \\mu \\neq \\text{that same number}\\) 4. Run a t.test() in R using your variable and your chosen mu. 5. The Conclusion: In your Quarto document, write a formal conclusion. “Since the p-value was [insert p-value], we [reject/fail to reject] the null hypothesis. There [is/is not] sufficient evidence to suggest the mean is different from [insert mu].”\n\n\n\n\n\nWhen writing your report, always include the Confidence Interval. This helps readers (and screen readers) understand the magnitude of your finding, not just whether it was “significant” or not.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 10: Statistical inference for one mean"
-    ]
-  },
-  {
-    "objectID": "labs/lab10.html#learning-objectives",
-    "href": "labs/lab10.html#learning-objectives",
-    "title": "Lab 10: Statistical Inference for One Mean",
-    "section": "",
-    "text": "Understand the logic of Null (\\(H_0\\)) and Alternative (\\(H_a\\)) Hypotheses.\nCalculate and interpret Confidence Intervals.\nConduct a One-Sample t-test in R.\nInterpret the p-value to make a statistical decision.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 10: Statistical inference for one mean"
-    ]
-  },
-  {
-    "objectID": "labs/lab10.html#part-1-the-logic-of-inference",
-    "href": "labs/lab10.html#part-1-the-logic-of-inference",
-    "title": "Lab 10: Statistical Inference for One Mean",
-    "section": "",
-    "text": "We rarely have data for an entire population (like every person in New York). Instead, we use a Sample to make an educated guess about the Population.\n\nNull Hypothesis (\\(H_0\\)): The status quo. There is “nothing going on” or no difference.\nAlternative Hypothesis (\\(H_a\\)): What we are trying to prove. There is a significant difference.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 10: Statistical inference for one mean"
-    ]
-  },
-  {
-    "objectID": "labs/lab10.html#part-2-confidence-intervals",
-    "href": "labs/lab10.html#part-2-confidence-intervals",
-    "title": "Lab 10: Statistical Inference for One Mean",
-    "section": "",
-    "text": "A confidence interval gives us a range of plausible values for the true population mean. We usually use a 95% Confidence Level.\nlibrary(tidyverse)\n\n# Let's look at the average height of Star Wars characters\n# We want to estimate the true mean height of all characters in the galaxy\nstarwars_heights &lt;- starwars |&gt; drop_na(height)\n\n# Calculating a 95% Confidence Interval manually\nt.test(starwars_heights$height, conf.level = 0.95)",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 10: Statistical inference for one mean"
-    ]
-  },
-  {
-    "objectID": "labs/lab10.html#part-3-the-one-sample-t-test",
-    "href": "labs/lab10.html#part-3-the-one-sample-t-test",
-    "title": "Lab 10: Statistical Inference for One Mean",
-    "section": "",
-    "text": "Imagine a claim that the “Average height of a galactic citizen is 175 cm.” Does our data support this?\n# Testing if the mean height is significantly different from 175\nt_test_results &lt;- t.test(starwars_heights$height, mu = 175)\n\n# View the results\nt_test_results\n\n\n\nt: The test statistic (how many standard errors we are from the claim).\ndf: Degrees of freedom (sample size minus 1).\np-value: The probability that we would see our result if the Null Hypothesis were true.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 10: Statistical inference for one mean"
-    ]
-  },
-  {
-    "objectID": "labs/lab10.html#part-4-making-a-decision",
-    "href": "labs/lab10.html#part-4-making-a-decision",
-    "title": "Lab 10: Statistical Inference for One Mean",
-    "section": "",
-    "text": "In MAT 186, we typically use an alpha (\\(\\alpha\\)) level of 0.05. * If p-value &lt; 0.05: We Reject the Null Hypothesis. The result is “Statistically Significant.” * If p-value &gt; 0.05: We Fail to Reject the Null Hypothesis. We do not have enough evidence to support the change.\n\n\nLab Task 10: 1. Use your personal dataset from previous labs. 2. Pick a numeric variable (e.g., age, price, or score). 3. State your Hypotheses: * \\(H_0: \\mu = \\text{choose a number close to your average}\\) * \\(H_a: \\mu \\neq \\text{that same number}\\) 4. Run a t.test() in R using your variable and your chosen mu. 5. The Conclusion: In your Quarto document, write a formal conclusion. “Since the p-value was [insert p-value], we [reject/fail to reject] the null hypothesis. There [is/is not] sufficient evidence to suggest the mean is different from [insert mu].”",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 10: Statistical inference for one mean"
-    ]
-  },
-  {
-    "objectID": "labs/lab10.html#accessibility-tip-reporting-results",
-    "href": "labs/lab10.html#accessibility-tip-reporting-results",
-    "title": "Lab 10: Statistical Inference for One Mean",
-    "section": "",
-    "text": "When writing your report, always include the Confidence Interval. This helps readers (and screen readers) understand the magnitude of your finding, not just whether it was “significant” or not.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 10: Statistical inference for one mean"
     ]
   },
   {
@@ -1220,11 +484,570 @@
     ]
   },
   {
+    "objectID": "labs/lab10.html",
+    "href": "labs/lab10.html",
+    "title": "Lab 10: Statistical Inference for One Mean",
+    "section": "",
+    "text": "Understand the logic of Null (\\(H_0\\)) and Alternative (\\(H_a\\)) Hypotheses.\nCalculate and interpret Confidence Intervals.\nConduct a One-Sample t-test in R.\nInterpret the p-value to make a statistical decision.\n\n\n\n\n\nWe rarely have data for an entire population (like every person in New York). Instead, we use a Sample to make an educated guess about the Population.\n\nNull Hypothesis (\\(H_0\\)): The status quo. There is “nothing going on” or no difference.\nAlternative Hypothesis (\\(H_a\\)): What we are trying to prove. There is a significant difference.\n\n\n\n\n\nA confidence interval gives us a range of plausible values for the true population mean. We usually use a 95% Confidence Level.\nlibrary(tidyverse)\n\n# Let's look at the average height of Star Wars characters\n# We want to estimate the true mean height of all characters in the galaxy\nstarwars_heights &lt;- starwars |&gt; drop_na(height)\n\n# Calculating a 95% Confidence Interval manually\nt.test(starwars_heights$height, conf.level = 0.95)\n\n\n\n\nImagine a claim that the “Average height of a galactic citizen is 175 cm.” Does our data support this?\n# Testing if the mean height is significantly different from 175\nt_test_results &lt;- t.test(starwars_heights$height, mu = 175)\n\n# View the results\nt_test_results\n\n\n\nt: The test statistic (how many standard errors we are from the claim).\ndf: Degrees of freedom (sample size minus 1).\np-value: The probability that we would see our result if the Null Hypothesis were true.\n\n\n\n\n\n\nIn MAT 186, we typically use an alpha (\\(\\alpha\\)) level of 0.05. * If p-value &lt; 0.05: We Reject the Null Hypothesis. The result is “Statistically Significant.” * If p-value &gt; 0.05: We Fail to Reject the Null Hypothesis. We do not have enough evidence to support the change.\n\n\nLab Task 10: 1. Use your personal dataset from previous labs. 2. Pick a numeric variable (e.g., age, price, or score). 3. State your Hypotheses: * \\(H_0: \\mu = \\text{choose a number close to your average}\\) * \\(H_a: \\mu \\neq \\text{that same number}\\) 4. Run a t.test() in R using your variable and your chosen mu. 5. The Conclusion: In your Quarto document, write a formal conclusion. “Since the p-value was [insert p-value], we [reject/fail to reject] the null hypothesis. There [is/is not] sufficient evidence to suggest the mean is different from [insert mu].”\n\n\n\n\n\nWhen writing your report, always include the Confidence Interval. This helps readers (and screen readers) understand the magnitude of your finding, not just whether it was “significant” or not.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 10: Statistical inference for one mean"
+    ]
+  },
+  {
+    "objectID": "labs/lab10.html#learning-objectives",
+    "href": "labs/lab10.html#learning-objectives",
+    "title": "Lab 10: Statistical Inference for One Mean",
+    "section": "",
+    "text": "Understand the logic of Null (\\(H_0\\)) and Alternative (\\(H_a\\)) Hypotheses.\nCalculate and interpret Confidence Intervals.\nConduct a One-Sample t-test in R.\nInterpret the p-value to make a statistical decision.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 10: Statistical inference for one mean"
+    ]
+  },
+  {
+    "objectID": "labs/lab10.html#part-1-the-logic-of-inference",
+    "href": "labs/lab10.html#part-1-the-logic-of-inference",
+    "title": "Lab 10: Statistical Inference for One Mean",
+    "section": "",
+    "text": "We rarely have data for an entire population (like every person in New York). Instead, we use a Sample to make an educated guess about the Population.\n\nNull Hypothesis (\\(H_0\\)): The status quo. There is “nothing going on” or no difference.\nAlternative Hypothesis (\\(H_a\\)): What we are trying to prove. There is a significant difference.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 10: Statistical inference for one mean"
+    ]
+  },
+  {
+    "objectID": "labs/lab10.html#part-2-confidence-intervals",
+    "href": "labs/lab10.html#part-2-confidence-intervals",
+    "title": "Lab 10: Statistical Inference for One Mean",
+    "section": "",
+    "text": "A confidence interval gives us a range of plausible values for the true population mean. We usually use a 95% Confidence Level.\nlibrary(tidyverse)\n\n# Let's look at the average height of Star Wars characters\n# We want to estimate the true mean height of all characters in the galaxy\nstarwars_heights &lt;- starwars |&gt; drop_na(height)\n\n# Calculating a 95% Confidence Interval manually\nt.test(starwars_heights$height, conf.level = 0.95)",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 10: Statistical inference for one mean"
+    ]
+  },
+  {
+    "objectID": "labs/lab10.html#part-3-the-one-sample-t-test",
+    "href": "labs/lab10.html#part-3-the-one-sample-t-test",
+    "title": "Lab 10: Statistical Inference for One Mean",
+    "section": "",
+    "text": "Imagine a claim that the “Average height of a galactic citizen is 175 cm.” Does our data support this?\n# Testing if the mean height is significantly different from 175\nt_test_results &lt;- t.test(starwars_heights$height, mu = 175)\n\n# View the results\nt_test_results\n\n\n\nt: The test statistic (how many standard errors we are from the claim).\ndf: Degrees of freedom (sample size minus 1).\np-value: The probability that we would see our result if the Null Hypothesis were true.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 10: Statistical inference for one mean"
+    ]
+  },
+  {
+    "objectID": "labs/lab10.html#part-4-making-a-decision",
+    "href": "labs/lab10.html#part-4-making-a-decision",
+    "title": "Lab 10: Statistical Inference for One Mean",
+    "section": "",
+    "text": "In MAT 186, we typically use an alpha (\\(\\alpha\\)) level of 0.05. * If p-value &lt; 0.05: We Reject the Null Hypothesis. The result is “Statistically Significant.” * If p-value &gt; 0.05: We Fail to Reject the Null Hypothesis. We do not have enough evidence to support the change.\n\n\nLab Task 10: 1. Use your personal dataset from previous labs. 2. Pick a numeric variable (e.g., age, price, or score). 3. State your Hypotheses: * \\(H_0: \\mu = \\text{choose a number close to your average}\\) * \\(H_a: \\mu \\neq \\text{that same number}\\) 4. Run a t.test() in R using your variable and your chosen mu. 5. The Conclusion: In your Quarto document, write a formal conclusion. “Since the p-value was [insert p-value], we [reject/fail to reject] the null hypothesis. There [is/is not] sufficient evidence to suggest the mean is different from [insert mu].”",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 10: Statistical inference for one mean"
+    ]
+  },
+  {
+    "objectID": "labs/lab10.html#accessibility-tip-reporting-results",
+    "href": "labs/lab10.html#accessibility-tip-reporting-results",
+    "title": "Lab 10: Statistical Inference for One Mean",
+    "section": "",
+    "text": "When writing your report, always include the Confidence Interval. This helps readers (and screen readers) understand the magnitude of your finding, not just whether it was “significant” or not.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 10: Statistical inference for one mean"
+    ]
+  },
+  {
+    "objectID": "labs/lab07.html",
+    "href": "labs/lab07.html",
+    "title": "Lab 7: Cleaning Data with dplyr",
+    "section": "",
+    "text": "Understand the concept of “Data Wrangling.”\nUse the Pipe Operator (|&gt;) to chain commands.\nLearn core cleaning functions: filter(), select(), and rename().\nHandle missing values (NA).\n\n\n\n\n\n“Raw” data is rarely ready for analysis. It might have columns you don’t need, rows that aren’t relevant to your study, or names that are hard to type. In this lab, we use the dplyr package (part of the tidyverse) to “tidy up” our datasets.\n\n\n\n\nThink of the pipe operator as saying the words “and then.” It takes the output of one function and passes it to the next.\nInstead of writing: clean_data &lt;- filter(raw_data, age &gt; 18)\nWe write: clean_data &lt;- raw_data |&gt; filter(age &gt; 18)\n\n\n\n\n\n\nIf your dataset has 100 columns but you only need 3, use select(). ~r # Keep only the ‘name’ and ‘height’ columns sw_small &lt;- starwars |&gt; select(name, height)~\n\n\n\nIf you only want to look at specific observations (e.g., characters taller than 100cm). ~r # Keep only rows where height is greater than 100 tall_characters &lt;- starwars |&gt; filter(height &gt; 100)~\n\n\n\nIf a column name is confusing or has spaces, rename it. ~r # Change ‘homeworld’ to ‘home_planet’ sw_clean &lt;- starwars |&gt; rename(home_planet = homeworld)~\n\n\n\n\n\nIn R, missing values are represented as NA (Not Available). You can’t calculate the mean of a column if it has NA values without telling R what to do.\nTo remove rows with any missing data: ~r tidy_sw &lt;- starwars |&gt; drop_na(height)~\n\n\nLab Task 7: 1. Open your Quarto document from Lab 6 (the one with your NY State Open Data). 2. Create a new section called “Data Cleaning.” 3. Use select() to keep only the 4 most important columns in your dataset. 4. Use filter() to narrow your data down to one specific category or a certain range of numbers. 5. Use rename() to make at least one column name easier to read. 6. Render your document and check that your new “Cleaned” table looks correct.\n\n\n\n\n\nAlways run glimpse(your_data) after cleaning to make sure you haven’t accidentally deleted something you meant to keep!",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 7: Cleaning Data"
+    ]
+  },
+  {
+    "objectID": "labs/lab07.html#learning-objectives",
+    "href": "labs/lab07.html#learning-objectives",
+    "title": "Lab 7: Cleaning Data with dplyr",
+    "section": "",
+    "text": "Understand the concept of “Data Wrangling.”\nUse the Pipe Operator (|&gt;) to chain commands.\nLearn core cleaning functions: filter(), select(), and rename().\nHandle missing values (NA).",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 7: Cleaning Data"
+    ]
+  },
+  {
+    "objectID": "labs/lab07.html#introduction",
+    "href": "labs/lab07.html#introduction",
+    "title": "Lab 7: Cleaning Data with dplyr",
+    "section": "",
+    "text": "“Raw” data is rarely ready for analysis. It might have columns you don’t need, rows that aren’t relevant to your study, or names that are hard to type. In this lab, we use the dplyr package (part of the tidyverse) to “tidy up” our datasets.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 7: Cleaning Data"
+    ]
+  },
+  {
+    "objectID": "labs/lab07.html#part-1-the-pipe-operator",
+    "href": "labs/lab07.html#part-1-the-pipe-operator",
+    "title": "Lab 7: Cleaning Data with dplyr",
+    "section": "",
+    "text": "Think of the pipe operator as saying the words “and then.” It takes the output of one function and passes it to the next.\nInstead of writing: clean_data &lt;- filter(raw_data, age &gt; 18)\nWe write: clean_data &lt;- raw_data |&gt; filter(age &gt; 18)",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 7: Cleaning Data"
+    ]
+  },
+  {
+    "objectID": "labs/lab07.html#part-2-core-cleaning-functions",
+    "href": "labs/lab07.html#part-2-core-cleaning-functions",
+    "title": "Lab 7: Cleaning Data with dplyr",
+    "section": "",
+    "text": "If your dataset has 100 columns but you only need 3, use select(). ~r # Keep only the ‘name’ and ‘height’ columns sw_small &lt;- starwars |&gt; select(name, height)~\n\n\n\nIf you only want to look at specific observations (e.g., characters taller than 100cm). ~r # Keep only rows where height is greater than 100 tall_characters &lt;- starwars |&gt; filter(height &gt; 100)~\n\n\n\nIf a column name is confusing or has spaces, rename it. ~r # Change ‘homeworld’ to ‘home_planet’ sw_clean &lt;- starwars |&gt; rename(home_planet = homeworld)~",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 7: Cleaning Data"
+    ]
+  },
+  {
+    "objectID": "labs/lab07.html#part-3-handling-missing-data-na",
+    "href": "labs/lab07.html#part-3-handling-missing-data-na",
+    "title": "Lab 7: Cleaning Data with dplyr",
+    "section": "",
+    "text": "In R, missing values are represented as NA (Not Available). You can’t calculate the mean of a column if it has NA values without telling R what to do.\nTo remove rows with any missing data: ~r tidy_sw &lt;- starwars |&gt; drop_na(height)~\n\n\nLab Task 7: 1. Open your Quarto document from Lab 6 (the one with your NY State Open Data). 2. Create a new section called “Data Cleaning.” 3. Use select() to keep only the 4 most important columns in your dataset. 4. Use filter() to narrow your data down to one specific category or a certain range of numbers. 5. Use rename() to make at least one column name easier to read. 6. Render your document and check that your new “Cleaned” table looks correct.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 7: Cleaning Data"
+    ]
+  },
+  {
+    "objectID": "labs/lab07.html#pro-tip-the-glimpse",
+    "href": "labs/lab07.html#pro-tip-the-glimpse",
+    "title": "Lab 7: Cleaning Data with dplyr",
+    "section": "",
+    "text": "Always run glimpse(your_data) after cleaning to make sure you haven’t accidentally deleted something you meant to keep!",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 7: Cleaning Data"
+    ]
+  },
+  {
+    "objectID": "labs/glossary.html",
+    "href": "labs/glossary.html",
+    "title": "Glossary of Data Science Terms",
+    "section": "",
+    "text": "Glossary of Data Science Terms\nThis glossary provides definitions for key terms used throughout MAT 186. If you encounter a term you don’t understand in the labs, check here first.\n\n\nC\nCRAN (Comprehensive R Archive Network): The global network of servers that stores and distributes R and its packages. Think of it as the “App Store” for R.\n\n\nD\nData Frame: A table-like structure in R where each column represents a variable and each row represents an observation.\n\n\nI\nIDE (Integrated Development Environment): A software application (like RStudio) that provides comprehensive facilities to computer programmers for software development.\n\n\nM\nMarkdown: A lightweight markup language with plain-text-formatting syntax. It allows you to write formatted text that can be easily converted to HTML.\n\n\nQ\nQuarto: The next-generation version of RMarkdown. It is an open-source scientific and technical publishing system used to create documents, books, and websites.\n\n\nY\nYAML: Stands for “Yet Another Markup Language.” In Quarto, the YAML header (at the top of the file) is where you define settings like the title, author, and output format."
+  },
+  {
+    "objectID": "labs/lab01.html",
+    "href": "labs/lab01.html",
+    "title": "Lab 1",
+    "section": "",
+    "text": "By the end of this lab, students will be able to:\n\nSuccessfully install the R programming language.\nInstall the RStudio Desktop Integrated Development Environment (IDE).\nVerify the installation by running a simple command.\n\n\n\n\n\nTo perform data science at DCC, we use two primary tools. Think of R as the “engine” of a car and RStudio as the “dashboard.” You need the engine to go, but you need the dashboard to steer and see where you are going.\n\nIf you are using a DCC Chromebook or a computer where you cannot install software, please contact the instructor about using Posit Cloud (the web-based version of RStudio).\n\n\n\n\n\nYou must install R before you install RStudio.\n\nGo to the CRAN (Comprehensive R Archive Network) website.\nSelect the download link for your operating system:\n\nDownload R for Windows -&gt; Click “base” -&gt; Click “Download R 4.x.x for Windows.”\nDownload R for (macOS) -&gt; Download the .pkg file that matches your chip (Apple silicon M1/M2 or Intel).\n\nRun the downloaded installer and keep all default settings by clicking “Next” or “Continue.”\n\n\n\n\n\nRStudio is the interface where you will write your code and view your data visualizations.\n\nVisit the Posit Download Page.\nScroll down to “2: Install RStudio” and click the button for your operating system.\nRun the installer. Like R, it is best to keep all default settings.\n\n\n\n\n\nLet’s make sure the “engine” and “dashboard” are talking to each other.\n\nOpen RStudio from your applications folder or start menu.\nFind the Console pane (usually on the bottom left).\nType the following code and press Enter:\nprint(\"Hello, MAT 186!\")",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 1: R and RStudio Installation"
+    ]
+  },
+  {
+    "objectID": "labs/lab01.html#learning-objectives",
+    "href": "labs/lab01.html#learning-objectives",
+    "title": "Lab 1",
+    "section": "",
+    "text": "By the end of this lab, students will be able to:\n\nSuccessfully install the R programming language.\nInstall the RStudio Desktop Integrated Development Environment (IDE).\nVerify the installation by running a simple command.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 1: R and RStudio Installation"
+    ]
+  },
+  {
+    "objectID": "labs/lab01.html#introduction",
+    "href": "labs/lab01.html#introduction",
+    "title": "Lab 1",
+    "section": "",
+    "text": "To perform data science at DCC, we use two primary tools. Think of R as the “engine” of a car and RStudio as the “dashboard.” You need the engine to go, but you need the dashboard to steer and see where you are going.\n\nIf you are using a DCC Chromebook or a computer where you cannot install software, please contact the instructor about using Posit Cloud (the web-based version of RStudio).",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 1: R and RStudio Installation"
+    ]
+  },
+  {
+    "objectID": "labs/lab01.html#step-1-install-r-the-engine",
+    "href": "labs/lab01.html#step-1-install-r-the-engine",
+    "title": "Lab 1",
+    "section": "",
+    "text": "You must install R before you install RStudio.\n\nGo to the CRAN (Comprehensive R Archive Network) website.\nSelect the download link for your operating system:\n\nDownload R for Windows -&gt; Click “base” -&gt; Click “Download R 4.x.x for Windows.”\nDownload R for (macOS) -&gt; Download the .pkg file that matches your chip (Apple silicon M1/M2 or Intel).\n\nRun the downloaded installer and keep all default settings by clicking “Next” or “Continue.”",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 1: R and RStudio Installation"
+    ]
+  },
+  {
+    "objectID": "labs/lab01.html#step-2-install-rstudio-the-dashboard",
+    "href": "labs/lab01.html#step-2-install-rstudio-the-dashboard",
+    "title": "Lab 1",
+    "section": "",
+    "text": "RStudio is the interface where you will write your code and view your data visualizations.\n\nVisit the Posit Download Page.\nScroll down to “2: Install RStudio” and click the button for your operating system.\nRun the installer. Like R, it is best to keep all default settings.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 1: R and RStudio Installation"
+    ]
+  },
+  {
+    "objectID": "labs/lab01.html#step-3-verify-your-setup",
+    "href": "labs/lab01.html#step-3-verify-your-setup",
+    "title": "Lab 1",
+    "section": "",
+    "text": "Let’s make sure the “engine” and “dashboard” are talking to each other.\n\nOpen RStudio from your applications folder or start menu.\nFind the Console pane (usually on the bottom left).\nType the following code and press Enter:\nprint(\"Hello, MAT 186!\")",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 1: R and RStudio Installation"
+    ]
+  },
+  {
+    "objectID": "labs/lab04.html",
+    "href": "labs/lab04.html",
+    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
+    "section": "",
+    "text": "Create a personal GitHub account.\nInitialize a new repository for MAT 186 work.\nUnderstand the “Commit” and “Push” workflow.\nHost a live version of a lab report using GitHub Pages.\n\n\n\n\n\nData Science is a collaborative field. GitHub is the industry standard for version control and sharing code. In this lab, you will set up your own “portfolio”—a place where you can showcase the work you do in this class to future employers or transfer institutions.\n\n\n\n\n\nGo to GitHub.com.\nSign up for a free account.\n\nTip: Choose a professional username (e.g., jsmith-dcc), as you may show this to employers later!\n\nVerify your email address.\n\n\n\n\n\nA Repository (or “Repo”) is like a project folder that lives in the cloud.\n\nClick the + icon in the top right and select New repository.\nRepository name: mat186-work\nDescription: “Labs and projects for Introduction to Data Science at DCC.”\nPublic/Private: Select Public.\nCheck the box that says Add a README file.\nClick Create repository.\n\n\n\n\n\nNow, let’s add the work you’ve done in previous labs.\n\nIn your new mat186-work repository, click Add file &gt; Upload files.\nDrag and drop your HTML files from Lab 2 and Lab 3 into the browser.\nAt the bottom, type a “Commit message” like: Initial upload of Lab 2 and 3.\nClick Commit changes.\n\n\n\n\n\nLet’s make your lab reports viewable as actual websites.\n\nGo to your repository Settings tab.\nOn the left menu, click Pages.\nUnder Build and deployment, set the Branch to main and click Save.\nAfter a minute, GitHub will give you a URL (e.g., https://username.github.io/mat186-work/).\n\n\n\nLab Task 4: 1. Create your mat186-work repository. 2. Upload the HTML version of your Lab 3 (Math Formulas). 3. Enable GitHub Pages. 4. Paste the link to your live GitHub Page into the Brightspace assignment.\n\n\n\n\nBy putting your work on GitHub, you are participating in Open Science. This allows others to learn from your code and allows you to track your own progress throughout the semester!",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 4: GitHub Repository"
+    ]
+  },
+  {
+    "objectID": "labs/lab04.html#learning-objectives",
+    "href": "labs/lab04.html#learning-objectives",
+    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
+    "section": "",
+    "text": "Create a personal GitHub account.\nInitialize a new repository for MAT 186 work.\nUnderstand the “Commit” and “Push” workflow.\nHost a live version of a lab report using GitHub Pages.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 4: GitHub Repository"
+    ]
+  },
+  {
+    "objectID": "labs/lab04.html#introduction",
+    "href": "labs/lab04.html#introduction",
+    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
+    "section": "",
+    "text": "Data Science is a collaborative field. GitHub is the industry standard for version control and sharing code. In this lab, you will set up your own “portfolio”—a place where you can showcase the work you do in this class to future employers or transfer institutions.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 4: GitHub Repository"
+    ]
+  },
+  {
+    "objectID": "labs/lab04.html#part-1-setting-up-your-account",
+    "href": "labs/lab04.html#part-1-setting-up-your-account",
+    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
+    "section": "",
+    "text": "Go to GitHub.com.\nSign up for a free account.\n\nTip: Choose a professional username (e.g., jsmith-dcc), as you may show this to employers later!\n\nVerify your email address.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 4: GitHub Repository"
+    ]
+  },
+  {
+    "objectID": "labs/lab04.html#part-2-creating-your-first-repository",
+    "href": "labs/lab04.html#part-2-creating-your-first-repository",
+    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
+    "section": "",
+    "text": "A Repository (or “Repo”) is like a project folder that lives in the cloud.\n\nClick the + icon in the top right and select New repository.\nRepository name: mat186-work\nDescription: “Labs and projects for Introduction to Data Science at DCC.”\nPublic/Private: Select Public.\nCheck the box that says Add a README file.\nClick Create repository.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 4: GitHub Repository"
+    ]
+  },
+  {
+    "objectID": "labs/lab04.html#part-3-uploading-your-lab-reports",
+    "href": "labs/lab04.html#part-3-uploading-your-lab-reports",
+    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
+    "section": "",
+    "text": "Now, let’s add the work you’ve done in previous labs.\n\nIn your new mat186-work repository, click Add file &gt; Upload files.\nDrag and drop your HTML files from Lab 2 and Lab 3 into the browser.\nAt the bottom, type a “Commit message” like: Initial upload of Lab 2 and 3.\nClick Commit changes.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 4: GitHub Repository"
+    ]
+  },
+  {
+    "objectID": "labs/lab04.html#part-4-publishing-with-github-pages",
+    "href": "labs/lab04.html#part-4-publishing-with-github-pages",
+    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
+    "section": "",
+    "text": "Let’s make your lab reports viewable as actual websites.\n\nGo to your repository Settings tab.\nOn the left menu, click Pages.\nUnder Build and deployment, set the Branch to main and click Save.\nAfter a minute, GitHub will give you a URL (e.g., https://username.github.io/mat186-work/).\n\n\n\nLab Task 4: 1. Create your mat186-work repository. 2. Upload the HTML version of your Lab 3 (Math Formulas). 3. Enable GitHub Pages. 4. Paste the link to your live GitHub Page into the Brightspace assignment.\n\n\n\n\nBy putting your work on GitHub, you are participating in Open Science. This allows others to learn from your code and allows you to track your own progress throughout the semester!",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 4: GitHub Repository"
+    ]
+  },
+  {
+    "objectID": "labs/lab15.html",
+    "href": "labs/lab15.html",
+    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
+    "section": "",
+    "text": "Identify when to use Non-parametric tests instead of Parametric tests.\nConduct a Wilcoxon Rank-Sum Test (Mann-Whitney U).\nConduct a Wilcoxon Signed-Rank Test for paired data.\nUnderstand how “Ranking” data removes the influence of extreme outliers.\n\n\n\n\n\n“Parametric” tests (like the t-test) assume your data follows a specific distribution (the Normal Distribution). Non-parametric tests make no such assumption. They are often called “Distribution-Free” tests.\n\n\n\nYour sample size is very small (n &lt; 30).\nYour data is heavily skewed and cannot be fixed.\nYou have major outliers that you cannot remove.\nYour data is Ordinal (e.g., Likert scales: “Satisfied”, “Neutral”, “Dissatisfied”).\n\n\n\n\n\n\nThis is the non-parametric alternative to the Independent Samples t-test (Lab 12). Instead of comparing means, it compares the medians by ranking all the data points from smallest to largest.\nScenario: Are the “Mass” values of Droids and Humans different? (Mass is often heavily skewed by outliers like Jabba the Hutt).\nlibrary(tidyverse)\n\n# Filtering data\ncomparison_data &lt;- starwars |&gt; \n  filter(species %in% c(\"Human\", \"Droid\")) |&gt;\n  drop_na(mass)\n\n# Running the Wilcoxon Rank-Sum Test\nwilcox.test(mass ~ species, data = comparison_data)\n\n\n\n\nThis is the non-parametric alternative to the Paired t-test. Use this when you have “Before” and “After” measurements on the same subjects, but the differences are not normally distributed.\n# Example syntax for paired data\n# wilcox.test(before_scores, after_scores, paired = TRUE)\n\n\n\n\nWhile non-parametric tests are safer for “messy” data, they are slightly less powerful than parametric tests when the data is actually normal. This means they are less likely to find a significant difference if one actually exists.\n\n\nLab Task 15: 1. Pick a numeric variable from your dataset that looks very skewed (not bell-shaped). 2. Create a Boxplot of this variable grouped by a category. 3. Run a wilcox.test() to compare the two groups. 4. Run a standard t.test() on the same data. 5. Compare: In your Quarto document, compare the p-values. Are they similar? Which test do you trust more for this specific data, and why?\n\n\n\n\n\nIf you are presenting data to a stakeholder and you are worried about one or two “crazy” outliers ruining your average, the Wilcoxon test is your best friend. It treats the outlier as just “the highest rank,” preventing it from pulling the results in its direction.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 15: Non-parametric methods"
+    ]
+  },
+  {
+    "objectID": "labs/lab15.html#learning-objectives",
+    "href": "labs/lab15.html#learning-objectives",
+    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
+    "section": "",
+    "text": "Identify when to use Non-parametric tests instead of Parametric tests.\nConduct a Wilcoxon Rank-Sum Test (Mann-Whitney U).\nConduct a Wilcoxon Signed-Rank Test for paired data.\nUnderstand how “Ranking” data removes the influence of extreme outliers.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 15: Non-parametric methods"
+    ]
+  },
+  {
+    "objectID": "labs/lab15.html#part-1-parametric-vs.-non-parametric",
+    "href": "labs/lab15.html#part-1-parametric-vs.-non-parametric",
+    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
+    "section": "",
+    "text": "“Parametric” tests (like the t-test) assume your data follows a specific distribution (the Normal Distribution). Non-parametric tests make no such assumption. They are often called “Distribution-Free” tests.\n\n\n\nYour sample size is very small (n &lt; 30).\nYour data is heavily skewed and cannot be fixed.\nYou have major outliers that you cannot remove.\nYour data is Ordinal (e.g., Likert scales: “Satisfied”, “Neutral”, “Dissatisfied”).",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 15: Non-parametric methods"
+    ]
+  },
+  {
+    "objectID": "labs/lab15.html#part-2-the-wilcoxon-rank-sum-test",
+    "href": "labs/lab15.html#part-2-the-wilcoxon-rank-sum-test",
+    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
+    "section": "",
+    "text": "This is the non-parametric alternative to the Independent Samples t-test (Lab 12). Instead of comparing means, it compares the medians by ranking all the data points from smallest to largest.\nScenario: Are the “Mass” values of Droids and Humans different? (Mass is often heavily skewed by outliers like Jabba the Hutt).\nlibrary(tidyverse)\n\n# Filtering data\ncomparison_data &lt;- starwars |&gt; \n  filter(species %in% c(\"Human\", \"Droid\")) |&gt;\n  drop_na(mass)\n\n# Running the Wilcoxon Rank-Sum Test\nwilcox.test(mass ~ species, data = comparison_data)",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 15: Non-parametric methods"
+    ]
+  },
+  {
+    "objectID": "labs/lab15.html#part-3-the-wilcoxon-signed-rank-test",
+    "href": "labs/lab15.html#part-3-the-wilcoxon-signed-rank-test",
+    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
+    "section": "",
+    "text": "This is the non-parametric alternative to the Paired t-test. Use this when you have “Before” and “After” measurements on the same subjects, but the differences are not normally distributed.\n# Example syntax for paired data\n# wilcox.test(before_scores, after_scores, paired = TRUE)",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 15: Non-parametric methods"
+    ]
+  },
+  {
+    "objectID": "labs/lab15.html#part-4-the-trade-off",
+    "href": "labs/lab15.html#part-4-the-trade-off",
+    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
+    "section": "",
+    "text": "While non-parametric tests are safer for “messy” data, they are slightly less powerful than parametric tests when the data is actually normal. This means they are less likely to find a significant difference if one actually exists.\n\n\nLab Task 15: 1. Pick a numeric variable from your dataset that looks very skewed (not bell-shaped). 2. Create a Boxplot of this variable grouped by a category. 3. Run a wilcox.test() to compare the two groups. 4. Run a standard t.test() on the same data. 5. Compare: In your Quarto document, compare the p-values. Are they similar? Which test do you trust more for this specific data, and why?",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 15: Non-parametric methods"
+    ]
+  },
+  {
+    "objectID": "labs/lab15.html#pro-tip-when-in-doubt-rank-it-out",
+    "href": "labs/lab15.html#pro-tip-when-in-doubt-rank-it-out",
+    "title": "Lab 15: Non-parametric Methods for Hypothesis Testing",
+    "section": "",
+    "text": "If you are presenting data to a stakeholder and you are worried about one or two “crazy” outliers ruining your average, the Wilcoxon test is your best friend. It treats the outlier as just “the highest rank,” preventing it from pulling the results in its direction.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 15: Non-parametric methods"
+    ]
+  },
+  {
+    "objectID": "labs/lab02.html",
+    "href": "labs/lab02.html",
+    "title": "Lab 2: RStudio Projects and Quarto Documents",
+    "section": "",
+    "text": "Create an RStudio Project to organize your work.\nUnderstand the structure of a Quarto (.qmd) document.\n“Render” a document into a professional HTML report.\n\n\n\n\n\nIn Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\nOpen RStudio.\nClick File &gt; New Project…\nSelect New Directory &gt; New Project.\nName your directory MAT186_Labs and save it to your Desktop or Documents.\n\n\nWhy use Projects? It sets the “Working Directory” automatically. You’ll never have to type long file paths like C:/Users/Documents/Data... again!\n\n\n\n\n\nQuarto allows you to combine text, code, and results in one file.\n\nClick File &gt; New File &gt; Quarto Document…\nTitle it “Lab 2” and put your name as the Author.\nClick Create.\nLook at the file. You will see:\n\nYAML Header: The stuff between the --- lines (Title, Author, Format).\nCode Chunks: The gray boxes starting with ```{r}.\nMarkdown: The plain white areas for your written analysis.\n\n\n\n\n\n\nTo turn your code into a report: 1. Click the Render button (blue arrow icon) at the top of the editor. 2. RStudio will save the file and pop up a beautiful HTML window.\n\n\nLab Task 2: Inside your Quarto document, create a new code chunk and type 2 + 2. Render the document and verify that the number 4 appears in the final report. Screenshot your rendered HTML for submission.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 2: RStudio Project and Quarto Documents"
+    ]
+  },
+  {
+    "objectID": "labs/lab02.html#learning-objectives",
+    "href": "labs/lab02.html#learning-objectives",
+    "title": "Lab 2: RStudio Projects and Quarto Documents",
+    "section": "",
+    "text": "Create an RStudio Project to organize your work.\nUnderstand the structure of a Quarto (.qmd) document.\n“Render” a document into a professional HTML report.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 2: RStudio Project and Quarto Documents"
+    ]
+  },
+  {
+    "objectID": "labs/lab02.html#part-1-rstudio-projects",
+    "href": "labs/lab02.html#part-1-rstudio-projects",
+    "title": "Lab 2: RStudio Projects and Quarto Documents",
+    "section": "",
+    "text": "In Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\nOpen RStudio.\nClick File &gt; New Project…\nSelect New Directory &gt; New Project.\nName your directory MAT186_Labs and save it to your Desktop or Documents.\n\n\nWhy use Projects? It sets the “Working Directory” automatically. You’ll never have to type long file paths like C:/Users/Documents/Data... again!",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 2: RStudio Project and Quarto Documents"
+    ]
+  },
+  {
+    "objectID": "labs/lab02.html#part-2-creating-a-quarto-document",
+    "href": "labs/lab02.html#part-2-creating-a-quarto-document",
+    "title": "Lab 2: RStudio Projects and Quarto Documents",
+    "section": "",
+    "text": "Quarto allows you to combine text, code, and results in one file.\n\nClick File &gt; New File &gt; Quarto Document…\nTitle it “Lab 2” and put your name as the Author.\nClick Create.\nLook at the file. You will see:\n\nYAML Header: The stuff between the --- lines (Title, Author, Format).\nCode Chunks: The gray boxes starting with ```{r}.\nMarkdown: The plain white areas for your written analysis.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 2: RStudio Project and Quarto Documents"
+    ]
+  },
+  {
+    "objectID": "labs/lab02.html#part-3-rendering-the-magic-button",
+    "href": "labs/lab02.html#part-3-rendering-the-magic-button",
+    "title": "Lab 2: RStudio Projects and Quarto Documents",
+    "section": "",
+    "text": "To turn your code into a report: 1. Click the Render button (blue arrow icon) at the top of the editor. 2. RStudio will save the file and pop up a beautiful HTML window.\n\n\nLab Task 2: Inside your Quarto document, create a new code chunk and type 2 + 2. Render the document and verify that the number 4 appears in the final report. Screenshot your rendered HTML for submission.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 2: RStudio Project and Quarto Documents"
+    ]
+  },
+  {
+    "objectID": "labs/lab16.html",
+    "href": "labs/lab16.html",
+    "title": "Lab 16: Analysis of Variance (ANOVA)",
+    "section": "",
+    "text": "Understand when to use ANOVA instead of multiple t-tests.\nState the Null (\\(H_0\\)) and Alternative (\\(H_a\\)) hypotheses for multiple groups.\nConduct a One-Way ANOVA in R.\nPerform Post-hoc testing (Tukey’s HSD) to find exactly where differences lie.\n\n\n\n\n\nIf you have three groups (e.g., Freshman, Sophomores, Juniors) and you want to compare their average GPA, you could run three separate t-tests. However, every time you run a test, there is a 5% chance of being wrong. By the third test, your error rate has ballooned!\nANOVA tests all groups at once, keeping our error rate at 5%.\n\nNull Hypothesis (\\(H_0\\)): All group means are equal (\\(\\mu_1 = \\mu_2 = \\mu_3\\)).\nAlternative Hypothesis (\\(H_a\\)): At least one group mean is different.\n\n\n\n\n\nWith ANOVA, side-by-side boxplots are essential. They allow us to see if the “spread” within groups is smaller than the “distance” between groups.\nlibrary(tidyverse)\n\n# Example: Do different 'eye colors' in Star Wars have different average heights?\n# We'll filter for the most common eye colors\neye_data &lt;- starwars |&gt; \n  filter(eye_color %in% c(\"blue\", \"brown\", \"yellow\", \"orange\")) |&gt;\n  drop_na(height)\n\nggplot(eye_data, aes(x = eye_color, y = height, fill = eye_color)) +\n  geom_boxplot() +\n  theme_minimal() +\n  labs(title = \"Height Distribution by Eye Color\")\n\n\n\n\nWe use the aov() function. Like the t-test, we use the formula numeric_variable ~ categorical_variable.\n# 1. Fit the ANOVA model\nmodel &lt;- aov(height ~ eye_color, data = eye_data)\n\n# 2. View the summary table\nsummary(model)\n\n\n\nDf: Degrees of freedom.\nF value: The ratio of variance between groups to variance within groups. A large F-value usually leads to a small p-value.\nPr(&gt;F): This is your p-value. If it is &lt; 0.05, we reject the Null.\n\n\n\n\n\n\nIf your ANOVA p-value is significant, you know someone is different, but you don’t know who. We use Tukey’s Honest Significant Difference to compare every possible pair.\n# Running Tukey's HSD\nTukeyHSD(model)\n\n\nLab Task 16: 1. Identify a categorical variable in your data with 3 or more groups (e.g., County, Year, or Category). 2. Create a Boxplot comparing a numeric variable across these groups. 3. Run the aov() function and look at the summary(). 4. Conclusion: * If p &gt; 0.05: State that there is no significant difference between any groups. * If p &lt; 0.05: Run TukeyHSD() and identify which specific pairs are actually different.\n\n\n\n\n\nANOVA assumes that the “spread” (variance) is roughly the same for all groups. If one boxplot is massive and another is tiny, the math might be unreliable. In those cases, we go back to the Non-parametric methods from Lab 15!",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 16: Analysis of variance (ANOVA)"
+    ]
+  },
+  {
+    "objectID": "labs/lab16.html#learning-objectives",
+    "href": "labs/lab16.html#learning-objectives",
+    "title": "Lab 16: Analysis of Variance (ANOVA)",
+    "section": "",
+    "text": "Understand when to use ANOVA instead of multiple t-tests.\nState the Null (\\(H_0\\)) and Alternative (\\(H_a\\)) hypotheses for multiple groups.\nConduct a One-Way ANOVA in R.\nPerform Post-hoc testing (Tukey’s HSD) to find exactly where differences lie.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 16: Analysis of variance (ANOVA)"
+    ]
+  },
+  {
+    "objectID": "labs/lab16.html#part-1-why-anova",
+    "href": "labs/lab16.html#part-1-why-anova",
+    "title": "Lab 16: Analysis of Variance (ANOVA)",
+    "section": "",
+    "text": "If you have three groups (e.g., Freshman, Sophomores, Juniors) and you want to compare their average GPA, you could run three separate t-tests. However, every time you run a test, there is a 5% chance of being wrong. By the third test, your error rate has ballooned!\nANOVA tests all groups at once, keeping our error rate at 5%.\n\nNull Hypothesis (\\(H_0\\)): All group means are equal (\\(\\mu_1 = \\mu_2 = \\mu_3\\)).\nAlternative Hypothesis (\\(H_a\\)): At least one group mean is different.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 16: Analysis of variance (ANOVA)"
+    ]
+  },
+  {
+    "objectID": "labs/lab16.html#part-2-visualizing-multiple-groups",
+    "href": "labs/lab16.html#part-2-visualizing-multiple-groups",
+    "title": "Lab 16: Analysis of Variance (ANOVA)",
+    "section": "",
+    "text": "With ANOVA, side-by-side boxplots are essential. They allow us to see if the “spread” within groups is smaller than the “distance” between groups.\nlibrary(tidyverse)\n\n# Example: Do different 'eye colors' in Star Wars have different average heights?\n# We'll filter for the most common eye colors\neye_data &lt;- starwars |&gt; \n  filter(eye_color %in% c(\"blue\", \"brown\", \"yellow\", \"orange\")) |&gt;\n  drop_na(height)\n\nggplot(eye_data, aes(x = eye_color, y = height, fill = eye_color)) +\n  geom_boxplot() +\n  theme_minimal() +\n  labs(title = \"Height Distribution by Eye Color\")",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 16: Analysis of variance (ANOVA)"
+    ]
+  },
+  {
+    "objectID": "labs/lab16.html#part-3-running-the-anova-in-r",
+    "href": "labs/lab16.html#part-3-running-the-anova-in-r",
+    "title": "Lab 16: Analysis of Variance (ANOVA)",
+    "section": "",
+    "text": "We use the aov() function. Like the t-test, we use the formula numeric_variable ~ categorical_variable.\n# 1. Fit the ANOVA model\nmodel &lt;- aov(height ~ eye_color, data = eye_data)\n\n# 2. View the summary table\nsummary(model)\n\n\n\nDf: Degrees of freedom.\nF value: The ratio of variance between groups to variance within groups. A large F-value usually leads to a small p-value.\nPr(&gt;F): This is your p-value. If it is &lt; 0.05, we reject the Null.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 16: Analysis of variance (ANOVA)"
+    ]
+  },
+  {
+    "objectID": "labs/lab16.html#part-4-post-hoc-testing-tukeys-hsd",
+    "href": "labs/lab16.html#part-4-post-hoc-testing-tukeys-hsd",
+    "title": "Lab 16: Analysis of Variance (ANOVA)",
+    "section": "",
+    "text": "If your ANOVA p-value is significant, you know someone is different, but you don’t know who. We use Tukey’s Honest Significant Difference to compare every possible pair.\n# Running Tukey's HSD\nTukeyHSD(model)\n\n\nLab Task 16: 1. Identify a categorical variable in your data with 3 or more groups (e.g., County, Year, or Category). 2. Create a Boxplot comparing a numeric variable across these groups. 3. Run the aov() function and look at the summary(). 4. Conclusion: * If p &gt; 0.05: State that there is no significant difference between any groups. * If p &lt; 0.05: Run TukeyHSD() and identify which specific pairs are actually different.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 16: Analysis of variance (ANOVA)"
+    ]
+  },
+  {
+    "objectID": "labs/lab16.html#pro-tip-the-equal-variance-assumption",
+    "href": "labs/lab16.html#pro-tip-the-equal-variance-assumption",
+    "title": "Lab 16: Analysis of Variance (ANOVA)",
+    "section": "",
+    "text": "ANOVA assumes that the “spread” (variance) is roughly the same for all groups. If one boxplot is massive and another is tiny, the math might be unreliable. In those cases, we go back to the Non-parametric methods from Lab 15!",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 16: Analysis of variance (ANOVA)"
+    ]
+  },
+  {
     "objectID": "labs/lab03.html",
     "href": "labs/lab03.html",
     "title": "Lab 3: Mathematical Notation in Quarto",
     "section": "",
-    "text": "Distinguish between Inline and Display math modes in Quarto.\nUse LaTeX syntax to write essential statistical symbols (\\(\\mu, \\sigma, \\bar{x}\\)).\nFormat complex equations like Linear Regression for professional lab reports.\n\n\n\n\n\nIn Data Science, we often need to document the mathematical models we use. Quarto uses a system called LaTeX (pronounced “Lay-tek”) to render math. This ensures your formulas look professional and are accessible to screen readers.\n\n\n\n\nThere are two ways to display math in your Quarto documents depending on where you want the formula to appear.\n\n\nUse a single dollar sign $ ... $ when the math should stay inside a sentence. * Code: The population mean is represented by $\\mu$. * Result: The population mean is represented by \\(\\mu\\).\n\n\n\nUse double dollar signs $$...$$ to put the formula on its own line, centered. * Code: $$\\bar{x} = \\frac{\\sum x_i}{n}$$ * Result: \\[\\bar{x} = \\frac{\\sum x_i}{n}\\]\n\n\n\n\n\nCopy and paste these codes into your Quarto document to practice:\n\n\n\nStatistical Term\nLaTeX Code\nRendered Result\n\n\n\n\nSample Mean\n$\\bar{x}$\n\\(\\bar{x}\\)\n\n\nStandard Deviation\n$\\sigma$\n\\(\\sigma\\)\n\n\nSummation\n$\\sum$\n\\(\\sum\\)\n\n\nCorrelation Coefficient\n$r$\n\\(r\\)\n\n\nCoefficient of Determination\n$R^2$\n\\(R^2\\)\n\n\n\n\n\n\n\nFor Linear Regression, we combine several symbols. Try typing this in your Quarto file:\nCode: $$y = \\beta_0 + \\beta_1 x + \\epsilon$$\nResult: \\[y = \\beta_0 + \\beta_1 x + \\epsilon\\]\n\n\nLab Task 3: 1. Open your MAT186_Labs project in RStudio. 2. Create a new Quarto document (.qmd) titled “Math Practice.” 3. Write the formula for the Standard Deviation exactly as shown below: $$s = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{n - 1}}$$ 4. Render the document to HTML and confirm the formula appears correctly.\n\n\n\n\n\n\nSpaces: Do not put a space between the $ and your math code.\n\nBad: $ \\mu $\nGood: $\\mu$\n\nMissing Signs: If your formula looks like plain text, check if you forgot the closing $.\n\n\n\n\nWhen you use this LaTeX method, students using screen readers can hear the math described clearly (e.g., “x bar equals fraction sum x sub i over n”). This is much better than using an image of an equation, which a screen reader cannot “see.”",
+    "text": "Distinguish between Inline and Display math modes in Quarto.\nUse LaTeX syntax to write essential statistical symbols (\\(\\mu, \\sigma, \\bar{x}\\)).\nFormat complex equations like Linear Regression for professional lab reports.\n\n\n\n\n\nIn Data Science, we often need to document the mathematical models we use. Quarto uses a system called LaTeX (pronounced “Lay-tek”) to render math. This ensures your formulas look professional and are accessible to screen readers.\n\n\n\n\nThere are two ways to display math in your Quarto documents depending on where you want the formula to appear.\n\n\nUse a single dollar sign $ ... $ when the math should stay inside a sentence.\n\nCode: The population mean is represented by $\\mu$.\nResult: The population mean is represented by \\(\\mu\\).\n\n\n\n\nUse double dollar signs $$...$$ to center the formula on its own line.\n\nCode: $$\\bar{x} = \\frac{\\sum x_i}{n}$$\nResult: \\[\\bar{x} = \\frac{\\sum x_i}{n}\\]\n\n\n\n\n\n\nCopy and paste these codes into your Quarto document to practice:\n\n\n\nStatistical Term\nLaTeX Code\nRendered Result\n\n\n\n\nSample Mean\n$\\bar{x}$\n\\(\\bar{x}\\)\n\n\nStandard Deviation\n$\\sigma$\n\\(\\sigma\\)\n\n\nSummation\n$\\sum$\n\\(\\sum\\)\n\n\nCorrelation Coefficient\n$r$\n\\(r\\)\n\n\nCoefficient of Determination\n$R^2$\n\\(R^2\\)\n\n\n\n\n\n\n\nFor Linear Regression, we combine several symbols. Try typing this in your Quarto file:\nCode: $$y = \\beta_0 + \\beta_1 x + \\epsilon$$\nResult: \\[y = \\beta_0 + \\beta_1 x + \\epsilon\\]\n\n\nLab Task 3: 1. Open your MAT186_Labs project in RStudio. 2. Create a new Quarto document (.qmd) titled “Math Practice.” 3. Write the formula for the Standard Deviation exactly as shown below: $$s = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{n - 1}}$$ 4. Render the document to HTML and confirm the formula appears correctly.\n\n\n\n\n\n\nSpaces: Do not put a space between the $ and your math code.\n\nBad: $ \\mu $\nGood: $\\mu$\n\nMissing Signs: If your formula looks like plain text, check if you forgot the closing $.\n\n\n\n\nWhen you use this LaTeX method, students using screen readers can hear the math described clearly (e.g., “x bar equals fraction sum x sub i over n”). This is much better than using an image of an equation, which a screen reader cannot “see.”",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -1260,7 +1083,7 @@
     "href": "labs/lab03.html#part-1-the-two-math-modes",
     "title": "Lab 3: Mathematical Notation in Quarto",
     "section": "",
-    "text": "There are two ways to display math in your Quarto documents depending on where you want the formula to appear.\n\n\nUse a single dollar sign $ ... $ when the math should stay inside a sentence. * Code: The population mean is represented by $\\mu$. * Result: The population mean is represented by \\(\\mu\\).\n\n\n\nUse double dollar signs $$...$$ to put the formula on its own line, centered. * Code: $$\\bar{x} = \\frac{\\sum x_i}{n}$$ * Result: \\[\\bar{x} = \\frac{\\sum x_i}{n}\\]",
+    "text": "There are two ways to display math in your Quarto documents depending on where you want the formula to appear.\n\n\nUse a single dollar sign $ ... $ when the math should stay inside a sentence.\n\nCode: The population mean is represented by $\\mu$.\nResult: The population mean is represented by \\(\\mu\\).\n\n\n\n\nUse double dollar signs $$...$$ to center the formula on its own line.\n\nCode: $$\\bar{x} = \\frac{\\sum x_i}{n}$$\nResult: \\[\\bar{x} = \\frac{\\sum x_i}{n}\\]",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -1388,87 +1211,229 @@
     ]
   },
   {
-    "objectID": "labs/lab05.html",
-    "href": "labs/lab05.html",
-    "title": "Lab 5: Getting Data into R",
+    "objectID": "labs/lab14.html",
+    "href": "labs/lab14.html",
+    "title": "Lab 14: Bootstrapping and Resampling",
     "section": "",
-    "text": "Understand the difference between Absolute and Relative file paths.\nImport data from a local CSV file.\nImport data directly from a URL (Web).\nUse the readr package (part of the tidyverse).\n\n\n\n\n\nBefore we can visualize or model data, we have to “import” it into R’s memory. Most data you will encounter is stored in CSV (Comma Separated Values) format, which looks like an Excel spreadsheet but is much lighter and easier for programs to read.\n\n\n\n\nR needs to know which folder on your computer it should “look” in.\n\nCrucial Step: This is why we use RStudio Projects (from Lab 2). When you open your .Rproj file, R automatically sets your folder as the “Working Directory.”\n\nTo check where R is looking, type this in your console: ~r getwd()~\n\n\n\n\nThe easiest way to get started is to pull data directly from the internet. We will use the read_csv() function from the tidyverse.\nTry this code in your Quarto document: ~~~r library(tidyverse)",
+    "text": "Understand the concept of Sampling with Replacement.\nUse the infer package to create a bootstrap distribution.\nEstimate a Confidence Interval without assuming the data is “Normal.”\nCompare Bootstrap results to traditional T-test results.\n\n\n\n\n\nWhat if your data is skewed, or you have a very small sample size? Traditional math might fail you. Bootstrapping solves this by treating your sample like a “mini-population.” We take thousands of samples from our own data to see how much the mean varies.\n\n\n\n\nIn R, the infer package makes the logic of bootstrapping very clear. We follow four steps: specify, generate, calculate, and visualize.\n# Install and load the infer package\nif(!require(infer)) install.packages(\"infer\")\nlibrary(tidyverse)\nlibrary(infer)\n\n# Let's bootstrap the mean height of Star Wars characters\nboot_dist &lt;- starwars |&gt;\n  drop_na(height) |&gt;\n  specify(response = height) |&gt;              # 1. What variable?\n  generate(reps = 1000, type = \"bootstrap\") |&gt; # 2. Resample 1000 times\n  calculate(stat = \"mean\")                   # 3. Find the mean each time\n\n\n\n\nInstead of a theoretical curve, we look at the actual distribution of our 1,000 “fake” means.\nvisualize(boot_dist) +\n  labs(title = \"Bootstrap Distribution of the Mean\",\n       x = \"Sample Mean Height\", y = \"Count\")\n\n\n\n\nTo find a 95% Confidence Interval, we simply look at where the middle 95% of our 1,000 bootstrap means fall.\npercentile_ci &lt;- boot_dist |&gt;\n  get_confidence_interval(level = 0.95, type = \"percentile\")\n\n# View the interval\npercentile_ci\n\n\n\n\n\nNo “Normality” Required: It works even if your data is weirdly shaped.\nAny Statistic: You can bootstrap the mean, the median, the standard deviation, or even the correlation coefficient.\nVisual Logic: It helps you see the uncertainty in your estimate.\n\n\n\nLab Task 14: 1. Pick a numeric variable from your dataset. 2. Create a histogram of the original data. (Is it skewed?) 3. Run the infer code above to generate 1,000 bootstrap reps for the Median instead of the mean (stat = \"median\"). 4. Visualize the bootstrap distribution. 5. Calculate the 95% Confidence Interval. 6. Reflection: In your Quarto document, explain in your own words why we “sample with replacement” during bootstrapping.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 5: Getting data into R"
+      "Lab 14: Bootstrapping"
     ]
   },
   {
-    "objectID": "labs/lab05.html#learning-objectives",
-    "href": "labs/lab05.html#learning-objectives",
-    "title": "Lab 5: Getting Data into R",
+    "objectID": "labs/lab14.html#learning-objectives",
+    "href": "labs/lab14.html#learning-objectives",
+    "title": "Lab 14: Bootstrapping and Resampling",
     "section": "",
-    "text": "Understand the difference between Absolute and Relative file paths.\nImport data from a local CSV file.\nImport data directly from a URL (Web).\nUse the readr package (part of the tidyverse).",
+    "text": "Understand the concept of Sampling with Replacement.\nUse the infer package to create a bootstrap distribution.\nEstimate a Confidence Interval without assuming the data is “Normal.”\nCompare Bootstrap results to traditional T-test results.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 5: Getting data into R"
+      "Lab 14: Bootstrapping"
     ]
   },
   {
-    "objectID": "labs/lab05.html#introduction",
-    "href": "labs/lab05.html#introduction",
-    "title": "Lab 5: Getting Data into R",
+    "objectID": "labs/lab14.html#introduction-pulling-yourself-up-by-your-boots",
+    "href": "labs/lab14.html#introduction-pulling-yourself-up-by-your-boots",
+    "title": "Lab 14: Bootstrapping and Resampling",
     "section": "",
-    "text": "Before we can visualize or model data, we have to “import” it into R’s memory. Most data you will encounter is stored in CSV (Comma Separated Values) format, which looks like an Excel spreadsheet but is much lighter and easier for programs to read.",
+    "text": "What if your data is skewed, or you have a very small sample size? Traditional math might fail you. Bootstrapping solves this by treating your sample like a “mini-population.” We take thousands of samples from our own data to see how much the mean varies.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 5: Getting data into R"
+      "Lab 14: Bootstrapping"
     ]
   },
   {
-    "objectID": "labs/lab05.html#part-1-the-working-directory",
-    "href": "labs/lab05.html#part-1-the-working-directory",
-    "title": "Lab 5: Getting Data into R",
+    "objectID": "labs/lab14.html#part-1-the-infer-package",
+    "href": "labs/lab14.html#part-1-the-infer-package",
+    "title": "Lab 14: Bootstrapping and Resampling",
     "section": "",
-    "text": "R needs to know which folder on your computer it should “look” in.\n\nCrucial Step: This is why we use RStudio Projects (from Lab 2). When you open your .Rproj file, R automatically sets your folder as the “Working Directory.”\n\nTo check where R is looking, type this in your console: ~r getwd()~",
+    "text": "In R, the infer package makes the logic of bootstrapping very clear. We follow four steps: specify, generate, calculate, and visualize.\n# Install and load the infer package\nif(!require(infer)) install.packages(\"infer\")\nlibrary(tidyverse)\nlibrary(infer)\n\n# Let's bootstrap the mean height of Star Wars characters\nboot_dist &lt;- starwars |&gt;\n  drop_na(height) |&gt;\n  specify(response = height) |&gt;              # 1. What variable?\n  generate(reps = 1000, type = \"bootstrap\") |&gt; # 2. Resample 1000 times\n  calculate(stat = \"mean\")                   # 3. Find the mean each time",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 5: Getting data into R"
+      "Lab 14: Bootstrapping"
     ]
   },
   {
-    "objectID": "labs/lab05.html#part-2-loading-data-from-a-url",
-    "href": "labs/lab05.html#part-2-loading-data-from-a-url",
-    "title": "Lab 5: Getting Data into R",
+    "objectID": "labs/lab14.html#part-2-visualizing-the-bootstrap-distribution",
+    "href": "labs/lab14.html#part-2-visualizing-the-bootstrap-distribution",
+    "title": "Lab 14: Bootstrapping and Resampling",
     "section": "",
-    "text": "The easiest way to get started is to pull data directly from the internet. We will use the read_csv() function from the tidyverse.\nTry this code in your Quarto document: ~~~r library(tidyverse)",
+    "text": "Instead of a theoretical curve, we look at the actual distribution of our 1,000 “fake” means.\nvisualize(boot_dist) +\n  labs(title = \"Bootstrap Distribution of the Mean\",\n       x = \"Sample Mean Height\", y = \"Count\")",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 5: Getting data into R"
+      "Lab 14: Bootstrapping"
     ]
   },
   {
-    "objectID": "labs/lab05.html#part-3-loading-a-local-csv",
-    "href": "labs/lab05.html#part-3-loading-a-local-csv",
-    "title": "Lab 5: Getting Data into R",
-    "section": "Part 3: Loading a Local CSV",
-    "text": "Part 3: Loading a Local CSV\nOften, you will download a dataset from a site like Kaggle or a government portal.\n\nFind a CSV file (or download a sample one).\nMove that file into your MAT186_Labs folder.\nUse the following code (replace filename.csv with your actual file name):\n\nmy_data &lt;- read_csv(\"filename.csv\")",
+    "objectID": "labs/lab14.html#part-3-the-percentile-method",
+    "href": "labs/lab14.html#part-3-the-percentile-method",
+    "title": "Lab 14: Bootstrapping and Resampling",
+    "section": "",
+    "text": "To find a 95% Confidence Interval, we simply look at where the middle 95% of our 1,000 bootstrap means fall.\npercentile_ci &lt;- boot_dist |&gt;\n  get_confidence_interval(level = 0.95, type = \"percentile\")\n\n# View the interval\npercentile_ci",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 5: Getting data into R"
+      "Lab 14: Bootstrapping"
     ]
   },
   {
-    "objectID": "labs/lab05.html#part-4-dealing-with-common-errors",
-    "href": "labs/lab05.html#part-4-dealing-with-common-errors",
-    "title": "Lab 5: Getting Data into R",
-    "section": "Part 4: Dealing with Common Errors",
-    "text": "Part 4: Dealing with Common Errors\n\n“File not found”: This usually means the file is not in your Project folder, or you misspelled the name (remember: Data.csv is different from data.csv).\nColumn Parsing: Sometimes R guesses the data type wrong (e.g., thinking a zip code is a number instead of a label). We will learn to fix this in future labs!\n\n\n\nLab Task 5: 1. Find any public CSV dataset (or use this link to DCC-related data). 2. Import it into a new Quarto document using read_csv. 3. Use the glimpse() command to show the structure of your data: ~r glimpse(my_data)~ 4. Render the document and confirm that your data table appears in the HTML.",
+    "objectID": "labs/lab14.html#part-4-why-use-bootstrapping",
+    "href": "labs/lab14.html#part-4-why-use-bootstrapping",
+    "title": "Lab 14: Bootstrapping and Resampling",
+    "section": "",
+    "text": "No “Normality” Required: It works even if your data is weirdly shaped.\nAny Statistic: You can bootstrap the mean, the median, the standard deviation, or even the correlation coefficient.\nVisual Logic: It helps you see the uncertainty in your estimate.\n\n\n\nLab Task 14: 1. Pick a numeric variable from your dataset. 2. Create a histogram of the original data. (Is it skewed?) 3. Run the infer code above to generate 1,000 bootstrap reps for the Median instead of the mean (stat = \"median\"). 4. Visualize the bootstrap distribution. 5. Calculate the 95% Confidence Interval. 6. Reflection: In your Quarto document, explain in your own words why we “sample with replacement” during bootstrapping.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 5: Getting data into R"
+      "Lab 14: Bootstrapping"
     ]
+  },
+  {
+    "objectID": "labs/lab12.html",
+    "href": "labs/lab12.html",
+    "title": "Lab 12: Statistical Inference for Two Means",
+    "section": "",
+    "text": "Understand the difference between Independent and Paired samples.\nState the Null (\\(H_0\\)) and Alternative (\\(H_a\\)) hypotheses for comparing two groups.\nConduct an Independent Samples t-test in R.\nVisualize the difference between groups using Boxplots.\n\n\n\n\n\nWe use an Independent Samples t-test when we want to compare the means of two distinct, unrelated groups. * Example: Do “Humans” have a different average height than “Droids”? * Example: Is the average house price in Poughkeepsie different from the average price in Fishkill?\n\n\n\n\nIn this test, we are looking at the difference between the two population means (\\(\\mu_1 - \\mu_2\\)).\n\nNull Hypothesis (\\(H_0\\)): \\(\\mu_1 = \\mu_2\\) (The means are the same; the difference is zero).\nAlternative Hypothesis (\\(H_a\\)): \\(\\mu_1 \\neq \\mu_2\\) (The means are significantly different).\n\n\n\n\n\nBefore running the math, we should always visualize the two groups side-by-side using a Boxplot.\nlibrary(tidyverse)\n\n# Comparing heights of Humans and Droids\ncomparison_data &lt;- starwars |&gt; \n  filter(species %in% c(\"Human\", \"Droid\")) |&gt;\n  drop_na(height)\n\nggplot(comparison_data, aes(x = species, y = height, fill = species)) +\n  geom_boxplot() +\n  labs(title = \"Height Comparison: Humans vs. Droids\")\n\n\n\n\nIn R, we use the “formula” syntax: y ~ x (where y is the numeric value and x is the grouping category).\n# Conducting the Independent Samples t-test\nt_test_results &lt;- t.test(height ~ species, data = comparison_data)\n\n# View results\nt_test_results\n\n\n\np-value: If p &lt; 0.05, we conclude that the average heights of Humans and Droids are significantly different.\n95% Confidence Interval: This gives the range of the difference between the two means. If the interval contains 0, the results are usually not significant.\n\n\n\nLab Task 12: 1. Pick a dataset that has at least one categorical variable with two groups (e.g., Male/Female, Treatment/Control, Yes/No). 2. Create a Boxplot to visually compare a numeric variable across those two groups. 3. State your Null and Alternative hypotheses. 4. Run the t.test() using the formula syntax. 5. The Conclusion: Report your p-value and state whether you reject or fail to reject the null hypothesis. Does the data suggest the groups are truly different?\n\n\n\n\n\n\nWhen using the fill = species aesthetic in your plots, remember that some students may have color vision deficiencies. Use scale_fill_viridis_d() to ensure your group comparisons are accessible to everyone."
+  },
+  {
+    "objectID": "labs/lab12.html#learning-objectives",
+    "href": "labs/lab12.html#learning-objectives",
+    "title": "Lab 12: Statistical Inference for Two Means",
+    "section": "",
+    "text": "Understand the difference between Independent and Paired samples.\nState the Null (\\(H_0\\)) and Alternative (\\(H_a\\)) hypotheses for comparing two groups.\nConduct an Independent Samples t-test in R.\nVisualize the difference between groups using Boxplots."
+  },
+  {
+    "objectID": "labs/lab12.html#part-1-comparing-two-independent-groups",
+    "href": "labs/lab12.html#part-1-comparing-two-independent-groups",
+    "title": "Lab 12: Statistical Inference for Two Means",
+    "section": "",
+    "text": "We use an Independent Samples t-test when we want to compare the means of two distinct, unrelated groups. * Example: Do “Humans” have a different average height than “Droids”? * Example: Is the average house price in Poughkeepsie different from the average price in Fishkill?"
+  },
+  {
+    "objectID": "labs/lab12.html#part-2-hypotheses-for-two-means",
+    "href": "labs/lab12.html#part-2-hypotheses-for-two-means",
+    "title": "Lab 12: Statistical Inference for Two Means",
+    "section": "",
+    "text": "In this test, we are looking at the difference between the two population means (\\(\\mu_1 - \\mu_2\\)).\n\nNull Hypothesis (\\(H_0\\)): \\(\\mu_1 = \\mu_2\\) (The means are the same; the difference is zero).\nAlternative Hypothesis (\\(H_a\\)): \\(\\mu_1 \\neq \\mu_2\\) (The means are significantly different)."
+  },
+  {
+    "objectID": "labs/lab12.html#part-3-visualizing-the-comparison",
+    "href": "labs/lab12.html#part-3-visualizing-the-comparison",
+    "title": "Lab 12: Statistical Inference for Two Means",
+    "section": "",
+    "text": "Before running the math, we should always visualize the two groups side-by-side using a Boxplot.\nlibrary(tidyverse)\n\n# Comparing heights of Humans and Droids\ncomparison_data &lt;- starwars |&gt; \n  filter(species %in% c(\"Human\", \"Droid\")) |&gt;\n  drop_na(height)\n\nggplot(comparison_data, aes(x = species, y = height, fill = species)) +\n  geom_boxplot() +\n  labs(title = \"Height Comparison: Humans vs. Droids\")"
+  },
+  {
+    "objectID": "labs/lab12.html#part-4-running-the-t-test-in-r",
+    "href": "labs/lab12.html#part-4-running-the-t-test-in-r",
+    "title": "Lab 12: Statistical Inference for Two Means",
+    "section": "",
+    "text": "In R, we use the “formula” syntax: y ~ x (where y is the numeric value and x is the grouping category).\n# Conducting the Independent Samples t-test\nt_test_results &lt;- t.test(height ~ species, data = comparison_data)\n\n# View results\nt_test_results\n\n\n\np-value: If p &lt; 0.05, we conclude that the average heights of Humans and Droids are significantly different.\n95% Confidence Interval: This gives the range of the difference between the two means. If the interval contains 0, the results are usually not significant.\n\n\n\nLab Task 12: 1. Pick a dataset that has at least one categorical variable with two groups (e.g., Male/Female, Treatment/Control, Yes/No). 2. Create a Boxplot to visually compare a numeric variable across those two groups. 3. State your Null and Alternative hypotheses. 4. Run the t.test() using the formula syntax. 5. The Conclusion: Report your p-value and state whether you reject or fail to reject the null hypothesis. Does the data suggest the groups are truly different?"
+  },
+  {
+    "objectID": "labs/lab12.html#accessibility-tip-high-contrast-visuals",
+    "href": "labs/lab12.html#accessibility-tip-high-contrast-visuals",
+    "title": "Lab 12: Statistical Inference for Two Means",
+    "section": "",
+    "text": "When using the fill = species aesthetic in your plots, remember that some students may have color vision deficiencies. Use scale_fill_viridis_d() to ensure your group comparisons are accessible to everyone."
+  },
+  {
+    "objectID": "labs/lab09.html",
+    "href": "labs/lab09.html",
+    "title": "Lab 9: Probability and Sampling Distributions",
+    "section": "",
+    "text": "Distinguish between Discrete and Continuous probability distributions.\nVisualize the Normal Distribution (the “Bell Curve”).\nDemonstrate the Central Limit Theorem through simulation.\nUnderstand how sample size affects the “Standard Error.”\n\n\n\n\n\nIn nature and data science, many variables (like heights or exam scores) follow a “Normal” distribution. We can use R to visualize the perfect mathematical curve and compare it to our real data.\nlibrary(tidyverse)\n\n# Generating a theoretical normal distribution\ndata.frame(x = c(-4, 4)) |&gt;\n  ggplot(aes(x)) +\n  stat_function(fun = dnorm, color = \"blue\", size = 1) +\n  labs(title = \"The Standard Normal Distribution (z-distribution)\",\n       subtitle = \"Mean = 0, SD = 1\",\n       x = \"Standard Deviations\", y = \"Density\")\n[Image of a standard normal distribution curve with percentages for 68, 95, and 99.7 rules]\n\n\n\n\nWhen we have “Yes/No” outcomes (like a coin flip or a student passing a test), we use the Binomial Distribution.\n# Simulating 100 people flipping a coin 10 times each\nflips &lt;- rbinom(n = 100, size = 10, prob = 0.5)\n\nggplot(data.frame(flips), aes(x = flips)) +\n  geom_bar(fill = \"darkorange\", color = \"white\") +\n  labs(title = \"Binomial Distribution of Coin Flips\",\n       x = \"Number of Heads\", y = \"Frequency\")\n\n\n\n\nThe CLT is the “Magic” of statistics. It states that if you take enough samples, the distribution of the sample means will always look normal, even if the original data is messy or skewed.\n\n\n# 1. Take 1000 samples of size 30 from a random population\nsamples &lt;- replicate(1000, mean(rexp(30, rate = 0.5)))\n\n# 2. Visualize the results\nggplot(data.frame(samples), aes(x = samples)) +\n  geom_histogram(fill = \"seagreen\", color = \"white\") +\n  labs(title = \"Sampling Distribution of the Mean\",\n       subtitle = \"Notice the bell shape! This is the Central Limit Theorem in action.\",\n       x = \"Sample Means\", y = \"Count\")\n\n\n\n\n\nWe can use the pnorm() function to calculate the probability of a specific event occurring.\nExample: If the average height of a character is 170cm with an SD of 10, what is the probability of a character being taller than 190cm? ~r # 1 - pnorm gives the ‘right tail’ (the probability of being GREATER than) 1 - pnorm(190, mean = 170, sd = 10)~\n\n\nLab Task 9: 1. Create a new Quarto document titled “Lab 9: Probability.” 2. Create a histogram of a variable from your own dataset. Does it look “Normal”? 3. Use mean() and sd() to find the center and spread of that variable. 4. The Simulation: Use the “CLT simulation” code above, but change the sample size from 30 to 5. Render it. Then change it to 100 and render it again. 5. Observation: Write 2 sentences explaining how the “spread” of the histogram changed when you increased the sample size.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 9: Probability distribution"
+    ]
+  },
+  {
+    "objectID": "labs/lab09.html#learning-objectives",
+    "href": "labs/lab09.html#learning-objectives",
+    "title": "Lab 9: Probability and Sampling Distributions",
+    "section": "",
+    "text": "Distinguish between Discrete and Continuous probability distributions.\nVisualize the Normal Distribution (the “Bell Curve”).\nDemonstrate the Central Limit Theorem through simulation.\nUnderstand how sample size affects the “Standard Error.”",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 9: Probability distribution"
+    ]
+  },
+  {
+    "objectID": "labs/lab09.html#part-1-the-normal-distribution",
+    "href": "labs/lab09.html#part-1-the-normal-distribution",
+    "title": "Lab 9: Probability and Sampling Distributions",
+    "section": "",
+    "text": "In nature and data science, many variables (like heights or exam scores) follow a “Normal” distribution. We can use R to visualize the perfect mathematical curve and compare it to our real data.\nlibrary(tidyverse)\n\n# Generating a theoretical normal distribution\ndata.frame(x = c(-4, 4)) |&gt;\n  ggplot(aes(x)) +\n  stat_function(fun = dnorm, color = \"blue\", size = 1) +\n  labs(title = \"The Standard Normal Distribution (z-distribution)\",\n       subtitle = \"Mean = 0, SD = 1\",\n       x = \"Standard Deviations\", y = \"Density\")\n[Image of a standard normal distribution curve with percentages for 68, 95, and 99.7 rules]",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 9: Probability distribution"
+    ]
+  },
+  {
+    "objectID": "labs/lab09.html#part-2-working-with-the-binomial-distribution",
+    "href": "labs/lab09.html#part-2-working-with-the-binomial-distribution",
+    "title": "Lab 9: Probability and Sampling Distributions",
+    "section": "",
+    "text": "When we have “Yes/No” outcomes (like a coin flip or a student passing a test), we use the Binomial Distribution.\n# Simulating 100 people flipping a coin 10 times each\nflips &lt;- rbinom(n = 100, size = 10, prob = 0.5)\n\nggplot(data.frame(flips), aes(x = flips)) +\n  geom_bar(fill = \"darkorange\", color = \"white\") +\n  labs(title = \"Binomial Distribution of Coin Flips\",\n       x = \"Number of Heads\", y = \"Frequency\")",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 9: Probability distribution"
+    ]
+  },
+  {
+    "objectID": "labs/lab09.html#part-3-the-central-limit-theorem-clt",
+    "href": "labs/lab09.html#part-3-the-central-limit-theorem-clt",
+    "title": "Lab 9: Probability and Sampling Distributions",
+    "section": "",
+    "text": "The CLT is the “Magic” of statistics. It states that if you take enough samples, the distribution of the sample means will always look normal, even if the original data is messy or skewed.\n\n\n# 1. Take 1000 samples of size 30 from a random population\nsamples &lt;- replicate(1000, mean(rexp(30, rate = 0.5)))\n\n# 2. Visualize the results\nggplot(data.frame(samples), aes(x = samples)) +\n  geom_histogram(fill = \"seagreen\", color = \"white\") +\n  labs(title = \"Sampling Distribution of the Mean\",\n       subtitle = \"Notice the bell shape! This is the Central Limit Theorem in action.\",\n       x = \"Sample Means\", y = \"Count\")",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 9: Probability distribution"
+    ]
+  },
+  {
+    "objectID": "labs/lab09.html#part-4-probability-in-your-data",
+    "href": "labs/lab09.html#part-4-probability-in-your-data",
+    "title": "Lab 9: Probability and Sampling Distributions",
+    "section": "",
+    "text": "We can use the pnorm() function to calculate the probability of a specific event occurring.\nExample: If the average height of a character is 170cm with an SD of 10, what is the probability of a character being taller than 190cm? ~r # 1 - pnorm gives the ‘right tail’ (the probability of being GREATER than) 1 - pnorm(190, mean = 170, sd = 10)~\n\n\nLab Task 9: 1. Create a new Quarto document titled “Lab 9: Probability.” 2. Create a histogram of a variable from your own dataset. Does it look “Normal”? 3. Use mean() and sd() to find the center and spread of that variable. 4. The Simulation: Use the “CLT simulation” code above, but change the sample size from 30 to 5. Render it. Then change it to 100 and render it again. 5. Observation: Write 2 sentences explaining how the “spread” of the histogram changed when you increased the sample size.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 9: Probability distribution"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MAT 186: Data Science Lab Manual",
+    "section": "",
+    "text": "Welcome to the official lab manual for MAT 186: Introduction to Data Science at Dutchess Community College. This manual will guide you through 17 labs, transitioning from basic data entry to advanced predictive modeling using R and Quarto.\n\n\n\nDutchess Community College is committed to providing equal access to education. This lab manual is designed with Universal Design for Learning (UDL) principles to be accessible to all students, including those using assistive technologies.\n\n\n\nScreen Reader Friendly: All data visualizations include descriptive captions (fig-cap) that act as Alt-Text.\nColorblind Accessibility: All plots utilize the Viridis color palette, ensuring data is distinguishable regardless of color vision deficiency.\nKeyboard Navigation: This site is fully navigable via keyboard for students who do not use a mouse.\nAccessible Math: Mathematical formulas are rendered using LaTeX, allowing screen readers to interpret mathematical logic accurately.\n\n\n\n\nIf you encounter any barriers while using this manual—such as a visualization that is difficult to interpret or code that is hard to navigate—please do not hesitate to contact:\n\nYour Instructor: [Insert Your Name/Email]\nDCC Office of Accommodative Services: * Location: Library, Room 303\n\nPhone: 845-431-8050\n\n\n\n\n\n\n\nTo begin, select Lab 1: Introduction to R from the sidebar. You will need: 1. A laptop or tablet. 2. An account on Posit Cloud (or RStudio Desktop installed). 3. Access to our course Brightspace page for dataset downloads."
+  },
+  {
+    "objectID": "index.html#accessibility-statement",
+    "href": "index.html#accessibility-statement",
+    "title": "MAT 186: Data Science Lab Manual",
+    "section": "",
+    "text": "Dutchess Community College is committed to providing equal access to education. This lab manual is designed with Universal Design for Learning (UDL) principles to be accessible to all students, including those using assistive technologies.\n\n\n\nScreen Reader Friendly: All data visualizations include descriptive captions (fig-cap) that act as Alt-Text.\nColorblind Accessibility: All plots utilize the Viridis color palette, ensuring data is distinguishable regardless of color vision deficiency.\nKeyboard Navigation: This site is fully navigable via keyboard for students who do not use a mouse.\nAccessible Math: Mathematical formulas are rendered using LaTeX, allowing screen readers to interpret mathematical logic accurately.\n\n\n\n\nIf you encounter any barriers while using this manual—such as a visualization that is difficult to interpret or code that is hard to navigate—please do not hesitate to contact:\n\nYour Instructor: [Insert Your Name/Email]\nDCC Office of Accommodative Services: * Location: Library, Room 303\n\nPhone: 845-431-8050"
+  },
+  {
+    "objectID": "index.html#getting-started",
+    "href": "index.html#getting-started",
+    "title": "MAT 186: Data Science Lab Manual",
+    "section": "",
+    "text": "To begin, select Lab 1: Introduction to R from the sidebar. You will need: 1. A laptop or tablet. 2. An account on Posit Cloud (or RStudio Desktop installed). 3. Access to our course Brightspace page for dataset downloads."
   }
 ]
