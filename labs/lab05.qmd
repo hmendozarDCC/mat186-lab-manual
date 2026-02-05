@@ -77,7 +77,7 @@ my_data <- read_csv("filename.csv")
 <div class="dcc-important">
 **Lab Task 5:** 
 
-1. Find any public CSV dataset. For example, [this link to freee  data](https://vincentarelbundock.github.io/Rdatasets/articles/data.html)). Use the *lbw* data set.
+1. Find any public CSV dataset. For example, ([this link to freee  data](https://vincentarelbundock.github.io/Rdatasets/articles/data.html)). Use the *lbw* data set.
 
 2. Import it into a new Quarto document using `read_csv`.
 
