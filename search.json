@@ -200,7 +200,7 @@
     "href": "labs/lab05.html",
     "title": "Lab 5: Getting Data into R",
     "section": "",
-    "text": "Understand the difference between Absolute and Relative file paths.\nImport data from a local CSV file.\nImport data directly from a URL (Web).\nUse the readr package (part of the tidyverse).\n\n\n\n\n\nBefore we can visualize or model data, we have to “import” it into R’s memory. Most data you will encounter is stored in CSV (Comma Separated Values) format, which looks like an Excel spreadsheet but is much lighter and easier for programs to read.\n\n\n\n\nR needs to know which folder on your computer it should “look” in.\n\nCrucial Step: This is why we use RStudio Projects (from Lab 2). When you open your .Rproj file, R automatically sets your folder as the “Working Directory.”\n\nTo check where R is looking, type this in your console:\n\nLocate the Console pane (typically in the bottom-left of RStudio).\nType getwd() at the command prompt (&gt;). It is important to include the parentheses () because it is a function.\nPress the Enter (or Return) key on your keyboard.\n\ngetwd()\n\n\n\n\nThe easiest way to get started is to pull data directly from the internet. We will use the read_csv() function from the tidyverse.\nTry this code in your Quarto document:\nlibrary(tidyverse)\n\n# Loading a dataset about Star Wars characters\nurl &lt;- \"https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv\"\nsw_data &lt;- read_csv(url)\n\n# Preview the data\nhead(sw_data)\n\n\n\n\nOften, you will download a dataset from a site like Kaggle or a government portal.\n\nFind a CSV file (or download a sample one).\nMove that file into your MAT186_Labs folder.\nUse the following code (replace filename.csv with your actual file name):\n\nmy_data &lt;- read_csv(\"filename.csv\")\n\n\n\n\n\n“File not found”: This usually means the file is not in your Project folder, or you misspelled the name (remember: Data.csv is different from data.csv).\nColumn Parsing: Sometimes R guesses the data type wrong (e.g., thinking a zip code is a number instead of a label). We will learn to fix this in future labs!\n\n\n\nLab Task 5:\n\nFind any public CSV dataset (or use this link to DCC-related data).\nImport it into a new Quarto document using read_csv.\nUse the glimpse() command to show the structure of your data:\nglimpse(my_data)\nRender the document and confirm that your data table appears in the HTML.",
+    "text": "By the end of this lab, students will be able to:\n\nUnderstand the difference between Absolute and Relative file paths.\nImport data from a local CSV file.\nImport data directly from a URL (Web).\nUse the readr package (part of the tidyverse).\n\n\n\n\n\nBefore we can visualize or model data, we have to “import” it into R’s memory. Most data you will encounter is stored in CSV (Comma Separated Values) format, which looks like an Excel spreadsheet but is much lighter and easier for programs to read.\n\n\n\n\nR needs to know which folder on your computer it should “look” in.\n\nCrucial Step: This is why we use RStudio Projects (from Lab 2). When you open your .Rproj file, R automatically sets your folder as the “Working Directory.”\n\nTo check where R is looking,\n\nLocate the Console pane (typically in the bottom-left of RStudio).\nType getwd() at the command prompt (&gt;). It is important to include the parentheses () because it is a function.\nPress the Enter (or Return) key on your keyboard.\n\n\n\n\n\nThe easiest way to get started is to pull data directly from the internet. We will use the read_csv() function from the tidyverse.\nTry this code in your Quarto document:\nlibrary(tidyverse)\n\n# Loading a dataset about Star Wars characters\n# \"https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv\"\nurl &lt;- \"https://vincentarelbundock.github.io/Rdatasets/csv/COUNT/lbw.csv\"\nlbw_data &lt;- read_csv(url)\n\n# Preview the data\n\nhead(lbw_data)\n\n\n\n\nOften, you will download a dataset from a site like Kaggle or a government portal.\n\nFind a CSV file (or download a sample one).\nMove that file into your MAT186_Labs folder.\nUse the following code (replace filename.csv with your actual file name):\n\nmy_data &lt;- read_csv(\"filename.csv\")\n\n\n\n\n\n“File not found”: This usually means the file is not in your Project folder, or you misspelled the name (remember: Data.csv is different from data.csv).\nColumn Parsing: Sometimes R guesses the data type wrong (e.g., thinking a zip code is a number instead of a label). We will learn to fix this in future labs!\n\n\n\nLab Task 5:\n\nFind any public CSV dataset. For example, this link to freee data). Use the lbw data set.\nImport it into a new Quarto document using read_csv.\nUse the glimpse() command to show the structure of your data:\n\nglimpse(my_data)\n\nRender the document and confirm that your data table appears in the HTML.",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -212,7 +212,7 @@
     "href": "labs/lab05.html#learning-objectives",
     "title": "Lab 5: Getting Data into R",
     "section": "",
-    "text": "Understand the difference between Absolute and Relative file paths.\nImport data from a local CSV file.\nImport data directly from a URL (Web).\nUse the readr package (part of the tidyverse).",
+    "text": "By the end of this lab, students will be able to:\n\nUnderstand the difference between Absolute and Relative file paths.\nImport data from a local CSV file.\nImport data directly from a URL (Web).\nUse the readr package (part of the tidyverse).",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -236,7 +236,7 @@
     "href": "labs/lab05.html#part-1-the-working-directory",
     "title": "Lab 5: Getting Data into R",
     "section": "",
-    "text": "R needs to know which folder on your computer it should “look” in.\n\nCrucial Step: This is why we use RStudio Projects (from Lab 2). When you open your .Rproj file, R automatically sets your folder as the “Working Directory.”\n\nTo check where R is looking, type this in your console:\n\nLocate the Console pane (typically in the bottom-left of RStudio).\nType getwd() at the command prompt (&gt;). It is important to include the parentheses () because it is a function.\nPress the Enter (or Return) key on your keyboard.\n\ngetwd()",
+    "text": "R needs to know which folder on your computer it should “look” in.\n\nCrucial Step: This is why we use RStudio Projects (from Lab 2). When you open your .Rproj file, R automatically sets your folder as the “Working Directory.”\n\nTo check where R is looking,\n\nLocate the Console pane (typically in the bottom-left of RStudio).\nType getwd() at the command prompt (&gt;). It is important to include the parentheses () because it is a function.\nPress the Enter (or Return) key on your keyboard.",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -248,7 +248,7 @@
     "href": "labs/lab05.html#part-2-loading-data-from-a-url",
     "title": "Lab 5: Getting Data into R",
     "section": "",
-    "text": "The easiest way to get started is to pull data directly from the internet. We will use the read_csv() function from the tidyverse.\nTry this code in your Quarto document:\nlibrary(tidyverse)\n\n# Loading a dataset about Star Wars characters\nurl &lt;- \"https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv\"\nsw_data &lt;- read_csv(url)\n\n# Preview the data\nhead(sw_data)",
+    "text": "The easiest way to get started is to pull data directly from the internet. We will use the read_csv() function from the tidyverse.\nTry this code in your Quarto document:\nlibrary(tidyverse)\n\n# Loading a dataset about Star Wars characters\n# \"https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv\"\nurl &lt;- \"https://vincentarelbundock.github.io/Rdatasets/csv/COUNT/lbw.csv\"\nlbw_data &lt;- read_csv(url)\n\n# Preview the data\n\nhead(lbw_data)",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -272,7 +272,7 @@
     "href": "labs/lab05.html#part-4-dealing-with-common-errors",
     "title": "Lab 5: Getting Data into R",
     "section": "",
-    "text": "“File not found”: This usually means the file is not in your Project folder, or you misspelled the name (remember: Data.csv is different from data.csv).\nColumn Parsing: Sometimes R guesses the data type wrong (e.g., thinking a zip code is a number instead of a label). We will learn to fix this in future labs!\n\n\n\nLab Task 5:\n\nFind any public CSV dataset (or use this link to DCC-related data).\nImport it into a new Quarto document using read_csv.\nUse the glimpse() command to show the structure of your data:\nglimpse(my_data)\nRender the document and confirm that your data table appears in the HTML.",
+    "text": "“File not found”: This usually means the file is not in your Project folder, or you misspelled the name (remember: Data.csv is different from data.csv).\nColumn Parsing: Sometimes R guesses the data type wrong (e.g., thinking a zip code is a number instead of a label). We will learn to fix this in future labs!\n\n\n\nLab Task 5:\n\nFind any public CSV dataset. For example, this link to freee data). Use the lbw data set.\nImport it into a new Quarto document using read_csv.\nUse the glimpse() command to show the structure of your data:\n\nglimpse(my_data)\n\nRender the document and confirm that your data table appears in the HTML.",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -661,9 +661,9 @@
   {
     "objectID": "labs/lab01.html",
     "href": "labs/lab01.html",
-    "title": "Lab 1",
+    "title": "Lab 1: R and RStudio Installation",
     "section": "",
-    "text": "By the end of this lab, students will be able to:\n\nSuccessfully install the R programming language.\nInstall the RStudio Desktop Integrated Development Environment (IDE).\nVerify the installation by running a simple command.\n\n\n\n\n\nTo perform data science at DCC, we use two primary tools. Think of R as the “engine” of a car and RStudio as the “dashboard.” You need the engine to go, but you need the dashboard to steer and see where you are going.\n\nIf you are using a DCC Chromebook or a computer where you cannot install software, please contact the instructor about using Posit Cloud (the web-based version of RStudio).\n\n\n\n\n\nYou must install R before you install RStudio.\n\nGo to the CRAN (Comprehensive R Archive Network) website.\nSelect the download link for your operating system:\n\nDownload R for Windows -&gt; Click “base” -&gt; Click “Download R 4.x.x for Windows.”\nDownload R for (macOS) -&gt; Download the .pkg file that matches your chip (Apple silicon M1/M2 or Intel).\n\nRun the downloaded installer and keep all default settings by clicking “Next” or “Continue.”\n\n\n\n\n\nRStudio is the interface where you will write your code and view your data visualizations.\n\nVisit the Posit Download Page.\nScroll down to “2: Install RStudio” and click the button for your operating system.\nRun the installer. Like R, it is best to keep all default settings.\n\n\n\n\n\nLet’s make sure the “engine” and “dashboard” are talking to each other.\n\nOpen RStudio from your applications folder or start menu.\nFind the Console pane (usually on the bottom left).\nType the following code and press Enter:\nprint(\"Hello, MAT 186!\")",
+    "text": "By the end of this lab, students will…\nSuccessfully install the R… # Lab 1: R and RStudio Installation",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -673,9 +673,21 @@
   {
     "objectID": "labs/lab01.html#learning-objectives",
     "href": "labs/lab01.html#learning-objectives",
-    "title": "Lab 1",
+    "title": "Lab 1: R and RStudio Installation",
     "section": "",
-    "text": "By the end of this lab, students will be able to:\n\nSuccessfully install the R programming language.\nInstall the RStudio Desktop Integrated Development Environment (IDE).\nVerify the installation by running a simple command.",
+    "text": "By the end of this lab, students will…\nSuccessfully install the R… # Lab 1: R and RStudio Installation",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 1: R and RStudio Installation"
+    ]
+  },
+  {
+    "objectID": "labs/lab01.html#learning-objectives-1",
+    "href": "labs/lab01.html#learning-objectives-1",
+    "title": "Lab 1: R and RStudio Installation",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBy the end of this lab, students will be able to:\n\nSuccessfully install the R programming language.\nInstall the RStudio Desktop Integrated Development Environment (IDE).\nVerify the installation by running a simple command.",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -685,9 +697,9 @@
   {
     "objectID": "labs/lab01.html#introduction",
     "href": "labs/lab01.html#introduction",
-    "title": "Lab 1",
-    "section": "",
-    "text": "To perform data science at DCC, we use two primary tools. Think of R as the “engine” of a car and RStudio as the “dashboard.” You need the engine to go, but you need the dashboard to steer and see where you are going.\n\nIf you are using a DCC Chromebook or a computer where you cannot install software, please contact the instructor about using Posit Cloud (the web-based version of RStudio).",
+    "title": "Lab 1: R and RStudio Installation",
+    "section": "Introduction",
+    "text": "Introduction\nTo perform data science at DCC, we use two primary tools. Think of R as the “engine” of a car and RStudio as the “dashboard.” You need the engine to go, but you need the dashboard to steer and see where you are going.\n\nIf you are using a DCC Chromebook or a computer where you cannot install software, please contact the instructor about using Posit Cloud (the web-based version of RStudio).",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -697,9 +709,9 @@
   {
     "objectID": "labs/lab01.html#step-1-install-r-the-engine",
     "href": "labs/lab01.html#step-1-install-r-the-engine",
-    "title": "Lab 1",
-    "section": "",
-    "text": "You must install R before you install RStudio.\n\nGo to the CRAN (Comprehensive R Archive Network) website.\nSelect the download link for your operating system:\n\nDownload R for Windows -&gt; Click “base” -&gt; Click “Download R 4.x.x for Windows.”\nDownload R for (macOS) -&gt; Download the .pkg file that matches your chip (Apple silicon M1/M2 or Intel).\n\nRun the downloaded installer and keep all default settings by clicking “Next” or “Continue.”",
+    "title": "Lab 1: R and RStudio Installation",
+    "section": "Step 1: Install R (The Engine)",
+    "text": "Step 1: Install R (The Engine)\nYou must install R before you install RStudio.\n\nGo to the CRAN (Comprehensive R Archive Network) website.\nSelect the download link for your operating system:\n\nDownload R for Windows -&gt; Click “base” -&gt; Click “Download R 4.x.x for Windows.”\nDownload R for (macOS) -&gt; Download the .pkg file that matches your chip (Apple silicon M1/M2 or Intel).\n\nRun the downloaded installer and keep all default settings by clicking “Next” or “Continue.”",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -709,9 +721,9 @@
   {
     "objectID": "labs/lab01.html#step-2-install-rstudio-the-dashboard",
     "href": "labs/lab01.html#step-2-install-rstudio-the-dashboard",
-    "title": "Lab 1",
-    "section": "",
-    "text": "RStudio is the interface where you will write your code and view your data visualizations.\n\nVisit the Posit Download Page.\nScroll down to “2: Install RStudio” and click the button for your operating system.\nRun the installer. Like R, it is best to keep all default settings.",
+    "title": "Lab 1: R and RStudio Installation",
+    "section": "Step 2: Install RStudio (The Dashboard)",
+    "text": "Step 2: Install RStudio (The Dashboard)\nRStudio is the interface where you will write your code and view your data visualizations.\n\nVisit the Posit Download Page.\nScroll down to “2: Install RStudio” and click the button for your operating system.\nRun the installer. Like R, it is best to keep all default settings.",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -721,9 +733,9 @@
   {
     "objectID": "labs/lab01.html#step-3-verify-your-setup",
     "href": "labs/lab01.html#step-3-verify-your-setup",
-    "title": "Lab 1",
-    "section": "",
-    "text": "Let’s make sure the “engine” and “dashboard” are talking to each other.\n\nOpen RStudio from your applications folder or start menu.\nFind the Console pane (usually on the bottom left).\nType the following code and press Enter:\nprint(\"Hello, MAT 186!\")",
+    "title": "Lab 1: R and RStudio Installation",
+    "section": "Step 3: Verify Your Setup",
+    "text": "Step 3: Verify Your Setup\nLet’s make sure the “engine” and “dashboard” are talking to each other.\n\nOpen RStudio from your applications folder or start menu.\nFind the Console pane (usually on the bottom left).\nType the following code and press Enter:\n\n\nprint(\"Hello, MAT 186!\")\n\n[1] \"Hello, MAT 186!\"",
     "crumbs": [
       "Home",
       "Course Labs",

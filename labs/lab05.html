@@ -330,6 +330,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Lab 5: Getting Data into R</h1>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this lab, students will be able to:</p>
 <ul>
 <li>Understand the difference between <strong>Absolute</strong> and <strong>Relative</strong> file paths.</li>
 <li>Import data from a local <strong>CSV</strong> file.</li>
@@ -349,27 +350,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="dcc-important">
 <p><strong>Crucial Step:</strong> This is why we use <strong>RStudio Projects</strong> (from Lab 2). When you open your <code>.Rproj</code> file, R automatically sets your folder as the “Working Directory.”</p>
 </div>
-<p>To check where R is looking, type this in your console:</p>
+<p>To check where R is looking,</p>
 <ul>
 <li>Locate the Console pane (typically in the bottom-left of RStudio).</li>
-<li>Type getwd() at the command prompt (&gt;). It is important to include the parentheses () because it is a function.</li>
+<li>Type <strong>getwd()</strong> at the command prompt (&gt;). It is important to include the parentheses () because it is a function.</li>
 <li>Press the Enter (or Return) key on your keyboard.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="part-2-loading-data-from-a-url" class="level2">
 <h2 class="anchored" data-anchor-id="part-2-loading-data-from-a-url">Part 2: Loading Data from a URL</h2>
 <p>The easiest way to get started is to pull data directly from the internet. We will use the <code>read_csv()</code> function from the <code>tidyverse</code>.</p>
 <p><strong>Try this code in your Quarto document:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading a dataset about Star Wars characters</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv"</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>sw_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview the data</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sw_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading a dataset about Star Wars characters</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># "https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://vincentarelbundock.github.io/Rdatasets/csv/COUNT/lbw.csv"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>lbw_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview the data</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lbw_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="part-3-loading-a-local-csv" class="level2">
@@ -380,7 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Move that file into your <strong>MAT186_Labs</strong> folder.</li>
 <li>Use the following code (replace <code>filename.csv</code> with your actual file name):</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"filename.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"filename.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="part-4-dealing-with-common-errors" class="level2">
@@ -393,11 +395,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="dcc-important">
 <p><strong>Lab Task 5:</strong></p>
 <ol type="1">
-<li><p>Find any public CSV dataset (or use <a href="https://example.com/dcc_data.csv">this link to DCC-related data</a>).</p></li>
+<li><p>Find any public CSV dataset. For example, <a href="https://vincentarelbundock.github.io/Rdatasets/articles/data.html">this link to freee data</a>). Use the <em>lbw</em> data set.</p></li>
 <li><p>Import it into a new Quarto document using <code>read_csv</code>.</p></li>
-<li><p>Use the <code>glimpse()</code> command to show the structure of your data:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(my_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>Render the document and confirm that your data table appears in the HTML.</p></li>
+<li><p>Use the <code>glimpse()</code> command to show the structure of your data:</p></li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(my_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="4" type="1">
+<li>Render the document and confirm that your data table appears in the HTML.</li>
 </ol>
 </div>
 
