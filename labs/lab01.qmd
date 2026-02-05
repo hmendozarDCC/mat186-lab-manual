@@ -27,8 +27,6 @@ You must install R **before** you install RStudio.
    * **Download R for (macOS)** -> Download the `.pkg` file that matches your chip (Apple silicon M1/M2 or Intel).
 3. Run the downloaded installer and keep all default settings by clicking "Next" or "Continue."
 
-
-
 ---
 
 ## Step 2: Install RStudio (The Dashboard)
