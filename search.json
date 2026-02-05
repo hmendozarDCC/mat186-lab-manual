@@ -200,7 +200,7 @@
     "href": "labs/lab05.html",
     "title": "Lab 5: Getting Data into R",
     "section": "",
-    "text": "Understand the difference between Absolute and Relative file paths.\nImport data from a local CSV file.\nImport data directly from a URL (Web).\nUse the readr package (part of the tidyverse).\n\n\n\n\n\nBefore we can visualize or model data, we have to “import” it into R’s memory. Most data you will encounter is stored in CSV (Comma Separated Values) format, which looks like an Excel spreadsheet but is much lighter and easier for programs to read.\n\n\n\n\nR needs to know which folder on your computer it should “look” in.\n\nCrucial Step: This is why we use RStudio Projects (from Lab 2). When you open your .Rproj file, R automatically sets your folder as the “Working Directory.”\n\nTo check where R is looking, type this in your console: ~r getwd()~\n\n\n\n\nThe easiest way to get started is to pull data directly from the internet. We will use the read_csv() function from the tidyverse.\nTry this code in your Quarto document: ~~~r library(tidyverse)",
+    "text": "Understand the difference between Absolute and Relative file paths.\nImport data from a local CSV file.\nImport data directly from a URL (Web).\nUse the readr package (part of the tidyverse).\n\n\n\n\n\nBefore we can visualize or model data, we have to “import” it into R’s memory. Most data you will encounter is stored in CSV (Comma Separated Values) format, which looks like an Excel spreadsheet but is much lighter and easier for programs to read.\n\n\n\n\nR needs to know which folder on your computer it should “look” in.\n\nCrucial Step: This is why we use RStudio Projects (from Lab 2). When you open your .Rproj file, R automatically sets your folder as the “Working Directory.”\n\nTo check where R is looking, type this in your console:\ngetwd()\n\n\n\n\nThe easiest way to get started is to pull data directly from the internet. We will use the read_csv() function from the tidyverse.\nTry this code in your Quarto document:\nlibrary(tidyverse)\n\n# Loading a dataset about Star Wars characters\nurl &lt;- \"https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv\"\nsw_data &lt;- read_csv(url)\n\n# Preview the data\nhead(sw_data)\n\n\n\n\nOften, you will download a dataset from a site like Kaggle or a government portal.\n\nFind a CSV file (or download a sample one).\nMove that file into your MAT186_Labs folder.\nUse the following code (replace filename.csv with your actual file name):\n\nmy_data &lt;- read_csv(\"filename.csv\")\n\n\n\n\n\n“File not found”: This usually means the file is not in your Project folder, or you misspelled the name (remember: Data.csv is different from data.csv).\nColumn Parsing: Sometimes R guesses the data type wrong (e.g., thinking a zip code is a number instead of a label). We will learn to fix this in future labs!\n\n\n\nLab Task 5: 1. Find any public CSV dataset (or use this link to DCC-related data). 2. Import it into a new Quarto document using read_csv. 3. Use the glimpse() command to show the structure of your data: ~r glimpse(my_data)~ 4. Render the document and confirm that your data table appears in the HTML.",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -236,7 +236,7 @@
     "href": "labs/lab05.html#part-1-the-working-directory",
     "title": "Lab 5: Getting Data into R",
     "section": "",
-    "text": "R needs to know which folder on your computer it should “look” in.\n\nCrucial Step: This is why we use RStudio Projects (from Lab 2). When you open your .Rproj file, R automatically sets your folder as the “Working Directory.”\n\nTo check where R is looking, type this in your console: ~r getwd()~",
+    "text": "R needs to know which folder on your computer it should “look” in.\n\nCrucial Step: This is why we use RStudio Projects (from Lab 2). When you open your .Rproj file, R automatically sets your folder as the “Working Directory.”\n\nTo check where R is looking, type this in your console:\ngetwd()",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -248,7 +248,7 @@
     "href": "labs/lab05.html#part-2-loading-data-from-a-url",
     "title": "Lab 5: Getting Data into R",
     "section": "",
-    "text": "The easiest way to get started is to pull data directly from the internet. We will use the read_csv() function from the tidyverse.\nTry this code in your Quarto document: ~~~r library(tidyverse)",
+    "text": "The easiest way to get started is to pull data directly from the internet. We will use the read_csv() function from the tidyverse.\nTry this code in your Quarto document:\nlibrary(tidyverse)\n\n# Loading a dataset about Star Wars characters\nurl &lt;- \"https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv\"\nsw_data &lt;- read_csv(url)\n\n# Preview the data\nhead(sw_data)",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -259,8 +259,8 @@
     "objectID": "labs/lab05.html#part-3-loading-a-local-csv",
     "href": "labs/lab05.html#part-3-loading-a-local-csv",
     "title": "Lab 5: Getting Data into R",
-    "section": "Part 3: Loading a Local CSV",
-    "text": "Part 3: Loading a Local CSV\nOften, you will download a dataset from a site like Kaggle or a government portal.\n\nFind a CSV file (or download a sample one).\nMove that file into your MAT186_Labs folder.\nUse the following code (replace filename.csv with your actual file name):\n\nmy_data &lt;- read_csv(\"filename.csv\")",
+    "section": "",
+    "text": "Often, you will download a dataset from a site like Kaggle or a government portal.\n\nFind a CSV file (or download a sample one).\nMove that file into your MAT186_Labs folder.\nUse the following code (replace filename.csv with your actual file name):\n\nmy_data &lt;- read_csv(\"filename.csv\")",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -271,8 +271,8 @@
     "objectID": "labs/lab05.html#part-4-dealing-with-common-errors",
     "href": "labs/lab05.html#part-4-dealing-with-common-errors",
     "title": "Lab 5: Getting Data into R",
-    "section": "Part 4: Dealing with Common Errors",
-    "text": "Part 4: Dealing with Common Errors\n\n“File not found”: This usually means the file is not in your Project folder, or you misspelled the name (remember: Data.csv is different from data.csv).\nColumn Parsing: Sometimes R guesses the data type wrong (e.g., thinking a zip code is a number instead of a label). We will learn to fix this in future labs!\n\n\n\nLab Task 5: 1. Find any public CSV dataset (or use this link to DCC-related data). 2. Import it into a new Quarto document using read_csv. 3. Use the glimpse() command to show the structure of your data: ~r glimpse(my_data)~ 4. Render the document and confirm that your data table appears in the HTML.",
+    "section": "",
+    "text": "“File not found”: This usually means the file is not in your Project folder, or you misspelled the name (remember: Data.csv is different from data.csv).\nColumn Parsing: Sometimes R guesses the data type wrong (e.g., thinking a zip code is a number instead of a label). We will learn to fix this in future labs!\n\n\n\nLab Task 5: 1. Find any public CSV dataset (or use this link to DCC-related data). 2. Import it into a new Quarto document using read_csv. 3. Use the glimpse() command to show the structure of your data: ~r glimpse(my_data)~ 4. Render the document and confirm that your data table appears in the HTML.",
     "crumbs": [
       "Home",
       "Course Labs",

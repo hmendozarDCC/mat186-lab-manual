@@ -293,10 +293,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#part-1-the-working-directory" id="toc-part-1-the-working-directory" class="nav-link" data-scroll-target="#part-1-the-working-directory">Part 1: The Working Directory</a></li>
   <li><a href="#part-2-loading-data-from-a-url" id="toc-part-2-loading-data-from-a-url" class="nav-link" data-scroll-target="#part-2-loading-data-from-a-url">Part 2: Loading Data from a URL</a></li>
-  </ul></li>
-  <li><a href="#loading-a-dataset-about-star-wars-characters" id="toc-loading-a-dataset-about-star-wars-characters" class="nav-link" data-scroll-target="#loading-a-dataset-about-star-wars-characters">Loading a dataset about Star Wars characters</a></li>
-  <li><a href="#preview-the-data" id="toc-preview-the-data" class="nav-link" data-scroll-target="#preview-the-data">Preview the data</a>
-  <ul class="collapse">
   <li><a href="#part-3-loading-a-local-csv" id="toc-part-3-loading-a-local-csv" class="nav-link" data-scroll-target="#part-3-loading-a-local-csv">Part 3: Loading a Local CSV</a></li>
   <li><a href="#part-4-dealing-with-common-errors" id="toc-part-4-dealing-with-common-errors" class="nav-link" data-scroll-target="#part-4-dealing-with-common-errors">Part 4: Dealing with Common Errors</a></li>
   </ul></li>
@@ -353,23 +349,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="dcc-important">
 <p><strong>Crucial Step:</strong> This is why we use <strong>RStudio Projects</strong> (from Lab 2). When you open your <code>.Rproj</code> file, R automatically sets your folder as the “Working Directory.”</p>
 </div>
-<p>To check where R is looking, type this in your console: ~<del>r getwd()</del>~</p>
+<p>To check where R is looking, type this in your console:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="part-2-loading-data-from-a-url" class="level2">
 <h2 class="anchored" data-anchor-id="part-2-loading-data-from-a-url">Part 2: Loading Data from a URL</h2>
 <p>The easiest way to get started is to pull data directly from the internet. We will use the <code>read_csv()</code> function from the <code>tidyverse</code>.</p>
-<p><strong>Try this code in your Quarto document:</strong> ~~~r library(tidyverse)</p>
-</section>
-</section>
-<section id="loading-a-dataset-about-star-wars-characters" class="level1">
-<h1>Loading a dataset about Star Wars characters</h1>
-<p>url &lt;- “https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv” sw_data &lt;- read_csv(url)</p>
-</section>
-<section id="preview-the-data" class="level1">
-<h1>Preview the data</h1>
-<p>head(sw_data) ~~~</p>
+<p><strong>Try this code in your Quarto document:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading a dataset about Star Wars characters</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>sw_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview the data</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sw_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
+</section>
 <section id="part-3-loading-a-local-csv" class="level2">
 <h2 class="anchored" data-anchor-id="part-3-loading-a-local-csv">Part 3: Loading a Local CSV</h2>
 <p>Often, you will download a dataset from a site like Kaggle or a government portal.</p>
@@ -378,7 +375,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Move that file into your <strong>MAT186_Labs</strong> folder.</li>
 <li>Use the following code (replace <code>filename.csv</code> with your actual file name):</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"filename.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"filename.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="part-4-dealing-with-common-errors" class="level2">
