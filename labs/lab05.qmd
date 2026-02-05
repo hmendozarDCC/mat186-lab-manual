@@ -1,6 +1,7 @@
 # Lab 5: Getting Data into R
 
 ## Learning Objectives
+By the end of this lab, students will be able to:
 
 * Understand the difference between **Absolute** and **Relative** file paths.
 * Import data from a local **CSV** file.
@@ -21,23 +22,11 @@ R needs to know which folder on your computer it should "look" in.
 **Crucial Step:** This is why we use **RStudio Projects** (from Lab 2). When you open your `.Rproj` file, R automatically sets your folder as the "Working Directory."
 </div>
 
-To check where R is looking, type this in your console:
-<<<<<<< HEAD
-```{r}
-getwd()
-```
-
-
-=======
+To check where R is looking, 
 
 * Locate the Console pane (typically in the bottom-left of RStudio).
-* Type getwd() at the command prompt (>). It is important to include the parentheses () because it is a function.
+* Type **getwd()** at the command prompt (>). It is important to include the parentheses () because it is a function.
 * Press the Enter (or Return) key on your keyboard.
-
-```r
-getwd()
-```
->>>>>>> 7a80b1ebce3a17625b2c8b3e6fdde78c802acdc6
 
 ---
 
@@ -45,11 +34,9 @@ getwd()
 The easiest way to get started is to pull data directly from the internet. We will use the `read_csv()` function from the `tidyverse`.
 
 **Try this code in your Quarto document:**
-<<<<<<< HEAD
-```{r}
-=======
+
+
 ```r
->>>>>>> 7a80b1ebce3a17625b2c8b3e6fdde78c802acdc6
 library(tidyverse)
 
 # Loading a dataset about Star Wars characters
@@ -58,11 +45,8 @@ url <- "https://vincentarelbundock.github.io/Rdatasets/csv/COUNT/lbw.csv"
 lbw_data <- read_csv(url)
 
 # Preview the data
-<<<<<<< HEAD
+
 head(lbw_data)
-=======
-head(sw_data)
->>>>>>> 7a80b1ebce3a17625b2c8b3e6fdde78c802acdc6
 ```
 
 
@@ -75,18 +59,12 @@ Often, you will download a dataset from a site like Kaggle or a government porta
 1. Find a CSV file (or download a sample one).
 2. Move that file into your **MAT186_Labs** folder.
 3. Use the following code (replace `filename.csv` with your actual file name):
-<<<<<<< HEAD
-```{r}
-my_data <- read_csv("filename.csv")
-```
 
-
-=======
 
 ```r
 my_data <- read_csv("filename.csv")
 ```
->>>>>>> 7a80b1ebce3a17625b2c8b3e6fdde78c802acdc6
+
 
 ---
 
@@ -99,22 +77,15 @@ my_data <- read_csv("filename.csv")
 <div class="dcc-important">
 **Lab Task 5:** 
 
-1. Find any public CSV dataset (or use [this link to DCC-related data](https://example.com/dcc_data.csv)).
+1. Find any public CSV dataset. For example, [this link to freee  data](https://vincentarelbundock.github.io/Rdatasets/articles/data.html)). Use the *lbw* data set.
 
 2. Import it into a new Quarto document using `read_csv`.
 
 3. Use the `glimpse()` command to show the structure of your data:
-<<<<<<< HEAD
-```{r}
+
+```r
 glimpse(my_data)
 ```
 
-
-
-=======
-   ```r
-   glimpse(my_data)
-   ```
->>>>>>> 7a80b1ebce3a17625b2c8b3e6fdde78c802acdc6
 4. Render the document and confirm that your data table appears in the HTML.
 </div>

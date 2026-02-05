@@ -1,5 +1,13 @@
 {{< include ../_solution_header.qmd >}}
+---
+title: "Lab 1: R and RStudio Installation"
+---
 
+## Learning Objectives
+
+* By the end of this lab, students will...
+
+* Successfully install the **R**...
 # Lab 1: R and RStudio Installation
 
 ## Learning Objectives
