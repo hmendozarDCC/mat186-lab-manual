@@ -7,7 +7,7 @@ website:
   # Navbar Logo (Top Left)
   navbar:
     logo: "images/dcc-logo.png"
-    logo-height: "30px"
+    logo-height: "20px"
     logo-alt: "Dutchess Community College Logo" # Required for accessibility
     search: true  # This activates the search bar
     background: "#002147" # DCC Navy Blue
@@ -45,7 +45,7 @@ website:
           - text: "Lab 11: Statistical inference for one proportion"
             file: labs/lab11.qmd
           - text: "Lab 12: Statistical inference for two means"
-            file: labs/lab12.md
+            file: labs/lab12.qmd
           - text: "Lab 13: Statistical inference for two proportions"
             file: labs/lab13.qmd
           - text: "Lab 14: Bootstrapping"
@@ -65,7 +65,7 @@ website:
       **Dutchess Community College**
     center: "Last updated: {{< meta date-modified >}}"
     right: |
-      [Accessibility Statement](/accessibility.md)
+      [Accessibility Statement](/accessibility.qmd)
 
 format:
   html:

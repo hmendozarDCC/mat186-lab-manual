@@ -22,11 +22,22 @@ R needs to know which folder on your computer it should "look" in.
 </div>
 
 To check where R is looking, type this in your console:
+<<<<<<< HEAD
 ```{r}
 getwd()
 ```
 
 
+=======
+
+* Locate the Console pane (typically in the bottom-left of RStudio).
+* Type getwd() at the command prompt (>). It is important to include the parentheses () because it is a function.
+* Press the Enter (or Return) key on your keyboard.
+
+```r
+getwd()
+```
+>>>>>>> 7a80b1ebce3a17625b2c8b3e6fdde78c802acdc6
 
 ---
 
@@ -34,7 +45,11 @@ getwd()
 The easiest way to get started is to pull data directly from the internet. We will use the `read_csv()` function from the `tidyverse`.
 
 **Try this code in your Quarto document:**
+<<<<<<< HEAD
 ```{r}
+=======
+```r
+>>>>>>> 7a80b1ebce3a17625b2c8b3e6fdde78c802acdc6
 library(tidyverse)
 
 # Loading a dataset about Star Wars characters
@@ -43,7 +58,11 @@ url <- "https://vincentarelbundock.github.io/Rdatasets/csv/COUNT/lbw.csv"
 lbw_data <- read_csv(url)
 
 # Preview the data
+<<<<<<< HEAD
 head(lbw_data)
+=======
+head(sw_data)
+>>>>>>> 7a80b1ebce3a17625b2c8b3e6fdde78c802acdc6
 ```
 
 
@@ -56,11 +75,18 @@ Often, you will download a dataset from a site like Kaggle or a government porta
 1. Find a CSV file (or download a sample one).
 2. Move that file into your **MAT186_Labs** folder.
 3. Use the following code (replace `filename.csv` with your actual file name):
+<<<<<<< HEAD
 ```{r}
 my_data <- read_csv("filename.csv")
 ```
 
 
+=======
+
+```r
+my_data <- read_csv("filename.csv")
+```
+>>>>>>> 7a80b1ebce3a17625b2c8b3e6fdde78c802acdc6
 
 ---
 
@@ -78,11 +104,17 @@ my_data <- read_csv("filename.csv")
 2. Import it into a new Quarto document using `read_csv`.
 
 3. Use the `glimpse()` command to show the structure of your data:
+<<<<<<< HEAD
 ```{r}
 glimpse(my_data)
 ```
 
 
 
+=======
+   ```r
+   glimpse(my_data)
+   ```
+>>>>>>> 7a80b1ebce3a17625b2c8b3e6fdde78c802acdc6
 4. Render the document and confirm that your data table appears in the HTML.
 </div>

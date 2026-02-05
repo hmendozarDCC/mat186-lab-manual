@@ -19,7 +19,7 @@ Dutchess Community College is committed to providing equal access to education. 
 ### **Support for Accommodations**
 If you encounter any barriers while using this manual—such as a visualization that is difficult to interpret or code that is hard to navigate—please do not hesitate to contact:
 
-1.  **Your Instructor:** [Insert Your Name/Email]
+1.  **Your Instructor:** henry.mendozarivera@sunydutchess.edu
 2.  **DCC Office of Accommodative Services:** * **Location:** Library, Room 303
     * **Phone:** 845-431-8050
 
@@ -27,8 +27,11 @@ If you encounter any barriers while using this manual—such as a visualization 
 
 ## Getting Started
 To begin, select **Lab 1: Introduction to R** from the sidebar. You will need:
+
 1.  A laptop or tablet.
+
 2.  An account on **Posit Cloud** (or RStudio Desktop installed).
+
 3.  Access to our course **Brightspace** page for dataset downloads.
 
 ---

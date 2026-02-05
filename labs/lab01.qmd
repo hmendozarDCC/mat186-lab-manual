@@ -1,4 +1,5 @@
 {{< include ../_solution_header.qmd >}}
+
 # Lab 1: R and RStudio Installation
 
 ## Learning Objectives
@@ -28,8 +29,6 @@ You must install R **before** you install RStudio.
    * **Download R for Windows** -> Click "base" -> Click "Download R 4.x.x for Windows."
    * **Download R for (macOS)** -> Download the `.pkg` file that matches your chip (Apple silicon M1/M2 or Intel).
 3. Run the downloaded installer and keep all default settings by clicking "Next" or "Continue."
-
-
 
 ---
 
