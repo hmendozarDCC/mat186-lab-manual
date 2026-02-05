@@ -2,7 +2,9 @@
 # Lab 1: R and RStudio Installation
 
 ## Learning Objectives
-*By the end of this lab, students will be able to:*
+
+By the end of this lab, students will be able to:
+
 * Successfully install the **R** programming language.
 * Install the **RStudio Desktop** Integrated Development Environment (IDE).
 * Verify the installation by running a simple command.
@@ -46,6 +48,7 @@ Let's make sure the "engine" and "dashboard" are talking to each other.
 1. Open **RStudio** from your applications folder or start menu.
 2. Find the **Console** pane (usually on the bottom left).
 3. Type the following code and press **Enter**:
-   ```r
-   print("Hello, MAT 186!")
+```{r}
+print("Hello, MAT 186!")
 ```
+
