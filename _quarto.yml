@@ -12,7 +12,7 @@ website:
     search: true  # This activates the search bar
     background: "#002147" # DCC Navy Blue
     left:
-      - href: index.md
+      - href: index.qmd
         text: Home
 
   # Sidebar Navigation (Matches your 17 Labs)
@@ -23,39 +23,39 @@ website:
       - section: "Course Labs"
         contents:
           - text: "Lab 1: R and RStudio Installation"
-            file: labs/lab01.md
+            file: labs/lab01.qmd
           - text: "Lab 2: RStudio Project and Quarto Documents"
-            file: labs/lab02.md
+            file: labs/lab02.qmd
           - text: "Lab 3: Mathematical Notation in Quarto"
-            file: labs/lab03.md
+            file: labs/lab03.qmd
           - text: "Lab 4: GitHub Repository"
-            file: labs/lab04.md
+            file: labs/lab04.qmd
           - text: "Lab 5: Getting data into R"
-            file: labs/lab05.md
+            file: labs/lab05.qmd
           - text: "Lab 6: Data collection"
-            file: labs/lab06.md
+            file: labs/lab06.qmd
           - text: "Lab 7: Cleaning Data"
-            file: labs/lab07.md
+            file: labs/lab07.qmd
           - text: "Lab 8: Exploratory Data Analysis"
-            file: labs/lab08.md
+            file: labs/lab08.qmd
           - text: "Lab 9: Probability distribution"
-            file: labs/lab09.md
+            file: labs/lab09.qmd
           - text: "Lab 10: Statistical inference for one mean"
-            file: labs/lab10.md
+            file: labs/lab10.qmd
           - text: "Lab 11: Statistical inference for one proportion"
-            file: labs/lab11.md
+            file: labs/lab11.qmd
           - text: "Lab 12: Statistical inference for two means"
             file: labs/lab12.md
           - text: "Lab 13: Statistical inference for two proportions"
-            file: labs/lab13.md
+            file: labs/lab13.qmd
           - text: "Lab 14: Bootstrapping"
-            file: labs/lab14.md
+            file: labs/lab14.qmd
           - text: "Lab 15: Non-parametric methods"
-            file: labs/lab15.md
+            file: labs/lab15.qmd
           - text: "Lab 16: Analysis of variance (ANOVA)"
-            file: labs/lab16.md
+            file: labs/lab16.qmd
           - text: "Lab 17: Regression models"
-            file: labs/lab17_F26.md
+            file: labs/lab17_F26.qmd
 
   # Page Footer (Bottom)
 
