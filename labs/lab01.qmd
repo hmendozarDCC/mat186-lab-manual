@@ -1,14 +1,11 @@
 {{< include ../_solution_header.qmd >}}
 # Lab 1: R and RStudio Installation
 
-
 ## Learning Objectives
 *By the end of this lab, students will be able to:*
 
 * Successfully install the **R** programming language.
-
 * Install the **RStudio Desktop** Integrated Development Environment (IDE).
-
 * Verify the installation by running a simple command.
 
 ---
