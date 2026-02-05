@@ -1299,49 +1299,84 @@
     "href": "labs/lab12.html",
     "title": "Lab 12: Statistical Inference for Two Means",
     "section": "",
-    "text": "Understand the difference between Independent and Paired samples.\nState the Null (\\(H_0\\)) and Alternative (\\(H_a\\)) hypotheses for comparing two groups.\nConduct an Independent Samples t-test in R.\nVisualize the difference between groups using Boxplots.\n\n\n\n\n\nWe use an Independent Samples t-test when we want to compare the means of two distinct, unrelated groups. * Example: Do “Humans” have a different average height than “Droids”? * Example: Is the average house price in Poughkeepsie different from the average price in Fishkill?\n\n\n\n\nIn this test, we are looking at the difference between the two population means (\\(\\mu_1 - \\mu_2\\)).\n\nNull Hypothesis (\\(H_0\\)): \\(\\mu_1 = \\mu_2\\) (The means are the same; the difference is zero).\nAlternative Hypothesis (\\(H_a\\)): \\(\\mu_1 \\neq \\mu_2\\) (The means are significantly different).\n\n\n\n\n\nBefore running the math, we should always visualize the two groups side-by-side using a Boxplot.\nlibrary(tidyverse)\n\n# Comparing heights of Humans and Droids\ncomparison_data &lt;- starwars |&gt; \n  filter(species %in% c(\"Human\", \"Droid\")) |&gt;\n  drop_na(height)\n\nggplot(comparison_data, aes(x = species, y = height, fill = species)) +\n  geom_boxplot() +\n  labs(title = \"Height Comparison: Humans vs. Droids\")\n\n\n\n\nIn R, we use the “formula” syntax: y ~ x (where y is the numeric value and x is the grouping category).\n# Conducting the Independent Samples t-test\nt_test_results &lt;- t.test(height ~ species, data = comparison_data)\n\n# View results\nt_test_results\n\n\n\np-value: If p &lt; 0.05, we conclude that the average heights of Humans and Droids are significantly different.\n95% Confidence Interval: This gives the range of the difference between the two means. If the interval contains 0, the results are usually not significant.\n\n\n\nLab Task 12: 1. Pick a dataset that has at least one categorical variable with two groups (e.g., Male/Female, Treatment/Control, Yes/No). 2. Create a Boxplot to visually compare a numeric variable across those two groups. 3. State your Null and Alternative hypotheses. 4. Run the t.test() using the formula syntax. 5. The Conclusion: Report your p-value and state whether you reject or fail to reject the null hypothesis. Does the data suggest the groups are truly different?\n\n\n\n\n\n\nWhen using the fill = species aesthetic in your plots, remember that some students may have color vision deficiencies. Use scale_fill_viridis_d() to ensure your group comparisons are accessible to everyone."
+    "text": "Understand the difference between Independent and Paired samples.\nState the Null (\\(H_0\\)) and Alternative (\\(H_a\\)) hypotheses for comparing two groups.\nConduct an Independent Samples t-test in R.\nVisualize the difference between groups using Boxplots.\n\n\n\n\n\nWe use an Independent Samples t-test when we want to compare the means of two distinct, unrelated groups. * Example: Do “Humans” have a different average height than “Droids”? * Example: Is the average house price in Poughkeepsie different from the average price in Fishkill?\n\n\n\n\nIn this test, we are looking at the difference between the two population means (\\(\\mu_1 - \\mu_2\\)).\n\nNull Hypothesis (\\(H_0\\)): \\(\\mu_1 = \\mu_2\\) (The means are the same; the difference is zero).\nAlternative Hypothesis (\\(H_a\\)): \\(\\mu_1 \\neq \\mu_2\\) (The means are significantly different).\n\n\n\n\n\nBefore running the math, we should always visualize the two groups side-by-side using a Boxplot.\nlibrary(tidyverse)\n\n# Comparing heights of Humans and Droids\ncomparison_data &lt;- starwars |&gt; \n  filter(species %in% c(\"Human\", \"Droid\")) |&gt;\n  drop_na(height)\n\nggplot(comparison_data, aes(x = species, y = height, fill = species)) +\n  geom_boxplot() +\n  labs(title = \"Height Comparison: Humans vs. Droids\")\n\n\n\n\nIn R, we use the “formula” syntax: y ~ x (where y is the numeric value and x is the grouping category).\n# Conducting the Independent Samples t-test\nt_test_results &lt;- t.test(height ~ species, data = comparison_data)\n\n# View results\nt_test_results\n\n\n\np-value: If p &lt; 0.05, we conclude that the average heights of Humans and Droids are significantly different.\n95% Confidence Interval: This gives the range of the difference between the two means. If the interval contains 0, the results are usually not significant.\n\n\n\nLab Task 12: 1. Pick a dataset that has at least one categorical variable with two groups (e.g., Male/Female, Treatment/Control, Yes/No). 2. Create a Boxplot to visually compare a numeric variable across those two groups. 3. State your Null and Alternative hypotheses. 4. Run the t.test() using the formula syntax. 5. The Conclusion: Report your p-value and state whether you reject or fail to reject the null hypothesis. Does the data suggest the groups are truly different?\n\n\n\n\n\n\nWhen using the fill = species aesthetic in your plots, remember that some students may have color vision deficiencies. Use scale_fill_viridis_d() to ensure your group comparisons are accessible to everyone.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 12: Statistical inference for two means"
+    ]
   },
   {
     "objectID": "labs/lab12.html#learning-objectives",
     "href": "labs/lab12.html#learning-objectives",
     "title": "Lab 12: Statistical Inference for Two Means",
     "section": "",
-    "text": "Understand the difference between Independent and Paired samples.\nState the Null (\\(H_0\\)) and Alternative (\\(H_a\\)) hypotheses for comparing two groups.\nConduct an Independent Samples t-test in R.\nVisualize the difference between groups using Boxplots."
+    "text": "Understand the difference between Independent and Paired samples.\nState the Null (\\(H_0\\)) and Alternative (\\(H_a\\)) hypotheses for comparing two groups.\nConduct an Independent Samples t-test in R.\nVisualize the difference between groups using Boxplots.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 12: Statistical inference for two means"
+    ]
   },
   {
     "objectID": "labs/lab12.html#part-1-comparing-two-independent-groups",
     "href": "labs/lab12.html#part-1-comparing-two-independent-groups",
     "title": "Lab 12: Statistical Inference for Two Means",
     "section": "",
-    "text": "We use an Independent Samples t-test when we want to compare the means of two distinct, unrelated groups. * Example: Do “Humans” have a different average height than “Droids”? * Example: Is the average house price in Poughkeepsie different from the average price in Fishkill?"
+    "text": "We use an Independent Samples t-test when we want to compare the means of two distinct, unrelated groups. * Example: Do “Humans” have a different average height than “Droids”? * Example: Is the average house price in Poughkeepsie different from the average price in Fishkill?",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 12: Statistical inference for two means"
+    ]
   },
   {
     "objectID": "labs/lab12.html#part-2-hypotheses-for-two-means",
     "href": "labs/lab12.html#part-2-hypotheses-for-two-means",
     "title": "Lab 12: Statistical Inference for Two Means",
     "section": "",
-    "text": "In this test, we are looking at the difference between the two population means (\\(\\mu_1 - \\mu_2\\)).\n\nNull Hypothesis (\\(H_0\\)): \\(\\mu_1 = \\mu_2\\) (The means are the same; the difference is zero).\nAlternative Hypothesis (\\(H_a\\)): \\(\\mu_1 \\neq \\mu_2\\) (The means are significantly different)."
+    "text": "In this test, we are looking at the difference between the two population means (\\(\\mu_1 - \\mu_2\\)).\n\nNull Hypothesis (\\(H_0\\)): \\(\\mu_1 = \\mu_2\\) (The means are the same; the difference is zero).\nAlternative Hypothesis (\\(H_a\\)): \\(\\mu_1 \\neq \\mu_2\\) (The means are significantly different).",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 12: Statistical inference for two means"
+    ]
   },
   {
     "objectID": "labs/lab12.html#part-3-visualizing-the-comparison",
     "href": "labs/lab12.html#part-3-visualizing-the-comparison",
     "title": "Lab 12: Statistical Inference for Two Means",
     "section": "",
-    "text": "Before running the math, we should always visualize the two groups side-by-side using a Boxplot.\nlibrary(tidyverse)\n\n# Comparing heights of Humans and Droids\ncomparison_data &lt;- starwars |&gt; \n  filter(species %in% c(\"Human\", \"Droid\")) |&gt;\n  drop_na(height)\n\nggplot(comparison_data, aes(x = species, y = height, fill = species)) +\n  geom_boxplot() +\n  labs(title = \"Height Comparison: Humans vs. Droids\")"
+    "text": "Before running the math, we should always visualize the two groups side-by-side using a Boxplot.\nlibrary(tidyverse)\n\n# Comparing heights of Humans and Droids\ncomparison_data &lt;- starwars |&gt; \n  filter(species %in% c(\"Human\", \"Droid\")) |&gt;\n  drop_na(height)\n\nggplot(comparison_data, aes(x = species, y = height, fill = species)) +\n  geom_boxplot() +\n  labs(title = \"Height Comparison: Humans vs. Droids\")",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 12: Statistical inference for two means"
+    ]
   },
   {
     "objectID": "labs/lab12.html#part-4-running-the-t-test-in-r",
     "href": "labs/lab12.html#part-4-running-the-t-test-in-r",
     "title": "Lab 12: Statistical Inference for Two Means",
     "section": "",
-    "text": "In R, we use the “formula” syntax: y ~ x (where y is the numeric value and x is the grouping category).\n# Conducting the Independent Samples t-test\nt_test_results &lt;- t.test(height ~ species, data = comparison_data)\n\n# View results\nt_test_results\n\n\n\np-value: If p &lt; 0.05, we conclude that the average heights of Humans and Droids are significantly different.\n95% Confidence Interval: This gives the range of the difference between the two means. If the interval contains 0, the results are usually not significant.\n\n\n\nLab Task 12: 1. Pick a dataset that has at least one categorical variable with two groups (e.g., Male/Female, Treatment/Control, Yes/No). 2. Create a Boxplot to visually compare a numeric variable across those two groups. 3. State your Null and Alternative hypotheses. 4. Run the t.test() using the formula syntax. 5. The Conclusion: Report your p-value and state whether you reject or fail to reject the null hypothesis. Does the data suggest the groups are truly different?"
+    "text": "In R, we use the “formula” syntax: y ~ x (where y is the numeric value and x is the grouping category).\n# Conducting the Independent Samples t-test\nt_test_results &lt;- t.test(height ~ species, data = comparison_data)\n\n# View results\nt_test_results\n\n\n\np-value: If p &lt; 0.05, we conclude that the average heights of Humans and Droids are significantly different.\n95% Confidence Interval: This gives the range of the difference between the two means. If the interval contains 0, the results are usually not significant.\n\n\n\nLab Task 12: 1. Pick a dataset that has at least one categorical variable with two groups (e.g., Male/Female, Treatment/Control, Yes/No). 2. Create a Boxplot to visually compare a numeric variable across those two groups. 3. State your Null and Alternative hypotheses. 4. Run the t.test() using the formula syntax. 5. The Conclusion: Report your p-value and state whether you reject or fail to reject the null hypothesis. Does the data suggest the groups are truly different?",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 12: Statistical inference for two means"
+    ]
   },
   {
     "objectID": "labs/lab12.html#accessibility-tip-high-contrast-visuals",
     "href": "labs/lab12.html#accessibility-tip-high-contrast-visuals",
     "title": "Lab 12: Statistical Inference for Two Means",
     "section": "",
-    "text": "When using the fill = species aesthetic in your plots, remember that some students may have color vision deficiencies. Use scale_fill_viridis_d() to ensure your group comparisons are accessible to everyone."
+    "text": "When using the fill = species aesthetic in your plots, remember that some students may have color vision deficiencies. Use scale_fill_viridis_d() to ensure your group comparisons are accessible to everyone.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 12: Statistical inference for two means"
+    ]
   },
   {
     "objectID": "labs/lab09.html",
