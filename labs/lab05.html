@@ -350,6 +350,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Crucial Step:</strong> This is why we use <strong>RStudio Projects</strong> (from Lab 2). When you open your <code>.Rproj</code> file, R automatically sets your folder as the “Working Directory.”</p>
 </div>
 <p>To check where R is looking, type this in your console:</p>
+<ul>
+<li>Locate the Console pane (typically in the bottom-left of RStudio).</li>
+<li>Type getwd() at the command prompt (&gt;). It is important to include the parentheses () because it is a function.</li>
+<li>Press the Enter (or Return) key on your keyboard.</li>
+</ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
@@ -386,7 +391,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <hr>
 <div class="dcc-important">
-<p><strong>Lab Task 5:</strong> 1. Find any public CSV dataset (or use <a href="https://example.com/dcc_data.csv">this link to DCC-related data</a>). 2. Import it into a new Quarto document using <code>read_csv</code>. 3. Use the <code>glimpse()</code> command to show the structure of your data: ~<del>r glimpse(my_data)</del>~ 4. Render the document and confirm that your data table appears in the HTML.</p>
+<p><strong>Lab Task 5:</strong> 1. Find any public CSV dataset (or use <a href="https://example.com/dcc_data.csv">this link to DCC-related data</a>). 2. Import it into a new Quarto document using <code>read_csv</code>. 3. Use the <code>glimpse()</code> command to show the structure of your data: <code>r    glimpse(my_data)</code> 4. Render the document and confirm that your data table appears in the HTML.</p>
 </div>
 
 
