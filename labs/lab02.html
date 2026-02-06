@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -263,6 +298,16 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   <li><a href="#part-1-rstudio-projects" id="toc-part-1-rstudio-projects" class="nav-link" data-scroll-target="#part-1-rstudio-projects">Part 1: RStudio Projects</a></li>
   <li><a href="#part-2-creating-a-quarto-document" id="toc-part-2-creating-a-quarto-document" class="nav-link" data-scroll-target="#part-2-creating-a-quarto-document">Part 2: Creating a Quarto Document</a></li>
+  </ul></li>
+  <li><a href="#lab-2-introduction-to-quarto" id="toc-lab-2-introduction-to-quarto" class="nav-link" data-scroll-target="#lab-2-introduction-to-quarto">Lab 2: Introduction to Quarto</a>
+  <ul class="collapse">
+  <li><a href="#creating-your-document" id="toc-creating-your-document" class="nav-link" data-scroll-target="#creating-your-document">Creating your Document</a></li>
+  <li><a href="#the-three-parts-of-a-quarto-document" id="toc-the-three-parts-of-a-quarto-document" class="nav-link" data-scroll-target="#the-three-parts-of-a-quarto-document">The Three Parts of a Quarto Document</a>
+  <ul class="collapse">
+  <li><a href="#the-yaml-header" id="toc-the-yaml-header" class="nav-link" data-scroll-target="#the-yaml-header">1. The YAML Header</a></li>
+  <li><a href="#markdown-narrative" id="toc-markdown-narrative" class="nav-link" data-scroll-target="#markdown-narrative">2. Markdown (Narrative)</a></li>
+  <li><a href="#code-chunks" id="toc-code-chunks" class="nav-link" data-scroll-target="#code-chunks">3. Code Chunks</a></li>
+  </ul></li>
   <li><a href="#part-3-rendering-the-magic-button" id="toc-part-3-rendering-the-magic-button" class="nav-link" data-scroll-target="#part-3-rendering-the-magic-button">Part 3: Rendering (The “Magic” Button)</a></li>
   </ul></li>
   </ul>
@@ -322,23 +367,74 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="part-2-creating-a-quarto-document" class="level2">
 <h2 class="anchored" data-anchor-id="part-2-creating-a-quarto-document">Part 2: Creating a Quarto Document</h2>
-<p>Quarto allows you to combine text, code, and results in one file.</p>
+</section>
+</section>
+<section id="lab-2-introduction-to-quarto" class="level1">
+<h1>Lab 2: Introduction to Quarto</h1>
+<p>Quarto allows you to combine text, code, and results into one professional document. Follow these steps to get started.</p>
+<section id="creating-your-document" class="level2">
+<h2 class="anchored" data-anchor-id="creating-your-document">Creating your Document</h2>
 <ol type="1">
-<li>Click <strong>File &gt; New File &gt; Quarto Document…</strong></li>
-<li>Title it “Lab 2” and put your name as the Author.</li>
-<li>Click <strong>Create</strong>.</li>
-<li>Look at the file. You will see:
-<ul>
-<li><strong>YAML Header:</strong> The stuff between the <code>---</code> lines (Title, Author, Format).</li>
-<li><strong>Code Chunks:</strong> The gray boxes starting with <code>```{r}</code>.</li>
-<li><strong>Markdown:</strong> The plain white areas for your written analysis.</li>
-</ul></li>
+<li>In the top menu, click <strong>File &gt; New File &gt; Quarto Document…</strong></li>
+<li>Title it <strong>“Lab 2”</strong> and put your name as the <strong>Author</strong>.</li>
+<li>Click <strong>Create</strong>. It will open a quarto document.</li>
 </ol>
 <hr>
 </section>
+<section id="the-three-parts-of-a-quarto-document" class="level2">
+<h2 class="anchored" data-anchor-id="the-three-parts-of-a-quarto-document">The Three Parts of a Quarto Document</h2>
+<p>A Quarto document is made of three distinct components:</p>
+<section id="the-yaml-header" class="level3">
+<h3 class="anchored" data-anchor-id="the-yaml-header">1. The YAML Header</h3>
+<p>Look at the very top of the file. You will see text between two sets of three dashes (<code>---</code>). This is the <strong>YAML Header</strong>; it contains the “metadata” or settings for your document.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Lab 2"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Your Name"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">editor</span><span class="kw">:</span><span class="at"> visual</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="markdown-narrative" class="level3">
+<h3 class="anchored" data-anchor-id="markdown-narrative">2. Markdown (Narrative)</h3>
+<p>The plain white areas of the document are called <strong>Markdown</strong>. This is where you write your analysis, explain your results, and answer questions. It works like a simplified word processor.</p>
+<ul>
+<li>You can make text <strong>bold</strong> by using <code>**double asterisks**</code>.</li>
+<li>You can make text <em>italic</em> by using <code>*single asterisks*</code>.</li>
+</ul>
+</section>
+<section id="code-chunks" class="level3">
+<h3 class="anchored" data-anchor-id="code-chunks">3. Code Chunks</h3>
+<p>The gray boxes starting with <code>```{r}</code> and ending with <code>```</code> are called <strong>Code Chunks</strong>. This is where you put your R code to run calculations or create graphs.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a code chunk. R code goes here!</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Tip for Students
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To run the code inside a chunk, click the green <strong>Play</strong> button in the top-right corner of the gray box. The result will appear directly below the chunk!</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
 <section id="part-3-rendering-the-magic-button" class="level2">
 <h2 class="anchored" data-anchor-id="part-3-rendering-the-magic-button">Part 3: Rendering (The “Magic” Button)</h2>
-<p>To turn your code into a report: 1. Click the <strong>Render</strong> button (blue arrow icon) at the top of the editor. 2. RStudio will save the file and pop up a beautiful HTML window.</p>
+<p>To turn your code into a report:</p>
+<ol type="1">
+<li>Click the <strong>Render</strong> button (blue arrow icon) at the top of the editor.</li>
+<li>RStudio will save the file and pop up a beautiful HTML window.</li>
+</ol>
 <hr>
 <div class="dcc-important">
 <p><strong>Lab Task 2:</strong> Inside your Quarto document, create a new code chunk and type <code>2 + 2</code>. Render the document and verify that the number <code>4</code> appears in the final report. Screenshot your rendered HTML for submission.</p>
