@@ -31,16 +31,22 @@ We use the `prop.test()` function. You need two numbers: `x` (number of successe
 **Scenario:** A news report claims that 50% of Star Wars characters are Humans. In our dataset, we find that 35 out of 87 characters are Human. Is the report's 50% claim accurate?
 
 ```{r}
-library(tidyverse)
+#| label: tbl-prop-test
+#| tbl-cap: "One-sample proportion test results comparing the observed proportion of humans (35/87) to a null hypothesis of 0.50."
 
-# x = number of humans (35)
-# n = total characters (87)
-# p = the claimed value (0.50)
-
+# 1. Perform the test
 prop_results <- prop.test(x = 35, n = 87, p = 0.50, correct = FALSE)
 
-# View the results
-prop_results
+# 2. Tidy the result into a data frame
+library(broom)
+tidy_prop <- tidy(prop_results)
+
+# 3. Create an accessible table with descriptive headers
+knitr::kable(
+  tidy_prop[, c("estimate", "statistic", "p.value", "conf.low", "conf.high")],
+  col.names = c("Sample Proportion", "Chi-squared", "p-value", "Lower 95% CI", "Upper 95% CI"),
+  digits = 4
+)
 ```
 
 ### How to interpret the output:

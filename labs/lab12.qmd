@@ -29,6 +29,12 @@ In this test, we are looking at the **difference** between the two population me
 Before running the math, we should always visualize the two groups side-by-side using a **Boxplot**.
 
 ```{r}
+#| label: fig-height-human-droid
+#| fig-cap: "Comparison of height distributions between Humans and Droids."
+#| fig-alt: "A side-by-side boxplot comparing heights of Droids and Humans. The Droid distribution shows much greater variability, with a box and whiskers that span a wider range of heights. The Human distribution is more compact, with a median height slightly higher than the Droids. Several outliers are visible for the Droids, representing exceptionally short and tall individuals."
+#| warning: false
+#| message: false
+
 library(tidyverse)
 
 # Comparing heights of Humans and Droids
@@ -38,7 +44,10 @@ comparison_data <- starwars |>
 
 ggplot(comparison_data, aes(x = species, y = height, fill = species)) +
   geom_boxplot() +
-  labs(title = "Height Comparison: Humans vs. Droids")
+  scale_fill_brewer(palette = "Set2") + # Better color contrast for accessibility
+  labs(title = "Height Comparison: Humans vs. Droids",
+       x = "Species",
+       y = "Height (cm)")
 ```
 
 
@@ -49,11 +58,22 @@ ggplot(comparison_data, aes(x = species, y = height, fill = species)) +
 In R, we use the "formula" syntax: `y ~ x` (where `y` is the numeric value and `x` is the grouping category).
 
 ```{r}
-# Conducting the Independent Samples t-test
+#| label: tbl-two-sample-t-test
+#| tbl-cap: "Independent samples t-test comparing the mean heights of Humans and Droids."
+
+# 1. Conduct the Independent Samples t-test
 t_test_results <- t.test(height ~ species, data = comparison_data)
 
-# View results
-t_test_results
+# 2. Tidy the results into a data frame
+library(broom)
+tidy_t_test <- tidy(t_test_results)
+
+# 3. Create an accessible table with descriptive headers
+knitr::kable(
+  tidy_t_test[, c("estimate", "statistic", "p.value", "conf.low", "conf.high")],
+  col.names = c("Difference in Means", "t-statistic", "p-value", "Lower 95% CI", "Upper 95% CI"),
+  digits = 3
+)
 ```
 
 ### How to interpret the output:

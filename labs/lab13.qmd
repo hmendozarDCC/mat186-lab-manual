@@ -37,6 +37,29 @@ ggplot(my_data, aes(x = group_variable, fill = success_variable)) +
        x = "Group Name")
 ```
 
+```{r}
+#| label: fig-gender-tatooine-prop
+#| fig-cap: "Stacked bar chart showing the proportion of gender identities for characters from Tatooine versus other homeworlds."
+#| fig-alt: "A 100% stacked bar chart with two columns: Tatooine and Other. The y-axis represents proportion from 0 to 1. Both bars are divided into sections representing different genders. The Tatooine bar shows a significantly higher proportion of masculine characters compared to the 'Other' category, which has a slightly more diverse gender distribution."
+#| warning: false
+#| message: false
+
+library(tidyverse)
+
+# Creating a simplified category: Tatooine vs Other
+starwars_props <- starwars |>
+  filter(!is.na(gender)) |>
+  mutate(location = if_else(homeworld == "Tatooine", "Tatooine", "Other"))
+
+ggplot(starwars_props, aes(x = location, fill = gender)) +
+  geom_bar(position = "fill") +
+  scale_fill_viridis_d(option = "mako") + # High contrast, color-blind friendly palette
+  labs(title = "Gender Proportions: Tatooine vs. Other Worlds",
+       subtitle = "Standardized to 100% using position = 'fill'",
+       x = "Homeworld Category",
+       y = "Proportion",
+       fill = "Gender")
+```
 
 
 ---
@@ -48,13 +71,25 @@ In R, we provide the "successes" and the "totals" as vectors within the `prop.te
 * **Group 2:** 30 people out of 100 succeeded.
 
 ```{r}
-# x = number of successes in each group
-# n = total sample size for each group
+#| label: tbl-two-prop-test
+#| tbl-cap: "Two-sample proportion test comparing Group 1 (45/100) and Group 2 (30/100)."
 
+# 1. Perform the test
+# x = number of successes (45 and 30)
+# n = total sample sizes (100 and 100)
 results <- prop.test(x = c(45, 30), n = c(100, 100), correct = FALSE)
 
-# View the statistical output
-results
+# 2. Tidy the results into a data frame
+library(broom)
+tidy_prop_two <- tidy(results)
+
+# 3. Create an accessible table with descriptive headers
+# Note: 'estimate' in a two-sample test contains the proportions for both groups
+knitr::kable(
+  tidy_prop_two[, c("statistic", "p.value", "conf.low", "conf.high")],
+  col.names = c("Chi-squared", "p-value", "Lower 95% CI", "Upper 95% CI"),
+  digits = 4
+)
 ```
 
 
