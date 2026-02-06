@@ -1,7 +1,6 @@
 project:
   type: website
 lang: en
-
 execute:
   warning: false
   message: false
@@ -9,12 +8,13 @@ execute:
 website:
   title: "MAT 186: Data Science"
   
-  # Navbar Configuration
+  # Navbar Logo (Top Left)
   navbar:
     logo: "/images/dcc-logo.png"
     logo-alt: "Dutchess Community College Logo"
     logo-href: index.qmd
-    height: 20px
+    height: 20px # Try setting a specific height; R/Quarto will usually scale width automatically
+
     search: true
     background: "#002147"
     left:
@@ -23,19 +23,12 @@ website:
     right:
       - href: references.qmd
         text: "References"
-  
+    
   # Sidebar Navigation
   sidebar:
     style: "docked"
     search: true
     contents:
-      - section: "Getting Started"
-        contents:
-          - text: "How to Submit (Read First!)"
-            file: _submission_criteria.qmd
-          - text: "Lab Showcase"
-            file: _showcase.qmd
-
       - section: "Course Labs"
         contents:
           - text: "Lab 1: R and RStudio Installation"
@@ -73,12 +66,7 @@ website:
           - text: "Lab 17: Regression models"
             file: labs/lab17_F26.qmd
 
-      - section: "Assessment Info"
-        contents:
-          - text: "Grading Rubric & Examples"
-            file: _submission_criteria.qmd
-
-  # Page Footer
+  # Page Footer (Now correctly indented under 'website')
   page-footer:
     left: |
       <img src="/images/dcc-logo.png" alt="DCC Logo" style="width: 120px; margin-bottom: 10px;">
@@ -98,6 +86,8 @@ format:
     toc-location: right
     fig-cap-location: bottom
     image-lazy-loading: true
+    # This ensures that if you forget a caption, 
+    # the screen reader still knows it's an image.
     fig-responsive: true
 
 bibliography: references.bib
