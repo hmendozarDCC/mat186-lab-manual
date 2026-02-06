@@ -115,11 +115,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <a href="index.qmd" class="navbar-brand navbar-brand-logo">
     <img src="../images/dcc-logo.png" alt="Dutchess Community College Logo" class="navbar-logo light-content">
     <img src="../images/dcc-logo.png" alt="Dutchess Community College Logo" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="index.qmd">
     <span class="navbar-title">MAT 186: Data Science</span>
     </a>
   </div>
@@ -364,24 +364,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="part-2-the-wilcoxon-rank-sum-test" class="level2">
 <h2 class="anchored" data-anchor-id="part-2-the-wilcoxon-rank-sum-test">Part 2: The Wilcoxon Rank-Sum Test</h2>
 <p>This is the non-parametric alternative to the <strong>Independent Samples t-test</strong> (Lab 12). Instead of comparing means, it compares the <strong>medians</strong> by ranking all the data points from smallest to largest.</p>
-<p><strong>Scenario:</strong> Are the “Mass” values of Droids and Humans different? (Mass is often heavily skewed by outliers like Jabba the Hutt).</p>
+<p><strong>Scenario:</strong> Are the “Mass” values of Droids and Humans different? (Mass is often heavily skewed by outliers like Jabba the Hutt). ## Wilcoxon Rank-Sum Test: Mass by Species</p>
+<p>This test compares the distribution of mass between Humans and Droids. We use this non-parametric test because mass in the Star Wars universe is often skewed by very heavy characters (like Jabba the Hutt).</p>
+<blockquote class="blockquote">
+<p><strong>Accessible Logic:</strong> The Wilcoxon test doesn’t compare means; it compares the <strong>ranks</strong> of the data. If one species tends to have higher ranks than the other, the test will return a significant result.</p>
+</blockquote>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtering data</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>comparison_data <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span> </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Human"</span>, <span class="st">"Droid"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(mass)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Running the Wilcoxon Rank-Sum Test</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(mass <span class="sc">~</span> species, <span class="at">data =</span> comparison_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Wilcoxon rank sum test with continuity correction
-
-data:  mass by species
-W = 23, p-value = 0.1989
-alternative hypothesis: true location shift is not equal to 0</code></pre>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Filter and clean the data</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>comparison_data <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span> </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Human"</span>, <span class="st">"Droid"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(mass)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Run the test and save the results</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>wilcox_results <span class="ot">&lt;-</span> <span class="fu">wilcox.test</span>(mass <span class="sc">~</span> species, <span class="at">data =</span> comparison_data)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Convert results into an accessible table</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>tidy_wilcox <span class="ot">&lt;-</span> <span class="fu">tidy</span>(wilcox_results)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  tidy_wilcox[, <span class="fu">c</span>(<span class="st">"statistic"</span>, <span class="st">"p.value"</span>, <span class="st">"method"</span>)],</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"W Statistic"</span>, <span class="st">"p-value"</span>, <span class="st">"Test Method"</span>),</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">4</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-wilcox-mass" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-wilcox-mass-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Results of the Wilcoxon Rank-Sum Test comparing mass between Humans and Droids.
+</figcaption>
+<div aria-describedby="tbl-wilcox-mass-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 11%">
+<col style="width: 71%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">W Statistic</th>
+<th style="text-align: right;">p-value</th>
+<th style="text-align: left;">Test Method</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">0.1989</td>
+<td style="text-align: left;">Wilcoxon rank sum test with continuity correction</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
 </div>
 </div>
 <hr>
@@ -389,9 +427,52 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 <section id="part-3-the-wilcoxon-signed-rank-test" class="level2">
 <h2 class="anchored" data-anchor-id="part-3-the-wilcoxon-signed-rank-test">Part 3: The Wilcoxon Signed-Rank Test</h2>
 <p>This is the non-parametric alternative to the <strong>Paired t-test</strong>. Use this when you have “Before” and “After” measurements on the same subjects, but the differences are not normally distributed.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example syntax for paired data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># wilcox.test(before_scores, after_scores, paired = TRUE)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example syntax for paired data</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># wilcox.test(before_scores, after_scores, paired = TRUE)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating mock 'before' and 'after' data for the example</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>before <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">75</span>, <span class="dv">90</span>, <span class="dv">85</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>after  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">82</span>, <span class="dv">78</span>, <span class="dv">88</span>, <span class="dv">90</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>tidy_paired <span class="ot">&lt;-</span> broom<span class="sc">::</span><span class="fu">tidy</span>(<span class="fu">wilcox.test</span>(before, after, <span class="at">paired =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  tidy_paired[, <span class="fu">c</span>(<span class="st">"statistic"</span>, <span class="st">"p.value"</span>, <span class="st">"method"</span>)],</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"V Statistic"</span>, <span class="st">"p-value"</span>, <span class="st">"Test Method"</span>),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">4</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-paired-wilcox" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-paired-wilcox-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Paired Wilcoxon Signed-Rank Test results for character performance.
+</figcaption>
+<div aria-describedby="tbl-paired-wilcox-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 10%">
+<col style="width: 72%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">V Statistic</th>
+<th style="text-align: right;">p-value</th>
+<th style="text-align: left;">Test Method</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1.5</td>
+<td style="text-align: right;">0.2693</td>
+<td style="text-align: left;">Wilcoxon signed rank test with continuity correction</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
 </div>
 <hr>
 </section>

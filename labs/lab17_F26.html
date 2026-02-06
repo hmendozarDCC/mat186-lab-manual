@@ -145,11 +145,11 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <a href="index.qmd" class="navbar-brand navbar-brand-logo">
     <img src="../images/dcc-logo.png" alt="Dutchess Community College Logo" class="navbar-logo light-content">
     <img src="../images/dcc-logo.png" alt="Dutchess Community College Logo" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="index.qmd">
     <span class="navbar-title">MAT 186: Data Science</span>
     </a>
   </div>
@@ -328,8 +328,10 @@ window.Quarto = {
   <li><a href="#option-1-direct-link-recommended" id="toc-option-1-direct-link-recommended" class="nav-link" data-scroll-target="#option-1-direct-link-recommended">Option 1: Direct Link (Recommended)</a></li>
   <li><a href="#option-2-local-file" id="toc-option-2-local-file" class="nav-link" data-scroll-target="#option-2-local-file">Option 2: Local File</a></li>
   <li><a href="#part-1-correlation-r" id="toc-part-1-correlation-r" class="nav-link" data-scroll-target="#part-1-correlation-r">Part 1: Correlation (<span class="math inline">\(r\)</span>)</a></li>
+  <li><a href="#correlation-analysis-mothers-weight-vs.-birth-weight" id="toc-correlation-analysis-mothers-weight-vs.-birth-weight" class="nav-link" data-scroll-target="#correlation-analysis-mothers-weight-vs.-birth-weight">Correlation Analysis: Mother’s Weight vs.&nbsp;Birth Weight</a></li>
   <li><a href="#part-2-visualizing-the-best-fit-line" id="toc-part-2-visualizing-the-best-fit-line" class="nav-link" data-scroll-target="#part-2-visualizing-the-best-fit-line">Part 2: Visualizing the Best Fit Line</a></li>
-  <li><a href="#part-3-building-the-model-in-r" id="toc-part-3-building-the-model-in-r" class="nav-link" data-scroll-target="#part-3-building-the-model-in-r">Part 3: Building the Model in R</a>
+  <li><a href="#part-3-building-the-model-in-r" id="toc-part-3-building-the-model-in-r" class="nav-link" data-scroll-target="#part-3-building-the-model-in-r">Part 3: Building the Model in R</a></li>
+  <li><a href="#simple-linear-regression-predicting-birth-weight" id="toc-simple-linear-regression-predicting-birth-weight" class="nav-link" data-scroll-target="#simple-linear-regression-predicting-birth-weight">Simple Linear Regression: Predicting Birth Weight</a>
   <ul class="collapse">
   <li><a href="#how-to-interpret-the-summary" id="toc-how-to-interpret-the-summary" class="nav-link" data-scroll-target="#how-to-interpret-the-summary">How to interpret the summary:</a></li>
   </ul></li>
@@ -387,38 +389,254 @@ window.Quarto = {
 </section>
 <section id="option-1-direct-link-recommended" class="level2">
 <h2 class="anchored" data-anchor-id="option-1-direct-link-recommended">Option 1: Direct Link (Recommended)</h2>
-<p>This method pulls the data directly from the lab manual website.</p>
+<p>This method pulls the data directly from the lab manual website. ## Data Loading and Preview</p>
+<p>We are using the <code>lbw</code> dataset, which contains information on low birth weight.</p>
+<blockquote class="blockquote">
+<p><strong>Accessible Logic:</strong> We use the <code>read_csv()</code> function to pull data from a web URL. After loading, it is important to check the “head” (the first 6 rows) to ensure the columns and values imported correctly.</p>
+</blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data directly from the web</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading a dataset about Star Wars characters</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># "https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv"</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://vincentarelbundock.github.io/Rdatasets/csv/COUNT/lbw.csv"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>lbw_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview the data</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lbw_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 11
-  rownames   low smoke  race   age   lwt   ptl    ht    ui   ftv   bwt
-     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1        1     0     0     2    19   182     0     0     1     0  2523
-2        2     0     0     3    33   155     0     0     0     3  2551
-3        3     0     1     1    20   105     0     0     0     1  2557
-4        4     0     1     1    21   108     0     0     1     2  2594
-5        5     0     1     1    18   107     0     0     1     0  2600
-6        6     0     0     3    21   124     0     0     0     0  2622</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Load the data</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> url <span class="ot">&lt;-</span> <span class="st">"https://vincentarelbundock.github.io/Rdatasets/csv/COUNT/lbw.csv"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>lbw_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Display an accessible preview</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># We use head() to get the first 6 rows and kable() to make it a table</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(lbw_data))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-data-preview" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-data-preview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Preview of the first six rows of the low birth weight (LBW) dataset.
+</figcaption>
+<div aria-describedby="tbl-data-preview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">rownames</th>
+<th style="text-align: right;">low</th>
+<th style="text-align: right;">smoke</th>
+<th style="text-align: right;">race</th>
+<th style="text-align: right;">age</th>
+<th style="text-align: right;">lwt</th>
+<th style="text-align: right;">ptl</th>
+<th style="text-align: right;">ht</th>
+<th style="text-align: right;">ui</th>
+<th style="text-align: right;">ftv</th>
+<th style="text-align: right;">bwt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">182</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2523</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">155</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2551</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">105</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2557</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2594</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">107</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2600</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">124</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2622</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
 </div>
 </div>
 </section>
 <section id="option-2-local-file" class="level2">
 <h2 class="anchored" data-anchor-id="option-2-local-file">Option 2: Local File</h2>
-<p>Use this if the file is saved in your project folder.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data from your local data folder</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/lbw.csv"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use this if the file is saved in your project folder. ## Loading Data Locally</p>
+<p>To ensure this lab is reproducible, we are loading the birth weight data from our project’s <code>data</code> folder.</p>
+<blockquote class="blockquote">
+<p><strong>Accessible Logic:</strong> The path <code>"data/lbw.csv"</code> tells R to look inside a folder named <strong>data</strong> that is located in the same place as your script. This is called a <strong>relative path</strong>.</p>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Load the data using a relative path</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure the 'data' folder exists in your RStudio project</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>lbw_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../data/2026_Fall/lbw.csv"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Accessible Preview</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(lbw_data))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-local-load" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-local-load-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Preview of the locally loaded LBW dataset.
+</figcaption>
+<div aria-describedby="tbl-local-load-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">rownames</th>
+<th style="text-align: right;">low</th>
+<th style="text-align: right;">smoke</th>
+<th style="text-align: right;">race</th>
+<th style="text-align: right;">age</th>
+<th style="text-align: right;">lwt</th>
+<th style="text-align: right;">ptl</th>
+<th style="text-align: right;">ht</th>
+<th style="text-align: right;">ui</th>
+<th style="text-align: right;">ftv</th>
+<th style="text-align: right;">bwt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">182</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2523</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">155</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2551</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">105</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2557</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2594</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">107</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2600</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">124</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2622</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
 <hr>
 </section>
 <section id="part-1-correlation-r" class="level2">
@@ -429,17 +647,49 @@ window.Quarto = {
 <li><strong>0</strong>: No relationship at all.</li>
 <li><strong>-1</strong>: Perfect negative relationship.</li>
 </ul>
+</section>
+<section id="correlation-analysis-mothers-weight-vs.-birth-weight" class="level2">
+<h2 class="anchored" data-anchor-id="correlation-analysis-mothers-weight-vs.-birth-weight">Correlation Analysis: Mother’s Weight vs.&nbsp;Birth Weight</h2>
+<p>We are calculating Pearson’s correlation coefficient to see if there is a linear relationship between the mother’s weight at the last menstrual period (<code>lwt</code>) and the baby’s birth weight (<code>bwt</code>).</p>
+<blockquote class="blockquote">
+<p><strong>Accessible Logic:</strong> Correlation (<span class="math inline">\(r\)</span>) ranges from -1 to +1. A value of 0 means no linear relationship, while values closer to +1 or -1 indicate stronger relationships.</p>
+</blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate correlation between Mother's Weight (lwt) and Birth Weight (bwt)</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>lbw_data  <span class="sc">|&gt;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(lwt, bwt) <span class="sc">|&gt;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">correlation =</span> <span class="fu">cor</span>(lwt, bwt))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 1
-  correlation
-        &lt;dbl&gt;
-1       0.186</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Calculate the correlation</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>cor_result <span class="ot">&lt;-</span> lbw_data <span class="sc">|&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(lwt, bwt) <span class="sc">|&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">correlation =</span> <span class="fu">cor</span>(lwt, bwt))</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Display as an accessible table</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  cor_result,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Correlation Coefficient (r)"</span>),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">3</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-correlation-lbw" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-correlation-lbw-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Pearson Correlation Coefficient between Mother’s Weight and Birth Weight.
+</figcaption>
+<div aria-describedby="tbl-correlation-lbw-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Correlation Coefficient (r)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.186</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
 </div>
 </div>
 <hr>
@@ -448,13 +698,13 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="part-2-visualizing-the-best-fit-line">Part 2: Visualizing the Best Fit Line</h2>
 <p>We use <code>geom_smooth(method = "lm")</code> to draw the line that minimizes the distance between all data points (the “Ordinary Least Squares” method).</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lbw_data, <span class="fu">aes</span>(<span class="at">x =</span> lwt, <span class="at">y =</span> bwt)) <span class="sc">+</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"#002147"</span>) <span class="sc">+</span> <span class="co"># DCC Navy</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Predicting Birth Weight based on Mother's Weight"</span>,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Mother's Weight (lbs)"</span>,</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Birth Weight (grams)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lbw_data, <span class="fu">aes</span>(<span class="at">x =</span> lwt, <span class="at">y =</span> bwt)) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"#002147"</span>) <span class="sc">+</span> <span class="co"># DCC Navy</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Predicting Birth Weight based on Mother's Weight"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Mother's Weight (lbs)"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Birth Weight (grams)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-regression" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Scatter plot showing a positive trend between mother's weight and infant birth weight with a blue regression line.">
 <figure class="quarto-float quarto-float-fig figure">
@@ -473,31 +723,64 @@ Figure&nbsp;1: Regression of Birth Weight on Mother’s Weight
 <section id="part-3-building-the-model-in-r" class="level2">
 <h2 class="anchored" data-anchor-id="part-3-building-the-model-in-r">Part 3: Building the Model in R</h2>
 <p>In R, the “Linear Model” function is <code>lm()</code>. The syntax is <code>lm(dependent_variable ~ independent_variable)</code>.</p>
+</section>
+<section id="simple-linear-regression-predicting-birth-weight" class="level2">
+<h2 class="anchored" data-anchor-id="simple-linear-regression-predicting-birth-weight">Simple Linear Regression: Predicting Birth Weight</h2>
+<p>We are fitting a linear model to see how well Mother’s Weight (<code>lwt</code>) predicts Birth Weight (<code>bwt</code>).</p>
+<blockquote class="blockquote">
+<p><strong>Accessible Logic:</strong> We are looking for the equation of a line: <span class="math display">\[bwt = \beta_0 + \beta_1(lwt)\]</span>. * The <strong>Intercept</strong> (<span class="math inline">\(\beta_0\)</span>) is the predicted birth weight if the mother’s weight was zero. * The <strong>Slope</strong> (<span class="math inline">\(\beta_1\)</span>) tells us how many grams the birth weight increases for every 1-pound increase in mother’s weight.</p>
+</blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Create the model</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>lbw_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(bwt <span class="sc">~</span> lwt, <span class="at">data =</span> lbw_data)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. View the results</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lbw_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = bwt ~ lwt, data = lbw_data)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--2191.78  -503.24    -3.52   508.66  2075.93 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) 2369.184    228.467  10.370   &lt;2e-16 ***
-lwt            4.430      1.713   2.586   0.0105 *  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 718.2 on 187 degrees of freedom
-Multiple R-squared:  0.03452,   Adjusted R-squared:  0.02936 
-F-statistic: 6.686 on 1 and 187 DF,  p-value: 0.01048</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Fit the model</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>lbw_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(bwt <span class="sc">~</span> lwt, <span class="at">data =</span> lbw_data)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Tidy the coefficients into an accessible table</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>model_stats <span class="ot">&lt;-</span> <span class="fu">tidy</span>(lbw_model)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  model_stats,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Term"</span>, <span class="st">"Estimate"</span>, <span class="st">"Std. Error"</span>, <span class="st">"t-statistic"</span>, <span class="st">"p-value"</span>),</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">3</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-regression-results" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-regression-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: Regression coefficients for predicting Birth Weight from Mother’s Weight.
+</figcaption>
+<div aria-describedby="tbl-regression-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Term</th>
+<th style="text-align: right;">Estimate</th>
+<th style="text-align: right;">Std. Error</th>
+<th style="text-align: right;">t-statistic</th>
+<th style="text-align: right;">p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">2369.184</td>
+<td style="text-align: right;">228.467</td>
+<td style="text-align: right;">10.370</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">lwt</td>
+<td style="text-align: right;">4.430</td>
+<td style="text-align: right;">1.713</td>
+<td style="text-align: right;">2.586</td>
+<td style="text-align: right;">0.01</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
 </div>
 </div>
 <hr>
@@ -512,14 +795,53 @@ F-statistic: 6.686 on 1 and 187 DF,  p-value: 0.01048</code></pre>
 </section>
 <section id="part-4-making-predictions" class="level2">
 <h2 class="anchored" data-anchor-id="part-4-making-predictions">Part 4: Making Predictions</h2>
-<p>Once you have a model, you can plug in a value for <span class="math inline">\(x\)</span> to predict <span class="math inline">\(y\)</span>. If our model is <span class="math inline">\(Mass = -100 + 1.2(Height)\)</span>, we can predict the mass of a character who is 200cm tall.</p>
+<p>Once you have a model, you can plug in a value for <span class="math inline">\(x\)</span> to predict <span class="math inline">\(y\)</span>. If our model is <span class="math inline">\(Mass = -100 + 1.2(Height)\)</span>, we can predict the mass of a character who is 200cm tall. ## Model Prediction: 150lb Mother</p>
+<p>Using our regression model, we can predict the specific birth weight for a baby based on the mother’s weight.</p>
+<blockquote class="blockquote">
+<p><strong>Accessible Logic:</strong> We are plugging 150 into our regression equation (<span class="math inline">\(y = mx + b\)</span>). The <code>predict()</code> function calculates this value for us automatically using the model we previously fitted.</p>
+</blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict birth weight for a mother weighing 150 lbs</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>new_mom <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">lwt =</span> <span class="dv">150</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(lbw_model, <span class="at">newdata =</span> new_mom)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>       1 
-3033.682 </code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Create a data frame for the input (required by the predict function)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>new_mom <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">lwt =</span> <span class="dv">150</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Run the prediction</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>prediction_val <span class="ot">&lt;-</span> <span class="fu">predict</span>(lbw_model, <span class="at">newdata =</span> new_mom)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Present the result in a clear, single-row table</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>prediction_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">input_lwt =</span> <span class="dv">150</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">predicted_bwt =</span> prediction_val</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  prediction_table,</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Mother's Weight (lbs)"</span>, <span class="st">"Predicted Birth Weight (g)"</span>),</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">2</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-prediction" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-prediction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5: Predicted Birth Weight for a mother weighing 150 lbs.
+</figcaption>
+<div aria-describedby="tbl-prediction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Mother’s Weight (lbs)</th>
+<th style="text-align: right;">Predicted Birth Weight (g)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">150</td>
+<td style="text-align: right;">3033.68</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
 </div>
 </div>
 <hr>

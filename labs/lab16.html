@@ -144,11 +144,11 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <a href="index.qmd" class="navbar-brand navbar-brand-logo">
     <img src="../images/dcc-logo.png" alt="Dutchess Community College Logo" class="navbar-logo light-content">
     <img src="../images/dcc-logo.png" alt="Dutchess Community College Logo" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="index.qmd">
     <span class="navbar-title">MAT 186: Data Science</span>
     </a>
   </div>
@@ -392,20 +392,28 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Do different 'eye colors' in Star Wars have different average heights?</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># We'll filter for the most common eye colors</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>eye_data <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span> </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(eye_color <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"brown"</span>, <span class="st">"yellow"</span>, <span class="st">"orange"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(height)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(eye_data, <span class="fu">aes</span>(<span class="at">x =</span> eye_color, <span class="at">y =</span> height, <span class="at">fill =</span> eye_color)) <span class="sc">+</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter for the most common eye colors to avoid a cluttered plot</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>eye_data <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(eye_color <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"brown"</span>, <span class="st">"yellow"</span>, <span class="st">"orange"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(height)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(eye_data, <span class="fu">aes</span>(<span class="at">x =</span> eye_color, <span class="at">y =</span> height, <span class="at">fill =</span> eye_color)) <span class="sc">+</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>() <span class="sc">+</span> <span class="co"># High contrast, color-blind safe palette</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Height Distribution by Eye Color"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Height Distribution by Eye Color"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Eye Color"</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Height (cm)"</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Eye Color"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="lab16_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-height-eye-color" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A side-by-side boxplot comparing height across four eye color categories. The 'yellow' eye color group shows the highest median height and the most spread, while 'blue' and 'brown' are more compact and similar in height. A few low outliers are visible in the 'brown' and 'blue' categories. The y-axis represents height in centimeters.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-height-eye-color-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lab16_files/figure-html/fig-height-eye-color-1.png" class="img-fluid figure-img" alt="A side-by-side boxplot comparing height across four eye color categories. The 'yellow' eye color group shows the highest median height and the most spread, while 'blue' and 'brown' are more compact and similar in height. A few low outliers are visible in the 'brown' and 'blue' categories. The y-axis represents height in centimeters." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-height-eye-color-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Distribution of heights across characters with blue, brown, yellow, and orange eyes.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -416,15 +424,68 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="part-3-running-the-anova-in-r">Part 3: Running the ANOVA in R</h2>
 <p>We use the <code>aov()</code> function. Like the t-test, we use the formula <code>numeric_variable ~ categorical_variable</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Fit the ANOVA model</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">aov</span>(height <span class="sc">~</span> eye_color, <span class="at">data =</span> eye_data)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. View the summary table</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>            Df Sum Sq Mean Sq F value Pr(&gt;F)
-eye_color    3   2363   787.6   0.772  0.515
-Residuals   53  54069  1020.2               </code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Fit the ANOVA model</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">aov</span>(height <span class="sc">~</span> eye_color, <span class="at">data =</span> eye_data)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Tidy the results into an accessible table</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>tidy_anova <span class="ot">&lt;-</span> <span class="fu">tidy</span>(model)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Create a clean table with descriptive headers</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  tidy_anova,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Term"</span>, <span class="st">"Degrees of Freedom"</span>, <span class="st">"Sum of Squares"</span>, <span class="st">"Mean Square"</span>, <span class="st">"F-statistic"</span>, <span class="st">"p-value"</span>),</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">3</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-anova-eye-color" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-anova-eye-color-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: One-way ANOVA results comparing mean heights across eye color groups.
+</figcaption>
+<div aria-describedby="tbl-anova-eye-color-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 25%">
+<col style="width: 19%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Term</th>
+<th style="text-align: right;">Degrees of Freedom</th>
+<th style="text-align: right;">Sum of Squares</th>
+<th style="text-align: right;">Mean Square</th>
+<th style="text-align: right;">F-statistic</th>
+<th style="text-align: right;">p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">eye_color</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2362.679</td>
+<td style="text-align: right;">787.560</td>
+<td style="text-align: right;">0.772</td>
+<td style="text-align: right;">0.515</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Residuals</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">54068.900</td>
+<td style="text-align: right;">1020.168</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
 </div>
 </div>
 <section id="how-to-read-the-anova-table" class="level3">
@@ -441,22 +502,93 @@ Residuals   53  54069  1020.2               </code></pre>
 <h2 class="anchored" data-anchor-id="part-4-post-hoc-testing-tukeys-hsd">Part 4: Post-hoc Testing (Tukey’s HSD)</h2>
 <p>If your ANOVA p-value is significant, you know <em>someone</em> is different, but you don’t know who. We use <strong>Tukey’s Honest Significant Difference</strong> to compare every possible pair.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Running Tukey's HSD</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  Tukey multiple comparisons of means
-    95% family-wise confidence level
-
-Fit: aov(formula = height ~ eye_color, data = eye_data)
-
-$eye_color
-                    diff       lwr      upr     p adj
-brown-blue    -14.894737 -42.38141 12.59194 0.4821938
-orange-blue    -1.710526 -37.41677 33.99571 0.9992575
-yellow-blue    -4.392344 -36.48987 27.70518 0.9834623
-orange-brown   13.184211 -22.52203 48.89045 0.7617162
-yellow-brown   10.502392 -21.59513 42.59991 0.8213288
-yellow-orange  -2.681818 -42.04765 36.68402 0.9978785</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Run Tukey's HSD</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>tukey_results <span class="ot">&lt;-</span> <span class="fu">TukeyHSD</span>(model)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Tidy the results into a clean table</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># TukeyHSD returns a list, so we tidy the 'eye_color' element</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>tidy_tukey <span class="ot">&lt;-</span> <span class="fu">tidy</span>(tukey_results)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Create the accessible table</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  tidy_tukey[, <span class="fu">c</span>(<span class="st">"contrast"</span>, <span class="st">"estimate"</span>, <span class="st">"conf.low"</span>, <span class="st">"conf.high"</span>, <span class="st">"adj.p.value"</span>)],</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Comparison"</span>, <span class="st">"Difference in Means"</span>, <span class="st">"Lower 95% CI"</span>, <span class="st">"Upper 95% CI"</span>, <span class="st">"Adjusted p-value"</span>),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">3</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-tukey-posthoc" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tukey-posthoc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Tukey HSD Post-Hoc comparisons for height across eye color groups.
+</figcaption>
+<div aria-describedby="tbl-tukey-posthoc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 25%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Comparison</th>
+<th style="text-align: right;">Difference in Means</th>
+<th style="text-align: right;">Lower 95% CI</th>
+<th style="text-align: right;">Upper 95% CI</th>
+<th style="text-align: right;">Adjusted p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">brown-blue</td>
+<td style="text-align: right;">-14.895</td>
+<td style="text-align: right;">-42.381</td>
+<td style="text-align: right;">12.592</td>
+<td style="text-align: right;">0.482</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">orange-blue</td>
+<td style="text-align: right;">-1.711</td>
+<td style="text-align: right;">-37.417</td>
+<td style="text-align: right;">33.996</td>
+<td style="text-align: right;">0.999</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">yellow-blue</td>
+<td style="text-align: right;">-4.392</td>
+<td style="text-align: right;">-36.490</td>
+<td style="text-align: right;">27.705</td>
+<td style="text-align: right;">0.983</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">orange-brown</td>
+<td style="text-align: right;">13.184</td>
+<td style="text-align: right;">-22.522</td>
+<td style="text-align: right;">48.890</td>
+<td style="text-align: right;">0.762</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">yellow-brown</td>
+<td style="text-align: right;">10.502</td>
+<td style="text-align: right;">-21.595</td>
+<td style="text-align: right;">42.600</td>
+<td style="text-align: right;">0.821</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">yellow-orange</td>
+<td style="text-align: right;">-2.682</td>
+<td style="text-align: right;">-42.048</td>
+<td style="text-align: right;">36.684</td>
+<td style="text-align: right;">0.998</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
 </div>
 </div>
 <hr>
