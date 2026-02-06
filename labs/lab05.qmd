@@ -83,7 +83,7 @@ If the code worked, you should see a table appear directly below your code chunk
 ---
 
 ## Part 3: Loading a Local CSV
-Often, you will download a dataset from a site like Kaggle or a government portal.[This link to freee  data](https://vincentarelbundock.github.io/Rdatasets/articles/data.html)
+Often, you will download a dataset from a site like Kaggle or a government portal.[This link to free  data](https://vincentarelbundock.github.io/Rdatasets/articles/data.html)
 
 1. Find a CSV file (or download a sample one).
 2. Move that file into your **MAT186_Labs** folder.
@@ -106,7 +106,7 @@ my_data <- read_csv("filename.csv")
 <div class="dcc-important">
 **Lab Task 5:** 
 
-1. Find any public CSV dataset. For example, [this link to freee  data](https://vincentarelbundock.github.io/Rdatasets/articles/data.html). Use the *lbw* data set.
+1. Find any public CSV dataset. For example, [this link to free  data](https://vincentarelbundock.github.io/Rdatasets/articles/data.html). Use the *lbw* data set.
 
 ::: {.callout-tip}
 ## 📥 How to Download the Data
