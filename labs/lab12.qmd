@@ -28,7 +28,7 @@ In this test, we are looking at the **difference** between the two population me
 ## Part 3: Visualizing the Comparison
 Before running the math, we should always visualize the two groups side-by-side using a **Boxplot**.
 
-~~~r
+```{r}
 library(tidyverse)
 
 # Comparing heights of Humans and Droids
@@ -39,7 +39,7 @@ comparison_data <- starwars |>
 ggplot(comparison_data, aes(x = species, y = height, fill = species)) +
   geom_boxplot() +
   labs(title = "Height Comparison: Humans vs. Droids")
-~~~
+```
 
 
 
@@ -48,13 +48,13 @@ ggplot(comparison_data, aes(x = species, y = height, fill = species)) +
 ## Part 4: Running the t-test in R
 In R, we use the "formula" syntax: `y ~ x` (where `y` is the numeric value and `x` is the grouping category).
 
-~~~r
+```{r}
 # Conducting the Independent Samples t-test
 t_test_results <- t.test(height ~ species, data = comparison_data)
 
 # View results
 t_test_results
-~~~
+```
 
 ### How to interpret the output:
 * **p-value:** If p < 0.05, we conclude that the average heights of Humans and Droids are significantly different.
@@ -64,6 +64,7 @@ t_test_results
 
 <div class="dcc-important">
 **Lab Task 12:**
+
 1. Pick a dataset that has at least one **categorical variable** with two groups (e.g., Male/Female, Treatment/Control, Yes/No).
 2. Create a **Boxplot** to visually compare a numeric variable across those two groups.
 3. State your Null and Alternative hypotheses.
