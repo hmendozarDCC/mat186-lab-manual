@@ -21,7 +21,7 @@ We rarely have data for an entire population (like every person in New York). In
 ## Part 2: Confidence Intervals
 A confidence interval gives us a range of plausible values for the true population mean. We usually use a **95% Confidence Level**.
 
-~~~r
+```{r}
 library(tidyverse)
 
 # Let's look at the average height of Star Wars characters
@@ -30,22 +30,23 @@ starwars_heights <- starwars |> drop_na(height)
 
 # Calculating a 95% Confidence Interval manually
 t.test(starwars_heights$height, conf.level = 0.95)
-~~~
+```
 
 ---
 
 ## Part 3: The One-Sample t-test
 Imagine a claim that the "Average height of a galactic citizen is 175 cm." Does our data support this?
 
-~~~r
+```{r}
 # Testing if the mean height is significantly different from 175
 t_test_results <- t.test(starwars_heights$height, mu = 175)
 
 # View the results
 t_test_results
-~~~
+```
 
 ### How to read the output:
+
 * **t:** The test statistic (how many standard errors we are from the claim).
 * **df:** Degrees of freedom (sample size minus 1).
 * **p-value:** The probability that we would see our result if the Null Hypothesis were true.
@@ -56,6 +57,7 @@ t_test_results
 
 ## Part 4: Making a Decision
 In MAT 186, we typically use an **alpha ($\alpha$) level of 0.05**.
+
 * **If p-value < 0.05:** We **Reject** the Null Hypothesis. The result is "Statistically Significant."
 * **If p-value > 0.05:** We **Fail to Reject** the Null Hypothesis. We do not have enough evidence to support the change.
 
@@ -63,6 +65,7 @@ In MAT 186, we typically use an **alpha ($\alpha$) level of 0.05**.
 
 <div class="dcc-important">
 **Lab Task 10:**
+
 1. Use your personal dataset from previous labs.
 2. Pick a numeric variable (e.g., age, price, or score).
 3. **State your Hypotheses:** * $H_0: \mu = \text{choose a number close to your average}$
