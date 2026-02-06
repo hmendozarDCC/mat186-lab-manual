@@ -89,9 +89,15 @@ To turn your code into a report:
 ::: {.callout-important}
 ## 📝 Lab Task 2: Your First Calculation
 
-1. **Create a Document**: Create a new Quarto document and save it as `Lab2_yourname`.
-2. **Clear the Template**: Find the word **Quarto** (usually around line 10). Delete everything *below* that line so you have a clean workspace.
-3. **Insert a Chunk**: Create a new R code chunk and type `2 + 2` inside it.
-4. **Render and Check**: Click the **Render** button. Verify that the number `4` appears in your final HTML report.
-5. **Submit**: Take a screenshot of your rendered HTML page and upload it to the submission folder.
+Follow these steps to practice using Quarto:
+
+1.  **Create a Document**: In RStudio, go to **File > New File > Quarto Document**. Name it `Lab2_yourname`.
+2.  **Clean the Workspace**: Find the heading that says **Quarto**. Delete all the example text and code *below* that line so you have a blank white space.
+3.  **Add a Title**: In that new blank area, type a title for your work: `# Lab 2`. 
+    *(Note: Using the # symbol makes the text large like a heading!)*
+4.  **Insert a Chunk**: Click the **+C** button to create a new gray R chunk. Inside the chunk, type: `2 + 2`
+   
+5.  **Render the Report**: Click the **Render** button (blue arrow icon) at the top of your screen. 
+6.  **Check Results**: Look at your final HTML report. You should see your title **Lab 2**, the code `2 + 2`, and the result `4`.
+7.  **Submit**: Take a screenshot of your finished HTML report and upload it.
 :::

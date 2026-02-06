@@ -59,3 +59,16 @@ Let's make sure the "engine" and "dashboard" are talking to each other.
 print("Hello, MAT 186!")
 ```
 
+::: {.callout-important}
+## 📝 Lab Task 2: Capturing Your Work
+
+Follow these steps to take a screenshot of your R console:
+
+1. **Run the Code**: In your **Console** (the bottom-left panel of RStudio), type the following exactly and press **Enter**:
+   `print("Hello, MAT 186!")`
+2. **Take a Screenshot**: Capture an image of your screen showing that message.
+   * **Windows:** Use `Windows Key + Shift + S`.
+   * **Mac:** Use `Cmd + Shift + 4`.
+3. **Save Your Work**: Save the screenshot into your **Mat186** folder on your computer. Give it a clear name like `Lab2_Screenshot`.
+4. **Submit**: Upload this image file to the **Lab 2** assignment folder in your course portal.
+:::
