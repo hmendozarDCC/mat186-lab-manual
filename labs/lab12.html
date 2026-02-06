@@ -387,7 +387,8 @@ window.Quarto = {
 <section id="part-3-visualizing-the-comparison" class="level2">
 <h2 class="anchored" data-anchor-id="part-3-visualizing-the-comparison">Part 3: Visualizing the Comparison</h2>
 <p>Before running the math, we should always visualize the two groups side-by-side using a <strong>Boxplot</strong>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparing heights of Humans and Droids</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>comparison_data <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span> </span>
@@ -397,16 +398,39 @@ window.Quarto = {
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(comparison_data, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> height, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Height Comparison: Humans vs. Droids"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lab12_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <hr>
 </section>
 <section id="part-4-running-the-t-test-in-r" class="level2">
 <h2 class="anchored" data-anchor-id="part-4-running-the-t-test-in-r">Part 4: Running the t-test in R</h2>
 <p>In R, we use the “formula” syntax: <code>y ~ x</code> (where <code>y</code> is the numeric value and <code>x</code> is the grouping category).</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conducting the Independent Samples t-test</span></span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conducting the Independent Samples t-test</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>t_test_results <span class="ot">&lt;-</span> <span class="fu">t.test</span>(height <span class="sc">~</span> species, <span class="at">data =</span> comparison_data)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View results</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>t_test_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  height by species
+t = -2.1186, df = 4.0804, p-value = 0.1001
+alternative hypothesis: true difference in means between group Droid and group Human is not equal to 0
+95 percent confidence interval:
+ -107.65835   14.05835
+sample estimates:
+mean in group Droid mean in group Human 
+              131.2               178.0 </code></pre>
+</div>
+</div>
 <section id="how-to-interpret-the-output" class="level3">
 <h3 class="anchored" data-anchor-id="how-to-interpret-the-output">How to interpret the output:</h3>
 <ul>
@@ -415,7 +439,14 @@ window.Quarto = {
 </ul>
 <hr>
 <div class="dcc-important">
-<p><strong>Lab Task 12:</strong> 1. Pick a dataset that has at least one <strong>categorical variable</strong> with two groups (e.g., Male/Female, Treatment/Control, Yes/No). 2. Create a <strong>Boxplot</strong> to visually compare a numeric variable across those two groups. 3. State your Null and Alternative hypotheses. 4. Run the <code>t.test()</code> using the formula syntax. 5. <strong>The Conclusion:</strong> Report your p-value and state whether you reject or fail to reject the null hypothesis. Does the data suggest the groups are truly different?</p>
+<p><strong>Lab Task 12:</strong></p>
+<ol type="1">
+<li>Pick a dataset that has at least one <strong>categorical variable</strong> with two groups (e.g., Male/Female, Treatment/Control, Yes/No).</li>
+<li>Create a <strong>Boxplot</strong> to visually compare a numeric variable across those two groups.</li>
+<li>State your Null and Alternative hypotheses.</li>
+<li>Run the <code>t.test()</code> using the formula syntax.</li>
+<li><strong>The Conclusion:</strong> Report your p-value and state whether you reject or fail to reject the null hypothesis. Does the data suggest the groups are truly different?</li>
+</ol>
 </div>
 <hr>
 </section>
