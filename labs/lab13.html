@@ -399,13 +399,28 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="part-3-running-the-two-sample-prop-test">Part 3: Running the Two-Sample Prop Test</h2>
 <p>In R, we provide the “successes” and the “totals” as vectors within the <code>prop.test()</code> function.</p>
 <p><strong>Scenario:</strong> * <strong>Group 1:</strong> 45 people out of 100 succeeded. * <strong>Group 2:</strong> 30 people out of 100 succeeded.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># x = number of successes in each group</span></span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># x = number of successes in each group</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># n = total sample size for each group</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">prop.test</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">30</span>), <span class="at">n =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">100</span>), <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># View the statistical output</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    2-sample test for equality of proportions without continuity correction
+
+data:  c(45, 30) out of c(100, 100)
+X-squared = 4.8, df = 1, p-value = 0.02846
+alternative hypothesis: two.sided
+95 percent confidence interval:
+ 0.01743049 0.28256951
+sample estimates:
+prop 1 prop 2 
+  0.45   0.30 </code></pre>
+</div>
+</div>
 <hr>
 </section>
 <section id="part-4-interpreting-the-results" class="level2">
@@ -417,7 +432,14 @@ window.Quarto = {
 </ul>
 <hr>
 <div class="dcc-important">
-<p><strong>Lab Task 13:</strong> 1. Open your Quarto document for Lab 13. 2. Choose two groups from your data and a binary “success” outcome (e.g., “Pass/Fail” or “Yes/No”). 3. Create a <strong>Stacked Bar Chart</strong> using <code>position = "fill"</code>. 4. Run <code>prop.test()</code> to compare the two groups. 5. <strong>Conclusion:</strong> State your p-value and write a one-sentence conclusion. “We [reject/fail to reject] the null hypothesis and conclude there is [a/no] significant difference in the proportions.”</p>
+<p><strong>Lab Task 13:</strong></p>
+<ol type="1">
+<li>Open your Quarto document for Lab 13.</li>
+<li>Choose two groups from your data and a binary “success” outcome (e.g., “Pass/Fail” or “Yes/No”).</li>
+<li>Create a <strong>Stacked Bar Chart</strong> using <code>position = "fill"</code>.</li>
+<li>Run <code>prop.test()</code> to compare the two groups.</li>
+<li><strong>Conclusion:</strong> State your p-value and write a one-sentence conclusion. “We [reject/fail to reject] the null hypothesis and conclude there is [a/no] significant difference in the proportions.”</li>
+</ol>
 </div>
 <hr>
 </section>
