@@ -36,10 +36,12 @@ The easiest way to get started is to pull data directly from the internet. We wi
 **Try this code in your Quarto document:**
 
 ::: {.callout-note}
-## Tip for Students
-To run the code below, insert a chunk by making click the green **arrow** button in the top-right corner. The chunk result will appear directly into document.
-:::
+## 💡 Tip: Working with Code Chunks
 
+**To Insert a New Chunk:** Click the **green "+C" icon** (Insert) in the toolbar at the top of your editor script, then select **R**. This creates a new gray box for your code.
+
+**To Run the Code:** Click the **green "Play" button** (the small triangle) in the top-right corner of the gray box. The results will appear directly below the chunk in your document.
+:::
 
 ```r
 library(tidyverse)
