@@ -359,7 +359,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="part-2-the-wilcoxon-rank-sum-test">Part 2: The Wilcoxon Rank-Sum Test</h2>
 <p>This is the non-parametric alternative to the <strong>Independent Samples t-test</strong> (Lab 12). Instead of comparing means, it compares the <strong>medians</strong> by ranking all the data points from smallest to largest.</p>
 <p><strong>Scenario:</strong> Are the “Mass” values of Droids and Humans different? (Mass is often heavily skewed by outliers like Jabba the Hutt).</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtering data</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>comparison_data <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span> </span>
@@ -368,13 +369,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Running the Wilcoxon Rank-Sum Test</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(mass <span class="sc">~</span> species, <span class="at">data =</span> comparison_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon rank sum test with continuity correction
+
+data:  mass by species
+W = 23, p-value = 0.1989
+alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+</div>
 <hr>
 </section>
 <section id="part-3-the-wilcoxon-signed-rank-test" class="level2">
 <h2 class="anchored" data-anchor-id="part-3-the-wilcoxon-signed-rank-test">Part 3: The Wilcoxon Signed-Rank Test</h2>
 <p>This is the non-parametric alternative to the <strong>Paired t-test</strong>. Use this when you have “Before” and “After” measurements on the same subjects, but the differences are not normally distributed.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example syntax for paired data</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># wilcox.test(before_scores, after_scores, paired = TRUE)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example syntax for paired data</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># wilcox.test(before_scores, after_scores, paired = TRUE)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <hr>
 </section>
 <section id="part-4-the-trade-off" class="level2">
@@ -382,7 +394,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>While non-parametric tests are safer for “messy” data, they are slightly <strong>less powerful</strong> than parametric tests when the data <em>is</em> actually normal. This means they are less likely to find a significant difference if one actually exists.</p>
 <hr>
 <div class="dcc-important">
-<p><strong>Lab Task 15:</strong> 1. Pick a numeric variable from your dataset that looks very skewed (not bell-shaped). 2. Create a <strong>Boxplot</strong> of this variable grouped by a category. 3. Run a <code>wilcox.test()</code> to compare the two groups. 4. Run a standard <code>t.test()</code> on the <strong>same data</strong>. 5. <strong>Compare:</strong> In your Quarto document, compare the p-values. Are they similar? Which test do you trust more for this specific data, and why?</p>
+<p><strong>Lab Task 15:</strong></p>
+<ol type="1">
+<li>Pick a numeric variable from your dataset that looks very skewed (not bell-shaped).</li>
+<li>Create a <strong>Boxplot</strong> of this variable grouped by a category.</li>
+<li>Run a <code>wilcox.test()</code> to compare the two groups.</li>
+<li>Run a standard <code>t.test()</code> on the <strong>same data</strong>.</li>
+<li><strong>Compare:</strong> In your Quarto document, compare the p-values. Are they similar? Which test do you trust more for this specific data, and why?</li>
+</ol>
 </div>
 <hr>
 </section>
