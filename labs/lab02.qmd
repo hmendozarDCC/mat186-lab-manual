@@ -22,22 +22,64 @@ In Data Science, organization is everything. An RStudio Project keeps your code,
 ---
 
 ## Part 2: Creating a Quarto Document
-Quarto allows you to combine text, code, and results in one file.
+# Lab 2: Introduction to Quarto
 
-1. Click **File > New File > Quarto Document...**
-2. Title it "Lab 2" and put your name as the Author.
-3. Click **Create**.
-4. Look at the file. You will see:
-   * **YAML Header:** The stuff between the `---` lines (Title, Author, Format).
-   * **Code Chunks:** The gray boxes starting with ` ```{r} `.
-   * **Markdown:** The plain white areas for your written analysis.
+Quarto allows you to combine text, code, and results into one professional document. Follow these steps to get started.
 
+## Creating your Document
+
+1.  In the top menu, click **File > New File > Quarto Document...**
+2.  Title it **"Lab 2"** and put your name as the **Author**.
+3.  Click **Create**. It will open a quarto document.
+
+---
+
+## The Three Parts of a Quarto Document
+
+A Quarto document is made of three distinct components:
+
+### 1. The YAML Header
+Look at the very top of the file. You will see text between two sets of three dashes (`---`). This is the **YAML Header**; it contains the "metadata" or settings for your document.
+
+```yaml
+---
+title: "Lab 2"
+author: "Your Name"
+format: html
+editor: visual
+---
+```
+
+
+
+### 2. Markdown (Narrative)
+The plain white areas of the document are called **Markdown**. This is where you write your analysis, explain your results, and answer questions. It works like a simplified word processor.
+
+* You can make text **bold** by using `**double asterisks**`.
+* You can make text *italic* by using `*single asterisks*`.
+
+### 3. Code Chunks
+The gray boxes starting with ` ```{r} ` and ending with ` ``` ` are called **Code Chunks**. This is where you put your R code to run calculations or create graphs.
+
+```{r}
+#| label: example-chunk
+# This is a code chunk. R code goes here!
+1 + 1
+```
+
+
+
+::: {.callout-note}
+## Tip for Students
+To run the code inside a chunk, click the green **Play** button in the top-right corner of the gray box. The result will appear directly below the chunk!
+:::
 
 
 ---
 
 ## Part 3: Rendering (The "Magic" Button)
 To turn your code into a report:
+
 1. Click the **Render** button (blue arrow icon) at the top of the editor.
 2. RStudio will save the file and pop up a beautiful HTML window.
 
