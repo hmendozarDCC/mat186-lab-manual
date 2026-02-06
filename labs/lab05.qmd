@@ -54,7 +54,7 @@ head(lbw_data)
 ---
 
 ## Part 3: Loading a Local CSV
-Often, you will download a dataset from a site like Kaggle or a government portal.[this link to freee  data](https://vincentarelbundock.github.io/Rdatasets/articles/data.html)).
+Often, you will download a dataset from a site like Kaggle or a government portal.[This link to freee  data](https://vincentarelbundock.github.io/Rdatasets/articles/data.html)
 
 1. Find a CSV file (or download a sample one).
 2. Move that file into your **MAT186_Labs** folder.

@@ -30,27 +30,30 @@ We write:
 
 ### 1. `select()` - Picking Columns
 If your dataset has 100 columns but you only need 3, use `select()`.
-~~~r
+
+```r
 # Keep only the 'name' and 'height' columns
 sw_small <- starwars |> 
   select(name, height)
-~~~
+```
 
 ### 2. `filter()` - Picking Rows
 If you only want to look at specific observations (e.g., characters taller than 100cm).
-~~~r
+
+```r
 # Keep only rows where height is greater than 100
 tall_characters <- starwars |> 
   filter(height > 100)
-~~~
+```
 
 ### 3. `rename()` - Changing Names
 If a column name is confusing or has spaces, rename it.
-~~~r
+
+```r
 # Change 'homeworld' to 'home_planet'
 sw_clean <- starwars |> 
   rename(home_planet = homeworld)
-~~~
+```
 
 ---
 
@@ -58,10 +61,10 @@ sw_clean <- starwars |>
 In R, missing values are represented as `NA` (Not Available). You can't calculate the mean of a column if it has `NA` values without telling R what to do.
 
 To remove rows with *any* missing data:
-~~~r
+```r
 tidy_sw <- starwars |> 
   drop_na(height)
-~~~
+```
 
 
 
@@ -69,6 +72,7 @@ tidy_sw <- starwars |>
 
 <div class="dcc-important">
 **Lab Task 7:**
+
 1. Open your Quarto document from Lab 6 (the one with your NY State Open Data).
 2. Create a new section called "Data Cleaning."
 3. Use `select()` to keep only the 4 most important columns in your dataset.
