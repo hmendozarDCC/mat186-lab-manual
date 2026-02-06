@@ -25,6 +25,10 @@ body {
     padding: 20px;
 }
 
+a:focus {
+  outline: 3px solid #ffcc00; /* Bright gold outline for focus */
+}
+
 /* Ensure the Navbar text is Pure White for maximum contrast */
 .navbar-title, .nav-link {
   color: #ffffff !important;
