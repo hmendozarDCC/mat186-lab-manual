@@ -1,14 +1,54 @@
-## 📊 Lab Assessment Criteria
-| Criteria | Description | Points |
-|:---|:---|:---:|
-| **Technical Accuracy** | Does the code run? | 5 pts |
-| **Interpretation** | Plain English explanation? | 3 pts |
-| **Formatting** | Clean document? | 2 pts |
+# 📋 Lab Submission Guide
 
-## 📤 Ready to Submit?
-::: {.callout-tip}
-## 🏁 Final Submission Checklist
-1. **Render** your document one last time.
-2. Check your **Name** in the YAML.
-3. Upload the **HTML file** to the portal.
+To earn full credit, your lab must be submitted correctly to both **GitHub** and **Brightspace**. Use this page as your final checklist!
+
+---
+
+## 📊 How You Are Graded (10 Points)
+
+| Section | The Goal | Points |
+|:---|:---|:---:|
+| **Does it Run?** | Your **Render** button works. There are no red error messages in your final HTML. | 5 pts |
+| **The Story** | You wrote 1-2 sentences under **each** graph/table explaining what the data shows. | 3 pts |
+| **The Details** | Your name is in the YAML, files are named correctly, and graphs have titles. | 2 pts |
+
+---
+
+## ♿ Accessibility Checklist
+*Professional data scientists make sure their work is readable by everyone!*
+
+* [ ] **Human Labels:** Rename axis labels (like `lwt`) to real words (like "Mother's Weight").
+* [ ] **Graph Titles:** Every visualization needs a clear, descriptive title.
+* [ ] **Captions:** Use `#| fig-cap: "Description"` inside your R code chunks.
+* [ ] **Clean Tables:** Use `knitr::kable()` to format your data nicely.
+
+
+
+---
+
+## 📤 Step-by-Step Submission
+
+### 1. Rename Your Files
+Before uploading, ensure your files follow this format:  
+`Lab#_FirstName_LastName`  
+*Example: **Lab2_Jane_Doe.qmd** and **Lab2_Jane_Doe.html***
+
+### 2. Upload to GitHub (Your Portfolio)
+* Go to your GitHub repository.
+* Click **Add file** > **Upload files**.
+* Drag **BOTH** the `.qmd` and the `.html` files into the box.
+* **Important:** Scroll down and click the green **Commit changes** button.
+
+### 3. Upload to Brightspace (For Grading)
+* Go to the Lab folder in Brightspace.
+* Upload **ONLY** the `.html` file. (This is the file I will grade).
+
+
+
+::: {.callout-important}
+## 🛑 If your code won't "Render"
+If you have a code error you can't fix: 
+1. Put a `#` at the start of the broken line (e.g., `# ggplot(...)`). 
+2. This "comments out" the code so the rest of the document can finish. 
+3. You might lose a technical point, but you can still earn points for the rest of your work!
 :::
