@@ -58,7 +58,7 @@ To ensure this lab is reproducible, we are loading the birth weight data from ou
 
 # 1. Load the data using a relative path
 # Ensure the 'data' folder exists in your RStudio project
-lbw_data <- read.csv("data/lbw.csv")
+lbw_data <- read.csv("../data/2026_Fall/lbw.csv")
 
 # 2. Accessible Preview
 knitr::kable(head(lbw_data))

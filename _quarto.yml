@@ -12,6 +12,9 @@ website:
   navbar:
     logo: "/images/dcc-logo.png"
     logo-alt: "Dutchess Community College Logo"
+    logo-href: index.qmd
+    height: 40px # Try setting a specific height; R/Quarto will usually scale width automatically
+
     search: true
     background: "#002147"
     left:
@@ -20,9 +23,7 @@ website:
     right:
       - href: references.qmd
         text: "References"
-    logo-href: index.qmd
-    height: 40px # Try setting a specific height; R/Quarto will usually scale width automatically
-
+    
   # Sidebar Navigation
   sidebar:
     style: "docked"
