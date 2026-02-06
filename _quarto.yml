@@ -1,6 +1,9 @@
 project:
   type: website
 
+bibliography: references.bib
+cite-method: citeproc
+
 execute:
   warning: false
   message: false
@@ -18,6 +21,9 @@ website:
     left:
       - href: index.qmd
         text: Home
+    right:
+      - href: references.qmd
+        text: "References"
 
   # Sidebar Navigation (Matches your 17 Labs)
   sidebar:
