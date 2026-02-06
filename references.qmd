@@ -1,5 +1,7 @@
 ---
 title: "References & OER Credits"
+nocite: |
+  @*
 ---
 
 This lab manual utilizes materials from the following Open Educational Resources:
