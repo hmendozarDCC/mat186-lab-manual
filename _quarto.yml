@@ -11,7 +11,7 @@ website:
   # Navbar Logo (Top Left)
   navbar:
     logo: "/images/dcc-logo.png"
-    logo-height: "20px"
+    logo-height: "40px"
     logo-alt: "Dutchess Community College Logo" # Required for accessibility
     search: true  # This activates the search bar
     background: "#002147" # DCC Navy Blue
@@ -65,7 +65,7 @@ website:
 
   page-footer:
     left: |
-      ![](/images/dcc-logo.png){width=50px fig-alt="DCC Logo"}  
+      ![](/images/dcc-logo.png){width=80px fig-alt="DCC Logo"}  
       **Dutchess Community College**
     center: "Last updated: {{< meta date-modified >}}"
     right: |
