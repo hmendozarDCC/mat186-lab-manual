@@ -1,9 +1,6 @@
 project:
   type: website
 
-bibliography: references.bib
-cite-method: citeproc
-
 execute:
   warning: false
   message: false
@@ -85,3 +82,6 @@ format:
     date-format: "MMMM D, YYYY"
     toc: true
     toc-location: right
+
+bibliography: references.bib
+cite-method: citeproc
