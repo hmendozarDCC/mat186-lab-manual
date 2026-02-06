@@ -26,7 +26,7 @@ This is the non-parametric alternative to the **Independent Samples t-test** (La
 
 **Scenario:** Are the "Mass" values of Droids and Humans different? (Mass is often heavily skewed by outliers like Jabba the Hutt).
 
-~~~r
+```{r}
 library(tidyverse)
 
 # Filtering data
@@ -36,17 +36,17 @@ comparison_data <- starwars |>
 
 # Running the Wilcoxon Rank-Sum Test
 wilcox.test(mass ~ species, data = comparison_data)
-~~~
+```
 
 ---
 
 ## Part 3: The Wilcoxon Signed-Rank Test
 This is the non-parametric alternative to the **Paired t-test**. Use this when you have "Before" and "After" measurements on the same subjects, but the differences are not normally distributed.
 
-~~~r
+```{r}
 # Example syntax for paired data
 # wilcox.test(before_scores, after_scores, paired = TRUE)
-~~~
+```
 
 ---
 
@@ -59,6 +59,7 @@ While non-parametric tests are safer for "messy" data, they are slightly **less 
 
 <div class="dcc-important">
 **Lab Task 15:**
+
 1. Pick a numeric variable from your dataset that looks very skewed (not bell-shaped).
 2. Create a **Boxplot** of this variable grouped by a category.
 3. Run a `wilcox.test()` to compare the two groups.

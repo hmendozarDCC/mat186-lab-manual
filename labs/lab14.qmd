@@ -18,7 +18,7 @@ What if your data is skewed, or you have a very small sample size? Traditional m
 ## Part 1: The `infer` Package
 In R, the `infer` package makes the logic of bootstrapping very clear. We follow four steps: `specify`, `generate`, `calculate`, and `visualize`.
 
-~~~r
+```{r}
 # Install and load the infer package
 if(!require(infer)) install.packages("infer")
 library(tidyverse)
@@ -30,18 +30,18 @@ boot_dist <- starwars |>
   specify(response = height) |>              # 1. What variable?
   generate(reps = 1000, type = "bootstrap") |> # 2. Resample 1000 times
   calculate(stat = "mean")                   # 3. Find the mean each time
-~~~
+```
 
 ---
 
 ## Part 2: Visualizing the Bootstrap Distribution
 Instead of a theoretical curve, we look at the actual distribution of our 1,000 "fake" means.
 
-~~~r
+```{r}
 visualize(boot_dist) +
   labs(title = "Bootstrap Distribution of the Mean",
        x = "Sample Mean Height", y = "Count")
-~~~
+```
 
 
 
@@ -50,13 +50,13 @@ visualize(boot_dist) +
 ## Part 3: The Percentile Method
 To find a 95% Confidence Interval, we simply look at where the middle 95% of our 1,000 bootstrap means fall.
 
-~~~r
+```{r}
 percentile_ci <- boot_dist |>
   get_confidence_interval(level = 0.95, type = "percentile")
 
 # View the interval
 percentile_ci
-~~~
+```
 
 ---
 
@@ -69,6 +69,7 @@ percentile_ci
 
 <div class="dcc-important">
 **Lab Task 14:**
+
 1. Pick a numeric variable from your dataset.
 2. Create a histogram of the original data. (Is it skewed?)
 3. Run the `infer` code above to generate 1,000 bootstrap reps for the **Median** instead of the mean (`stat = "median"`).
