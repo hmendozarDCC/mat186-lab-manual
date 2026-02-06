@@ -32,7 +32,7 @@ website:
       - section: "Getting Started"
         contents:
           - text: "How to Submit (Read First!)"
-            file: _submission_criteria.qmd
+            file: submission-criteria.qmd # Removed underscore to prevent download prompt
           - text: "Lab Showcase"
             file: _showcase.qmd
 
@@ -76,7 +76,7 @@ website:
       - section: "Assessment Info"
         contents:
           - text: "Grading Rubric & Examples"
-            file: _submission_criteria.qmd
+            file: submission-criteria.qmd # Removed underscore here as well
 
   # Page Footer
   page-footer:
