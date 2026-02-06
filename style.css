@@ -60,13 +60,17 @@ a {
     text-decoration: underline; /* Better for accessibility */
     text-underline-offset: 3px;
 }
-/*logo*/
-/* This targets only the logo in the navigation bar */
+/*  5. LOGO */
+
+
+/* Maintain aspect ratio and prevent stretching */
 .navbar-brand-logo img {
-  height: 40px !important; /* Force the height you want */
-  width: auto !important;   /* Let the width adjust proportionally */
-  object-fit: contain;      /* Ensure the whole image fits without stretching */
+  height: 40px;       /* Set your desired height */
+  width: auto;        /* This allows the width to scale naturally */
+  object-fit: contain; /* Keeps the whole image visible without distortion */
 }
+
+/*  5. NO SE  */
 
 a:hover {
     color: var(--dcc-cerulean);
