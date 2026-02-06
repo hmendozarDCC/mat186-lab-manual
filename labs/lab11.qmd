@@ -1,6 +1,7 @@
 # Lab 11: Statistical Inference for One Proportion
 
 ## Learning Objectives
+
 * Understand the conditions for the **Large Sample Proportions Test**.
 * State Null ($H_0$) and Alternative ($H_a$) hypotheses for proportions.
 * Use `prop.test()` in R to calculate p-values and confidence intervals.
@@ -29,7 +30,7 @@ We use the `prop.test()` function. You need two numbers: `x` (number of successe
 
 **Scenario:** A news report claims that 50% of Star Wars characters are Humans. In our dataset, we find that 35 out of 87 characters are Human. Is the report's 50% claim accurate?
 
-~~~r
+```{r}
 library(tidyverse)
 
 # x = number of humans (35)
@@ -40,7 +41,7 @@ prop_results <- prop.test(x = 35, n = 87, p = 0.50, correct = FALSE)
 
 # View the results
 prop_results
-~~~
+```
 
 ### How to interpret the output:
 * **X-squared:** The test statistic (similar to the $t$ value from Lab 10).
@@ -60,6 +61,7 @@ If your confidence interval is `(0.301, 0.508)`, it means we are 95% confident t
 
 <div class="dcc-important">
 **Lab Task 11:**
+
 1. Pick a categorical variable from your dataset (e.g., Gender, Species, or Success/Failure).
 2. Count how many "successes" (a specific category) you have compared to the total.
 3. **The Test:** Test a claim of your choice. (e.g., "Is the proportion of [category] equal to 0.25?")
