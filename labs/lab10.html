@@ -392,23 +392,46 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's look at the average height of Star Wars characters</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># We want to estimate the true mean height of all characters in the galaxy</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>starwars_heights <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span> <span class="fu">drop_na</span>(height)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculating a 95% Confidence Interval manually</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(starwars_heights<span class="sc">$</span>height, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    One Sample t-test
-
-data:  starwars_heights$height
-t = 45.19, df = 80, p-value &lt; 2.2e-16
-alternative hypothesis: true mean is not equal to 0
-95 percent confidence interval:
- 166.9157 182.2941
-sample estimates:
-mean of x 
- 174.6049 </code></pre>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>starwars_heights <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span> <span class="fu">drop_na</span>(height)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Running the t-test</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>test_results <span class="ot">&lt;-</span> <span class="fu">t.test</span>(starwars_heights<span class="sc">$</span>height, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Converting the test result list into an accessible table</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>tidy_results <span class="ot">&lt;-</span> <span class="fu">tidy</span>(test_results)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  tidy_results[, <span class="fu">c</span>(<span class="st">"estimate"</span>, <span class="st">"conf.low"</span>, <span class="st">"conf.high"</span>)],</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Mean Height (cm)"</span>, <span class="st">"Lower Bound (2.5%)"</span>, <span class="st">"Upper Bound (97.5%)"</span>),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">2</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-height-confidence-interval" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-height-confidence-interval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: 95% Confidence Interval for the mean height of Star Wars characters.
+</figcaption>
+<div aria-describedby="tbl-height-confidence-interval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Mean Height (cm)</th>
+<th style="text-align: right;">Lower Bound (2.5%)</th>
+<th style="text-align: right;">Upper Bound (97.5%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">174.6</td>
+<td style="text-align: right;">166.92</td>
+<td style="text-align: right;">182.29</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
 </div>
 </div>
 <hr>
@@ -417,23 +440,49 @@ mean of x
 <h2 class="anchored" data-anchor-id="part-3-the-one-sample-t-test">Part 3: The One-Sample t-test</h2>
 <p>Imagine a claim that the “Average height of a galactic citizen is 175 cm.” Does our data support this?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Testing if the mean height is significantly different from 175</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>t_test_results <span class="ot">&lt;-</span> <span class="fu">t.test</span>(starwars_heights<span class="sc">$</span>height, <span class="at">mu =</span> <span class="dv">175</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View the results</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>t_test_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    One Sample t-test
-
-data:  starwars_heights$height
-t = -0.10225, df = 80, p-value = 0.9188
-alternative hypothesis: true mean is not equal to 175
-95 percent confidence interval:
- 166.9157 182.2941
-sample estimates:
-mean of x 
- 174.6049 </code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Perform the test</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>t_test_results <span class="ot">&lt;-</span> <span class="fu">t.test</span>(starwars_heights<span class="sc">$</span>height, <span class="at">mu =</span> <span class="dv">175</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Use the 'broom' library to turn the text output into a data frame</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>tidy_t <span class="ot">&lt;-</span> <span class="fu">tidy</span>(t_test_results)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Create an accessible table with descriptive headers</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  tidy_t[, <span class="fu">c</span>(<span class="st">"statistic"</span>, <span class="st">"p.value"</span>, <span class="st">"estimate"</span>, <span class="st">"conf.low"</span>, <span class="st">"conf.high"</span>)],</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"t-statistic"</span>, <span class="st">"p-value"</span>, <span class="st">"Sample Mean"</span>, <span class="st">"95% CI Lower"</span>, <span class="st">"95% CI Upper"</span>),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">4</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-height-t-test" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-height-t-test-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: One-sample t-test results comparing Star Wars character heights to a null hypothesis mean of 175 cm.
+</figcaption>
+<div aria-describedby="tbl-height-t-test-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">t-statistic</th>
+<th style="text-align: right;">p-value</th>
+<th style="text-align: right;">Sample Mean</th>
+<th style="text-align: right;">95% CI Lower</th>
+<th style="text-align: right;">95% CI Upper</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">-0.1022</td>
+<td style="text-align: right;">0.9188</td>
+<td style="text-align: right;">174.6049</td>
+<td style="text-align: right;">166.9157</td>
+<td style="text-align: right;">182.2941</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
 </div>
 </div>
 <section id="how-to-read-the-output" class="level3">
