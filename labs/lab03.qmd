@@ -58,7 +58,9 @@ $$y = \beta_0 + \beta_1 x + \epsilon$$
 ---
 
 <div class="dcc-important">
-**Lab Task 3:** 1. Open your `MAT186_Labs` project in RStudio.
+**Lab Task 3:** 
+
+1. Open your `MAT186_Labs` project in RStudio.
 2. Create a new Quarto document (`.qmd`) titled "Math Practice."
 3. Write the formula for the **Standard Deviation** exactly as shown below:
    `$$s = \sqrt{\frac{\sum (x_i - \bar{x})^2}{n - 1}}$$`
