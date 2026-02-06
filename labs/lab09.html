@@ -343,7 +343,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="part-1-the-normal-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="part-1-the-normal-distribution">Part 1: The Normal Distribution</h2>
 <p>In nature and data science, many variables (like heights or exam scores) follow a “Normal” distribution. We can use R to visualize the perfect mathematical curve and compare it to our real data.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generating a theoretical normal distribution</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>)) <span class="sc">|&gt;</span></span>
@@ -352,19 +353,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"The Standard Normal Distribution (z-distribution)"</span>,</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Mean = 0, SD = 1"</span>,</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Standard Deviations"</span>, <span class="at">y =</span> <span class="st">"Density"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lab09_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <p>[Image of a standard normal distribution curve with percentages for 68, 95, and 99.7 rules]</p>
 <hr>
 </section>
 <section id="part-2-working-with-the-binomial-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="part-2-working-with-the-binomial-distribution">Part 2: Working with the Binomial Distribution</h2>
 <p>When we have “Yes/No” outcomes (like a coin flip or a student passing a test), we use the <strong>Binomial Distribution</strong>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulating 100 people flipping a coin 10 times each</span></span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulating 100 people flipping a coin 10 times each</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>flips <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(flips), <span class="fu">aes</span>(<span class="at">x =</span> flips)) <span class="sc">+</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Binomial Distribution of Coin Flips"</span>,</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Number of Heads"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lab09_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <hr>
 </section>
 <section id="part-3-the-central-limit-theorem-clt" class="level2">
@@ -372,7 +390,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The CLT is the “Magic” of statistics. It states that if you take enough samples, the <strong>distribution of the sample means</strong> will always look normal, even if the original data is messy or skewed.</p>
 <section id="lets-simulate-the-clt" class="level3">
 <h3 class="anchored" data-anchor-id="lets-simulate-the-clt">Let’s Simulate the CLT:</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Take 1000 samples of size 30 from a random population</span></span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Take 1000 samples of size 30 from a random population</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, <span class="fu">mean</span>(<span class="fu">rexp</span>(<span class="dv">30</span>, <span class="at">rate =</span> <span class="fl">0.5</span>)))</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Visualize the results</span></span>
@@ -381,16 +400,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Sampling Distribution of the Mean"</span>,</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Notice the bell shape! This is the Central Limit Theorem in action."</span>,</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Sample Means"</span>, <span class="at">y =</span> <span class="st">"Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lab09_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <hr>
 </section>
 </section>
 <section id="part-4-probability-in-your-data" class="level2">
 <h2 class="anchored" data-anchor-id="part-4-probability-in-your-data">Part 4: Probability in Your Data</h2>
 <p>We can use the <code>pnorm()</code> function to calculate the probability of a specific event occurring.</p>
-<p><strong>Example:</strong> If the average height of a character is 170cm with an SD of 10, what is the probability of a character being taller than 190cm? ~<del>r # 1 - pnorm gives the ‘right tail’ (the probability of being GREATER than) 1 - pnorm(190, mean = 170, sd = 10)</del>~</p>
+<p><strong>Example:</strong> If the average height of a character is 170cm with an SD of 10, what is the probability of a character being taller than 190cm?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 - pnorm gives the 'right tail' (the probability of being GREATER than)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">190</span>, <span class="at">mean =</span> <span class="dv">170</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.02275013</code></pre>
+</div>
+</div>
 <hr>
 <div class="dcc-important">
-<p><strong>Lab Task 9:</strong> 1. Create a new Quarto document titled “Lab 9: Probability.” 2. Create a histogram of a variable from your own dataset. Does it look “Normal”? 3. Use <code>mean()</code> and <code>sd()</code> to find the center and spread of that variable. 4. <strong>The Simulation:</strong> Use the “CLT simulation” code above, but change the sample size from <code>30</code> to <code>5</code>. Render it. Then change it to <code>100</code> and render it again. 5. <strong>Observation:</strong> Write 2 sentences explaining how the “spread” of the histogram changed when you increased the sample size.</p>
+<p><strong>Lab Task 9:</strong></p>
+<ol type="1">
+<li>Create a new Quarto document titled “Lab 9: Probability.”</li>
+<li>Create a histogram of a variable from your own dataset. Does it look “Normal”?</li>
+<li>Use <code>mean()</code> and <code>sd()</code> to find the center and spread of that variable.</li>
+<li><strong>The Simulation:</strong> Use the “CLT simulation” code above, but change the sample size from <code>30</code> to <code>5</code>. Render it. Then change it to <code>100</code> and render it again.</li>
+<li><strong>Observation:</strong> Write 2 sentences explaining how the “spread” of the histogram changed when you increased the sample size.</li>
+</ol>
 </div>
 
 
