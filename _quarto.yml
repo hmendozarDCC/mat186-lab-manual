@@ -82,6 +82,11 @@ format:
     date-format: "MMMM D, YYYY"
     toc: true
     toc-location: right
+    fig-cap-location: bottom
+    image-lazy-loading: true
+    # This ensures that if you forget a caption, 
+    # the screen reader still knows it's an image.
+    fig-responsive: true
 
 bibliography: references.bib
 cite-method: citeproc
