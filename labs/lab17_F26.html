@@ -8,7 +8,7 @@
 
 <meta name="author" content="MAT186: Introduction to Data Science">
 
-<title>lab17_f26 – MAT 186: Data Science</title>
+<title>Lab 17: Linear Regression – MAT 186: Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -343,12 +343,18 @@ window.Quarto = {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>MAT186: Introduction to Data Science </p>
+          </div>
+  </div>
     
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">last-modified</p>
+      <p class="date-modified">February 6, 2026</p>
     </div>
   </div>
     
@@ -371,56 +377,124 @@ window.Quarto = {
 <section id="data-acquisition-birth-weight-dataset-lbw.csv" class="level2">
 <h2 class="anchored" data-anchor-id="data-acquisition-birth-weight-dataset-lbw.csv">Data Acquisition: Birth Weight Dataset (lbw.csv)</h2>
 <p>To complete the regression exercises, you need the <code>lbw.csv</code> dataset. Choose <strong>one</strong> of the methods below to load the data into R.</p>
+<hr>
 </section>
 <section id="option-1-direct-link-recommended" class="level2">
 <h2 class="anchored" data-anchor-id="option-1-direct-link-recommended">Option 1: Direct Link (Recommended)</h2>
 <p>This method pulls the data directly from the lab manual website.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data directly from the web</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"[https://hmendozardcc.github.io/mat186-lab-manual/data/2026_Fall/lbw.csv](https://hmendozardcc.github.io/mat186-lab-manual/data/2026_Fall/lbw.csv)"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(url)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View the first few rows to confirm it loaded</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data directly from the web</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading a dataset about Star Wars characters</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># "https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://vincentarelbundock.github.io/Rdatasets/csv/COUNT/lbw.csv"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>lbw_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview the data</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lbw_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 11
+  rownames   low smoke  race   age   lwt   ptl    ht    ui   ftv   bwt
+     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1        1     0     0     2    19   182     0     0     1     0  2523
+2        2     0     0     3    33   155     0     0     0     3  2551
+3        3     0     1     1    20   105     0     0     0     1  2557
+4        4     0     1     1    21   108     0     0     1     2  2594
+5        5     0     1     1    18   107     0     0     1     0  2600
+6        6     0     0     3    21   124     0     0     0     0  2622</code></pre>
+</div>
+</div>
 </section>
 <section id="option-2-local-file" class="level2">
 <h2 class="anchored" data-anchor-id="option-2-local-file">Option 2: Local File</h2>
 <p>Use this if the file is saved in your project folder.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data from your local data folder</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/lbw.csv"</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data from your local data folder</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/lbw.csv"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="part-1-correlation-r" class="level2">
 <h2 class="anchored" data-anchor-id="part-1-correlation-r">Part 1: Correlation (<span class="math inline">\(r\)</span>)</h2>
-<p>Before building a model, we need to know if a linear relationship even exists. The correlation coefficient (<span class="math inline">\(r\)</span>) ranges from <strong>-1</strong> to <strong>1</strong>. * <strong>1</strong>: Perfect positive relationship. * <strong>0</strong>: No relationship at all. * <strong>-1</strong>: Perfect negative relationship.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate correlation between Mother's Weight (lwt) and Birth Weight (bwt)</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(lwt, bwt) <span class="sc">|&gt;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">correlation =</span> <span class="fu">cor</span>(lwt, bwt))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Before building a model, we need to know if a linear relationship even exists. The correlation coefficient (<span class="math inline">\(r\)</span>) ranges from <strong>-1</strong> to <strong>1</strong>.</p>
+<ul>
+<li><strong>1</strong>: Perfect positive relationship.</li>
+<li><strong>0</strong>: No relationship at all.</li>
+<li><strong>-1</strong>: Perfect negative relationship.</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate correlation between Mother's Weight (lwt) and Birth Weight (bwt)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>lbw_data  <span class="sc">|&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(lwt, bwt) <span class="sc">|&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">correlation =</span> <span class="fu">cor</span>(lwt, bwt))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  correlation
+        &lt;dbl&gt;
+1       0.186</code></pre>
+</div>
+</div>
+<hr>
 </section>
 <section id="part-2-visualizing-the-best-fit-line" class="level2">
 <h2 class="anchored" data-anchor-id="part-2-visualizing-the-best-fit-line">Part 2: Visualizing the Best Fit Line</h2>
 <p>We use <code>geom_smooth(method = "lm")</code> to draw the line that minimizes the distance between all data points (the “Ordinary Least Squares” method).</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-regression</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Regression of Birth Weight on Mother's Weight"</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-alt: "Scatter plot showing a positive trend between mother's weight and infant birth weight with a blue regression line."</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> lwt, <span class="at">y =</span> bwt)) <span class="sc">+</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"#002147"</span>) <span class="sc">+</span> <span class="co"># DCC Navy</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Predicting Birth Weight based on Mother's Weight"</span>,</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Mother's Weight (lbs)"</span>,</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Birth Weight (grams)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lbw_data, <span class="fu">aes</span>(<span class="at">x =</span> lwt, <span class="at">y =</span> bwt)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"#002147"</span>) <span class="sc">+</span> <span class="co"># DCC Navy</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Predicting Birth Weight based on Mother's Weight"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Mother's Weight (lbs)"</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Birth Weight (grams)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-regression" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Scatter plot showing a positive trend between mother's weight and infant birth weight with a blue regression line.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regression-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lab17_F26_files/figure-html/fig-regression-1.png" class="img-fluid figure-img" alt="Scatter plot showing a positive trend between mother's weight and infant birth weight with a blue regression line." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regression-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Regression of Birth Weight on Mother’s Weight
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<hr>
 </section>
 <section id="part-3-building-the-model-in-r" class="level2">
 <h2 class="anchored" data-anchor-id="part-3-building-the-model-in-r">Part 3: Building the Model in R</h2>
 <p>In R, the “Linear Model” function is <code>lm()</code>. The syntax is <code>lm(dependent_variable ~ independent_variable)</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Create the model</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>lbw_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(bwt <span class="sc">~</span> lwt, <span class="at">data =</span> data)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. View the results</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lbw_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Create the model</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>lbw_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(bwt <span class="sc">~</span> lwt, <span class="at">data =</span> lbw_data)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. View the results</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lbw_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = bwt ~ lwt, data = lbw_data)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2191.78  -503.24    -3.52   508.66  2075.93 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 2369.184    228.467  10.370   &lt;2e-16 ***
+lwt            4.430      1.713   2.586   0.0105 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 718.2 on 187 degrees of freedom
+Multiple R-squared:  0.03452,   Adjusted R-squared:  0.02936 
+F-statistic: 6.686 on 1 and 187 DF,  p-value: 0.01048</code></pre>
+</div>
+</div>
+<hr>
 <section id="how-to-interpret-the-summary" class="level3">
 <h3 class="anchored" data-anchor-id="how-to-interpret-the-summary">How to interpret the summary:</h3>
 <ul>
@@ -433,28 +507,24 @@ window.Quarto = {
 <section id="part-4-making-predictions" class="level2">
 <h2 class="anchored" data-anchor-id="part-4-making-predictions">Part 4: Making Predictions</h2>
 <p>Once you have a model, you can plug in a value for <span class="math inline">\(x\)</span> to predict <span class="math inline">\(y\)</span>. If our model is <span class="math inline">\(Mass = -100 + 1.2(Height)\)</span>, we can predict the mass of a character who is 200cm tall.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict birth weight for a mother weighing 150 lbs</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>new_mom <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">lwt =</span> <span class="dv">150</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(lbw_model, <span class="at">newdata =</span> new_mom)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict birth weight for a mother weighing 150 lbs</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>new_mom <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">lwt =</span> <span class="dv">150</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(lbw_model, <span class="at">newdata =</span> new_mom)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       1 
+3033.682 </code></pre>
 </div>
 </div>
-<div class="callout-body-container callout-body">
+<hr>
+<div class="dcc-important">
 <p><strong>Lab Task 17:</strong></p>
 <ol type="1">
-<li><p>Pick two numeric variables from your dataset that you think are related.</p></li>
-<li><p>Create a <strong>Scatter Plot</strong> and add a linear regression line.</p></li>
-</ol>
-<ol start="3" type="1">
-<li><p>Use the <code>cor()</code> function to find the correlation coefficient.</p></li>
-<li><p>Fit a linear model using <code>lm()</code> and look at the <code>summary()</code>.</p></li>
-<li><p><strong>The Report:</strong></p>
+<li>Pick two numeric variables from your dataset that you think are related.</li>
+<li>Create a <strong>Scatter Plot</strong> and add a linear regression line.</li>
+<li>Use the <code>cor()</code> function to find the correlation coefficient.</li>
+<li>Fit a linear model using <code>lm()</code> and look at the <code>summary()</code>.</li>
+<li><strong>The Report:</strong>
 <ul>
 <li>What is the slope of your model?</li>
 <li>What is the <span class="math inline">\(R^2\)</span> value?</li>
@@ -462,7 +532,7 @@ Tip
 </ul></li>
 </ol>
 </div>
-</div>
+<hr>
 
 
 </section>
@@ -876,7 +946,7 @@ Tip
 <strong>Dutchess Community College</strong></p>
 </div>   
     <div class="nav-footer-center">
-<p>Last updated: last-modified</p>
+<p>Last updated: February 6, 2026</p>
 </div>
     <div class="nav-footer-right">
 <p><a href="../accessibility.html">Accessibility Statement</a></p>

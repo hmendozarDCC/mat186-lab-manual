@@ -416,7 +416,7 @@
     "href": "labs/lab17_F26.html#option-1-direct-link-recommended",
     "title": "Lab 17: Linear Regression",
     "section": "Option 1: Direct Link (Recommended)",
-    "text": "Option 1: Direct Link (Recommended)\nThis method pulls the data directly from the lab manual website.\n# Load data directly from the web\nurl &lt;- \"[https://hmendozardcc.github.io/mat186-lab-manual/data/2026_Fall/lbw.csv](https://hmendozardcc.github.io/mat186-lab-manual/data/2026_Fall/lbw.csv)\"\ndata &lt;- read.csv(url)\n# View the first few rows to confirm it loaded\nhead(data)",
+    "text": "Option 1: Direct Link (Recommended)\nThis method pulls the data directly from the lab manual website.\n\n# Load data directly from the web\nlibrary(tidyverse)\n\n# Loading a dataset about Star Wars characters\n# \"https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv\"\nurl &lt;- \"https://vincentarelbundock.github.io/Rdatasets/csv/COUNT/lbw.csv\"\nlbw_data &lt;- read_csv(url)\n\n# Preview the data\n\nhead(lbw_data)\n\n# A tibble: 6 × 11\n  rownames   low smoke  race   age   lwt   ptl    ht    ui   ftv   bwt\n     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1        1     0     0     2    19   182     0     0     1     0  2523\n2        2     0     0     3    33   155     0     0     0     3  2551\n3        3     0     1     1    20   105     0     0     0     1  2557\n4        4     0     1     1    21   108     0     0     1     2  2594\n5        5     0     1     1    18   107     0     0     1     0  2600\n6        6     0     0     3    21   124     0     0     0     0  2622",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -440,7 +440,7 @@
     "href": "labs/lab17_F26.html#part-1-correlation-r",
     "title": "Lab 17: Linear Regression",
     "section": "Part 1: Correlation (\\(r\\))",
-    "text": "Part 1: Correlation (\\(r\\))\nBefore building a model, we need to know if a linear relationship even exists. The correlation coefficient (\\(r\\)) ranges from -1 to 1. * 1: Perfect positive relationship. * 0: No relationship at all. * -1: Perfect negative relationship.\nlibrary(tidyverse)\n# Calculate correlation between Mother's Weight (lwt) and Birth Weight (bwt)\ndata |&gt;\n  drop_na(lwt, bwt) |&gt;\n  summarize(correlation = cor(lwt, bwt))",
+    "text": "Part 1: Correlation (\\(r\\))\nBefore building a model, we need to know if a linear relationship even exists. The correlation coefficient (\\(r\\)) ranges from -1 to 1.\n\n1: Perfect positive relationship.\n0: No relationship at all.\n-1: Perfect negative relationship.\n\n\nlibrary(tidyverse)\n# Calculate correlation between Mother's Weight (lwt) and Birth Weight (bwt)\nlbw_data  |&gt;\n  drop_na(lwt, bwt) |&gt;\n  summarize(correlation = cor(lwt, bwt))\n\n# A tibble: 1 × 1\n  correlation\n        &lt;dbl&gt;\n1       0.186",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -452,7 +452,7 @@
     "href": "labs/lab17_F26.html#part-2-visualizing-the-best-fit-line",
     "title": "Lab 17: Linear Regression",
     "section": "Part 2: Visualizing the Best Fit Line",
-    "text": "Part 2: Visualizing the Best Fit Line\nWe use geom_smooth(method = \"lm\") to draw the line that minimizes the distance between all data points (the “Ordinary Least Squares” method).\n#| label: fig-regression\n#| fig-cap: \"Regression of Birth Weight on Mother's Weight\"\n#| fig-alt: \"Scatter plot showing a positive trend between mother's weight and infant birth weight with a blue regression line.\"\n\nggplot(data, aes(x = lwt, y = bwt)) +\n  geom_point(alpha = 0.5, color = \"#002147\") + # DCC Navy\n  geom_smooth(method = \"lm\", color = \"red\", se = TRUE) +\n  theme_minimal() +\n  labs(title = \"Predicting Birth Weight based on Mother's Weight\",\n       x = \"Mother's Weight (lbs)\",\n       y = \"Birth Weight (grams)\")",
+    "text": "Part 2: Visualizing the Best Fit Line\nWe use geom_smooth(method = \"lm\") to draw the line that minimizes the distance between all data points (the “Ordinary Least Squares” method).\n\nggplot(lbw_data, aes(x = lwt, y = bwt)) +\n  geom_point(alpha = 0.5, color = \"#002147\") + # DCC Navy\n  geom_smooth(method = \"lm\", color = \"red\", se = TRUE) +\n  theme_minimal() +\n  labs(title = \"Predicting Birth Weight based on Mother's Weight\",\n       x = \"Mother's Weight (lbs)\",\n       y = \"Birth Weight (grams)\")\n\n\n\n\n\n\n\nFigure 1: Regression of Birth Weight on Mother’s Weight",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -464,7 +464,7 @@
     "href": "labs/lab17_F26.html#part-3-building-the-model-in-r",
     "title": "Lab 17: Linear Regression",
     "section": "Part 3: Building the Model in R",
-    "text": "Part 3: Building the Model in R\nIn R, the “Linear Model” function is lm(). The syntax is lm(dependent_variable ~ independent_variable).\n# 1. Create the model\nlbw_model &lt;- lm(bwt ~ lwt, data = data)\n\n# 2. View the results\nsummary(lbw_model)\n\nHow to interpret the summary:\n\nIntercept (\\(\\beta_0\\)): The predicted value of \\(y\\) when \\(x\\) is zero.\nSlope (\\(\\beta_1\\)): For every 1 unit increase in \\(x\\), how much \\(y\\) is expected to change.\nR-squared (\\(R^2\\)): The percentage of variation in \\(y\\) explained by your model. (e.g., \\(0.75\\) means your model explains 75% of the data).",
+    "text": "Part 3: Building the Model in R\nIn R, the “Linear Model” function is lm(). The syntax is lm(dependent_variable ~ independent_variable).\n\n# 1. Create the model\nlbw_model &lt;- lm(bwt ~ lwt, data = lbw_data)\n\n# 2. View the results\nsummary(lbw_model)\n\n\nCall:\nlm(formula = bwt ~ lwt, data = lbw_data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-2191.78  -503.24    -3.52   508.66  2075.93 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 2369.184    228.467  10.370   &lt;2e-16 ***\nlwt            4.430      1.713   2.586   0.0105 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 718.2 on 187 degrees of freedom\nMultiple R-squared:  0.03452,   Adjusted R-squared:  0.02936 \nF-statistic: 6.686 on 1 and 187 DF,  p-value: 0.01048\n\n\n\n\nHow to interpret the summary:\n\nIntercept (\\(\\beta_0\\)): The predicted value of \\(y\\) when \\(x\\) is zero.\nSlope (\\(\\beta_1\\)): For every 1 unit increase in \\(x\\), how much \\(y\\) is expected to change.\nR-squared (\\(R^2\\)): The percentage of variation in \\(y\\) explained by your model. (e.g., \\(0.75\\) means your model explains 75% of the data).",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -476,7 +476,7 @@
     "href": "labs/lab17_F26.html#part-4-making-predictions",
     "title": "Lab 17: Linear Regression",
     "section": "Part 4: Making Predictions",
-    "text": "Part 4: Making Predictions\nOnce you have a model, you can plug in a value for \\(x\\) to predict \\(y\\). If our model is \\(Mass = -100 + 1.2(Height)\\), we can predict the mass of a character who is 200cm tall.\n# Predict birth weight for a mother weighing 150 lbs\nnew_mom &lt;- data.frame(lwt = 150)\npredict(lbw_model, newdata = new_mom)\n\n\n\n\n\n\nTip\n\n\n\nLab Task 17:\n\nPick two numeric variables from your dataset that you think are related.\nCreate a Scatter Plot and add a linear regression line.\n\n\nUse the cor() function to find the correlation coefficient.\nFit a linear model using lm() and look at the summary().\nThe Report:\n\nWhat is the slope of your model?\nWhat is the \\(R^2\\) value?\nUse your model to make one prediction for a value not in your dataset.",
+    "text": "Part 4: Making Predictions\nOnce you have a model, you can plug in a value for \\(x\\) to predict \\(y\\). If our model is \\(Mass = -100 + 1.2(Height)\\), we can predict the mass of a character who is 200cm tall.\n\n# Predict birth weight for a mother weighing 150 lbs\nnew_mom &lt;- data.frame(lwt = 150)\npredict(lbw_model, newdata = new_mom)\n\n       1 \n3033.682 \n\n\n\n\nLab Task 17:\n\nPick two numeric variables from your dataset that you think are related.\nCreate a Scatter Plot and add a linear regression line.\nUse the cor() function to find the correlation coefficient.\nFit a linear model using lm() and look at the summary().\nThe Report:\n\nWhat is the slope of your model?\nWhat is the \\(R^2\\) value?\nUse your model to make one prediction for a value not in your dataset.",
     "crumbs": [
       "Home",
       "Course Labs",
