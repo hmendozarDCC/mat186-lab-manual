@@ -11,7 +11,6 @@ website:
   # Navbar Logo (Top Left)
   navbar:
     logo: "/images/dcc-logo.png"
-    logo-height: "50px"
     logo-alt: "Dutchess Community College Logo"
     search: true
     background: "#002147"
@@ -21,6 +20,8 @@ website:
     right:
       - href: references.qmd
         text: "References"
+    logo-href: index.qmd
+    height: 40px # Try setting a specific height; R/Quarto will usually scale width automatically
 
   # Sidebar Navigation
   sidebar:

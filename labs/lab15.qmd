@@ -25,17 +25,39 @@ This is the non-parametric alternative to the **Independent Samples t-test** (La
 
 
 **Scenario:** Are the "Mass" values of Droids and Humans different? (Mass is often heavily skewed by outliers like Jabba the Hutt).
+## Wilcoxon Rank-Sum Test: Mass by Species
+
+This test compares the distribution of mass between Humans and Droids. We use this non-parametric test because mass in the Star Wars universe is often skewed by very heavy characters (like Jabba the Hutt).
+
+> **Accessible Logic:** The Wilcoxon test doesn't compare means; it compares the **ranks** of the data. If one species tends to have higher ranks than the other, the test will return a significant result.
+
+
 
 ```{r}
-library(tidyverse)
+#| label: tbl-wilcox-mass
+#| tbl-cap: "Results of the Wilcoxon Rank-Sum Test comparing mass between Humans and Droids."
+#| warning: false
+#| message: false
 
-# Filtering data
+library(tidyverse)
+library(broom)
+
+# 1. Filter and clean the data
 comparison_data <- starwars |> 
   filter(species %in% c("Human", "Droid")) |>
   drop_na(mass)
 
-# Running the Wilcoxon Rank-Sum Test
-wilcox.test(mass ~ species, data = comparison_data)
+# 2. Run the test and save the results
+wilcox_results <- wilcox.test(mass ~ species, data = comparison_data)
+
+# 3. Convert results into an accessible table
+tidy_wilcox <- tidy(wilcox_results)
+
+knitr::kable(
+  tidy_wilcox[, c("statistic", "p.value", "method")],
+  col.names = c("W Statistic", "p-value", "Test Method"),
+  digits = 4
+)
 ```
 
 ---
@@ -43,9 +65,25 @@ wilcox.test(mass ~ species, data = comparison_data)
 ## Part 3: The Wilcoxon Signed-Rank Test
 This is the non-parametric alternative to the **Paired t-test**. Use this when you have "Before" and "After" measurements on the same subjects, but the differences are not normally distributed.
 
-```{r}
+```r
 # Example syntax for paired data
 # wilcox.test(before_scores, after_scores, paired = TRUE)
+```
+```{r}
+#| label: tbl-paired-wilcox
+#| tbl-cap: "Paired Wilcoxon Signed-Rank Test results for character performance."
+
+# Creating mock 'before' and 'after' data for the example
+before <- c(80, 75, 90, 85)
+after  <- c(82, 78, 88, 90)
+
+tidy_paired <- broom::tidy(wilcox.test(before, after, paired = TRUE))
+
+knitr::kable(
+  tidy_paired[, c("statistic", "p.value", "method")],
+  col.names = c("V Statistic", "p-value", "Test Method"),
+  digits = 4
+)
 ```
 
 ---

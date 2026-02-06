@@ -24,18 +24,27 @@ If you have three groups (e.g., Freshman, Sophomores, Juniors) and you want to c
 With ANOVA, side-by-side boxplots are essential. They allow us to see if the "spread" within groups is smaller than the "distance" between groups.
 
 ```{r}
+#| label: fig-height-eye-color
+#| fig-cap: "Distribution of heights across characters with blue, brown, yellow, and orange eyes."
+#| fig-alt: "A side-by-side boxplot comparing height across four eye color categories. The 'yellow' eye color group shows the highest median height and the most spread, while 'blue' and 'brown' are more compact and similar in height. A few low outliers are visible in the 'brown' and 'blue' categories. The y-axis represents height in centimeters."
+#| warning: false
+#| message: false
+
 library(tidyverse)
 
-# Example: Do different 'eye colors' in Star Wars have different average heights?
-# We'll filter for the most common eye colors
+# Filter for the most common eye colors to avoid a cluttered plot
 eye_data <- starwars |> 
   filter(eye_color %in% c("blue", "brown", "yellow", "orange")) |>
   drop_na(height)
 
 ggplot(eye_data, aes(x = eye_color, y = height, fill = eye_color)) +
-  geom_boxplot() +
+  geom_boxplot(alpha = 0.7) +
+  scale_fill_viridis_d() + # High contrast, color-blind safe palette
   theme_minimal() +
-  labs(title = "Height Distribution by Eye Color")
+  labs(title = "Height Distribution by Eye Color",
+       x = "Eye Color",
+       y = "Height (cm)",
+       fill = "Eye Color")
 ```
 
 ---
@@ -44,11 +53,23 @@ ggplot(eye_data, aes(x = eye_color, y = height, fill = eye_color)) +
 We use the `aov()` function. Like the t-test, we use the formula `numeric_variable ~ categorical_variable`.
 
 ```{r}
+#| label: tbl-anova-eye-color
+#| tbl-cap: "One-way ANOVA results comparing mean heights across eye color groups."
+
+library(broom)
+
 # 1. Fit the ANOVA model
 model <- aov(height ~ eye_color, data = eye_data)
 
-# 2. View the summary table
-summary(model)
+# 2. Tidy the results into an accessible table
+tidy_anova <- tidy(model)
+
+# 3. Create a clean table with descriptive headers
+knitr::kable(
+  tidy_anova,
+  col.names = c("Term", "Degrees of Freedom", "Sum of Squares", "Mean Square", "F-statistic", "p-value"),
+  digits = 3
+)
 ```
 
 ### How to read the ANOVA Table:
@@ -65,10 +86,25 @@ summary(model)
 If your ANOVA p-value is significant, you know *someone* is different, but you don't know who. We use **Tukey’s Honest Significant Difference** to compare every possible pair.
 
 ```{r}
-# Running Tukey's HSD
-TukeyHSD(model)
-```
+#| label: tbl-tukey-posthoc
+#| tbl-cap: "Tukey HSD Post-Hoc comparisons for height across eye color groups."
 
+library(broom)
+
+# 1. Run Tukey's HSD
+tukey_results <- TukeyHSD(model)
+
+# 2. Tidy the results into a clean table
+# TukeyHSD returns a list, so we tidy the 'eye_color' element
+tidy_tukey <- tidy(tukey_results)
+
+# 3. Create the accessible table
+knitr::kable(
+  tidy_tukey[, c("contrast", "estimate", "conf.low", "conf.high", "adj.p.value")],
+  col.names = c("Comparison", "Difference in Means", "Lower 95% CI", "Upper 95% CI", "Adjusted p-value"),
+  digits = 3
+)
+```
 ---
 
 <div class="dcc-important">

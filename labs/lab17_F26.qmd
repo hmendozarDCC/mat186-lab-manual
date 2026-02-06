@@ -22,28 +22,46 @@ To complete the regression exercises, you need the `lbw.csv` dataset. Choose **o
 
 ## Option 1: Direct Link (Recommended)
 This method pulls the data directly from the lab manual website.
+## Data Loading and Preview
+
+We are using the `lbw` dataset, which contains information on low birth weight.
+
+> **Accessible Logic:** We use the `read_csv()` function to pull data from a web URL. After loading, it is important to check the "head" (the first 6 rows) to ensure the columns and values imported correctly.
 
 ```{r}
-# Load data directly from the web
+#| label: tbl-data-preview
+#| tbl-cap: "Preview of the first six rows of the low birth weight (LBW) dataset."
+#| message: false
+
 library(tidyverse)
 
-# Loading a dataset about Star Wars characters
-# "https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv"
-url <- "https://vincentarelbundock.github.io/Rdatasets/csv/COUNT/lbw.csv"
+# 1. Load the data
+url <- url <- "https://vincentarelbundock.github.io/Rdatasets/csv/COUNT/lbw.csv"
 lbw_data <- read_csv(url)
 
-# Preview the data
-
-head(lbw_data)
+# 2. Display an accessible preview
+# We use head() to get the first 6 rows and kable() to make it a table
+knitr::kable(head(lbw_data))
 ```
 
 ## Option 2: Local File
 Use this if the file is saved in your project folder.
+## Loading Data Locally
 
-```r
-# Load data from your local data folder
-data <- read.csv("data/lbw.csv")
-head(data)
+To ensure this lab is reproducible, we are loading the birth weight data from our project's `data` folder.
+
+> **Accessible Logic:** The path `"data/lbw.csv"` tells R to look inside a folder named **data** that is located in the same place as your script. This is called a **relative path**.
+
+```{r}
+#| label: tbl-local-load
+#| tbl-cap: "Preview of the locally loaded LBW dataset."
+
+# 1. Load the data using a relative path
+# Ensure the 'data' folder exists in your RStudio project
+lbw_data <- read.csv("data/lbw.csv")
+
+# 2. Accessible Preview
+knitr::kable(head(lbw_data))
 ```
 ---
 
@@ -54,14 +72,30 @@ Before building a model, we need to know if a linear relationship even exists. T
 * **0**: No relationship at all.
 * **-1**: Perfect negative relationship.
 
+## Correlation Analysis: Mother's Weight vs. Birth Weight
+
+We are calculating Pearson's correlation coefficient to see if there is a linear relationship between the mother's weight at the last menstrual period (`lwt`) and the baby's birth weight (`bwt`).
+
+> **Accessible Logic:** Correlation ($r$) ranges from -1 to +1. A value of 0 means no linear relationship, while values closer to +1 or -1 indicate stronger relationships.
+
 ```{r}
+#| label: tbl-correlation-lbw
+#| tbl-cap: "Pearson Correlation Coefficient between Mother's Weight and Birth Weight."
+
 library(tidyverse)
-# Calculate correlation between Mother's Weight (lwt) and Birth Weight (bwt)
-lbw_data  |>
+
+# 1. Calculate the correlation
+cor_result <- lbw_data |>
   drop_na(lwt, bwt) |>
   summarize(correlation = cor(lwt, bwt))
-```
 
+# 2. Display as an accessible table
+knitr::kable(
+  cor_result,
+  col.names = c("Correlation Coefficient (r)"),
+  digits = 3
+)
+```
 ---
 
 ## Part 2: Visualizing the Best Fit Line
@@ -86,12 +120,33 @@ ggplot(lbw_data, aes(x = lwt, y = bwt)) +
 ## Part 3: Building the Model in R
 In R, the "Linear Model" function is `lm()`. The syntax is `lm(dependent_variable ~ independent_variable)`.
 
+## Simple Linear Regression: Predicting Birth Weight
+
+We are fitting a linear model to see how well Mother's Weight (`lwt`) predicts Birth Weight (`bwt`). 
+
+> **Accessible Logic:** We are looking for the equation of a line: $$bwt = \beta_0 + \beta_1(lwt)$$. 
+> * The **Intercept** ($\beta_0$) is the predicted birth weight if the mother's weight was zero.
+> * The **Slope** ($\beta_1$) tells us how many grams the birth weight increases for every 1-pound increase in mother's weight.
+
+
+
 ```{r}
-# 1. Create the model
+#| label: tbl-regression-results
+#| tbl-cap: "Regression coefficients for predicting Birth Weight from Mother's Weight."
+
+library(broom)
+
+# 1. Fit the model
 lbw_model <- lm(bwt ~ lwt, data = lbw_data)
 
-# 2. View the results
-summary(lbw_model)
+# 2. Tidy the coefficients into an accessible table
+model_stats <- tidy(lbw_model)
+
+knitr::kable(
+  model_stats,
+  col.names = c("Term", "Estimate", "Std. Error", "t-statistic", "p-value"),
+  digits = 3
+)
 ```
 
 ---
@@ -104,11 +159,33 @@ summary(lbw_model)
 
 ## Part 4: Making Predictions
 Once you have a model, you can plug in a value for $x$ to predict $y$. If our model is $Mass = -100 + 1.2(Height)$, we can predict the mass of a character who is 200cm tall.
+## Model Prediction: 150lb Mother
+
+Using our regression model, we can predict the specific birth weight for a baby based on the mother's weight.
+
+> **Accessible Logic:** We are plugging 150 into our regression equation ($y = mx + b$). The `predict()` function calculates this value for us automatically using the model we previously fitted.
 
 ```{r}
-# Predict birth weight for a mother weighing 150 lbs
+#| label: tbl-prediction
+#| tbl-cap: "Predicted Birth Weight for a mother weighing 150 lbs."
+
+# 1. Create a data frame for the input (required by the predict function)
 new_mom <- data.frame(lwt = 150)
-predict(lbw_model, newdata = new_mom)
+
+# 2. Run the prediction
+prediction_val <- predict(lbw_model, newdata = new_mom)
+
+# 3. Present the result in a clear, single-row table
+prediction_table <- data.frame(
+  input_lwt = 150,
+  predicted_bwt = prediction_val
+)
+
+knitr::kable(
+  prediction_table,
+  col.names = c("Mother's Weight (lbs)", "Predicted Birth Weight (g)"),
+  digits = 2
+)
 ```
 
 ---
