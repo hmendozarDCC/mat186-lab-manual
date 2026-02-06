@@ -298,7 +298,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#part-1-the-working-directory" id="toc-part-1-the-working-directory" class="nav-link" data-scroll-target="#part-1-the-working-directory">Part 1: The Working Directory</a></li>
-  <li><a href="#part-2-loading-data-from-a-url" id="toc-part-2-loading-data-from-a-url" class="nav-link" data-scroll-target="#part-2-loading-data-from-a-url">Part 2: Loading Data from a URL</a></li>
+  <li><a href="#part-2-loading-data-from-a-url" id="toc-part-2-loading-data-from-a-url" class="nav-link" data-scroll-target="#part-2-loading-data-from-a-url">Part 2: Loading Data from a URL</a>
+  <ul class="collapse">
+  <li><a href="#task-loading-our-research-data" id="toc-task-loading-our-research-data" class="nav-link" data-scroll-target="#task-loading-our-research-data">Task: Loading our Research Data</a></li>
+  </ul></li>
   <li><a href="#part-3-loading-a-local-csv" id="toc-part-3-loading-a-local-csv" class="nav-link" data-scroll-target="#part-3-loading-a-local-csv">Part 3: Loading a Local CSV</a></li>
   <li><a href="#part-4-dealing-with-common-errors" id="toc-part-4-dealing-with-common-errors" class="nav-link" data-scroll-target="#part-4-dealing-with-common-errors">Part 4: Dealing with Common Errors</a></li>
   </ul></li>
@@ -367,7 +370,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="part-2-loading-data-from-a-url" class="level2">
 <h2 class="anchored" data-anchor-id="part-2-loading-data-from-a-url">Part 2: Loading Data from a URL</h2>
 <p>The easiest way to get started is to pull data directly from the internet. We will use the <code>read_csv()</code> function from the <code>tidyverse</code>.</p>
-<p><strong>Try this code in your Quarto document:</strong></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -382,17 +384,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>To Run the Code:</strong> Click the <strong>green “Play” button</strong> (the small triangle) in the top-right corner of the gray box. The results will appear directly below the chunk in your document.</p>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading a dataset about Star Wars characters</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># "https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv"</span></span>
+<section id="task-loading-our-research-data" class="level3">
+<h3 class="anchored" data-anchor-id="task-loading-our-research-data">Task: Loading our Research Data</h3>
+<p>In this step, we will tell R to go to the internet, find our dataset, and bring it into RStudio so we can analyze it.</p>
+<p><strong>Follow these steps:</strong> 1. <strong>Create a new R chunk</strong> in your RStudio document. 2. <strong>Copy the code below</strong> by clicking the copy icon in the top-right corner of the gray box. 3. <strong>Paste the code</strong> into your new chunk in RStudio. 4. <strong>Click the Green Play button</strong> (the triangle) to run the code.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Load the tidyverse tools</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Set the web address for the Low Birth Weight (LBW) data</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://vincentarelbundock.github.io/Rdatasets/csv/COUNT/lbw.csv"</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>lbw_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview the data</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: Download the data and name it 'lbw_data'</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>lbw_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url)</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lbw_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Show the first few rows of the data</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lbw_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 11
+  rownames   low smoke  race   age   lwt   ptl    ht    ui   ftv   bwt
+     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1        1     0     0     2    19   182     0     0     1     0  2523
+2        2     0     0     3    33   155     0     0     0     3  2551
+3        3     0     1     1    20   105     0     0     0     1  2557
+4        4     0     1     1    21   108     0     0     1     2  2594
+5        5     0     1     1    18   107     0     0     1     0  2600
+6        6     0     0     3    21   124     0     0     0     0  2622</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>✅ Success Check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If the code worked, you should see a table appear directly below your code chunk starting with column names like <code>rownames</code>, <code>low</code>, <code>age</code>, and <code>lwt</code>.</p>
+</div>
+</div>
 <hr>
+</section>
 </section>
 <section id="part-3-loading-a-local-csv" class="level2">
 <h2 class="anchored" data-anchor-id="part-3-loading-a-local-csv">Part 3: Loading a Local CSV</h2>
@@ -402,7 +436,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Move that file into your <strong>MAT186_Labs</strong> folder.</li>
 <li>Use the following code (replace <code>filename.csv</code> with your actual file name):</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"filename.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"filename.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="part-4-dealing-with-common-errors" class="level2">
@@ -415,11 +449,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="dcc-important">
 <p><strong>Lab Task 5:</strong></p>
 <ol type="1">
-<li><p>Find any public CSV dataset. For example, <a href="https://vincentarelbundock.github.io/Rdatasets/articles/data.html">this link to freee data</a>. Use the <em>lbw</em> data set.</p></li>
+<li>Find any public CSV dataset. For example, <a href="https://vincentarelbundock.github.io/Rdatasets/articles/data.html">this link to freee data</a>. Use the <em>lbw</em> data set.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>📥 How to Download the Data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Follow these steps to save the dataset to your computer:</p>
+<ol type="1">
+<li><strong>Search for the Data</strong>: In the search box at the top of the website, type <strong>“lbw”</strong>.</li>
+<li><strong>Download the File</strong>: Find the link labeled <strong>CSV</strong>.
+<ul>
+<li><strong>Right-click</strong> (or Ctrl+click on a Mac) the CSV link.</li>
+<li>Select <strong>“Save Link As…”</strong> or <strong>“Download Linked File As…”</strong>.</li>
+</ul></li>
+<li><strong>Save it in the Right Place</strong>: Save the file directly into your <strong>Mat186</strong> folder on your computer.</li>
+</ol>
+</div>
+</div>
+<ol start="2" type="1">
 <li><p>Import it into a new Quarto document using <code>read_csv</code>.</p></li>
 <li><p>Use the <code>glimpse()</code> command to show the structure of your data:</p></li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(my_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(my_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="4" type="1">
 <li>Render the document and confirm that your data table appears in the HTML.</li>
 </ol>
