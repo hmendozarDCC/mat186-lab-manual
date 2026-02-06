@@ -383,7 +383,8 @@ window.Quarto = {
 <section id="part-2-visualizing-multiple-groups" class="level2">
 <h2 class="anchored" data-anchor-id="part-2-visualizing-multiple-groups">Part 2: Visualizing Multiple Groups</h2>
 <p>With ANOVA, side-by-side boxplots are essential. They allow us to see if the “spread” within groups is smaller than the “distance” between groups.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Do different 'eye colors' in Star Wars have different average heights?</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># We'll filter for the most common eye colors</span></span>
@@ -395,16 +396,31 @@ window.Quarto = {
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Height Distribution by Eye Color"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lab16_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <hr>
 </section>
 <section id="part-3-running-the-anova-in-r" class="level2">
 <h2 class="anchored" data-anchor-id="part-3-running-the-anova-in-r">Part 3: Running the ANOVA in R</h2>
 <p>We use the <code>aov()</code> function. Like the t-test, we use the formula <code>numeric_variable ~ categorical_variable</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Fit the ANOVA model</span></span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Fit the ANOVA model</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">aov</span>(height <span class="sc">~</span> eye_color, <span class="at">data =</span> eye_data)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. View the summary table</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df Sum Sq Mean Sq F value Pr(&gt;F)
+eye_color    3   2363   787.6   0.772  0.515
+Residuals   53  54069  1020.2               </code></pre>
+</div>
+</div>
 <section id="how-to-read-the-anova-table" class="level3">
 <h3 class="anchored" data-anchor-id="how-to-read-the-anova-table">How to read the ANOVA Table:</h3>
 <ul>
@@ -418,11 +434,37 @@ window.Quarto = {
 <section id="part-4-post-hoc-testing-tukeys-hsd" class="level2">
 <h2 class="anchored" data-anchor-id="part-4-post-hoc-testing-tukeys-hsd">Part 4: Post-hoc Testing (Tukey’s HSD)</h2>
 <p>If your ANOVA p-value is significant, you know <em>someone</em> is different, but you don’t know who. We use <strong>Tukey’s Honest Significant Difference</strong> to compare every possible pair.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Running Tukey's HSD</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Running Tukey's HSD</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = height ~ eye_color, data = eye_data)
+
+$eye_color
+                    diff       lwr      upr     p adj
+brown-blue    -14.894737 -42.38141 12.59194 0.4821938
+orange-blue    -1.710526 -37.41677 33.99571 0.9992575
+yellow-blue    -4.392344 -36.48987 27.70518 0.9834623
+orange-brown   13.184211 -22.52203 48.89045 0.7617162
+yellow-brown   10.502392 -21.59513 42.59991 0.8213288
+yellow-orange  -2.681818 -42.04765 36.68402 0.9978785</code></pre>
+</div>
+</div>
 <hr>
 <div class="dcc-important">
-<p><strong>Lab Task 16:</strong> 1. Identify a categorical variable in your data with <strong>3 or more groups</strong> (e.g., County, Year, or Category). 2. Create a <strong>Boxplot</strong> comparing a numeric variable across these groups. 3. Run the <code>aov()</code> function and look at the <code>summary()</code>. 4. <strong>Conclusion:</strong> * If p &gt; 0.05: State that there is no significant difference between any groups. * If p &lt; 0.05: Run <code>TukeyHSD()</code> and identify which specific pairs are actually different.</p>
+<p><strong>Lab Task 16:</strong></p>
+<ol type="1">
+<li>Identify a categorical variable in your data with <strong>3 or more groups</strong> (e.g., County, Year, or Category).</li>
+<li>Create a <strong>Boxplot</strong> comparing a numeric variable across these groups.</li>
+<li>Run the <code>aov()</code> function and look at the <code>summary()</code>.</li>
+<li><strong>Conclusion:</strong> * If p &gt; 0.05: State that there is no significant difference between any groups.
+<ul>
+<li>If p &lt; 0.05: Run <code>TukeyHSD()</code> and identify which specific pairs are actually different.</li>
+</ul></li>
+</ol>
 </div>
 <hr>
 </section>
