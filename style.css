@@ -60,15 +60,6 @@ a {
     text-decoration: underline; /* Better for accessibility */
     text-underline-offset: 3px;
 }
-/*  5. LOGO */
-
-
-/* Maintain aspect ratio and prevent stretching */
-.navbar-brand-logo img {
-  height: 40px;       /* Set your desired height */
-  width: auto;        /* This allows the width to scale naturally */
-  object-fit: contain; /* Keeps the whole image visible without distortion */
-}
 
 /*  5. NO SE  */
 
@@ -126,4 +117,14 @@ img {
     border-radius: 4px;
     display: block;
     margin: 20px auto; /* Centers images automatically */
+}
+
+
+/*LOGO NEW */
+/* Force the navbar logo to be proportional */
+.navbar-brand-logo img {
+  height: 40px !important;    /* Fixed height */
+  width: auto !important;      /* Let width be what it needs to be */
+  max-width: 100% !important;  /* Don't let it overflow */
+  object-fit: contain !important; 
 }
