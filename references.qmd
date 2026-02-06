@@ -1,0 +1,11 @@
+---
+title: "References & OER Credits"
+---
+
+This lab manual utilizes materials from the following Open Educational Resources:
+
+* **OpenIntro Statistics** by Diez, Cetinkaya-Rundel, and Barr. Licensed under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
+* **Introduction to Modern Statistics** by Çetinkaya-Rundel and Hardin.
+* **R for Data Science** by Wickham, Mine Çetinkaya-Rundel, and Grolemund.
+
+*All data sets used in these labs are available via the `tidyverse` or `openintro` R packages unless otherwise noted.*
