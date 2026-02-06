@@ -10,8 +10,11 @@
 
 ## Part 1: Numerical Exploration
 Before we draw, we must understand the "center" and "spread" of our data. We use `summarize()` to get the hard numbers.
-
 ```{r}
+#| label: tbl-sw-summary-stats
+#| tbl-cap: "Summary statistics for Star Wars character heights, including mean, median, and standard deviation (measured in cm)."
+#| message: false
+
 library(tidyverse)
 
 # Analyzing the Star Wars dataset
@@ -21,7 +24,8 @@ starwars |>
     mean_height = mean(height),
     median_height = median(height),
     sd_height = sd(height)
-  )
+  ) |>
+  knitr::kable()
 ```
 
 
@@ -41,6 +45,13 @@ In `ggplot2`, every plot has three essential ingredients:
 A histogram helps us see where the data is "clumped." If the mean and median are very different, the histogram will show a "skew."
 
 ```{r}
+#| label: fig-height-histogram
+#| fig-cap: "Histogram showing the distribution of Star Wars character heights."
+#| fig-alt: "A histogram showing the frequency distribution of Star Wars character heights in centimeters. The data is centered around 170 to 180 cm, with most characters falling between 150 and 200 cm. There is one outlier on the far right representing a very tall character over 250 cm."
+#| message: false
+
+library(tidyverse)
+
 ggplot(data = starwars, mapping = aes(x = height)) +
   geom_histogram(binwidth = 15, fill = "steelblue", color = "white") +
   labs(
@@ -58,13 +69,20 @@ ggplot(data = starwars, mapping = aes(x = height)) +
 To see if two numeric variables are related (like height and weight), we use `geom_point()`.
 
 ```{r}
+#| label: fig-height-mass-scatter
+#| fig-cap: "Scatterplot showing the positive relationship between height and mass in Star Wars characters."
+#| fig-alt: "A scatterplot showing height on the x-axis and mass on the y-axis for Star Wars characters. A red linear regression line shows a clear positive correlation, indicating that taller characters generally have a higher mass. The data points are semi-transparent dark green, showing a cluster of characters between 150 and 200 centimeters tall."
+#| message: false
+
 # Removing the extreme outlier (Jabba the Hutt) for a better view
 starwars_filtered <- starwars |> filter(mass < 500)
 
 ggplot(data = starwars_filtered, mapping = aes(x = height, y = mass)) +
   geom_point(color = "darkgreen", alpha = 0.6) +
   geom_smooth(method = "lm", se = FALSE, color = "red") + 
-  labs(title = "Relationship between Height and Mass")
+  labs(title = "Relationship between Height and Mass",
+       x = "Height (cm)",
+       y = "Mass (kg)")
 ```
 
 
@@ -73,14 +91,22 @@ ggplot(data = starwars_filtered, mapping = aes(x = height, y = mass)) +
 
 ## Part 5: Comparing Groups (Boxplots)
 Boxplots are the best way to see how a numeric variable varies across different categories.
-
 ```{r}
-library(tidyverse)
+#| label: fig-height-gender-boxplot
+#| fig-cap: "Boxplot comparing height distributions across different gender identities in Star Wars characters."
+#| fig-alt: "A boxplot with gender on the x-axis and height in cm on the y-axis. The plot shows that masculine characters generally have a higher median height than feminine characters. The 'masculine' box is taller, indicating more variability, while the 'feminine' distribution is more compact. A few outliers are visible as dots above the whiskers."
 #| warning: false
 #| message: false
+
+library(tidyverse)
+
 ggplot(data = starwars, mapping = aes(x = gender, y = height)) +
   geom_boxplot(fill = "lightgray") +
-  labs(title = "Height Distribution by Gender")
+  labs(
+    title = "Height Distribution by Gender",
+    x = "Gender Identity",
+    y = "Height (cm)"
+  )
 ```
 
 

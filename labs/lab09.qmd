@@ -12,20 +12,22 @@
 In nature and data science, many variables (like heights or exam scores) follow a "Normal" distribution. We can use R to visualize the perfect mathematical curve and compare it to our real data.
 
 ```{r}
+#| label: fig-standard-normal
+#| fig-cap: "The Standard Normal Distribution curve with a mean of 0 and standard deviation of 1."
+#| fig-alt: "A line graph showing the classic symmetric bell-shaped curve of the Standard Normal Distribution. The peak of the curve is at the center (0 on the x-axis). The curve tapers off as it moves toward negative 4 and positive 4 standard deviations, representing the decreasing probability density in the tails."
+#| warning: false
+#| message: false
+
 library(tidyverse)
 
 # Generating a theoretical normal distribution
 data.frame(x = c(-4, 4)) |>
   ggplot(aes(x)) +
-  stat_function(fun = dnorm, color = "blue", size = 1) +
+  stat_function(fun = dnorm, color = "blue", linewidth = 1) +
   labs(title = "The Standard Normal Distribution (z-distribution)",
        subtitle = "Mean = 0, SD = 1",
        x = "Standard Deviations", y = "Density")
 ```
-
-
-
-[Image of a standard normal distribution curve with percentages for 68, 95, and 99.7 rules]
 
 
 ---
@@ -34,13 +36,23 @@ data.frame(x = c(-4, 4)) |>
 When we have "Yes/No" outcomes (like a coin flip or a student passing a test), we use the **Binomial Distribution**.
 
 ```{r}
+#| label: fig-binomial-flips
+#| fig-cap: "Bar chart showing the results of 100 people flipping a coin 10 times each."
+#| fig-alt: "A bar chart representing a binomial distribution. The x-axis shows the number of heads (0 to 10) and the y-axis shows how many people achieved that result. The bars are highest at 5 heads, following a symmetric bell-like shape, with very few people getting 0 or 10 heads."
+#| warning: false
+#| message: false
+
+library(tidyverse)
+
 # Simulating 100 people flipping a coin 10 times each
+set.seed(123) # Setting a seed makes the simulation (and your alt-text) consistent
 flips <- rbinom(n = 100, size = 10, prob = 0.5)
 
 ggplot(data.frame(flips), aes(x = flips)) +
   geom_bar(fill = "darkorange", color = "white") +
   labs(title = "Binomial Distribution of Coin Flips",
-       x = "Number of Heads", y = "Frequency")
+       x = "Number of Heads", 
+       y = "Frequency")
 ```
 
 ---
@@ -50,17 +62,26 @@ The CLT is the "Magic" of statistics. It states that if you take enough samples,
 
 ### Let's Simulate the CLT:
 ```{r}
+#| label: fig-clt-sampling-distribution
+#| fig-cap: "Sampling distribution of the mean for 1,000 samples (n = 30) drawn from an exponential population."
+#| fig-alt: "A histogram showing the sampling distribution of 1,000 sample means. Although the original population was exponential (skewed), this distribution of means is symmetric and bell-shaped, centered at 2. This visually demonstrates the Central Limit Theorem. The bars are seagreen with white borders."
+#| warning: false
+#| message: false
+
+library(tidyverse)
+
 # 1. Take 1000 samples of size 30 from a random population
+# We set a seed so the 'bell shape' described in alt-text stays consistent
+set.seed(42)
 samples <- replicate(1000, mean(rexp(30, rate = 0.5)))
 
 # 2. Visualize the results
 ggplot(data.frame(samples), aes(x = samples)) +
-  geom_histogram(fill = "seagreen", color = "white") +
+  geom_histogram(fill = "seagreen", color = "white", bins = 30) +
   labs(title = "Sampling Distribution of the Mean",
        subtitle = "Notice the bell shape! This is the Central Limit Theorem in action.",
        x = "Sample Means", y = "Count")
 ```
-
 
 
 ---
@@ -70,8 +91,11 @@ We can use the `pnorm()` function to calculate the probability of a specific eve
 
 **Example:** If the average height of a character is 170cm with an SD of 10, what is the probability of a character being taller than 190cm?
 ```{r}
-# 1 - pnorm gives the 'right tail' (the probability of being GREATER than)
-1 - pnorm(190, mean = 170, sd = 10)
+#| label: calc-height-prob
+#| echo: true
+
+# Probability of a height greater than 190cm
+prob <- 1 - pnorm(190, mean = 170, sd = 10)
 ```
 
 ---

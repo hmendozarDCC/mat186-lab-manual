@@ -32,31 +32,55 @@ We write:
 If your dataset has 100 columns but you only need 3, use `select()`.
 
 ```{r}
+#| label: tbl-starwars-heights
+#| tbl-cap: "Table 1: Name and height of the first six characters in the Star Wars dataset."
+#| message: false
+
 library(tidyverse)
+
 # Keep only the 'name' and 'height' columns
 sw_small <- starwars |> 
   select(name, height)
-head(sw_small)
+
+# Use knitr::kable to generate an accessible HTML table
+knitr::kable(head(sw_small))
 ```
 
 ### 2. `filter()` - Picking Rows
 If you only want to look at specific observations (e.g., characters taller than 100cm).
 
 ```{r}
+#| label: tbl-tall-starwars
+#| tbl-cap: "Table: Subset of Star Wars characters with a height greater than 100cm."
+#| message: false
+
+library(tidyverse)
+
 # Keep only rows where height is greater than 100
 tall_characters <- starwars |> 
-  filter(height > 100)
-head(tall_characters)
+  filter(height > 100) |>
+  select(name, height, species, homeworld) # Selecting specific columns makes tables easier to read
+
+# Use kable to create an accessible HTML table structure
+knitr::kable(head(tall_characters))
 ```
 
 ### 3. `rename()` - Changing Names
 If a column name is confusing or has spaces, rename it.
 
 ```{r}
+#| label: tbl-rename-homeworld
+#| tbl-cap: "Table: Star Wars character data showing the renamed 'home_planet' column."
+#| message: false
+
+library(tidyverse)
+
 # Change 'homeworld' to 'home_planet'
 sw_clean <- starwars |> 
   rename(home_planet = homeworld)
-head(sw_clean)
+
+# We select a few columns so the table isn't too wide for a screen reader
+knitr::kable(head(sw_clean[, c("name", "height", "home_planet")]))
 ```
 
 ---
@@ -66,10 +90,18 @@ In R, missing values are represented as `NA` (Not Available). You can't calculat
 
 To remove rows with *any* missing data:
 ```{r}
+#| label: tbl-drop-na
+#| tbl-cap: "Table: Star Wars characters after removing rows with missing height values."
+#| message: false
+
+library(tidyverse)
+
+# Remove rows where height is NA
 tidy_sw <- starwars |> 
   drop_na(height)
-head(tidy_sw)
 
+# Display the first six rows using an accessible HTML table format
+knitr::kable(head(tidy_sw[, c("name", "height", "mass", "species")]))
 ```
 
 
