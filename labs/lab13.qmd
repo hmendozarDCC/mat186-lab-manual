@@ -26,7 +26,7 @@ We are testing the difference between two population proportions ($p_1 - p_2$).
 ## Part 2: Visualizing with Stacked Bar Charts
 When comparing proportions, a standard bar chart can be misleading if the group sizes are different. We use `position = "fill"` to show the **percentage** (0 to 100%) rather than the raw count.
 
-~~~r
+```r
 library(tidyverse)
 
 # Comparing 'Success' across two different categories
@@ -35,7 +35,7 @@ ggplot(my_data, aes(x = group_variable, fill = success_variable)) +
   labs(title = "Proportional Comparison of Success by Group",
        y = "Proportion (0 to 1)",
        x = "Group Name")
-~~~
+```
 
 
 
@@ -47,7 +47,7 @@ In R, we provide the "successes" and the "totals" as vectors within the `prop.te
 **Scenario:** * **Group 1:** 45 people out of 100 succeeded.
 * **Group 2:** 30 people out of 100 succeeded.
 
-~~~r
+```{r}
 # x = number of successes in each group
 # n = total sample size for each group
 
@@ -55,13 +55,14 @@ results <- prop.test(x = c(45, 30), n = c(100, 100), correct = FALSE)
 
 # View the statistical output
 results
-~~~
+```
 
 
 
 ---
 
 ## Part 4: Interpreting the Results
+
 * **p-value:** If the p-value is less than 0.05, we conclude the difference is "Statistically Significant."
 * **Sample Estimates:** R will show you the individual proportions ($\hat{p}_1$ and $\hat{p}_2$).
 * **Confidence Interval:** This interval estimates the true difference between the two population percentages.
@@ -70,6 +71,7 @@ results
 
 <div class="dcc-important">
 **Lab Task 13:**
+
 1. Open your Quarto document for Lab 13.
 2. Choose two groups from your data and a binary "success" outcome (e.g., "Pass/Fail" or "Yes/No").
 3. Create a **Stacked Bar Chart** using `position = "fill"`.
