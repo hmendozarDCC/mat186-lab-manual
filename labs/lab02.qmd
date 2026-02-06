@@ -22,6 +22,7 @@ In Data Science, organization is everything. An RStudio Project keeps your code,
 ---
 
 ## Part 2: Creating a Quarto Document
+
 # Lab 2: Introduction to Quarto
 
 Quarto allows you to combine text, code, and results into one professional document. Follow these steps to get started.
@@ -85,6 +86,12 @@ To turn your code into a report:
 
 ---
 
-<div class="dcc-important">
-**Lab Task 2:** Inside your Quarto document, create a new code chunk and type `2 + 2`. Render the document and verify that the number `4` appears in the final report. Screenshot your rendered HTML for submission.
-</div>
+::: {.callout-important}
+## 📝 Lab Task 2: Your First Calculation
+
+1. **Create a Document**: Create a new Quarto document and save it as `Lab2_yourname`.
+2. **Clear the Template**: Find the word **Quarto** (usually around line 10). Delete everything *below* that line so you have a clean workspace.
+3. **Insert a Chunk**: Create a new R code chunk and type `2 + 2` inside it.
+4. **Render and Check**: Click the **Render** button. Verify that the number `4` appears in your final HTML report.
+5. **Submit**: Take a screenshot of your rendered HTML page and upload it to the submission folder.
+:::
