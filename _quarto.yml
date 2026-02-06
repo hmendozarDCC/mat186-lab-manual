@@ -10,7 +10,7 @@ website:
   
   # Navbar Logo (Top Left)
   navbar:
-    logo: "images/dcc-logo.png"
+    logo: "/images/dcc-logo.png"
     logo-height: "20px"
     logo-alt: "Dutchess Community College Logo" # Required for accessibility
     search: true  # This activates the search bar
