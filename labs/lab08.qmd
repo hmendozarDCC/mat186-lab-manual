@@ -74,7 +74,10 @@ ggplot(data = starwars_filtered, mapping = aes(x = height, y = mass)) +
 ## Part 5: Comparing Groups (Boxplots)
 Boxplots are the best way to see how a numeric variable varies across different categories.
 
-```r
+```{r}
+library(tidyverse)
+#| warning: false
+#| message: false
 ggplot(data = starwars, mapping = aes(x = gender, y = height)) +
   geom_boxplot(fill = "lightgray") +
   labs(title = "Height Distribution by Gender")

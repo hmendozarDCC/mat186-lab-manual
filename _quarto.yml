@@ -1,6 +1,10 @@
 project:
   type: website
 
+execute:
+  warning: false
+  message: false
+
 website:
   title: "MAT 186: Data Science"
   
