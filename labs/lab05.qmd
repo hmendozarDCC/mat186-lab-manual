@@ -35,6 +35,11 @@ The easiest way to get started is to pull data directly from the internet. We wi
 
 **Try this code in your Quarto document:**
 
+::: {.callout-note}
+## Tip for Students
+To run the code below, insert a chunk by making click the green **arrow** button in the top-right corner. The chunk result will appear directly into document.
+:::
+
 
 ```r
 library(tidyverse)
