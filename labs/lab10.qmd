@@ -22,14 +22,27 @@ We rarely have data for an entire population (like every person in New York). In
 A confidence interval gives us a range of plausible values for the true population mean. We usually use a **95% Confidence Level**.
 
 ```{r}
+#| label: tbl-height-confidence-interval
+#| tbl-cap: "95% Confidence Interval for the mean height of Star Wars characters."
+#| message: false
+
 library(tidyverse)
 
 # Let's look at the average height of Star Wars characters
-# We want to estimate the true mean height of all characters in the galaxy
 starwars_heights <- starwars |> drop_na(height)
 
-# Calculating a 95% Confidence Interval manually
-t.test(starwars_heights$height, conf.level = 0.95)
+# Running the t-test
+test_results <- t.test(starwars_heights$height, conf.level = 0.95)
+
+# Converting the test result list into an accessible table
+library(broom)
+tidy_results <- tidy(test_results)
+
+knitr::kable(
+  tidy_results[, c("estimate", "conf.low", "conf.high")],
+  col.names = c("Mean Height (cm)", "Lower Bound (2.5%)", "Upper Bound (97.5%)"),
+  digits = 2
+)
 ```
 
 ---
@@ -38,13 +51,23 @@ t.test(starwars_heights$height, conf.level = 0.95)
 Imagine a claim that the "Average height of a galactic citizen is 175 cm." Does our data support this?
 
 ```{r}
-# Testing if the mean height is significantly different from 175
+#| label: tbl-height-t-test
+#| tbl-cap: "One-sample t-test results comparing Star Wars character heights to a null hypothesis mean of 175 cm."
+
+# 1. Perform the test
 t_test_results <- t.test(starwars_heights$height, mu = 175)
 
-# View the results
-t_test_results
-```
+# 2. Use the 'broom' library to turn the text output into a data frame
+library(broom)
+tidy_t <- tidy(t_test_results)
 
+# 3. Create an accessible table with descriptive headers
+knitr::kable(
+  tidy_t[, c("statistic", "p.value", "estimate", "conf.low", "conf.high")],
+  col.names = c("t-statistic", "p-value", "Sample Mean", "95% CI Lower", "95% CI Upper"),
+  digits = 4
+)
+```
 ### How to read the output:
 
 * **t:** The test statistic (how many standard errors we are from the claim).
