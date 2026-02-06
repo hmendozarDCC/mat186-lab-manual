@@ -382,7 +382,8 @@ window.Quarto = {
 <section id="part-2-confidence-intervals" class="level2">
 <h2 class="anchored" data-anchor-id="part-2-confidence-intervals">Part 2: Confidence Intervals</h2>
 <p>A confidence interval gives us a range of plausible values for the true population mean. We usually use a <strong>95% Confidence Level</strong>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's look at the average height of Star Wars characters</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># We want to estimate the true mean height of all characters in the galaxy</span></span>
@@ -390,16 +391,45 @@ window.Quarto = {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculating a 95% Confidence Interval manually</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(starwars_heights<span class="sc">$</span>height, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One Sample t-test
+
+data:  starwars_heights$height
+t = 45.19, df = 80, p-value &lt; 2.2e-16
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ 166.9157 182.2941
+sample estimates:
+mean of x 
+ 174.6049 </code></pre>
+</div>
+</div>
 <hr>
 </section>
 <section id="part-3-the-one-sample-t-test" class="level2">
 <h2 class="anchored" data-anchor-id="part-3-the-one-sample-t-test">Part 3: The One-Sample t-test</h2>
 <p>Imagine a claim that the “Average height of a galactic citizen is 175 cm.” Does our data support this?</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Testing if the mean height is significantly different from 175</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>t_test_results <span class="ot">&lt;-</span> <span class="fu">t.test</span>(starwars_heights<span class="sc">$</span>height, <span class="at">mu =</span> <span class="dv">175</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View the results</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>t_test_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Testing if the mean height is significantly different from 175</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>t_test_results <span class="ot">&lt;-</span> <span class="fu">t.test</span>(starwars_heights<span class="sc">$</span>height, <span class="at">mu =</span> <span class="dv">175</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View the results</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>t_test_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One Sample t-test
+
+data:  starwars_heights$height
+t = -0.10225, df = 80, p-value = 0.9188
+alternative hypothesis: true mean is not equal to 175
+95 percent confidence interval:
+ 166.9157 182.2941
+sample estimates:
+mean of x 
+ 174.6049 </code></pre>
+</div>
+</div>
 <section id="how-to-read-the-output" class="level3">
 <h3 class="anchored" data-anchor-id="how-to-read-the-output">How to read the output:</h3>
 <ul>
@@ -412,10 +442,24 @@ window.Quarto = {
 </section>
 <section id="part-4-making-a-decision" class="level2">
 <h2 class="anchored" data-anchor-id="part-4-making-a-decision">Part 4: Making a Decision</h2>
-<p>In MAT 186, we typically use an <strong>alpha (<span class="math inline">\(\alpha\)</span>) level of 0.05</strong>. * <strong>If p-value &lt; 0.05:</strong> We <strong>Reject</strong> the Null Hypothesis. The result is “Statistically Significant.” * <strong>If p-value &gt; 0.05:</strong> We <strong>Fail to Reject</strong> the Null Hypothesis. We do not have enough evidence to support the change.</p>
+<p>In MAT 186, we typically use an <strong>alpha (<span class="math inline">\(\alpha\)</span>) level of 0.05</strong>.</p>
+<ul>
+<li><strong>If p-value &lt; 0.05:</strong> We <strong>Reject</strong> the Null Hypothesis. The result is “Statistically Significant.”</li>
+<li><strong>If p-value &gt; 0.05:</strong> We <strong>Fail to Reject</strong> the Null Hypothesis. We do not have enough evidence to support the change.</li>
+</ul>
 <hr>
 <div class="dcc-important">
-<p><strong>Lab Task 10:</strong> 1. Use your personal dataset from previous labs. 2. Pick a numeric variable (e.g., age, price, or score). 3. <strong>State your Hypotheses:</strong> * <span class="math inline">\(H_0: \mu = \text{choose a number close to your average}\)</span> * <span class="math inline">\(H_a: \mu \neq \text{that same number}\)</span> 4. Run a <code>t.test()</code> in R using your variable and your chosen <code>mu</code>. 5. <strong>The Conclusion:</strong> In your Quarto document, write a formal conclusion. “Since the p-value was [insert p-value], we [reject/fail to reject] the null hypothesis. There [is/is not] sufficient evidence to suggest the mean is different from [insert mu].”</p>
+<p><strong>Lab Task 10:</strong></p>
+<ol type="1">
+<li>Use your personal dataset from previous labs.</li>
+<li>Pick a numeric variable (e.g., age, price, or score).</li>
+<li><strong>State your Hypotheses:</strong> * <span class="math inline">\(H_0: \mu = \text{choose a number close to your average}\)</span>
+<ul>
+<li><span class="math inline">\(H_a: \mu \neq \text{that same number}\)</span></li>
+</ul></li>
+<li>Run a <code>t.test()</code> in R using your variable and your chosen <code>mu</code>.</li>
+<li><strong>The Conclusion:</strong> In your Quarto document, write a formal conclusion. “Since the p-value was [insert p-value], we [reject/fail to reject] the null hypothesis. There [is/is not] sufficient evidence to suggest the mean is different from [insert mu].”</li>
+</ol>
 </div>
 <hr>
 </section>
