@@ -63,10 +63,10 @@ website:
 
   # Page Footer (Bottom)
 
-  page-footer:
+ page-footer:
     left: |
-      ![](/images/dcc-logo.png){width=80px fig-alt="DCC Logo"}  
-      **Dutchess Community College**
+      <img src="/images/dcc-logo.png" style="width: 150px; height: auto;" alt="DCC Logo">
+      <br>**Dutchess Community College**
     center: "Last updated: {{< meta date-modified >}}"
     right: |
       [Accessibility Statement](/accessibility.qmd)
