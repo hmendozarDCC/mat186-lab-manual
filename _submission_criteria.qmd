@@ -1,0 +1,14 @@
+## 📊 Lab Assessment Criteria
+| Criteria | Description | Points |
+|:---|:---|:---:|
+| **Technical Accuracy** | Does the code run? | 5 pts |
+| **Interpretation** | Plain English explanation? | 3 pts |
+| **Formatting** | Clean document? | 2 pts |
+
+## 📤 Ready to Submit?
+::: {.callout-tip}
+## 🏁 Final Submission Checklist
+1. **Render** your document one last time.
+2. Check your **Name** in the YAML.
+3. Upload the **HTML file** to the portal.
+:::
