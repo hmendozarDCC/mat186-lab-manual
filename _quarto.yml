@@ -15,9 +15,9 @@ website:
   navbar:
     logo: "/images/dcc-logo.png"
     logo-height: "50px"
-    logo-alt: "Dutchess Community College Logo" # Required for accessibility
-    search: true  # This activates the search bar
-    background: "#002147" # DCC Navy Blue
+    logo-alt: "Dutchess Community College Logo"
+    search: true
+    background: "#002147"
     left:
       - href: index.qmd
         text: Home
@@ -25,7 +25,7 @@ website:
       - href: references.qmd
         text: "References"
 
-  # Sidebar Navigation (Matches your 17 Labs)
+  # Sidebar Navigation
   sidebar:
     style: "docked"
     search: true
@@ -67,9 +67,8 @@ website:
           - text: "Lab 17: Regression models"
             file: labs/lab17_F26.qmd
 
-  # Page Footer (Bottom)
-
-page-footer:
+  # Page Footer (Now correctly indented under 'website')
+  page-footer:
     left: |
       <img src="/images/dcc-logo.png" alt="DCC Logo" style="width: 120px; margin-bottom: 10px;">
       <br> **Dutchess Community College**
@@ -81,7 +80,7 @@ format:
   html:
     html-math-method: mathjax
     theme: cosmo
-    css: style.css        # Use 'css:' instead of putting it inside brackets
+    css: style.css
     date-modified: last-modified
     date-format: "MMMM D, YYYY"
     toc: true
