@@ -33,7 +33,7 @@ To check where R is looking,
 ## Part 2: Loading Data from a URL
 The easiest way to get started is to pull data directly from the internet. We will use the `read_csv()` function from the `tidyverse`.
 
-**Try this code in your Quarto document:**
+
 
 ::: {.callout-note}
 ## 💡 Tip: Working with Code Chunks
@@ -43,18 +43,40 @@ The easiest way to get started is to pull data directly from the internet. We wi
 **To Run the Code:** Click the **green "Play" button** (the small triangle) in the top-right corner of the gray box. The results will appear directly below the chunk in your document.
 :::
 
-```r
+
+### Task: Loading our Research Data
+
+In this step, we will tell R to go to the internet, find our dataset, and bring it into RStudio so we can analyze it.
+
+**Follow these steps:**
+1. **Create a new R chunk** in your RStudio document.
+2. **Copy the code below** by clicking the copy icon in the top-right corner of the gray box.
+3. **Paste the code** into your new chunk in RStudio.
+4. **Click the Green Play button** (the triangle) to run the code.
+
+
+
+```{r}
+#| message: false
+#| warning: false
+
+# Step 1: Load the tidyverse tools
 library(tidyverse)
 
-# Loading a dataset about Star Wars characters
-# "https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv"
+# Step 2: Set the web address for the Low Birth Weight (LBW) data
 url <- "https://vincentarelbundock.github.io/Rdatasets/csv/COUNT/lbw.csv"
+
+# Step 3: Download the data and name it 'lbw_data'
 lbw_data <- read_csv(url)
 
-# Preview the data
-
+# Step 4: Show the first few rows of the data
 head(lbw_data)
 ```
+
+::: {.callout-tip}
+## ✅ Success Check
+If the code worked, you should see a table appear directly below your code chunk starting with column names like `rownames`, `low`, `age`, and `lwt`.
+:::
 
 
 
@@ -85,6 +107,20 @@ my_data <- read_csv("filename.csv")
 **Lab Task 5:** 
 
 1. Find any public CSV dataset. For example, [this link to freee  data](https://vincentarelbundock.github.io/Rdatasets/articles/data.html). Use the *lbw* data set.
+
+::: {.callout-tip}
+## 📥 How to Download the Data
+
+Follow these steps to save the dataset to your computer:
+
+1. **Search for the Data**: In the search box at the top of the website, type **"lbw"**.
+2. **Download the File**: Find the link labeled **CSV**. 
+   * **Right-click** (or Ctrl+click on a Mac) the CSV link.
+   * Select **"Save Link As..."** or **"Download Linked File As..."**.
+3. **Save it in the Right Place**: Save the file directly into your **Mat186** folder on your computer.
+
+
+:::
 
 2. Import it into a new Quarto document using `read_csv`.
 
