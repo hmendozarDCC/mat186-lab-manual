@@ -403,11 +403,19 @@ window.Quarto = {
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(comparison_data, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> height, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Height Comparison: Humans vs. Droids"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">+</span> <span class="co"># Better color contrast for accessibility</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Height Comparison: Humans vs. Droids"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Species"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Height (cm)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="lab12_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-height-human-droid" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A side-by-side boxplot comparing heights of Droids and Humans. The Droid distribution shows much greater variability, with a box and whiskers that span a wider range of heights. The Human distribution is more compact, with a median height slightly higher than the Droids. Several outliers are visible for the Droids, representing exceptionally short and tall individuals.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-height-human-droid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lab12_files/figure-html/fig-height-human-droid-1.png" class="img-fluid figure-img" alt="A side-by-side boxplot comparing heights of Droids and Humans. The Droid distribution shows much greater variability, with a box and whiskers that span a wider range of heights. The Human distribution is more compact, with a median height slightly higher than the Droids. Several outliers are visible for the Droids, representing exceptionally short and tall individuals." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-height-human-droid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Comparison of height distributions between Humans and Droids.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -418,23 +426,49 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="part-4-running-the-t-test-in-r">Part 4: Running the t-test in R</h2>
 <p>In R, we use the “formula” syntax: <code>y ~ x</code> (where <code>y</code> is the numeric value and <code>x</code> is the grouping category).</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conducting the Independent Samples t-test</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Conduct the Independent Samples t-test</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>t_test_results <span class="ot">&lt;-</span> <span class="fu">t.test</span>(height <span class="sc">~</span> species, <span class="at">data =</span> comparison_data)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View results</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>t_test_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Welch Two Sample t-test
-
-data:  height by species
-t = -2.1186, df = 4.0804, p-value = 0.1001
-alternative hypothesis: true difference in means between group Droid and group Human is not equal to 0
-95 percent confidence interval:
- -107.65835   14.05835
-sample estimates:
-mean in group Droid mean in group Human 
-              131.2               178.0 </code></pre>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Tidy the results into a data frame</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>tidy_t_test <span class="ot">&lt;-</span> <span class="fu">tidy</span>(t_test_results)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Create an accessible table with descriptive headers</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  tidy_t_test[, <span class="fu">c</span>(<span class="st">"estimate"</span>, <span class="st">"statistic"</span>, <span class="st">"p.value"</span>, <span class="st">"conf.low"</span>, <span class="st">"conf.high"</span>)],</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Difference in Means"</span>, <span class="st">"t-statistic"</span>, <span class="st">"p-value"</span>, <span class="st">"Lower 95% CI"</span>, <span class="st">"Upper 95% CI"</span>),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">3</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-two-sample-t-test" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-two-sample-t-test-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Independent samples t-test comparing the mean heights of Humans and Droids.
+</figcaption>
+<div aria-describedby="tbl-two-sample-t-test-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Difference in Means</th>
+<th style="text-align: right;">t-statistic</th>
+<th style="text-align: right;">p-value</th>
+<th style="text-align: right;">Lower 95% CI</th>
+<th style="text-align: right;">Upper 95% CI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">-46.8</td>
+<td style="text-align: right;">-2.119</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">-107.658</td>
+<td style="text-align: right;">14.058</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
 </div>
 </div>
 <section id="how-to-interpret-the-output" class="level3">

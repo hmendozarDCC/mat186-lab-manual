@@ -399,6 +399,35 @@ window.Quarto = {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Proportional Comparison of Success by Group"</span>,</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Proportion (0 to 1)"</span>,</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Group Name"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a simplified category: Tatooine vs Other</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>starwars_props <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(gender)) <span class="sc">|&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">location =</span> <span class="fu">if_else</span>(homeworld <span class="sc">==</span> <span class="st">"Tatooine"</span>, <span class="st">"Tatooine"</span>, <span class="st">"Other"</span>))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(starwars_props, <span class="fu">aes</span>(<span class="at">x =</span> location, <span class="at">fill =</span> gender)) <span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">option =</span> <span class="st">"mako"</span>) <span class="sc">+</span> <span class="co"># High contrast, color-blind friendly palette</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gender Proportions: Tatooine vs. Other Worlds"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Standardized to 100% using position = 'fill'"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Homeworld Category"</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Proportion"</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Gender"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-gender-tatooine-prop" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A 100% stacked bar chart with two columns: Tatooine and Other. The y-axis represents proportion from 0 to 1. Both bars are divided into sections representing different genders. The Tatooine bar shows a significantly higher proportion of masculine characters compared to the 'Other' category, which has a slightly more diverse gender distribution.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gender-tatooine-prop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lab13_files/figure-html/fig-gender-tatooine-prop-1.png" class="img-fluid figure-img" alt="A 100% stacked bar chart with two columns: Tatooine and Other. The y-axis represents proportion from 0 to 1. Both bars are divided into sections representing different genders. The Tatooine bar shows a significantly higher proportion of masculine characters compared to the 'Other' category, which has a slightly more diverse gender distribution." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gender-tatooine-prop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Stacked bar chart showing the proportion of gender identities for characters from Tatooine versus other homeworlds.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <hr>
 </section>
 <section id="part-3-running-the-two-sample-prop-test" class="level2">
@@ -406,25 +435,50 @@ window.Quarto = {
 <p>In R, we provide the “successes” and the “totals” as vectors within the <code>prop.test()</code> function.</p>
 <p><strong>Scenario:</strong> * <strong>Group 1:</strong> 45 people out of 100 succeeded. * <strong>Group 2:</strong> 30 people out of 100 succeeded.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># x = number of successes in each group</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># n = total sample size for each group</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">prop.test</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">30</span>), <span class="at">n =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">100</span>), <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># View the statistical output</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    2-sample test for equality of proportions without continuity correction
-
-data:  c(45, 30) out of c(100, 100)
-X-squared = 4.8, df = 1, p-value = 0.02846
-alternative hypothesis: two.sided
-95 percent confidence interval:
- 0.01743049 0.28256951
-sample estimates:
-prop 1 prop 2 
-  0.45   0.30 </code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Perform the test</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># x = number of successes (45 and 30)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># n = total sample sizes (100 and 100)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">prop.test</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">30</span>), <span class="at">n =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">100</span>), <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Tidy the results into a data frame</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>tidy_prop_two <span class="ot">&lt;-</span> <span class="fu">tidy</span>(results)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Create an accessible table with descriptive headers</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: 'estimate' in a two-sample test contains the proportions for both groups</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  tidy_prop_two[, <span class="fu">c</span>(<span class="st">"statistic"</span>, <span class="st">"p.value"</span>, <span class="st">"conf.low"</span>, <span class="st">"conf.high"</span>)],</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Chi-squared"</span>, <span class="st">"p-value"</span>, <span class="st">"Lower 95% CI"</span>, <span class="st">"Upper 95% CI"</span>),</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">4</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-two-prop-test" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-two-prop-test-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Two-sample proportion test comparing Group 1 (45/100) and Group 2 (30/100).
+</figcaption>
+<div aria-describedby="tbl-two-prop-test-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Chi-squared</th>
+<th style="text-align: right;">p-value</th>
+<th style="text-align: right;">Lower 95% CI</th>
+<th style="text-align: right;">Upper 95% CI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">4.8</td>
+<td style="text-align: right;">0.0285</td>
+<td style="text-align: right;">0.0174</td>
+<td style="text-align: right;">0.2826</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
 </div>
 </div>
 <hr>

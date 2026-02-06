@@ -395,28 +395,49 @@ window.Quarto = {
 <p>We use the <code>prop.test()</code> function. You need two numbers: <code>x</code> (number of successes) and <code>n</code> (total sample size).</p>
 <p><strong>Scenario:</strong> A news report claims that 50% of Star Wars characters are Humans. In our dataset, we find that 35 out of 87 characters are Human. Is the report’s 50% claim accurate?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># x = number of humans (35)</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># n = total characters (87)</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># p = the claimed value (0.50)</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>prop_results <span class="ot">&lt;-</span> <span class="fu">prop.test</span>(<span class="at">x =</span> <span class="dv">35</span>, <span class="at">n =</span> <span class="dv">87</span>, <span class="at">p =</span> <span class="fl">0.50</span>, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># View the results</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>prop_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    1-sample proportions test without continuity correction
-
-data:  35 out of 87, null probability 0.5
-X-squared = 3.3218, df = 1, p-value = 0.06837
-alternative hypothesis: true p is not equal to 0.5
-95 percent confidence interval:
- 0.3055082 0.5073526
-sample estimates:
-        p 
-0.4022989 </code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Perform the test</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>prop_results <span class="ot">&lt;-</span> <span class="fu">prop.test</span>(<span class="at">x =</span> <span class="dv">35</span>, <span class="at">n =</span> <span class="dv">87</span>, <span class="at">p =</span> <span class="fl">0.50</span>, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Tidy the result into a data frame</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>tidy_prop <span class="ot">&lt;-</span> <span class="fu">tidy</span>(prop_results)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Create an accessible table with descriptive headers</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  tidy_prop[, <span class="fu">c</span>(<span class="st">"estimate"</span>, <span class="st">"statistic"</span>, <span class="st">"p.value"</span>, <span class="st">"conf.low"</span>, <span class="st">"conf.high"</span>)],</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Sample Proportion"</span>, <span class="st">"Chi-squared"</span>, <span class="st">"p-value"</span>, <span class="st">"Lower 95% CI"</span>, <span class="st">"Upper 95% CI"</span>),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">4</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-prop-test" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-prop-test-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: One-sample proportion test results comparing the observed proportion of humans (35/87) to a null hypothesis of 0.50.
+</figcaption>
+<div aria-describedby="tbl-prop-test-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Sample Proportion</th>
+<th style="text-align: right;">Chi-squared</th>
+<th style="text-align: right;">p-value</th>
+<th style="text-align: right;">Lower 95% CI</th>
+<th style="text-align: right;">Upper 95% CI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.4023</td>
+<td style="text-align: right;">3.3218</td>
+<td style="text-align: right;">0.0684</td>
+<td style="text-align: right;">0.3055</td>
+<td style="text-align: right;">0.5074</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
 </div>
 </div>
 <section id="how-to-interpret-the-output" class="level3">
