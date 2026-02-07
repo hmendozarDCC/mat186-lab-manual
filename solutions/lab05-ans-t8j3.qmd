@@ -22,6 +22,33 @@ format:
 ### Instructor Note
 Add your specific DCC lab answers below this box.
 :::
+### Task 1: Downloading the Dataset
+Students were required to download the `lbw.csv` dataset. Success in this task is confirmed by the file appearing in the project directory.
+
+### Task 2: Importing the Data
+To import the data correctly using the Tidyverse, the `library(tidyverse)` must be called first. We use `read_csv()` to create a tibble.
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)
+
+# Task 2: Import the data
+# Assumes 'lbw.csv' is in the same folder as this .qmd file
+lbw_data <- read_csv("lbw.csv")
+```
+
+# Task 3: Show the structure
+```{r}
+glimpse(lbw_data)
+```
+
+# Task 4: Display the first 6 rows of the table
+```{r}
+head(lbw_data)
+```
+
+
 
 <br><br>
 
