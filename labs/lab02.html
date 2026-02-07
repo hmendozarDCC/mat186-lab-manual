@@ -331,7 +331,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#lab-2-rstudio-projects-and-quarto-documents" id="toc-lab-2-rstudio-projects-and-quarto-documents" class="nav-link active" data-scroll-target="#lab-2-rstudio-projects-and-quarto-documents">Lab 2: RStudio Projects and Quarto Documents</a>
   <ul class="collapse">
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#part-1-rstudio-projects" id="toc-part-1-rstudio-projects" class="nav-link" data-scroll-target="#part-1-rstudio-projects">Part 1: RStudio Projects</a></li>
+  <li><a href="#part-1-rstudio-projects" id="toc-part-1-rstudio-projects" class="nav-link" data-scroll-target="#part-1-rstudio-projects">Part 1: RStudio Projects</a>
+  <ul class="collapse">
+  <li><a href="#step-1-create-the-project" id="toc-step-1-create-the-project" class="nav-link" data-scroll-target="#step-1-create-the-project">Step 1: Create the Project</a></li>
+  <li><a href="#step-2-create-professional-sub-folders" id="toc-step-2-create-professional-sub-folders" class="nav-link" data-scroll-target="#step-2-create-professional-sub-folders">Step 2: Create Professional Sub-folders</a></li>
+  </ul></li>
   <li><a href="#part-2-creating-a-quarto-document" id="toc-part-2-creating-a-quarto-document" class="nav-link" data-scroll-target="#part-2-creating-a-quarto-document">Part 2: Creating a Quarto Document</a></li>
   </ul></li>
   <li><a href="#lab-2-introduction-to-quarto" id="toc-lab-2-introduction-to-quarto" class="nav-link" data-scroll-target="#lab-2-introduction-to-quarto">Lab 2: Introduction to Quarto</a>
@@ -389,16 +393,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="part-1-rstudio-projects" class="level2">
 <h2 class="anchored" data-anchor-id="part-1-rstudio-projects">Part 1: RStudio Projects</h2>
 <p>In Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.</p>
+<section id="step-1-create-the-project" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-create-the-project">Step 1: Create the Project</h3>
 <ol type="1">
 <li>Open RStudio.</li>
 <li>Click <strong>File &gt; New Project…</strong></li>
 <li>Select <strong>New Directory</strong> &gt; <strong>New Project</strong>.</li>
-<li>Name your directory <code>MAT186_Labs</code> and save it to your Desktop or Documents.</li>
+<li>Name your directory <code>MAT186_Labs</code> and save it to your Documents folder.</li>
 </ol>
-<div class="dcc-note">
-<p><strong>Why use Projects?</strong> It sets the “Working Directory” automatically. You’ll never have to type long file paths like <code>C:/Users/Documents/Data...</code> again!</p>
+</section>
+<section id="step-2-create-professional-sub-folders" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-create-professional-sub-folders">Step 2: Create Professional Sub-folders</h3>
+<p>Now, look at the <strong>Files pane</strong> (usually in the bottom-right of RStudio). You need to create a place for your future files:</p>
+<ol type="1">
+<li>Click the <strong>New Folder</strong> button.</li>
+<li>Type <code>data</code> and click OK.</li>
+<li>Click the <strong>New Folder</strong> button again.</li>
+<li>Type <code>images</code> and click OK.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Why do this?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>By creating these now, you are ready for Lab 5! You will put all your datasets in <code>/data</code> and all your plots/diagrams in <code>/images</code>.</p>
+</div>
 </div>
 <hr>
+</section>
 </section>
 <section id="part-2-creating-a-quarto-document" class="level2">
 <h2 class="anchored" data-anchor-id="part-2-creating-a-quarto-document">Part 2: Creating a Quarto Document</h2>
