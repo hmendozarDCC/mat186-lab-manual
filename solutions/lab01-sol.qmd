@@ -6,8 +6,8 @@ robots: noindex
 ```{r}
 #| label: fig-lab01-sol
 #| fig-cap: "The code: print('Hello, MAT 186!')"
+#| out-width: "100%"
 
-# This looks from the very top of your project folder
-knitr::include_graphics("/solutions/lab01-sol.png")
+knitr::include_graphics("../images/lab01-sol.png")
 ```
 
