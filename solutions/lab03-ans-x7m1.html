@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Solution - Lab 3: Mathematical Notation in Quarto – MAT 186: Data Science</title>
+<title>Solution - Lab 03: Mathematical Notation – MAT 186: Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../style.css">
 </head>
@@ -115,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Solution - Lab 3: Mathematical Notation in Quarto</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Solution - Lab 03: Mathematical Notation</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -293,7 +322,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#mathematical-notation-in-quarto---official-solutions" id="toc-mathematical-notation-in-quarto---official-solutions" class="nav-link active" data-scroll-target="#mathematical-notation-in-quarto---official-solutions">Mathematical Notation in Quarto - Official Solutions</a></li>
+  <li><a href="#lab-3-official-solutions" id="toc-lab-3-official-solutions" class="nav-link active" data-scroll-target="#lab-3-official-solutions">Lab 3 Official Solutions</a>
+  <ul class="collapse">
+  <li><a href="#task-1-the-standard-deviation-formula" id="toc-task-1-the-standard-deviation-formula" class="nav-link" data-scroll-target="#task-1-the-standard-deviation-formula">Task 1: The Standard Deviation Formula</a></li>
+  <li><a href="#task-2-inline-vs.-display-math" id="toc-task-2-inline-vs.-display-math" class="nav-link" data-scroll-target="#task-2-inline-vs.-display-math">Task 2: Inline vs.&nbsp;Display Math</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -302,7 +335,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Solution - Lab 3: Mathematical Notation in Quarto</h1>
+<h1 class="title">Solution - Lab 03: Mathematical Notation</h1>
 <p class="subtitle lead">MAT 186: Introduction to Data Science</p>
 </div>
 
@@ -327,28 +360,27 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script>
-  var password = "MAT186LABSOER";
+  var password = "MAT186LABSOER"; 
   var res = prompt("DCC Instructor Key Required:");
   if (res != password) {
     alert("Incorrect password. Access denied.");
     window.location.href = "../index.html";
   }
 </script>
-<section id="mathematical-notation-in-quarto---official-solutions" class="level2">
-<h2 class="anchored" data-anchor-id="mathematical-notation-in-quarto---official-solutions">Mathematical Notation in Quarto - Official Solutions</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Instructor Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Add your specific DCC lab answers below this box.</p>
-</div>
-</div>
+<section id="lab-3-official-solutions" class="level2">
+<h2 class="anchored" data-anchor-id="lab-3-official-solutions">Lab 3 Official Solutions</h2>
+<section id="task-1-the-standard-deviation-formula" class="level3">
+<h3 class="anchored" data-anchor-id="task-1-the-standard-deviation-formula">Task 1: The Standard Deviation Formula</h3>
+<p>The student was asked to render the sample standard deviation formula using LaTeX.</p>
+<p><strong>The expected output:</strong></p>
+<p><span class="math display">\[s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}}\]</span></p>
+</section>
+<section id="task-2-inline-vs.-display-math" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-inline-vs.-display-math">Task 2: Inline vs.&nbsp;Display Math</h3>
+<ul>
+<li><strong>Inline Math:</strong> We use single dollar signs, like <span class="math inline">\(E = mc^2\)</span>, to put math inside a sentence.</li>
+<li><strong>Display Math:</strong> We use double dollar signs to center the math on its own line.</li>
+</ul>
 <p><br><br></p>
 <hr>
 <div class="content-block">
@@ -358,6 +390,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
