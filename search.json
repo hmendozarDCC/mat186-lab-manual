@@ -219,7 +219,7 @@
     "href": "labs/lab14.html",
     "title": "Lab 14: Bootstrapping and Resampling",
     "section": "",
-    "text": "Understand the concept of Sampling with Replacement.\nUse the infer package to create a bootstrap distribution.\nEstimate a Confidence Interval without assuming the data is “Normal.”\nCompare Bootstrap results to traditional T-test results.\n\n\n\n\n\nWhat if your data is skewed, or you have a very small sample size? Traditional math might fail you. Bootstrapping solves this by treating your sample like a “mini-population.” We take thousands of samples from our own data to see how much the mean varies.\n\n\n\n\nIn R, the infer package makes the logic of bootstrapping very clear. We follow four steps: specify, generate, calculate, and visualize.\n\n# Install and load the infer package\nif(!require(infer)) install.packages(\"infer\")\nlibrary(tidyverse)\nlibrary(infer)\n\n# Let's bootstrap the mean height of Star Wars characters\nboot_dist &lt;- starwars |&gt;\n  drop_na(height) |&gt;\n  specify(response = height) |&gt;              # 1. What variable?\n  generate(reps = 1000, type = \"bootstrap\") |&gt; # 2. Resample 1000 times\n  calculate(stat = \"mean\")                   # 3. Find the mean each time\n\n#| label: tbl-boot-head\n#| tbl-cap: \"The first six rows of the bootstrap distribution, showing the calculated mean for each simulation replicate.\"\n\nhead(boot_dist) |&gt;\n  knitr::kable()\n\n\n\n\nreplicate\nstat\n\n\n\n\n1\n173.9012\n\n\n2\n175.7654\n\n\n3\n173.0123\n\n\n4\n173.1852\n\n\n5\n182.0988\n\n\n6\n176.9753\n\n\n\n\n\n\n\n\n\nInstead of a theoretical curve, we look at the actual distribution of our 1,000 “fake” means.\n\nvisualize(boot_dist) +\n  labs(title = \"Bootstrap Distribution of the Mean\",\n       x = \"Sample Mean Height (cm)\", \n       y = \"Count\")\n\n\n\n\n\n\n\nFigure 1: Bootstrap distribution of mean heights for Star Wars characters based on 1,000 resamples.\n\n\n\n\n\n\n\n\n\nTo find a 95% Confidence Interval, we simply look at where the middle 95% of our 1,000 bootstrap means fall.\n\n# 1. Calculate the interval\npercentile_ci &lt;- boot_dist |&gt;\n  get_confidence_interval(level = 0.95, type = \"percentile\")\n\n# 2. Present as an accessible table\nknitr::kable(\n  percentile_ci,\n  col.names = c(\"Lower Bound (2.5%)\", \"Upper Bound (97.5%)\"),\n  digits = 2\n)\n\n\n\nTable 1: 95% Confidence Interval for mean height using the Percentile Method (1,000 bootstrap replicates).\n\n\n\n\n\n\nLower Bound (2.5%)\nUpper Bound (97.5%)\n\n\n\n\n166.69\n182.2\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo “Normality” Required: It works even if your data is weirdly shaped.\nAny Statistic: You can bootstrap the mean, the median, the standard deviation, or even the correlation coefficient.\nVisual Logic: It helps you see the uncertainty in your estimate.\n\n\n\nLab Task 14:\n\nPick a numeric variable from your dataset.\nCreate a histogram of the original data. (Is it skewed?)\nRun the infer code above to generate 1,000 bootstrap reps for the Median instead of the mean (stat = \"median\").\nVisualize the bootstrap distribution.\nCalculate the 95% Confidence Interval.\nReflection: In your Quarto document, explain in your own words why we “sample with replacement” during bootstrapping.",
+    "text": "Understand the concept of Sampling with Replacement.\nUse the infer package to create a bootstrap distribution.\nEstimate a Confidence Interval without assuming the data is “Normal.”\nCompare Bootstrap results to traditional T-test results.\n\n\n\n\n\nWhat if your data is skewed, or you have a very small sample size? Traditional math might fail you. Bootstrapping solves this by treating your sample like a “mini-population.” We take thousands of samples from our own data to see how much the mean varies.\n\n\n\n\nIn R, the infer package makes the logic of bootstrapping very clear. We follow four steps: specify, generate, calculate, and visualize.\n\n# Install and load the infer package\nif(!require(infer)) install.packages(\"infer\")\nlibrary(tidyverse)\nlibrary(infer)\n\n# Let's bootstrap the mean height of Star Wars characters\nboot_dist &lt;- starwars |&gt;\n  drop_na(height) |&gt;\n  specify(response = height) |&gt;              # 1. What variable?\n  generate(reps = 1000, type = \"bootstrap\") |&gt; # 2. Resample 1000 times\n  calculate(stat = \"mean\")                   # 3. Find the mean each time\n\n#| label: tbl-boot-head\n#| tbl-cap: \"The first six rows of the bootstrap distribution, showing the calculated mean for each simulation replicate.\"\n\nhead(boot_dist) |&gt;\n  knitr::kable()\n\n\n\n\nreplicate\nstat\n\n\n\n\n1\n172.7901\n\n\n2\n174.4444\n\n\n3\n176.3704\n\n\n4\n172.2963\n\n\n5\n173.6667\n\n\n6\n170.2099\n\n\n\n\n\n\n\n\n\nInstead of a theoretical curve, we look at the actual distribution of our 1,000 “fake” means.\n\nvisualize(boot_dist) +\n  labs(title = \"Bootstrap Distribution of the Mean\",\n       x = \"Sample Mean Height (cm)\", \n       y = \"Count\")\n\n\n\n\n\n\n\nFigure 1: Bootstrap distribution of mean heights for Star Wars characters based on 1,000 resamples.\n\n\n\n\n\n\n\n\n\nTo find a 95% Confidence Interval, we simply look at where the middle 95% of our 1,000 bootstrap means fall.\n\n# 1. Calculate the interval\npercentile_ci &lt;- boot_dist |&gt;\n  get_confidence_interval(level = 0.95, type = \"percentile\")\n\n# 2. Present as an accessible table\nknitr::kable(\n  percentile_ci,\n  col.names = c(\"Lower Bound (2.5%)\", \"Upper Bound (97.5%)\"),\n  digits = 2\n)\n\n\n\nTable 1: 95% Confidence Interval for mean height using the Percentile Method (1,000 bootstrap replicates).\n\n\n\n\n\n\nLower Bound (2.5%)\nUpper Bound (97.5%)\n\n\n\n\n167.02\n182.24\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo “Normality” Required: It works even if your data is weirdly shaped.\nAny Statistic: You can bootstrap the mean, the median, the standard deviation, or even the correlation coefficient.\nVisual Logic: It helps you see the uncertainty in your estimate.\n\n\n\nLab Task 14:\n\nPick a numeric variable from your dataset.\nCreate a histogram of the original data. (Is it skewed?)\nRun the infer code above to generate 1,000 bootstrap reps for the Median instead of the mean (stat = \"median\").\nVisualize the bootstrap distribution.\nCalculate the 95% Confidence Interval.\nReflection: In your Quarto document, explain in your own words why we “sample with replacement” during bootstrapping.",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -255,7 +255,7 @@
     "href": "labs/lab14.html#part-1-the-infer-package",
     "title": "Lab 14: Bootstrapping and Resampling",
     "section": "",
-    "text": "In R, the infer package makes the logic of bootstrapping very clear. We follow four steps: specify, generate, calculate, and visualize.\n\n# Install and load the infer package\nif(!require(infer)) install.packages(\"infer\")\nlibrary(tidyverse)\nlibrary(infer)\n\n# Let's bootstrap the mean height of Star Wars characters\nboot_dist &lt;- starwars |&gt;\n  drop_na(height) |&gt;\n  specify(response = height) |&gt;              # 1. What variable?\n  generate(reps = 1000, type = \"bootstrap\") |&gt; # 2. Resample 1000 times\n  calculate(stat = \"mean\")                   # 3. Find the mean each time\n\n#| label: tbl-boot-head\n#| tbl-cap: \"The first six rows of the bootstrap distribution, showing the calculated mean for each simulation replicate.\"\n\nhead(boot_dist) |&gt;\n  knitr::kable()\n\n\n\n\nreplicate\nstat\n\n\n\n\n1\n173.9012\n\n\n2\n175.7654\n\n\n3\n173.0123\n\n\n4\n173.1852\n\n\n5\n182.0988\n\n\n6\n176.9753",
+    "text": "In R, the infer package makes the logic of bootstrapping very clear. We follow four steps: specify, generate, calculate, and visualize.\n\n# Install and load the infer package\nif(!require(infer)) install.packages(\"infer\")\nlibrary(tidyverse)\nlibrary(infer)\n\n# Let's bootstrap the mean height of Star Wars characters\nboot_dist &lt;- starwars |&gt;\n  drop_na(height) |&gt;\n  specify(response = height) |&gt;              # 1. What variable?\n  generate(reps = 1000, type = \"bootstrap\") |&gt; # 2. Resample 1000 times\n  calculate(stat = \"mean\")                   # 3. Find the mean each time\n\n#| label: tbl-boot-head\n#| tbl-cap: \"The first six rows of the bootstrap distribution, showing the calculated mean for each simulation replicate.\"\n\nhead(boot_dist) |&gt;\n  knitr::kable()\n\n\n\n\nreplicate\nstat\n\n\n\n\n1\n172.7901\n\n\n2\n174.4444\n\n\n3\n176.3704\n\n\n4\n172.2963\n\n\n5\n173.6667\n\n\n6\n170.2099",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -279,7 +279,7 @@
     "href": "labs/lab14.html#part-3-the-percentile-method",
     "title": "Lab 14: Bootstrapping and Resampling",
     "section": "",
-    "text": "To find a 95% Confidence Interval, we simply look at where the middle 95% of our 1,000 bootstrap means fall.\n\n# 1. Calculate the interval\npercentile_ci &lt;- boot_dist |&gt;\n  get_confidence_interval(level = 0.95, type = \"percentile\")\n\n# 2. Present as an accessible table\nknitr::kable(\n  percentile_ci,\n  col.names = c(\"Lower Bound (2.5%)\", \"Upper Bound (97.5%)\"),\n  digits = 2\n)\n\n\n\nTable 1: 95% Confidence Interval for mean height using the Percentile Method (1,000 bootstrap replicates).\n\n\n\n\n\n\nLower Bound (2.5%)\nUpper Bound (97.5%)\n\n\n\n\n166.69\n182.2",
+    "text": "To find a 95% Confidence Interval, we simply look at where the middle 95% of our 1,000 bootstrap means fall.\n\n# 1. Calculate the interval\npercentile_ci &lt;- boot_dist |&gt;\n  get_confidence_interval(level = 0.95, type = \"percentile\")\n\n# 2. Present as an accessible table\nknitr::kable(\n  percentile_ci,\n  col.names = c(\"Lower Bound (2.5%)\", \"Upper Bound (97.5%)\"),\n  digits = 2\n)\n\n\n\nTable 1: 95% Confidence Interval for mean height using the Percentile Method (1,000 bootstrap replicates).\n\n\n\n\n\n\nLower Bound (2.5%)\nUpper Bound (97.5%)\n\n\n\n\n167.02\n182.24",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -1054,132 +1054,77 @@
     "href": "labs/lab17_F26.html",
     "title": "Lab 17: Linear Regression",
     "section": "",
-    "text": "Understand the Linear Regression equation: \\(y = \\beta_0 + \\beta_1x + \\epsilon\\).\nCalculate and interpret the Correlation Coefficient (\\(r\\)).\nFit a Linear Model in R using the lm() function.\nEvaluate model fit using R-squared (\\(R^2\\)).",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 17: Regression models"
-    ]
+    "text": "Understand the Linear Regression equation: \\(y = \\beta_0 + \\beta_1x + \\epsilon\\).\nCalculate and interpret the Correlation Coefficient (\\(r\\)).\nFit a Linear Model in R using the lm() function.\nEvaluate model fit using R-squared (\\(R^2\\))."
   },
   {
     "objectID": "labs/lab17_F26.html#learning-objectives",
     "href": "labs/lab17_F26.html#learning-objectives",
     "title": "Lab 17: Linear Regression",
     "section": "",
-    "text": "Understand the Linear Regression equation: \\(y = \\beta_0 + \\beta_1x + \\epsilon\\).\nCalculate and interpret the Correlation Coefficient (\\(r\\)).\nFit a Linear Model in R using the lm() function.\nEvaluate model fit using R-squared (\\(R^2\\)).",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 17: Regression models"
-    ]
+    "text": "Understand the Linear Regression equation: \\(y = \\beta_0 + \\beta_1x + \\epsilon\\).\nCalculate and interpret the Correlation Coefficient (\\(r\\)).\nFit a Linear Model in R using the lm() function.\nEvaluate model fit using R-squared (\\(R^2\\))."
   },
   {
     "objectID": "labs/lab17_F26.html#data-acquisition-birth-weight-dataset-lbw.csv",
     "href": "labs/lab17_F26.html#data-acquisition-birth-weight-dataset-lbw.csv",
     "title": "Lab 17: Linear Regression",
     "section": "Data Acquisition: Birth Weight Dataset (lbw.csv)",
-    "text": "Data Acquisition: Birth Weight Dataset (lbw.csv)\nTo complete the regression exercises, you need the lbw.csv dataset. Choose one of the methods below to load the data into R.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 17: Regression models"
-    ]
+    "text": "Data Acquisition: Birth Weight Dataset (lbw.csv)\nTo complete the regression exercises, you need the lbw.csv dataset. Choose one of the methods below to load the data into R."
   },
   {
     "objectID": "labs/lab17_F26.html#option-1-direct-link-recommended",
     "href": "labs/lab17_F26.html#option-1-direct-link-recommended",
     "title": "Lab 17: Linear Regression",
     "section": "Option 1: Direct Link (Recommended)",
-    "text": "Option 1: Direct Link (Recommended)\nThis method pulls the data directly from the lab manual website. ## Data Loading and Preview\nWe are using the lbw dataset, which contains information on low birth weight.\n\nAccessible Logic: We use the read_csv() function to pull data from a web URL. After loading, it is important to check the “head” (the first 6 rows) to ensure the columns and values imported correctly.\n\n\nlibrary(tidyverse)\n\n# 1. Load the data\nurl &lt;- url &lt;- \"https://vincentarelbundock.github.io/Rdatasets/csv/COUNT/lbw.csv\"\nlbw_data &lt;- read_csv(url)\n\n# 2. Display an accessible preview\n# We use head() to get the first 6 rows and kable() to make it a table\nknitr::kable(head(lbw_data))\n\n\n\nTable 1: Preview of the first six rows of the low birth weight (LBW) dataset.\n\n\n\n\n\n\nrownames\nlow\nsmoke\nrace\nage\nlwt\nptl\nht\nui\nftv\nbwt\n\n\n\n\n1\n0\n0\n2\n19\n182\n0\n0\n1\n0\n2523\n\n\n2\n0\n0\n3\n33\n155\n0\n0\n0\n3\n2551\n\n\n3\n0\n1\n1\n20\n105\n0\n0\n0\n1\n2557\n\n\n4\n0\n1\n1\n21\n108\n0\n0\n1\n2\n2594\n\n\n5\n0\n1\n1\n18\n107\n0\n0\n1\n0\n2600\n\n\n6\n0\n0\n3\n21\n124\n0\n0\n0\n0\n2622",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 17: Regression models"
-    ]
+    "text": "Option 1: Direct Link (Recommended)\nThis method pulls the data directly from the lab manual website. ## Data Loading and Preview\nWe are using the lbw dataset, which contains information on low birth weight.\n\nAccessible Logic: We use the read_csv() function to pull data from a web URL. After loading, it is important to check the “head” (the first 6 rows) to ensure the columns and values imported correctly.\n\n\nlibrary(tidyverse)\n\n# 1. Load the data\nurl &lt;- url &lt;- \"https://vincentarelbundock.github.io/Rdatasets/csv/COUNT/lbw.csv\"\nlbw_data &lt;- read_csv(url)\n\n# 2. Display an accessible preview\n# We use head() to get the first 6 rows and kable() to make it a table\nknitr::kable(head(lbw_data))\n\n\n\nTable 1: Preview of the first six rows of the low birth weight (LBW) dataset.\n\n\n\n\n\n\nrownames\nlow\nsmoke\nrace\nage\nlwt\nptl\nht\nui\nftv\nbwt\n\n\n\n\n1\n0\n0\n2\n19\n182\n0\n0\n1\n0\n2523\n\n\n2\n0\n0\n3\n33\n155\n0\n0\n0\n3\n2551\n\n\n3\n0\n1\n1\n20\n105\n0\n0\n0\n1\n2557\n\n\n4\n0\n1\n1\n21\n108\n0\n0\n1\n2\n2594\n\n\n5\n0\n1\n1\n18\n107\n0\n0\n1\n0\n2600\n\n\n6\n0\n0\n3\n21\n124\n0\n0\n0\n0\n2622"
   },
   {
     "objectID": "labs/lab17_F26.html#option-2-local-file",
     "href": "labs/lab17_F26.html#option-2-local-file",
     "title": "Lab 17: Linear Regression",
     "section": "Option 2: Local File",
-    "text": "Option 2: Local File\nUse this if the file is saved in your project folder. ## Loading Data Locally\nTo ensure this lab is reproducible, we are loading the birth weight data from our project’s data folder.\n\nAccessible Logic: The path \"data/lbw.csv\" tells R to look inside a folder named data that is located in the same place as your script. This is called a relative path.\n\n\n# 1. Load the data using a relative path\n# Ensure the 'data' folder exists in your RStudio project\nlbw_data &lt;- read.csv(\"../data/2026_Fall/lbw.csv\")\n\n# 2. Accessible Preview\nknitr::kable(head(lbw_data))\n\n\n\nTable 2: Preview of the locally loaded LBW dataset.\n\n\n\n\n\n\nrownames\nlow\nsmoke\nrace\nage\nlwt\nptl\nht\nui\nftv\nbwt\n\n\n\n\n1\n0\n0\n2\n19\n182\n0\n0\n1\n0\n2523\n\n\n2\n0\n0\n3\n33\n155\n0\n0\n0\n3\n2551\n\n\n3\n0\n1\n1\n20\n105\n0\n0\n0\n1\n2557\n\n\n4\n0\n1\n1\n21\n108\n0\n0\n1\n2\n2594\n\n\n5\n0\n1\n1\n18\n107\n0\n0\n1\n0\n2600\n\n\n6\n0\n0\n3\n21\n124\n0\n0\n0\n0\n2622",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 17: Regression models"
-    ]
+    "text": "Option 2: Local File\nUse this if the file is saved in your project folder. ## Loading Data Locally\nTo ensure this lab is reproducible, we are loading the birth weight data from our project’s data folder.\n\nAccessible Logic: The path \"data/lbw.csv\" tells R to look inside a folder named data that is located in the same place as your script. This is called a relative path.\n\n\n# 1. Load the data using a relative path\n# Ensure the 'data' folder exists in your RStudio project\nlbw_data &lt;- read.csv(\"../data/2026_Fall/lbw.csv\")\n\n# 2. Accessible Preview\nknitr::kable(head(lbw_data))\n\n\n\nTable 2: Preview of the locally loaded LBW dataset.\n\n\n\n\n\n\nrownames\nlow\nsmoke\nrace\nage\nlwt\nptl\nht\nui\nftv\nbwt\n\n\n\n\n1\n0\n0\n2\n19\n182\n0\n0\n1\n0\n2523\n\n\n2\n0\n0\n3\n33\n155\n0\n0\n0\n3\n2551\n\n\n3\n0\n1\n1\n20\n105\n0\n0\n0\n1\n2557\n\n\n4\n0\n1\n1\n21\n108\n0\n0\n1\n2\n2594\n\n\n5\n0\n1\n1\n18\n107\n0\n0\n1\n0\n2600\n\n\n6\n0\n0\n3\n21\n124\n0\n0\n0\n0\n2622"
   },
   {
     "objectID": "labs/lab17_F26.html#part-1-correlation-r",
     "href": "labs/lab17_F26.html#part-1-correlation-r",
     "title": "Lab 17: Linear Regression",
     "section": "Part 1: Correlation (\\(r\\))",
-    "text": "Part 1: Correlation (\\(r\\))\nBefore building a model, we need to know if a linear relationship even exists. The correlation coefficient (\\(r\\)) ranges from -1 to 1.\n\n1: Perfect positive relationship.\n0: No relationship at all.\n-1: Perfect negative relationship.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 17: Regression models"
-    ]
+    "text": "Part 1: Correlation (\\(r\\))\nBefore building a model, we need to know if a linear relationship even exists. The correlation coefficient (\\(r\\)) ranges from -1 to 1.\n\n1: Perfect positive relationship.\n0: No relationship at all.\n-1: Perfect negative relationship."
   },
   {
     "objectID": "labs/lab17_F26.html#correlation-analysis-mothers-weight-vs.-birth-weight",
     "href": "labs/lab17_F26.html#correlation-analysis-mothers-weight-vs.-birth-weight",
     "title": "Lab 17: Linear Regression",
     "section": "Correlation Analysis: Mother’s Weight vs. Birth Weight",
-    "text": "Correlation Analysis: Mother’s Weight vs. Birth Weight\nWe are calculating Pearson’s correlation coefficient to see if there is a linear relationship between the mother’s weight at the last menstrual period (lwt) and the baby’s birth weight (bwt).\n\nAccessible Logic: Correlation (\\(r\\)) ranges from -1 to +1. A value of 0 means no linear relationship, while values closer to +1 or -1 indicate stronger relationships.\n\n\nlibrary(tidyverse)\n\n# 1. Calculate the correlation\ncor_result &lt;- lbw_data |&gt;\n  drop_na(lwt, bwt) |&gt;\n  summarize(correlation = cor(lwt, bwt))\n\n# 2. Display as an accessible table\nknitr::kable(\n  cor_result,\n  col.names = c(\"Correlation Coefficient (r)\"),\n  digits = 3\n)\n\n\n\nTable 3: Pearson Correlation Coefficient between Mother’s Weight and Birth Weight.\n\n\n\n\n\n\nCorrelation Coefficient (r)\n\n\n\n\n0.186",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 17: Regression models"
-    ]
+    "text": "Correlation Analysis: Mother’s Weight vs. Birth Weight\nWe are calculating Pearson’s correlation coefficient to see if there is a linear relationship between the mother’s weight at the last menstrual period (lwt) and the baby’s birth weight (bwt).\n\nAccessible Logic: Correlation (\\(r\\)) ranges from -1 to +1. A value of 0 means no linear relationship, while values closer to +1 or -1 indicate stronger relationships.\n\n\nlibrary(tidyverse)\n\n# 1. Calculate the correlation\ncor_result &lt;- lbw_data |&gt;\n  drop_na(lwt, bwt) |&gt;\n  summarize(correlation = cor(lwt, bwt))\n\n# 2. Display as an accessible table\nknitr::kable(\n  cor_result,\n  col.names = c(\"Correlation Coefficient (r)\"),\n  digits = 3\n)\n\n\n\nTable 3: Pearson Correlation Coefficient between Mother’s Weight and Birth Weight.\n\n\n\n\n\n\nCorrelation Coefficient (r)\n\n\n\n\n0.186"
   },
   {
     "objectID": "labs/lab17_F26.html#part-2-visualizing-the-best-fit-line",
     "href": "labs/lab17_F26.html#part-2-visualizing-the-best-fit-line",
     "title": "Lab 17: Linear Regression",
     "section": "Part 2: Visualizing the Best Fit Line",
-    "text": "Part 2: Visualizing the Best Fit Line\nWe use geom_smooth(method = \"lm\") to draw the line that minimizes the distance between all data points (the “Ordinary Least Squares” method).\n\nggplot(lbw_data, aes(x = lwt, y = bwt)) +\n  geom_point(alpha = 0.5, color = \"#002147\") + # DCC Navy\n  geom_smooth(method = \"lm\", color = \"red\", se = TRUE) +\n  theme_minimal() +\n  labs(title = \"Predicting Birth Weight based on Mother's Weight\",\n       x = \"Mother's Weight (lbs)\",\n       y = \"Birth Weight (grams)\")\n\n\n\n\n\n\n\nFigure 1: Regression of Birth Weight on Mother’s Weight",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 17: Regression models"
-    ]
+    "text": "Part 2: Visualizing the Best Fit Line\nWe use geom_smooth(method = \"lm\") to draw the line that minimizes the distance between all data points (the “Ordinary Least Squares” method).\n\nggplot(lbw_data, aes(x = lwt, y = bwt)) +\n  geom_point(alpha = 0.5, color = \"#002147\") + # DCC Navy\n  geom_smooth(method = \"lm\", color = \"red\", se = TRUE) +\n  theme_minimal() +\n  labs(title = \"Predicting Birth Weight based on Mother's Weight\",\n       x = \"Mother's Weight (lbs)\",\n       y = \"Birth Weight (grams)\")\n\n\n\n\n\n\n\nFigure 1: Regression of Birth Weight on Mother’s Weight"
   },
   {
     "objectID": "labs/lab17_F26.html#part-3-building-the-model-in-r",
     "href": "labs/lab17_F26.html#part-3-building-the-model-in-r",
     "title": "Lab 17: Linear Regression",
     "section": "Part 3: Building the Model in R",
-    "text": "Part 3: Building the Model in R\nIn R, the “Linear Model” function is lm(). The syntax is lm(dependent_variable ~ independent_variable).",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 17: Regression models"
-    ]
+    "text": "Part 3: Building the Model in R\nIn R, the “Linear Model” function is lm(). The syntax is lm(dependent_variable ~ independent_variable)."
   },
   {
     "objectID": "labs/lab17_F26.html#simple-linear-regression-predicting-birth-weight",
     "href": "labs/lab17_F26.html#simple-linear-regression-predicting-birth-weight",
     "title": "Lab 17: Linear Regression",
     "section": "Simple Linear Regression: Predicting Birth Weight",
-    "text": "Simple Linear Regression: Predicting Birth Weight\nWe are fitting a linear model to see how well Mother’s Weight (lwt) predicts Birth Weight (bwt).\n\nAccessible Logic: We are looking for the equation of a line: \\[bwt = \\beta_0 + \\beta_1(lwt)\\]. * The Intercept (\\(\\beta_0\\)) is the predicted birth weight if the mother’s weight was zero. * The Slope (\\(\\beta_1\\)) tells us how many grams the birth weight increases for every 1-pound increase in mother’s weight.\n\n\nlibrary(broom)\n\n# 1. Fit the model\nlbw_model &lt;- lm(bwt ~ lwt, data = lbw_data)\n\n# 2. Tidy the coefficients into an accessible table\nmodel_stats &lt;- tidy(lbw_model)\n\nknitr::kable(\n  model_stats,\n  col.names = c(\"Term\", \"Estimate\", \"Std. Error\", \"t-statistic\", \"p-value\"),\n  digits = 3\n)\n\n\n\nTable 4: Regression coefficients for predicting Birth Weight from Mother’s Weight.\n\n\n\n\n\n\nTerm\nEstimate\nStd. Error\nt-statistic\np-value\n\n\n\n\n(Intercept)\n2369.184\n228.467\n10.370\n0.00\n\n\nlwt\n4.430\n1.713\n2.586\n0.01\n\n\n\n\n\n\n\n\n\n\nHow to interpret the summary:\n\nIntercept (\\(\\beta_0\\)): The predicted value of \\(y\\) when \\(x\\) is zero.\nSlope (\\(\\beta_1\\)): For every 1 unit increase in \\(x\\), how much \\(y\\) is expected to change.\nR-squared (\\(R^2\\)): The percentage of variation in \\(y\\) explained by your model. (e.g., \\(0.75\\) means your model explains 75% of the data).",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 17: Regression models"
-    ]
+    "text": "Simple Linear Regression: Predicting Birth Weight\nWe are fitting a linear model to see how well Mother’s Weight (lwt) predicts Birth Weight (bwt).\n\nAccessible Logic: We are looking for the equation of a line: \\[bwt = \\beta_0 + \\beta_1(lwt)\\]. * The Intercept (\\(\\beta_0\\)) is the predicted birth weight if the mother’s weight was zero. * The Slope (\\(\\beta_1\\)) tells us how many grams the birth weight increases for every 1-pound increase in mother’s weight.\n\n\nlibrary(broom)\n\n# 1. Fit the model\nlbw_model &lt;- lm(bwt ~ lwt, data = lbw_data)\n\n# 2. Tidy the coefficients into an accessible table\nmodel_stats &lt;- tidy(lbw_model)\n\nknitr::kable(\n  model_stats,\n  col.names = c(\"Term\", \"Estimate\", \"Std. Error\", \"t-statistic\", \"p-value\"),\n  digits = 3\n)\n\n\n\nTable 4: Regression coefficients for predicting Birth Weight from Mother’s Weight.\n\n\n\n\n\n\nTerm\nEstimate\nStd. Error\nt-statistic\np-value\n\n\n\n\n(Intercept)\n2369.184\n228.467\n10.370\n0.00\n\n\nlwt\n4.430\n1.713\n2.586\n0.01\n\n\n\n\n\n\n\n\n\n\nHow to interpret the summary:\n\nIntercept (\\(\\beta_0\\)): The predicted value of \\(y\\) when \\(x\\) is zero.\nSlope (\\(\\beta_1\\)): For every 1 unit increase in \\(x\\), how much \\(y\\) is expected to change.\nR-squared (\\(R^2\\)): The percentage of variation in \\(y\\) explained by your model. (e.g., \\(0.75\\) means your model explains 75% of the data)."
   },
   {
     "objectID": "labs/lab17_F26.html#part-4-making-predictions",
     "href": "labs/lab17_F26.html#part-4-making-predictions",
     "title": "Lab 17: Linear Regression",
     "section": "Part 4: Making Predictions",
-    "text": "Part 4: Making Predictions\nOnce you have a model, you can plug in a value for \\(x\\) to predict \\(y\\). If our model is \\(Mass = -100 + 1.2(Height)\\), we can predict the mass of a character who is 200cm tall. ## Model Prediction: 150lb Mother\nUsing our regression model, we can predict the specific birth weight for a baby based on the mother’s weight.\n\nAccessible Logic: We are plugging 150 into our regression equation (\\(y = mx + b\\)). The predict() function calculates this value for us automatically using the model we previously fitted.\n\n\n# 1. Create a data frame for the input (required by the predict function)\nnew_mom &lt;- data.frame(lwt = 150)\n\n# 2. Run the prediction\nprediction_val &lt;- predict(lbw_model, newdata = new_mom)\n\n# 3. Present the result in a clear, single-row table\nprediction_table &lt;- data.frame(\n  input_lwt = 150,\n  predicted_bwt = prediction_val\n)\n\nknitr::kable(\n  prediction_table,\n  col.names = c(\"Mother's Weight (lbs)\", \"Predicted Birth Weight (g)\"),\n  digits = 2\n)\n\n\n\nTable 5: Predicted Birth Weight for a mother weighing 150 lbs.\n\n\n\n\n\n\nMother’s Weight (lbs)\nPredicted Birth Weight (g)\n\n\n\n\n150\n3033.68\n\n\n\n\n\n\n\n\n\n\nLab Task 17:\n\nPick two numeric variables from your dataset that you think are related.\nCreate a Scatter Plot and add a linear regression line.\nUse the cor() function to find the correlation coefficient.\nFit a linear model using lm() and look at the summary().\nThe Report:\n\nWhat is the slope of your model?\nWhat is the \\(R^2\\) value?\nUse your model to make one prediction for a value not in your dataset.",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "Lab 17: Regression models"
-    ]
+    "text": "Part 4: Making Predictions\nOnce you have a model, you can plug in a value for \\(x\\) to predict \\(y\\). If our model is \\(Mass = -100 + 1.2(Height)\\), we can predict the mass of a character who is 200cm tall. ## Model Prediction: 150lb Mother\nUsing our regression model, we can predict the specific birth weight for a baby based on the mother’s weight.\n\nAccessible Logic: We are plugging 150 into our regression equation (\\(y = mx + b\\)). The predict() function calculates this value for us automatically using the model we previously fitted.\n\n\n# 1. Create a data frame for the input (required by the predict function)\nnew_mom &lt;- data.frame(lwt = 150)\n\n# 2. Run the prediction\nprediction_val &lt;- predict(lbw_model, newdata = new_mom)\n\n# 3. Present the result in a clear, single-row table\nprediction_table &lt;- data.frame(\n  input_lwt = 150,\n  predicted_bwt = prediction_val\n)\n\nknitr::kable(\n  prediction_table,\n  col.names = c(\"Mother's Weight (lbs)\", \"Predicted Birth Weight (g)\"),\n  digits = 2\n)\n\n\n\nTable 5: Predicted Birth Weight for a mother weighing 150 lbs.\n\n\n\n\n\n\nMother’s Weight (lbs)\nPredicted Birth Weight (g)\n\n\n\n\n150\n3033.68\n\n\n\n\n\n\n\n\n\n\nLab Task 17:\n\nPick two numeric variables from your dataset that you think are related.\nCreate a Scatter Plot and add a linear regression line.\nUse the cor() function to find the correlation coefficient.\nFit a linear model using lm() and look at the summary().\nThe Report:\n\nWhat is the slope of your model?\nWhat is the \\(R^2\\) value?\nUse your model to make one prediction for a value not in your dataset."
   },
   {
     "objectID": "labs/lab13.html",
