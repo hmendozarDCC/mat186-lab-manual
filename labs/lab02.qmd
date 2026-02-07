@@ -99,5 +99,5 @@ Follow these steps to practice using Quarto:
    
 5.  **Render the Report**: Click the **Render** button (blue arrow icon) at the top of your screen. 
 6.  **Check Results**: Look at your final HTML report. You should see your title **Lab 2**, the code `2 + 2`, and the result `4`.
-7.  **Submit**: Take a screenshot of your finished HTML report and upload it.
+7.  **Submit**: upload your HTML report in Brightspace and submit it.
 :::

@@ -1,4 +1,3 @@
-{{< include ../_solution_header.qmd >}}
 ---
 title: "Lab 1: R and RStudio Installation"
 ---

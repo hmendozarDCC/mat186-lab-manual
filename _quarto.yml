@@ -73,11 +73,6 @@ website:
           - text: "Lab 17: Regression models"
             file: labs/lab17_F26.qmd
 
-      - section: "Assessment Info"
-        contents:
-          - text: "Grading Rubric & Examples"
-            file: submission-criteria.qmd # Removed underscore here as well
-
   # Page Footer
   page-footer:
     left: |
