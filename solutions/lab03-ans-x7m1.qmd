@@ -1,5 +1,5 @@
 ---
-title: "Solution - Lab 3: Mathematical Notation in Quarto"
+title: "Solution - Lab 03: Mathematical Notation"
 subtitle: "MAT 186: Introduction to Data Science"
 format:
   html:
@@ -8,7 +8,7 @@ format:
 ---
 
 <script>
-  var password = "MAT186LABSOER";
+  var password = "MAT186LABSOER"; 
   var res = prompt("DCC Instructor Key Required:");
   if (res != password) {
     alert("Incorrect password. Access denied.");
@@ -16,12 +16,20 @@ format:
   }
 </script>
 
-## Mathematical Notation in Quarto - Official Solutions
+## Lab 3 Official Solutions
 
-::: {.callout-note}
-### Instructor Note
-Add your specific DCC lab answers below this box.
-:::
+### Task 1: The Standard Deviation Formula
+The student was asked to render the sample standard deviation formula using LaTeX.
+
+**The expected output:**
+
+$$s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}}$$
+
+### Task 2: Inline vs. Display Math
+* **Inline Math:** We use single dollar signs, like $E = mc^2$, to put math inside a sentence.
+* **Display Math:** We use double dollar signs to center the math on its own line.
+
+
 
 <br><br>
 
@@ -32,4 +40,3 @@ Add your specific DCC lab answers below this box.
 <a href="../solutions.html" class="btn btn-primary btn-lg" role="button">🏠 Back to Solutions Hub</a>
 </center>
 :::
-
