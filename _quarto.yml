@@ -33,6 +33,8 @@ website:
         contents:
           - text: "How to Submit (Read First!)"
             file: submission-criteria.qmd # Removed underscore to prevent download prompt
+	  - text: "GitHub Setup & Sharing"  # <--- NEW LINK HERE
+            file: sharing-guide.qmd
           - text: "Lab Showcase"
             file: showcase.qmd
 
