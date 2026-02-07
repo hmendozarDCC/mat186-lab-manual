@@ -2072,5 +2072,19 @@
     "title": "Solution - Lab 2: RStudio Project and Quarto Documents",
     "section": "",
     "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box.\n\n\n\n\n\n\n🏠 Back to Solutions Hub"
+  },
+  {
+    "objectID": "instructor-dashboard.html",
+    "href": "instructor-dashboard.html",
+    "title": "Instructor Dashboard",
+    "section": "",
+    "text": "WarningConfidential\n\n\n\nThis page is for instructor use only. Do not link this page in the main website navigation."
+  },
+  {
+    "objectID": "instructor-dashboard.html#master-password-key",
+    "href": "instructor-dashboard.html#master-password-key",
+    "title": "Instructor Dashboard",
+    "section": "🔑 Master Password Key",
+    "text": "🔑 Master Password Key\n\n\n\nLab #\nTopic\nOriginal Password\nFilename\n\n\n\n\n02\nRStudio & Quarto\nv4n9\nlab02-ans-v4n9.qmd\n\n\n03\nMath Notation\nx7m1\nlab03-ans-x7m1.qmd\n\n\n04\nGitHub Repo\nb2r6\nlab04-ans-b2r6.qmd\n\n\n05\nData Input\nt8j3\nlab05-ans-t8j3.qmd\n\n\n06\nData Collection\nw5q1\nlab06-ans-w5q1.qmd\n\n\n07\nCleaning Data\nh9y4\nlab07-ans-h9y4.qmd\n\n\n08\nEDA\ns3z7\nlab08-ans-s3z7.qmd\n\n\n09\nProbability\nf6p2\nlab09-ans-f6p2.qmd\n\n\n10\nOne Mean\ng4d8\nlab10-ans-g4d8.qmd\n\n\n11\nOne Proportion\nm1k5\nlab11-ans-m1k5.qmd\n\n\n12\nTwo Means\np9v2\nlab12-ans-p9v2.qmd\n\n\n13\nTwo Proportions\nc7w4\nlab13-ans-c7w4.qmd\n\n\n14\nBootstrapping\nx2n8\nlab14-ans-x2n8.qmd\n\n\n15\nNon-parametric\nr5h1\nlab15-ans-r5h1.qmd\n\n\n16\nANOVA\ny3l9\nlab16-ans-y3l9.qmd\n\n\n17\nRegression\na6t2\nlab17-ans-a6t2.qmd\n\n\n\n\n\n🚀 Quick Admin Tasks\n\nCurrent Temp Password: MAT186LABSOER\nTo Restore: Run the “Restore Original Passwords” R script.\nTo Update Solutions: Go to the solutions/ folder directly."
   }
 ]

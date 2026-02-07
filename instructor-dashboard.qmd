@@ -1,0 +1,40 @@
+---
+title: "Instructor Dashboard"
+subtitle: "Secret Keys & File Management"
+format:
+  html:
+    toc: false
+---
+
+::: {.callout-warning}
+### Confidential
+This page is for instructor use only. Do not link this page in the main website navigation.
+:::
+
+## 🔑 Master Password Key
+
+| Lab # | Topic | Original Password | Filename |
+|:---:|:---|:---:|:---|
+| 02 | RStudio & Quarto | `v4n9` | `lab02-ans-v4n9.qmd` |
+| 03 | Math Notation | `x7m1` | `lab03-ans-x7m1.qmd` |
+| 04 | GitHub Repo | `b2r6` | `lab04-ans-b2r6.qmd` |
+| 05 | Data Input | `t8j3` | `lab05-ans-t8j3.qmd` |
+| 06 | Data Collection | `w5q1` | `lab06-ans-w5q1.qmd` |
+| 07 | Cleaning Data | `h9y4` | `lab07-ans-h9y4.qmd` |
+| 08 | EDA | `s3z7` | `lab08-ans-s3z7.qmd` |
+| 09 | Probability | `f6p2` | `lab09-ans-f6p2.qmd` |
+| 10 | One Mean | `g4d8` | `lab10-ans-g4d8.qmd` |
+| 11 | One Proportion | `m1k5` | `lab11-ans-m1k5.qmd` |
+| 12 | Two Means | `p9v2` | `lab12-ans-p9v2.qmd` |
+| 13 | Two Proportions | `c7w4` | `lab13-ans-c7w4.qmd` |
+| 14 | Bootstrapping | `x2n8` | `lab14-ans-x2n8.qmd` |
+| 15 | Non-parametric | `r5h1` | `lab15-ans-r5h1.qmd` |
+| 16 | ANOVA | `y3l9` | `lab16-ans-y3l9.qmd` |
+| 17 | Regression | `a6t2` | `lab17-ans-a6t2.qmd` |
+
+---
+
+### 🚀 Quick Admin Tasks
+* **Current Temp Password:** `MAT186LABSOER`
+* **To Restore:** Run the "Restore Original Passwords" R script.
+* **To Update Solutions:** Go to the `solutions/` folder directly.
