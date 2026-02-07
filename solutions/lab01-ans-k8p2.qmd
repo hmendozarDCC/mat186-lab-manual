@@ -11,6 +11,7 @@ robots: noindex
 </div>
 
 <div id="solution-content" style="display:none;">
+
 # Lab01-solution
 ```{r}
 #| label: fig-lab01-sol
@@ -26,7 +27,7 @@ knitr::include_graphics("../images/res_01_99x.png")
 function checkPassword() {
   var password = document.getElementById("pass-input").value;
   // Change "MAT186" to whatever password you want
-  if (password === "v8x2") {
+  if (password === "MAT186") {
     document.getElementById("password-gate").style.display = "none";
     document.getElementById("solution-content").style.display = "block";
   } else {
