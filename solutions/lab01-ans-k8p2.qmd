@@ -36,3 +36,13 @@ function checkPassword() {
 }
 </script>
 
+
+
+***
+
+::: {.content-block}
+<center>
+<a href="../solutions.html" class="btn btn-primary btn-lg" role="button">🏠 Back to Solutions Hub</a>
+</center>
+:::
+

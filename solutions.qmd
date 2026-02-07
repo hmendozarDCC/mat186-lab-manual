@@ -1,0 +1,19 @@
+| Lab | Topic | Solution Link |
+|:---:|:---|:---:|
+| 01 | R and RStudio Installation | [View Solution](solutions/lab01-ans-k8p2.qmd) |
+| 02 | RStudio Project and Quarto Documents | [View Solution](solutions/lab02-ans-v4n9.qmd) |
+| 03 | Mathematical Notation in Quarto | [View Solution](solutions/lab03-ans-x7m1.qmd) |
+| 04 | GitHub Repository | [View Solution](solutions/lab04-ans-b2r6.qmd) |
+| 05 | Getting data into R | [View Solution](solutions/lab05-ans-t8j3.qmd) |
+| 06 | Data collection | [View Solution](solutions/lab06-ans-w5q1.qmd) |
+| 07 | Cleaning Data | [View Solution](solutions/lab07-ans-h9y4.qmd) |
+| 08 | Exploratory Data Analysis | [View Solution](solutions/lab08-ans-s3z7.qmd) |
+| 09 | Probability distribution | [View Solution](solutions/lab09-ans-f6p2.qmd) |
+| 10 | Inference for one mean | [View Solution](solutions/lab10-ans-g4d8.qmd) |
+| 11 | Inference for one proportion | [View Solution](solutions/lab11-ans-m1k5.qmd) |
+| 12 | Inference for two means | [View Solution](solutions/lab12-ans-p9v2.qmd) |
+| 13 | Inference for two proportions | [View Solution](solutions/lab13-ans-c7w4.qmd) |
+| 14 | Bootstrapping | [View Solution](solutions/lab14-ans-x2n8.qmd) |
+| 15 | Non-parametric methods | [View Solution](solutions/lab15-ans-r5h1.qmd) |
+| 16 | Analysis of variance (ANOVA) | [View Solution](solutions/lab16-ans-y3l9.qmd) |
+| 17 | Regression models | [View Solution](solutions/lab17-ans-a6t2.qmd) |

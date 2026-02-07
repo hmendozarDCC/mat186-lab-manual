@@ -1,18 +1,14 @@
 ---
 title: "Solution - Lab 2: RStudio Project and Quarto Documents"
 subtitle: "MAT 186: Introduction to Data Science"
-author: "Instructor"
 format:
   html:
     toc: true
     toc-location: right
-    code-fold: true
-    code-summary: "Show the R Code"
 ---
 
 <script>
-  // Password protection script
-  var password = 'v4n9';
+  var password = "v4n9";
   var res = prompt("DCC Instructor Key Required:");
   if (res != password) {
     alert("Incorrect password. Access denied.");
@@ -20,20 +16,20 @@ format:
   }
 </script>
 
-## Lab 2: Official Solutions
+## RStudio Project and Quarto Documents - Official Solutions
 
-::: {.callout-important}
-### Instructor Key Required
-This page contains solutions for Lab 2. If you are a student, ensure you have completed your own work before viewing these answers.
+::: {.callout-note}
+### Instructor Note
+Add your specific DCC lab answers below this box.
 :::
 
-### 📝 Lab Task 2: Calculation Solution
+<br><br>
 
-The following shows the exact structure the student's document should have reached by step 6.
+***
 
-# Lab 2
+::: {.content-block}
+<center>
+<a href="../solutions.html" class="btn btn-primary btn-lg" role="button">🏠 Back to Solutions Hub</a>
+</center>
+:::
 
-```{r}
-#| echo: true
-2 + 2
-```
