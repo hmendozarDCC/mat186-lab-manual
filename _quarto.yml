@@ -34,7 +34,7 @@ website:
           - text: "How to Submit (Read First!)"
             file: submission-criteria.qmd # Removed underscore to prevent download prompt
           - text: "Lab Showcase"
-            file: _showcase.qmd
+            file: showcase.qmd
 
       - section: "Course Labs"
         contents:
