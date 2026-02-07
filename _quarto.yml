@@ -43,7 +43,7 @@ website:
           - text: "Lab 1: R and RStudio Installation"
             file: labs/lab01.qmd
           - text: "🔑 Lab 1 Solution"  # Add this line only after the deadline
-            file: solutions/solutions/lab01-ans-k8p2.qmd
+            file: solutions/lab01-ans-k8p2.qmd
           - text: "Lab 2: RStudio Project and Quarto Documents"
             file: labs/lab02.qmd
           - text: "Lab 3: Mathematical Notation in Quarto"
