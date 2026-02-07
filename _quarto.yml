@@ -75,7 +75,7 @@ website:
           - text: "Lab 16: Analysis of variance (ANOVA)"
             file: labs/lab16.qmd
           - text: "Lab 17: Regression models"
-            file: labs/lab17_F26.qmd
+            file: labs/lab17.qmd
 
   # Page Footer
   page-footer:
