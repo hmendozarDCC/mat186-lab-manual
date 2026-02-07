@@ -1,19 +1,11 @@
-# --- System Files ---
+# Ignore the master key file
+master_key.qmd
+master_key.docx
+grading_notes.txt
+
+# Ignore OS specific files
 .DS_Store
 Thumbs.db
-.ipynb_checkpoints/
 
-# --- Quarto & R Specific ---
+# Ignore Quarto's internal cache
 /.quarto/
-/_site/
-/site_libs/
-*.html
-*.log
-
-# --- R Statistics Junk ---
-.Rhistory
-.RData
-.Ruserdata
-.Rproj.user/
-
-**/*.quarto_ipynb

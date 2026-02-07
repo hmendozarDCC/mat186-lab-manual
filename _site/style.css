@@ -1,0 +1,130 @@
+/* ==========================================================
+   MAT 186: DATA SCIENCE LAB MANUAL - GLOBAL STYLES
+   Branding: Dutchess Community College
+   Accessibility: WCAG 2.1 AA Compliant
+   ========================================================== */
+
+/* 1. DESIGN VARIABLES */
+:root {
+    --dcc-blue: #003366;       /* Official DCC Navy */
+    --dcc-cerulean: #009EDC;   /* DCC Accent Blue */
+    --bg-light: #fdfdfd;       /* Off-white for reduced eye strain */
+    --text-main: #2c3e50;      /* High contrast dark grey */
+    --link-color: #0056b3;
+}
+
+/* 2. BASE PAGE STYLING */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.75;         /* Optimized for readability and dyslexia */
+    font-size: 1.1rem;         /* Slightly larger base text */
+    color: var(--text-main);
+    background-color: var(--bg-light);
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+a:focus {
+  outline: 3px solid #ffcc00; /* Bright gold outline for focus */
+}
+
+/* Ensure the Navbar text is Pure White for maximum contrast */
+.navbar-title, .nav-link {
+  color: #ffffff !important;
+}
+
+/* Make links in the body a darker, accessible blue */
+/* Standard light blue often fails on white backgrounds */
+a {
+  color: #0056b3; 
+  text-decoration: underline;
+}
+
+/* 3. HEADINGS */
+/* Ensure headings are dark enough to be legible */
+h1, h2, h3, h4 {
+    color: #002147; /* DCC Navy */
+    font-weight: 700;
+    margin-top: 1.5em;
+    border-bottom: 1px solid #eee; /* Helps visual separation */
+    padding-bottom: 8px;
+}
+/* Add a focus ring for keyboard navigation (for students using Tab keys) */
+a:focus {
+  outline: 3px solid #ffcc00; /* High-contrast gold focus ring */
+}
+/* 4. LINKS */
+a {
+    color: var(--link-color);
+    text-decoration: underline; /* Better for accessibility */
+    text-underline-offset: 3px;
+}
+
+/*  5. NO SE  */
+
+a:hover {
+    color: var(--dcc-cerulean);
+    text-decoration: none;
+}
+
+/* 5. ACCESSIBLE CALLOUT BOXES (The "Nice" Boxes) */
+
+/* Blue Box: For Accessibility Statements & Important Info */
+.blue-box {
+    background-color: #e7f3ff;
+    border-left: 6px solid var(--dcc-blue);
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+/* Task Box: For Student Lab Assignments */
+.task-box {
+    background-color: #fff9e6; /* Soft yellow for attention */
+    border: 2px dashed #d4a017;
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 10px;
+}
+
+/* 6. CODE BLOCKS (For R Code) */
+pre, code {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+pre {
+    padding: 15px;
+    overflow-x: auto; /* Prevents code from breaking the layout */
+}
+
+/* 7. FOOTER STYLING */
+footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px solid var(--dcc-cerulean);
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+}
+
+/* 8. IMAGE STYLING */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+    margin: 20px auto; /* Centers images automatically */
+}
+
+
+/*LOGO NEW */
+/* Force the navbar logo to be proportional */
+.navbar-brand-logo img {
+  height: 40px !important;    /* Fixed height */
+  width: auto !important;      /* Let width be what it needs to be */
+  max-width: 100% !important;  /* Don't let it overflow */
+  object-fit: contain !important; 
+}

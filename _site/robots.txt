@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: /solutions-2026-x9z2-private/
