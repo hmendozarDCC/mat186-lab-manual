@@ -23,6 +23,27 @@ format:
 Add your specific DCC lab answers below this box.
 :::
 
+### Task 1: Repository Configuration
+The student should have successfully initialized a Git repository. 
+
+**Verification Checklist:**
+
+* [x] The repository is named `MAT186-Work`.
+* [x] The visibility is set to **Public** (or Private if specified by the instructor).
+* [x] A `.gitignore` file is present to exclude the `.Rproj.user` folder.
+
+
+
+### Task 2: The Commit & Push Workflow
+The "Solution" to this task is the successful appearance of the Quarto files on the student's GitHub URL. 
+
+The command line sequence they should have used is:
+
+```bash
+git add .
+git commit -m "Finished Lab 4 tasks"
+git push origin main
+```
 <br><br>
 
 ***
