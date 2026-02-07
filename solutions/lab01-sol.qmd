@@ -1,2 +1,13 @@
-## 🌟 Lab 1 solution
+---
+title: "Lab 01: Solutions"
+robots: noindex
+---
+# Lab01-solution
+```{r}
+#| label: fig-lab01-sol
+#| fig-cap: "The code: print('Hello, MAT 186!')"
+
+# This looks from the very top of your project folder
+knitr::include_graphics("/solutions/lab01-sol.png")
+```
 
