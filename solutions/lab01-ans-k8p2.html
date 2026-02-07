@@ -150,7 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab01.html">Course Labs</a></li><li class="breadcrumb-item"><a href="../solutions/lab01-sol.html">🔑 Lab 1 Solution</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Lab 01: Solutions</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -216,7 +216,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../solutions/lab01-sol.html" class="sidebar-item-text sidebar-link active">
+  <a href="../solutions/solutions/lab01-ans-k8p2.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">🔑 Lab 1 Solution</span></a>
   </div>
 </li>
@@ -335,7 +335,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab01.html">Course Labs</a></li><li class="breadcrumb-item"><a href="../solutions/lab01-sol.html">🔑 Lab 1 Solution</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Lab 01: Solutions</h1>
 </div>
@@ -360,15 +360,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<div id="password-gate" style="background: #f8f9fa; padding: 20px; border: 1px solid #dee2e6; border-radius: 5px; text-align: center;">
+<h3 class="anchored">
+🔒 Solutions Protected
+</h3>
+<p>
+Please enter the classroom code to unlock Lab 1 results.
+</p>
+<p><input type="password" id="pass-input" style="padding: 5px;" placeholder="Enter password..."> <button onclick="checkPassword()" style="padding: 5px 15px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer;">Unlock</button></p>
+</div>
+<div id="solution-content" style="display:none;">
 <section id="lab01-solution" class="level1">
 <h1>Lab01-solution</h1>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"../images/lab01-sol.png"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"../images/res_01_99x.png"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-lab01-sol" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-lab01-sol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/lab01-sol.png" class="img-fluid figure-img" style="width:100.0%">
+<img src="../images/res_01_99x.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lab01-sol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: The code: print(‘Hello, MAT 186!’)
@@ -377,9 +387,22 @@ Figure&nbsp;1: The code: print(‘Hello, MAT 186!’)
 </div>
 </div>
 </div>
-
-
 </section>
+</div>
+<script>
+function checkPassword() {
+  var password = document.getElementById("pass-input").value;
+  // Change "MAT186" to whatever password you want
+  if (password === "v8x2") {
+    document.getElementById("password-gate").style.display = "none";
+    document.getElementById("solution-content").style.display = "block";
+  } else {
+    alert("Incorrect password. Please try again.");
+  }
+}
+</script>
+
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
