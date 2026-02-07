@@ -2,7 +2,10 @@
 
 Welcome to the official lab manual for **MAT 186: Introduction to Data Science** at Dutchess Community College. This manual will guide you through 17 labs, transitioning from basic data entry to advanced predictive modeling using **R** and **Quarto**.
 
-
+::: {.callout-important}
+## New to the Course?
+Before submitting your first lab, please read the [GitHub Sharing Guide](sharing-guide.qmd) to ensure your work is visible for grading!
+:::
 
 ---
 
