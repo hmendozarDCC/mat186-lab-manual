@@ -58,9 +58,14 @@ Let's make your lab reports viewable as actual websites.
 ---
 
 <div class="dcc-important">
-**Lab Task 4:** 1. Create your `mat186-work` repository.
+**Lab Task 4:**
+
+1. Create your `mat186-work` repository.
+
 2. Upload the HTML version of your Lab 3 (Math Formulas).
+
 3. Enable GitHub Pages.
+
 4. Paste the link to your live GitHub Page into the Brightspace assignment.
 </div>
 
