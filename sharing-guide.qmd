@@ -1,0 +1,28 @@
+# 🚀 Quick Start: Sharing Your Lab Portfolio
+
+Follow these steps to ensure your professor can see and grade your work.
+
+## 1. Create Your Account
+* Go to [GitHub.com](https://github.com/) and sign up.
+* Use a professional email address (your school email is best).
+
+## 2. Create Your Repository
+1. Click the **+** icon (top right) -> **New repository**.
+2. **Name:** `MAT186-Labs-YourName`.
+3. **Public/Private:** Select **Public**.
+4. Check **Add a README file**.
+5. Click **Create repository**.
+
+## 3. Uploading Your Files
+Every lab requires **two** files to be uploaded:
+1. The **.qmd** file (Your "math/code" file).
+2. The **.html** file (Your "rendered" report).
+
+**Steps to Upload:**
+* Click **Add file** -> **Upload files**.
+* Drag both files into the box.
+* **IMPORTANT:** Type "Upload Lab [X]" in the commit box and click **Commit changes**.
+
+## 4. How to Share the Link
+1. Copy the URL from your browser (e.g., `https://github.com/YourUser/MAT186-Labs`).
+2. Paste this link into the **Brightspace Comment Box** when you submit your lab.
