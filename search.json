@@ -31,16 +31,130 @@
     "text": "This lab manual utilizes materials from the following Open Educational Resources:\n\nOpenIntro Statistics by Diez, Cetinkaya-Rundel, and Barr. Licensed under CC BY-SA 3.0.\nIntroduction to Modern Statistics by Çetinkaya-Rundel and Hardin.\nR for Data Science by Wickham, Mine Çetinkaya-Rundel, and Grolemund.\n\nAll data sets used in these labs are available via the tidyverse or openintro R packages unless otherwise noted.\n\n\n\n\nReferences\n\nÇetinkaya-Rundel, Mine, and Johanna Hardin. 2023. Introduction to Modern Statistics. 2nd ed. https://openintro-ims.netlify.app/.\n\n\nDiez, David, Mine Cetinkaya-Rundel, and Christopher Barr. 2019. OpenIntro Statistics. 4th ed. https://www.openintro.org/book/os/.\n\n\nIsmay, Chester, and Albert Y. Kim. 2020. Statistical Inference via Data Science: A ModernDive into r and the Tidyverse. CRC Press. https://moderndive.com/.\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. R for Data Science. O’Reilly Media, Inc. https://r4ds.hadley.nz/."
   },
   {
-    "objectID": "solutions/lab01-ans-k8p2.html",
-    "href": "solutions/lab01-ans-k8p2.html",
-    "title": "Lab 01: Solutions",
+    "objectID": "solutions/lab17-ans-a6t2.html",
+    "href": "solutions/lab17-ans-a6t2.html",
+    "title": "Solution - Lab 17: Regression models",
     "section": "",
-    "text": "🔒 Solutions Protected\n\n\nPlease enter the classroom code to unlock Lab 1 results.\n\n Unlock\n\n\n\nLab01-solution\n\nknitr::include_graphics(\"../images/res_01_99x.png\")\n\n\n\n\n\n\n\nFigure 1: The code: print(‘Hello, MAT 186!’)",
-    "crumbs": [
-      "Home",
-      "Course Labs",
-      "🔑 Lab 1 Solution"
-    ]
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab17-ans-a6t2.html#regression-models---official-solutions",
+    "href": "solutions/lab17-ans-a6t2.html#regression-models---official-solutions",
+    "title": "Solution - Lab 17: Regression models",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab04-ans-b2r6.html",
+    "href": "solutions/lab04-ans-b2r6.html",
+    "title": "Solution - Lab 4: GitHub Repository",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab04-ans-b2r6.html#github-repository---official-solutions",
+    "href": "solutions/lab04-ans-b2r6.html#github-repository---official-solutions",
+    "title": "Solution - Lab 4: GitHub Repository",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab02-ans-v4n9.html",
+    "href": "solutions/lab02-ans-v4n9.html",
+    "title": "Solution - Lab 2: RStudio Project and Quarto Documents",
+    "section": "",
+    "text": "ImportantInstructor Key Required\n\n\n\nThis page contains solutions for Lab 2. If you are a student, ensure you have completed your own work before viewing these answers.\n\n\n\n\nThe following shows the exact structure the student’s document should have reached by step 6."
+  },
+  {
+    "objectID": "solutions/lab02-ans-v4n9.html#lab-2-official-solutions",
+    "href": "solutions/lab02-ans-v4n9.html#lab-2-official-solutions",
+    "title": "Solution - Lab 2: RStudio Project and Quarto Documents",
+    "section": "",
+    "text": "ImportantInstructor Key Required\n\n\n\nThis page contains solutions for Lab 2. If you are a student, ensure you have completed your own work before viewing these answers.\n\n\n\n\nThe following shows the exact structure the student’s document should have reached by step 6."
+  },
+  {
+    "objectID": "solutions/lab03-ans-x7m1.html",
+    "href": "solutions/lab03-ans-x7m1.html",
+    "title": "Solution - Lab 3: Mathematical Notation in Quarto",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab03-ans-x7m1.html#mathematical-notation-in-quarto---official-solutions",
+    "href": "solutions/lab03-ans-x7m1.html#mathematical-notation-in-quarto---official-solutions",
+    "title": "Solution - Lab 3: Mathematical Notation in Quarto",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab06-ans-w5q1.html",
+    "href": "solutions/lab06-ans-w5q1.html",
+    "title": "Solution - Lab 6: Data collection",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab06-ans-w5q1.html#data-collection---official-solutions",
+    "href": "solutions/lab06-ans-w5q1.html#data-collection---official-solutions",
+    "title": "Solution - Lab 6: Data collection",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab10-ans-g4d8.html",
+    "href": "solutions/lab10-ans-g4d8.html",
+    "title": "Solution - Lab 10: Statistical inference for one mean",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab10-ans-g4d8.html#statistical-inference-for-one-mean---official-solutions",
+    "href": "solutions/lab10-ans-g4d8.html#statistical-inference-for-one-mean---official-solutions",
+    "title": "Solution - Lab 10: Statistical inference for one mean",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab16-ans-y3l9.html",
+    "href": "solutions/lab16-ans-y3l9.html",
+    "title": "Solution - Lab 16: Analysis of variance (ANOVA)",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab16-ans-y3l9.html#analysis-of-variance-anova---official-solutions",
+    "href": "solutions/lab16-ans-y3l9.html#analysis-of-variance-anova---official-solutions",
+    "title": "Solution - Lab 16: Analysis of variance (ANOVA)",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab12-ans-p9v2.html",
+    "href": "solutions/lab12-ans-p9v2.html",
+    "title": "Solution - Lab 12: Statistical inference for two means",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab12-ans-p9v2.html#statistical-inference-for-two-means---official-solutions",
+    "href": "solutions/lab12-ans-p9v2.html#statistical-inference-for-two-means---official-solutions",
+    "title": "Solution - Lab 12: Statistical inference for two means",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab15-ans-r5h1.html",
+    "href": "solutions/lab15-ans-r5h1.html",
+    "title": "Solution - Lab 15: Non-parametric methods",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab15-ans-r5h1.html#non-parametric-methods---official-solutions",
+    "href": "solutions/lab15-ans-r5h1.html#non-parametric-methods---official-solutions",
+    "title": "Solution - Lab 15: Non-parametric methods",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
   },
   {
     "objectID": "index.html",
@@ -231,7 +345,7 @@
     "href": "labs/lab14.html",
     "title": "Lab 14: Bootstrapping and Resampling",
     "section": "",
-    "text": "Understand the concept of Sampling with Replacement.\nUse the infer package to create a bootstrap distribution.\nEstimate a Confidence Interval without assuming the data is “Normal.”\nCompare Bootstrap results to traditional T-test results.\n\n\n\n\n\nWhat if your data is skewed, or you have a very small sample size? Traditional math might fail you. Bootstrapping solves this by treating your sample like a “mini-population.” We take thousands of samples from our own data to see how much the mean varies.\n\n\n\n\nIn R, the infer package makes the logic of bootstrapping very clear. We follow four steps: specify, generate, calculate, and visualize.\n\n# Install and load the infer package\nif(!require(infer)) install.packages(\"infer\")\nlibrary(tidyverse)\nlibrary(infer)\n\n# Let's bootstrap the mean height of Star Wars characters\nboot_dist &lt;- starwars |&gt;\n  drop_na(height) |&gt;\n  specify(response = height) |&gt;              # 1. What variable?\n  generate(reps = 1000, type = \"bootstrap\") |&gt; # 2. Resample 1000 times\n  calculate(stat = \"mean\")                   # 3. Find the mean each time\n\n#| label: tbl-boot-head\n#| tbl-cap: \"The first six rows of the bootstrap distribution, showing the calculated mean for each simulation replicate.\"\n\nhead(boot_dist) |&gt;\n  knitr::kable()\n\n\n\n\nreplicate\nstat\n\n\n\n\n1\n180.4691\n\n\n2\n175.7037\n\n\n3\n178.4321\n\n\n4\n177.7284\n\n\n5\n175.3951\n\n\n6\n176.8642\n\n\n\n\n\n\n\n\n\nInstead of a theoretical curve, we look at the actual distribution of our 1,000 “fake” means.\n\nvisualize(boot_dist) +\n  labs(title = \"Bootstrap Distribution of the Mean\",\n       x = \"Sample Mean Height (cm)\", \n       y = \"Count\")\n\n\n\n\n\n\n\nFigure 1: Bootstrap distribution of mean heights for Star Wars characters based on 1,000 resamples.\n\n\n\n\n\n\n\n\n\nTo find a 95% Confidence Interval, we simply look at where the middle 95% of our 1,000 bootstrap means fall.\n\n# 1. Calculate the interval\npercentile_ci &lt;- boot_dist |&gt;\n  get_confidence_interval(level = 0.95, type = \"percentile\")\n\n# 2. Present as an accessible table\nknitr::kable(\n  percentile_ci,\n  col.names = c(\"Lower Bound (2.5%)\", \"Upper Bound (97.5%)\"),\n  digits = 2\n)\n\n\n\nTable 1: 95% Confidence Interval for mean height using the Percentile Method (1,000 bootstrap replicates).\n\n\n\n\n\n\nLower Bound (2.5%)\nUpper Bound (97.5%)\n\n\n\n\n167.48\n181.83\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo “Normality” Required: It works even if your data is weirdly shaped.\nAny Statistic: You can bootstrap the mean, the median, the standard deviation, or even the correlation coefficient.\nVisual Logic: It helps you see the uncertainty in your estimate.\n\n\n\nLab Task 14:\n\nPick a numeric variable from your dataset.\nCreate a histogram of the original data. (Is it skewed?)\nRun the infer code above to generate 1,000 bootstrap reps for the Median instead of the mean (stat = \"median\").\nVisualize the bootstrap distribution.\nCalculate the 95% Confidence Interval.\nReflection: In your Quarto document, explain in your own words why we “sample with replacement” during bootstrapping.",
+    "text": "Understand the concept of Sampling with Replacement.\nUse the infer package to create a bootstrap distribution.\nEstimate a Confidence Interval without assuming the data is “Normal.”\nCompare Bootstrap results to traditional T-test results.\n\n\n\n\n\nWhat if your data is skewed, or you have a very small sample size? Traditional math might fail you. Bootstrapping solves this by treating your sample like a “mini-population.” We take thousands of samples from our own data to see how much the mean varies.\n\n\n\n\nIn R, the infer package makes the logic of bootstrapping very clear. We follow four steps: specify, generate, calculate, and visualize.\n\n# Install and load the infer package\nif(!require(infer)) install.packages(\"infer\")\nlibrary(tidyverse)\nlibrary(infer)\n\n# Let's bootstrap the mean height of Star Wars characters\nboot_dist &lt;- starwars |&gt;\n  drop_na(height) |&gt;\n  specify(response = height) |&gt;              # 1. What variable?\n  generate(reps = 1000, type = \"bootstrap\") |&gt; # 2. Resample 1000 times\n  calculate(stat = \"mean\")                   # 3. Find the mean each time\n\n#| label: tbl-boot-head\n#| tbl-cap: \"The first six rows of the bootstrap distribution, showing the calculated mean for each simulation replicate.\"\n\nhead(boot_dist) |&gt;\n  knitr::kable()\n\n\n\n\nreplicate\nstat\n\n\n\n\n1\n171.1975\n\n\n2\n179.8025\n\n\n3\n173.1481\n\n\n4\n174.0370\n\n\n5\n170.9012\n\n\n6\n175.0864\n\n\n\n\n\n\n\n\n\nInstead of a theoretical curve, we look at the actual distribution of our 1,000 “fake” means.\n\nvisualize(boot_dist) +\n  labs(title = \"Bootstrap Distribution of the Mean\",\n       x = \"Sample Mean Height (cm)\", \n       y = \"Count\")\n\n\n\n\n\n\n\nFigure 1: Bootstrap distribution of mean heights for Star Wars characters based on 1,000 resamples.\n\n\n\n\n\n\n\n\n\nTo find a 95% Confidence Interval, we simply look at where the middle 95% of our 1,000 bootstrap means fall.\n\n# 1. Calculate the interval\npercentile_ci &lt;- boot_dist |&gt;\n  get_confidence_interval(level = 0.95, type = \"percentile\")\n\n# 2. Present as an accessible table\nknitr::kable(\n  percentile_ci,\n  col.names = c(\"Lower Bound (2.5%)\", \"Upper Bound (97.5%)\"),\n  digits = 2\n)\n\n\n\nTable 1: 95% Confidence Interval for mean height using the Percentile Method (1,000 bootstrap replicates).\n\n\n\n\n\n\nLower Bound (2.5%)\nUpper Bound (97.5%)\n\n\n\n\n167.15\n182.03\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo “Normality” Required: It works even if your data is weirdly shaped.\nAny Statistic: You can bootstrap the mean, the median, the standard deviation, or even the correlation coefficient.\nVisual Logic: It helps you see the uncertainty in your estimate.\n\n\n\nLab Task 14:\n\nPick a numeric variable from your dataset.\nCreate a histogram of the original data. (Is it skewed?)\nRun the infer code above to generate 1,000 bootstrap reps for the Median instead of the mean (stat = \"median\").\nVisualize the bootstrap distribution.\nCalculate the 95% Confidence Interval.\nReflection: In your Quarto document, explain in your own words why we “sample with replacement” during bootstrapping.",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -267,7 +381,7 @@
     "href": "labs/lab14.html#part-1-the-infer-package",
     "title": "Lab 14: Bootstrapping and Resampling",
     "section": "",
-    "text": "In R, the infer package makes the logic of bootstrapping very clear. We follow four steps: specify, generate, calculate, and visualize.\n\n# Install and load the infer package\nif(!require(infer)) install.packages(\"infer\")\nlibrary(tidyverse)\nlibrary(infer)\n\n# Let's bootstrap the mean height of Star Wars characters\nboot_dist &lt;- starwars |&gt;\n  drop_na(height) |&gt;\n  specify(response = height) |&gt;              # 1. What variable?\n  generate(reps = 1000, type = \"bootstrap\") |&gt; # 2. Resample 1000 times\n  calculate(stat = \"mean\")                   # 3. Find the mean each time\n\n#| label: tbl-boot-head\n#| tbl-cap: \"The first six rows of the bootstrap distribution, showing the calculated mean for each simulation replicate.\"\n\nhead(boot_dist) |&gt;\n  knitr::kable()\n\n\n\n\nreplicate\nstat\n\n\n\n\n1\n180.4691\n\n\n2\n175.7037\n\n\n3\n178.4321\n\n\n4\n177.7284\n\n\n5\n175.3951\n\n\n6\n176.8642",
+    "text": "In R, the infer package makes the logic of bootstrapping very clear. We follow four steps: specify, generate, calculate, and visualize.\n\n# Install and load the infer package\nif(!require(infer)) install.packages(\"infer\")\nlibrary(tidyverse)\nlibrary(infer)\n\n# Let's bootstrap the mean height of Star Wars characters\nboot_dist &lt;- starwars |&gt;\n  drop_na(height) |&gt;\n  specify(response = height) |&gt;              # 1. What variable?\n  generate(reps = 1000, type = \"bootstrap\") |&gt; # 2. Resample 1000 times\n  calculate(stat = \"mean\")                   # 3. Find the mean each time\n\n#| label: tbl-boot-head\n#| tbl-cap: \"The first six rows of the bootstrap distribution, showing the calculated mean for each simulation replicate.\"\n\nhead(boot_dist) |&gt;\n  knitr::kable()\n\n\n\n\nreplicate\nstat\n\n\n\n\n1\n171.1975\n\n\n2\n179.8025\n\n\n3\n173.1481\n\n\n4\n174.0370\n\n\n5\n170.9012\n\n\n6\n175.0864",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -291,7 +405,7 @@
     "href": "labs/lab14.html#part-3-the-percentile-method",
     "title": "Lab 14: Bootstrapping and Resampling",
     "section": "",
-    "text": "To find a 95% Confidence Interval, we simply look at where the middle 95% of our 1,000 bootstrap means fall.\n\n# 1. Calculate the interval\npercentile_ci &lt;- boot_dist |&gt;\n  get_confidence_interval(level = 0.95, type = \"percentile\")\n\n# 2. Present as an accessible table\nknitr::kable(\n  percentile_ci,\n  col.names = c(\"Lower Bound (2.5%)\", \"Upper Bound (97.5%)\"),\n  digits = 2\n)\n\n\n\nTable 1: 95% Confidence Interval for mean height using the Percentile Method (1,000 bootstrap replicates).\n\n\n\n\n\n\nLower Bound (2.5%)\nUpper Bound (97.5%)\n\n\n\n\n167.48\n181.83",
+    "text": "To find a 95% Confidence Interval, we simply look at where the middle 95% of our 1,000 bootstrap means fall.\n\n# 1. Calculate the interval\npercentile_ci &lt;- boot_dist |&gt;\n  get_confidence_interval(level = 0.95, type = \"percentile\")\n\n# 2. Present as an accessible table\nknitr::kable(\n  percentile_ci,\n  col.names = c(\"Lower Bound (2.5%)\", \"Upper Bound (97.5%)\"),\n  digits = 2\n)\n\n\n\nTable 1: 95% Confidence Interval for mean height using the Percentile Method (1,000 bootstrap replicates).\n\n\n\n\n\n\nLower Bound (2.5%)\nUpper Bound (97.5%)\n\n\n\n\n167.15\n182.03",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -1600,6 +1714,116 @@
       "Getting Started",
       "GitHub Setup & Sharing"
     ]
+  },
+  {
+    "objectID": "solutions/lab13-ans-c7w4.html",
+    "href": "solutions/lab13-ans-c7w4.html",
+    "title": "Solution - Lab 13: Statistical inference for two proportions",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab13-ans-c7w4.html#statistical-inference-for-two-proportions---official-solutions",
+    "href": "solutions/lab13-ans-c7w4.html#statistical-inference-for-two-proportions---official-solutions",
+    "title": "Solution - Lab 13: Statistical inference for two proportions",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab11-ans-m1k5.html",
+    "href": "solutions/lab11-ans-m1k5.html",
+    "title": "Solution - Lab 11: Statistical inference for one proportion",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab11-ans-m1k5.html#statistical-inference-for-one-proportion---official-solutions",
+    "href": "solutions/lab11-ans-m1k5.html#statistical-inference-for-one-proportion---official-solutions",
+    "title": "Solution - Lab 11: Statistical inference for one proportion",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab05-ans-t8j3.html",
+    "href": "solutions/lab05-ans-t8j3.html",
+    "title": "Solution - Lab 5: Getting data into R",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab05-ans-t8j3.html#getting-data-into-r---official-solutions",
+    "href": "solutions/lab05-ans-t8j3.html#getting-data-into-r---official-solutions",
+    "title": "Solution - Lab 5: Getting data into R",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab14-ans-x2n8.html",
+    "href": "solutions/lab14-ans-x2n8.html",
+    "title": "Solution - Lab 14: Bootstrapping",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab14-ans-x2n8.html#bootstrapping---official-solutions",
+    "href": "solutions/lab14-ans-x2n8.html#bootstrapping---official-solutions",
+    "title": "Solution - Lab 14: Bootstrapping",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab09-ans-f6p2.html",
+    "href": "solutions/lab09-ans-f6p2.html",
+    "title": "Solution - Lab 9: Probability distribution",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab09-ans-f6p2.html#probability-distribution---official-solutions",
+    "href": "solutions/lab09-ans-f6p2.html#probability-distribution---official-solutions",
+    "title": "Solution - Lab 9: Probability distribution",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab01-ans-k8p2.html",
+    "href": "solutions/lab01-ans-k8p2.html",
+    "title": "Lab 01: Solutions",
+    "section": "",
+    "text": "🔒 Solutions Protected\n\n\nPlease enter the classroom code to unlock Lab 1 results.\n\n Unlock\n\n\n\nLab01-solution\n\nknitr::include_graphics(\"../images/res_01_99x.png\")\n\n\n\n\n\n\n\nFigure 1: The code: print(‘Hello, MAT 186!’)",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "🔑 Lab 1 Solution"
+    ]
+  },
+  {
+    "objectID": "solutions/lab08-ans-s3z7.html",
+    "href": "solutions/lab08-ans-s3z7.html",
+    "title": "Solution - Lab 8: Exploratory Data Analysis",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab08-ans-s3z7.html#exploratory-data-analysis---official-solutions",
+    "href": "solutions/lab08-ans-s3z7.html#exploratory-data-analysis---official-solutions",
+    "title": "Solution - Lab 8: Exploratory Data Analysis",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab07-ans-h9y4.html",
+    "href": "solutions/lab07-ans-h9y4.html",
+    "title": "Solution - Lab 7: Cleaning Data",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab07-ans-h9y4.html#cleaning-data---official-solutions",
+    "href": "solutions/lab07-ans-h9y4.html#cleaning-data---official-solutions",
+    "title": "Solution - Lab 7: Cleaning Data",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
   },
   {
     "objectID": "accessibility.html",
