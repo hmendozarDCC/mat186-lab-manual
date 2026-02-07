@@ -1235,7 +1235,7 @@
     "href": "labs/lab02.html",
     "title": "Lab 2: RStudio Projects and Quarto Documents",
     "section": "",
-    "text": "Create an RStudio Project to organize your work.\nUnderstand the structure of a Quarto (.qmd) document.\n“Render” a document into a professional HTML report.\n\n\n\n\n\nIn Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\nOpen RStudio.\nClick File &gt; New Project…\nSelect New Directory &gt; New Project.\nName your directory MAT186_Labs and save it to your Desktop or Documents.\n\n\nWhy use Projects? It sets the “Working Directory” automatically. You’ll never have to type long file paths like C:/Users/Documents/Data... again!",
+    "text": "Create an RStudio Project to organize your work.\nUnderstand the structure of a Quarto (.qmd) document.\n“Render” a document into a professional HTML report.\n\n\n\n\n\nIn Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\n\n\nOpen RStudio.\nClick File &gt; New Project…\nSelect New Directory &gt; New Project.\nName your directory MAT186_Labs and save it to your Documents folder.\n\n\n\n\nNow, look at the Files pane (usually in the bottom-right of RStudio). You need to create a place for your future files:\n\nClick the New Folder button.\nType data and click OK.\nClick the New Folder button again.\nType images and click OK.\n\n\n\n\n\n\n\nNoteWhy do this?\n\n\n\nBy creating these now, you are ready for Lab 5! You will put all your datasets in /data and all your plots/diagrams in /images.",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -1259,7 +1259,7 @@
     "href": "labs/lab02.html#part-1-rstudio-projects",
     "title": "Lab 2: RStudio Projects and Quarto Documents",
     "section": "",
-    "text": "In Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\nOpen RStudio.\nClick File &gt; New Project…\nSelect New Directory &gt; New Project.\nName your directory MAT186_Labs and save it to your Desktop or Documents.\n\n\nWhy use Projects? It sets the “Working Directory” automatically. You’ll never have to type long file paths like C:/Users/Documents/Data... again!",
+    "text": "In Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\n\n\nOpen RStudio.\nClick File &gt; New Project…\nSelect New Directory &gt; New Project.\nName your directory MAT186_Labs and save it to your Documents folder.\n\n\n\n\nNow, look at the Files pane (usually in the bottom-right of RStudio). You need to create a place for your future files:\n\nClick the New Folder button.\nType data and click OK.\nClick the New Folder button again.\nType images and click OK.\n\n\n\n\n\n\n\nNoteWhy do this?\n\n\n\nBy creating these now, you are ready for Lab 5! You will put all your datasets in /data and all your plots/diagrams in /images.",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -1911,14 +1911,14 @@
     "href": "solutions/lab05-ans-t8j3.html",
     "title": "Solution - Lab 5: Getting data into R",
     "section": "",
-    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box.\n\n\n\n\n\n\n🏠 Back to Solutions Hub"
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box.\n\n\n\n\nStudents were required to download the lbw.csv dataset. Success in this task is confirmed by the file appearing in the project directory.\n\n\n\nTo import the data correctly using the Tidyverse, the library(tidyverse) must be called first. We use read_csv() to create a tibble.\n\nlibrary(tidyverse)\n\n# Task 2: Import the data\n# Assumes 'lbw.csv' is in the same folder as this .qmd file\nlbw_data &lt;- read_csv(\"../data/lbw.csv\")"
   },
   {
     "objectID": "solutions/lab05-ans-t8j3.html#getting-data-into-r---official-solutions",
     "href": "solutions/lab05-ans-t8j3.html#getting-data-into-r---official-solutions",
     "title": "Solution - Lab 5: Getting data into R",
     "section": "",
-    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box.\n\n\n\n\n\n\n🏠 Back to Solutions Hub"
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box.\n\n\n\n\nStudents were required to download the lbw.csv dataset. Success in this task is confirmed by the file appearing in the project directory.\n\n\n\nTo import the data correctly using the Tidyverse, the library(tidyverse) must be called first. We use read_csv() to create a tibble.\n\nlibrary(tidyverse)\n\n# Task 2: Import the data\n# Assumes 'lbw.csv' is in the same folder as this .qmd file\nlbw_data &lt;- read_csv(\"../data/lbw.csv\")"
   },
   {
     "objectID": "solutions/lab17-ans-a6t2.html",

@@ -10,14 +10,25 @@
 ## Part 1: RStudio Projects
 In Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one "folder" so R always knows where to look.
 
+### Step 1: Create the Project
 1. Open RStudio.
 2. Click **File > New Project...**
 3. Select **New Directory** > **New Project**.
-4. Name your directory `MAT186_Labs` and save it to your Desktop or Documents.
+4. Name your directory `MAT186_Labs` and save it to your Documents folder.
 
-<div class="dcc-note">
-**Why use Projects?** It sets the "Working Directory" automatically. You'll never have to type long file paths like `C:/Users/Documents/Data...` again!
-</div>
+### Step 2: Create Professional Sub-folders
+Now, look at the **Files pane** (usually in the bottom-right of RStudio). You need to create a place for your future files:
+
+1. Click the **New Folder** button.
+2. Type `data` and click OK.
+3. Click the **New Folder** button again.
+4. Type `images` and click OK.
+
+
+::: {.callout-note}
+### Why do this?
+By creating these now, you are ready for Lab 5! You will put all your datasets in `/data` and all your plots/diagrams in `/images`.
+:::
 
 ---
 

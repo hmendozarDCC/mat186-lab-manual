@@ -35,7 +35,7 @@ library(tidyverse)
 
 # Task 2: Import the data
 # Assumes 'lbw.csv' is in the same folder as this .qmd file
-lbw_data <- read_csv("lbw.csv")
+lbw_data <- read_csv("../data/lbw.csv")
 ```
 
 # Task 3: Show the structure
