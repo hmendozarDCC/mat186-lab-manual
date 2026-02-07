@@ -8,7 +8,7 @@ format:
 ---
 
 <script>
-  var password = "x2n8";
+  var password = "MAT186LABSOER";
   var res = prompt("DCC Instructor Key Required:");
   if (res != password) {
     alert("Incorrect password. Access denied.");
