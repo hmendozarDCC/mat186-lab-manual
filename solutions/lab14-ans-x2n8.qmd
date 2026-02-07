@@ -1,0 +1,26 @@
+---
+title: "Solution - Lab 14: Bootstrapping"
+subtitle: "MAT 186: Introduction to Data Science"
+format:
+  html:
+    toc: true
+    toc-location: right
+---
+
+<script>
+  var password = "x2n8";
+  var res = prompt("DCC Instructor Key Required:");
+  if (res != password) {
+    alert("Incorrect password. Access denied.");
+    window.location.href = "../index.html";
+  }
+</script>
+
+## Bootstrapping - Official Solutions
+
+::: {.callout-note}
+### Instructor Note
+Add your specific DCC lab answers below this box.
+:::
+
+

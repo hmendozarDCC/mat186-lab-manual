@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MAT 186: Data Science Lab Manual – MAT 186: Data Science</title>
+<title>Solution - Lab 5: Getting data into R – MAT 186: Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-021f6fca89b3212f318a486fd4d18feb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-021f6fca89b3212f318a486fd4d18feb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -80,11 +80,11 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/dcc-logo.png" alt="Dutchess Community College Logo" class="navbar-logo light-content">
-    <img src="./images/dcc-logo.png" alt="Dutchess Community College Logo" class="navbar-logo dark-content">
+    <a href="index.qmd" class="navbar-brand navbar-brand-logo">
+    <img src="../images/dcc-logo.png" alt="Dutchess Community College Logo" class="navbar-logo light-content">
+    <img src="../images/dcc-logo.png" alt="Dutchess Community College Logo" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="index.qmd">
     <span class="navbar-title">MAT 186: Data Science</span>
     </a>
   </div>
@@ -95,13 +95,13 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./references.html"> 
+    <a class="nav-link" href="../references.html"> 
 <span class="menu-text">References</span></a>
   </li>  
 </ul>
@@ -115,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">MAT 186: Data Science Lab Manual</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Solution - Lab 5: Getting data into R</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -146,19 +146,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./submission-criteria.html" class="sidebar-item-text sidebar-link">
+  <a href="../submission-criteria.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to Submit (Read First!)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sharing-guide.html" class="sidebar-item-text sidebar-link">
+  <a href="../sharing-guide.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Setup &amp; Sharing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./showcase.html" class="sidebar-item-text sidebar-link">
+  <a href="../showcase.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab Showcase</span></a>
   </div>
 </li>
@@ -175,109 +175,109 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab01.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 1: R and RStudio Installation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./solutions/lab01-ans-k8p2.html" class="sidebar-item-text sidebar-link">
+  <a href="../solutions/lab01-ans-k8p2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">🔑 Lab 1 Solution</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab02.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 2: RStudio Project and Quarto Documents</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab03.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab03.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 3: Mathematical Notation in Quarto</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab04.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab04.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 4: GitHub Repository</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab05.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab05.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 5: Getting data into R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab06.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab06.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 6: Data collection</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab07.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab07.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 7: Cleaning Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab08.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab08.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 8: Exploratory Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab09.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab09.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 9: Probability distribution</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab10.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab10.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 10: Statistical inference for one mean</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab11.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab11.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 11: Statistical inference for one proportion</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab12.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab12.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 12: Statistical inference for two means</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab13.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab13.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 13: Statistical inference for two proportions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab14.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab14.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 14: Bootstrapping</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab15.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab15.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 15: Non-parametric methods</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab16.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab16.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 16: Analysis of variance (ANOVA)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs/lab17.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab17.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 17: Regression models</span></a>
   </div>
 </li>
@@ -293,16 +293,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#welcome-to-mat-186" id="toc-welcome-to-mat-186" class="nav-link active" data-scroll-target="#welcome-to-mat-186">Welcome to MAT 186! 👋</a>
-  <ul class="collapse">
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">🚀 Getting Started</a></li>
-  <li><a href="#accessibility-universal-design" id="toc-accessibility-universal-design" class="nav-link" data-scroll-target="#accessibility-universal-design">♿ Accessibility &amp; Universal Design</a>
-  <ul class="collapse">
-  <li><a href="#our-accessibility-standards" id="toc-our-accessibility-standards" class="nav-link" data-scroll-target="#our-accessibility-standards"><strong>Our Accessibility Standards:</strong></a></li>
-  <li><a href="#support-for-accommodations" id="toc-support-for-accommodations" class="nav-link" data-scroll-target="#support-for-accommodations"><strong>Support for Accommodations</strong></a></li>
-  </ul></li>
-  <li><a href="#accessing-solutions" id="toc-accessing-solutions" class="nav-link" data-scroll-target="#accessing-solutions">🔑 Accessing Solutions</a></li>
-  </ul></li>
+  <li><a href="#getting-data-into-r---official-solutions" id="toc-getting-data-into-r---official-solutions" class="nav-link active" data-scroll-target="#getting-data-into-r---official-solutions">Getting data into R - Official Solutions</a></li>
   </ul>
 </nav>
     </div>
@@ -311,8 +302,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">MAT 186: Data Science Lab Manual</h1>
-<p class="subtitle lead">Introduction to Data Science | Dutchess Community College</p>
+<h1 class="title">Solution - Lab 5: Getting data into R</h1>
+<p class="subtitle lead">MAT 186: Introduction to Data Science</p>
 </div>
 
 
@@ -335,75 +326,31 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="welcome-to-mat-186" class="level1">
-<h1>Welcome to MAT 186! 👋</h1>
-<p>Welcome to the official lab manual for <strong>Introduction to Data Science</strong>. This manual will guide you through 17 labs, transitioning from basic data entry to advanced predictive modeling using <strong>R</strong> and <strong>Quarto</strong>.</p>
-<div class="callout callout-style-default callout-important callout-titled">
+<script>
+  var password = "t8j3";
+  var res = prompt("DCC Instructor Key Required:");
+  if (res != password) {
+    alert("Incorrect password. Access denied.");
+    window.location.href = "../index.html";
+  }
+</script>
+<section id="getting-data-into-r---official-solutions" class="level2">
+<h2 class="anchored" data-anchor-id="getting-data-into-r---official-solutions">Getting data into R - Official Solutions</h2>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>New to the Course?
+<span class="screen-reader-only">Note</span>Instructor Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Before submitting your first lab, please read the <a href="./sharing-guide.html">GitHub Sharing Guide</a> to ensure your work is visible for grading!</p>
+<p>Add your specific DCC lab answers below this box.</p>
 </div>
 </div>
-<hr>
-<section id="getting-started" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started">🚀 Getting Started</h2>
-<div class="quarto-layout-panel" data-layout-ncol="3">
-<div class="quarto-layout-row">
-<section id="hardware" class="level3 quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<h3 class="anchored" data-anchor-id="hardware">💻 Hardware</h3>
-<p>A laptop or tablet is required for all lab sessions.</p>
-</section>
-<section id="software" class="level3 quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<h3 class="anchored" data-anchor-id="software">📊 Software</h3>
-<p>An account on <strong>Posit Cloud</strong> or RStudio Desktop installed.</p>
-</section>
-<section id="resources" class="level3 quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<h3 class="anchored" data-anchor-id="resources">📚 Resources</h3>
-<p>Access our <strong>Brightspace</strong> page for dataset downloads.</p>
-</section>
-</div>
-</div>
-<hr>
-</section>
-<section id="accessibility-universal-design" class="level2">
-<h2 class="anchored" data-anchor-id="accessibility-universal-design">♿ Accessibility &amp; Universal Design</h2>
-<p>Dutchess Community College is committed to providing equal access to education. This manual is designed with <strong>Universal Design for Learning (UDL)</strong> principles to be accessible to all students.</p>
-<section id="our-accessibility-standards" class="level3">
-<h3 class="anchored" data-anchor-id="our-accessibility-standards"><strong>Our Accessibility Standards:</strong></h3>
-<ul>
-<li><strong>🔍 Screen Reader Friendly:</strong> All data visualizations include descriptive captions (<code>fig-cap</code>) acting as Alt-Text.</li>
-<li><strong>🌈 Colorblind Accessible:</strong> All plots utilize the <strong>Viridis</strong> color palette, ensuring data is distinguishable for everyone.</li>
-<li><strong>⌨️ Keyboard Navigation:</strong> This site is fully navigable via keyboard for students who do not use a mouse.</li>
-<li><strong>📐 Accessible Math:</strong> Formulas are rendered using <strong>LaTeX</strong>, allowing screen readers to interpret mathematical logic.</li>
-</ul>
-</section>
-<section id="support-for-accommodations" class="level3">
-<h3 class="anchored" data-anchor-id="support-for-accommodations"><strong>Support for Accommodations</strong></h3>
-<p>If you encounter any barriers—such as difficult visualizations or navigation issues—please contact us immediately:</p>
-<ul>
-<li><strong>Your Instructor:</strong> <a href="mailto:henry.mendozarivera@sunydutchess.edu">henry.mendozarivera@sunydutchess.edu</a></li>
-<li><strong>DCC Office of Accommodative Services:</strong> * <em>Location:</em> Library, Room 303
-<ul>
-<li><em>Phone:</em> 845-431-8050</li>
-</ul></li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="accessing-solutions" class="level2">
-<h2 class="anchored" data-anchor-id="accessing-solutions">🔑 Accessing Solutions</h2>
-<p>Solution keys are available in the sidebar menu. Please note that these are <strong>password protected</strong> and codes will be released in class following the submission deadline for each lab.</p>
-<hr>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -811,13 +758,13 @@ ul.task-list li input[type="checkbox"] {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p><img src="./images/dcc-logo.png" alt="DCC Logo" style="width: 120px; margin-bottom: 10px;"> <br> <strong>Dutchess Community College</strong></p>
+<p><img src="../images/dcc-logo.png" alt="DCC Logo" style="width: 120px; margin-bottom: 10px;"> <br> <strong>Dutchess Community College</strong></p>
 </div>   
     <div class="nav-footer-center">
 <p>Last updated: February 7, 2026</p>
 </div>
     <div class="nav-footer-right">
-<p><a href="./accessibility.html">Accessibility Statement</a></p>
+<p><a href="../accessibility.html">Accessibility Statement</a></p>
 </div>
   </div>
 </footer>

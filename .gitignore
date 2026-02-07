@@ -9,3 +9,4 @@ Thumbs.db
 
 # Ignore Quarto's internal cache
 /.quarto/
+**/*.quarto_ipynb

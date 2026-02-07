@@ -1523,5 +1523,528 @@
     "title": "MAT 186: Data Science Lab Manual",
     "section": "",
     "text": "Solution keys are available in the sidebar menu. Please note that these are password protected and codes will be released in class following the submission deadline for each lab."
+  },
+  {
+    "objectID": "solutions/lab02-ans-v4n9.html",
+    "href": "solutions/lab02-ans-v4n9.html",
+    "title": "Solution - Lab 2: RStudio Project and Quarto Documents",
+    "section": "",
+    "text": "ImportantInstructor Key Required\n\n\n\nThis page contains solutions for Lab 2. If you are a student, ensure you have completed your own work before viewing these answers.\n\n\n\n\nThe following shows the exact structure the student’s document should have reached by step 6."
+  },
+  {
+    "objectID": "solutions/lab02-ans-v4n9.html#lab-2-official-solutions",
+    "href": "solutions/lab02-ans-v4n9.html#lab-2-official-solutions",
+    "title": "Solution - Lab 2: RStudio Project and Quarto Documents",
+    "section": "",
+    "text": "ImportantInstructor Key Required\n\n\n\nThis page contains solutions for Lab 2. If you are a student, ensure you have completed your own work before viewing these answers.\n\n\n\n\nThe following shows the exact structure the student’s document should have reached by step 6."
+  },
+  {
+    "objectID": "accessibility.html",
+    "href": "accessibility.html",
+    "title": "Accessibility Statement",
+    "section": "",
+    "text": "Dutchess Community College is committed to ensuring that our lab manuals are accessible to all students, including those with disabilities. This site is built with Quarto and complies with WCAG 2.1 Level AA standards."
+  },
+  {
+    "objectID": "accessibility.html#our-commitment",
+    "href": "accessibility.html#our-commitment",
+    "title": "Accessibility Statement",
+    "section": "",
+    "text": "Dutchess Community College is committed to ensuring that our lab manuals are accessible to all students, including those with disabilities. This site is built with Quarto and complies with WCAG 2.1 Level AA standards."
+  },
+  {
+    "objectID": "accessibility.html#accessibility-features",
+    "href": "accessibility.html#accessibility-features",
+    "title": "Accessibility Statement",
+    "section": "Accessibility Features",
+    "text": "Accessibility Features\n\nMathematical Formulas: We use MathJax to render equations. This allows formulas to be read by screen readers and zoomed without loss of resolution.\nKeyboard Navigation: All parts of this site are navigable using the Tab key.\nHigh Contrast: Colors have been selected to meet contrast requirements for readability.\nAlternative Text: All structural images include descriptive alt-text."
+  },
+  {
+    "objectID": "accessibility.html#support",
+    "href": "accessibility.html#support",
+    "title": "Accessibility Statement",
+    "section": "Support",
+    "text": "Support\nIf you encounter any accessibility barriers or have difficulty accessing the content in these labs, please contact your instructor or the DCC Office of Accommodative Services."
+  },
+  {
+    "objectID": "solutions/lab03-ans-x7m1.html",
+    "href": "solutions/lab03-ans-x7m1.html",
+    "title": "Solution - Lab 3: Mathematical Notation in Quarto",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab03-ans-x7m1.html#mathematical-notation-in-quarto---official-solutions",
+    "href": "solutions/lab03-ans-x7m1.html#mathematical-notation-in-quarto---official-solutions",
+    "title": "Solution - Lab 3: Mathematical Notation in Quarto",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab04-ans-b2r6.html",
+    "href": "solutions/lab04-ans-b2r6.html",
+    "title": "Solution - Lab 4: GitHub Repository",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab04-ans-b2r6.html#github-repository---official-solutions",
+    "href": "solutions/lab04-ans-b2r6.html#github-repository---official-solutions",
+    "title": "Solution - Lab 4: GitHub Repository",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab07-ans-h9y4.html",
+    "href": "solutions/lab07-ans-h9y4.html",
+    "title": "Solution - Lab 7: Cleaning Data",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab07-ans-h9y4.html#cleaning-data---official-solutions",
+    "href": "solutions/lab07-ans-h9y4.html#cleaning-data---official-solutions",
+    "title": "Solution - Lab 7: Cleaning Data",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab12-ans-p9v2.html",
+    "href": "solutions/lab12-ans-p9v2.html",
+    "title": "Solution - Lab 12: Statistical inference for two means",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab12-ans-p9v2.html#statistical-inference-for-two-means---official-solutions",
+    "href": "solutions/lab12-ans-p9v2.html#statistical-inference-for-two-means---official-solutions",
+    "title": "Solution - Lab 12: Statistical inference for two means",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab14-ans-x2n8.html",
+    "href": "solutions/lab14-ans-x2n8.html",
+    "title": "Solution - Lab 14: Bootstrapping",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab14-ans-x2n8.html#bootstrapping---official-solutions",
+    "href": "solutions/lab14-ans-x2n8.html#bootstrapping---official-solutions",
+    "title": "Solution - Lab 14: Bootstrapping",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab11-ans-m1k5.html",
+    "href": "solutions/lab11-ans-m1k5.html",
+    "title": "Solution - Lab 11: Statistical inference for one proportion",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab11-ans-m1k5.html#statistical-inference-for-one-proportion---official-solutions",
+    "href": "solutions/lab11-ans-m1k5.html#statistical-inference-for-one-proportion---official-solutions",
+    "title": "Solution - Lab 11: Statistical inference for one proportion",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab06-ans-w5q1.html",
+    "href": "solutions/lab06-ans-w5q1.html",
+    "title": "Solution - Lab 6: Data collection",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab06-ans-w5q1.html#data-collection---official-solutions",
+    "href": "solutions/lab06-ans-w5q1.html#data-collection---official-solutions",
+    "title": "Solution - Lab 6: Data collection",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab09-ans-f6p2.html",
+    "href": "solutions/lab09-ans-f6p2.html",
+    "title": "Solution - Lab 9: Probability distribution",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab09-ans-f6p2.html#probability-distribution---official-solutions",
+    "href": "solutions/lab09-ans-f6p2.html#probability-distribution---official-solutions",
+    "title": "Solution - Lab 9: Probability distribution",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "labs/glossary.html",
+    "href": "labs/glossary.html",
+    "title": "Glossary of Data Science Terms",
+    "section": "",
+    "text": "Glossary of Data Science Terms\nThis glossary provides definitions for key terms used throughout MAT 186. If you encounter a term you don’t understand in the labs, check here first.\n\n\nC\nCRAN (Comprehensive R Archive Network): The global network of servers that stores and distributes R and its packages. Think of it as the “App Store” for R.\n\n\nD\nData Frame: A table-like structure in R where each column represents a variable and each row represents an observation.\n\n\nI\nIDE (Integrated Development Environment): A software application (like RStudio) that provides comprehensive facilities to computer programmers for software development.\n\n\nM\nMarkdown: A lightweight markup language with plain-text-formatting syntax. It allows you to write formatted text that can be easily converted to HTML.\n\n\nQ\nQuarto: The next-generation version of RMarkdown. It is an open-source scientific and technical publishing system used to create documents, books, and websites.\n\n\nY\nYAML: Stands for “Yet Another Markup Language.” In Quarto, the YAML header (at the top of the file) is where you define settings like the title, author, and output format."
+  },
+  {
+    "objectID": "labs/lab17.html",
+    "href": "labs/lab17.html",
+    "title": "Lab 17: Linear Regression",
+    "section": "",
+    "text": "Understand the Linear Regression equation: \\(y = \\beta_0 + \\beta_1x + \\epsilon\\).\nCalculate and interpret the Correlation Coefficient (\\(r\\)).\nFit a Linear Model in R using the lm() function.\nEvaluate model fit using R-squared (\\(R^2\\)).",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 17: Regression models"
+    ]
+  },
+  {
+    "objectID": "labs/lab17.html#learning-objectives",
+    "href": "labs/lab17.html#learning-objectives",
+    "title": "Lab 17: Linear Regression",
+    "section": "",
+    "text": "Understand the Linear Regression equation: \\(y = \\beta_0 + \\beta_1x + \\epsilon\\).\nCalculate and interpret the Correlation Coefficient (\\(r\\)).\nFit a Linear Model in R using the lm() function.\nEvaluate model fit using R-squared (\\(R^2\\)).",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 17: Regression models"
+    ]
+  },
+  {
+    "objectID": "labs/lab17.html#data-acquisition-birth-weight-dataset-lbw.csv",
+    "href": "labs/lab17.html#data-acquisition-birth-weight-dataset-lbw.csv",
+    "title": "Lab 17: Linear Regression",
+    "section": "Data Acquisition: Birth Weight Dataset (lbw.csv)",
+    "text": "Data Acquisition: Birth Weight Dataset (lbw.csv)\nTo complete the regression exercises, you need the lbw.csv dataset. Choose one of the methods below to load the data into R.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 17: Regression models"
+    ]
+  },
+  {
+    "objectID": "labs/lab17.html#option-1-direct-link-recommended",
+    "href": "labs/lab17.html#option-1-direct-link-recommended",
+    "title": "Lab 17: Linear Regression",
+    "section": "Option 1: Direct Link (Recommended)",
+    "text": "Option 1: Direct Link (Recommended)\nThis method pulls the data directly from the lab manual website. ## Data Loading and Preview\nWe are using the lbw dataset, which contains information on low birth weight.\n\nAccessible Logic: We use the read_csv() function to pull data from a web URL. After loading, it is important to check the “head” (the first 6 rows) to ensure the columns and values imported correctly.\n\n\nlibrary(tidyverse)\n\n# 1. Load the data\nurl &lt;- url &lt;- \"https://vincentarelbundock.github.io/Rdatasets/csv/COUNT/lbw.csv\"\nlbw_data &lt;- read_csv(url)\n\n# 2. Display an accessible preview\n# We use head() to get the first 6 rows and kable() to make it a table\nknitr::kable(head(lbw_data))\n\n\n\nTable 1: Preview of the first six rows of the low birth weight (LBW) dataset.\n\n\n\n\n\n\nrownames\nlow\nsmoke\nrace\nage\nlwt\nptl\nht\nui\nftv\nbwt\n\n\n\n\n1\n0\n0\n2\n19\n182\n0\n0\n1\n0\n2523\n\n\n2\n0\n0\n3\n33\n155\n0\n0\n0\n3\n2551\n\n\n3\n0\n1\n1\n20\n105\n0\n0\n0\n1\n2557\n\n\n4\n0\n1\n1\n21\n108\n0\n0\n1\n2\n2594\n\n\n5\n0\n1\n1\n18\n107\n0\n0\n1\n0\n2600\n\n\n6\n0\n0\n3\n21\n124\n0\n0\n0\n0\n2622",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 17: Regression models"
+    ]
+  },
+  {
+    "objectID": "labs/lab17.html#option-2-local-file",
+    "href": "labs/lab17.html#option-2-local-file",
+    "title": "Lab 17: Linear Regression",
+    "section": "Option 2: Local File",
+    "text": "Option 2: Local File\nUse this if the file is saved in your project folder. ## Loading Data Locally\nTo ensure this lab is reproducible, we are loading the birth weight data from our project’s data folder.\n\nAccessible Logic: The path \"data/lbw.csv\" tells R to look inside a folder named data that is located in the same place as your script. This is called a relative path.\n\n\n# 1. Load the data using a relative path\n# Ensure the 'data' folder exists in your RStudio project\nlbw_data &lt;- read.csv(\"../data/2026_Fall/lbw.csv\")\n\n# 2. Accessible Preview\nknitr::kable(head(lbw_data))\n\n\n\nTable 2: Preview of the locally loaded LBW dataset.\n\n\n\n\n\n\nrownames\nlow\nsmoke\nrace\nage\nlwt\nptl\nht\nui\nftv\nbwt\n\n\n\n\n1\n0\n0\n2\n19\n182\n0\n0\n1\n0\n2523\n\n\n2\n0\n0\n3\n33\n155\n0\n0\n0\n3\n2551\n\n\n3\n0\n1\n1\n20\n105\n0\n0\n0\n1\n2557\n\n\n4\n0\n1\n1\n21\n108\n0\n0\n1\n2\n2594\n\n\n5\n0\n1\n1\n18\n107\n0\n0\n1\n0\n2600\n\n\n6\n0\n0\n3\n21\n124\n0\n0\n0\n0\n2622",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 17: Regression models"
+    ]
+  },
+  {
+    "objectID": "labs/lab17.html#part-1-correlation-r",
+    "href": "labs/lab17.html#part-1-correlation-r",
+    "title": "Lab 17: Linear Regression",
+    "section": "Part 1: Correlation (\\(r\\))",
+    "text": "Part 1: Correlation (\\(r\\))\nBefore building a model, we need to know if a linear relationship even exists. The correlation coefficient (\\(r\\)) ranges from -1 to 1.\n\n1: Perfect positive relationship.\n0: No relationship at all.\n-1: Perfect negative relationship.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 17: Regression models"
+    ]
+  },
+  {
+    "objectID": "labs/lab17.html#correlation-analysis-mothers-weight-vs.-birth-weight",
+    "href": "labs/lab17.html#correlation-analysis-mothers-weight-vs.-birth-weight",
+    "title": "Lab 17: Linear Regression",
+    "section": "Correlation Analysis: Mother’s Weight vs. Birth Weight",
+    "text": "Correlation Analysis: Mother’s Weight vs. Birth Weight\nWe are calculating Pearson’s correlation coefficient to see if there is a linear relationship between the mother’s weight at the last menstrual period (lwt) and the baby’s birth weight (bwt).\n\nAccessible Logic: Correlation (\\(r\\)) ranges from -1 to +1. A value of 0 means no linear relationship, while values closer to +1 or -1 indicate stronger relationships.\n\n\nlibrary(tidyverse)\n\n# 1. Calculate the correlation\ncor_result &lt;- lbw_data |&gt;\n  drop_na(lwt, bwt) |&gt;\n  summarize(correlation = cor(lwt, bwt))\n\n# 2. Display as an accessible table\nknitr::kable(\n  cor_result,\n  col.names = c(\"Correlation Coefficient (r)\"),\n  digits = 3\n)\n\n\n\nTable 3: Pearson Correlation Coefficient between Mother’s Weight and Birth Weight.\n\n\n\n\n\n\nCorrelation Coefficient (r)\n\n\n\n\n0.186",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 17: Regression models"
+    ]
+  },
+  {
+    "objectID": "labs/lab17.html#part-2-visualizing-the-best-fit-line",
+    "href": "labs/lab17.html#part-2-visualizing-the-best-fit-line",
+    "title": "Lab 17: Linear Regression",
+    "section": "Part 2: Visualizing the Best Fit Line",
+    "text": "Part 2: Visualizing the Best Fit Line\nWe use geom_smooth(method = \"lm\") to draw the line that minimizes the distance between all data points (the “Ordinary Least Squares” method).\n\nggplot(lbw_data, aes(x = lwt, y = bwt)) +\n  geom_point(alpha = 0.5, color = \"#002147\") + # DCC Navy\n  geom_smooth(method = \"lm\", color = \"red\", se = TRUE) +\n  theme_minimal() +\n  labs(title = \"Predicting Birth Weight based on Mother's Weight\",\n       x = \"Mother's Weight (lbs)\",\n       y = \"Birth Weight (grams)\")\n\n\n\n\n\n\n\nFigure 1: Regression of Birth Weight on Mother’s Weight",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 17: Regression models"
+    ]
+  },
+  {
+    "objectID": "labs/lab17.html#part-3-building-the-model-in-r",
+    "href": "labs/lab17.html#part-3-building-the-model-in-r",
+    "title": "Lab 17: Linear Regression",
+    "section": "Part 3: Building the Model in R",
+    "text": "Part 3: Building the Model in R\nIn R, the “Linear Model” function is lm(). The syntax is lm(dependent_variable ~ independent_variable).",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 17: Regression models"
+    ]
+  },
+  {
+    "objectID": "labs/lab17.html#simple-linear-regression-predicting-birth-weight",
+    "href": "labs/lab17.html#simple-linear-regression-predicting-birth-weight",
+    "title": "Lab 17: Linear Regression",
+    "section": "Simple Linear Regression: Predicting Birth Weight",
+    "text": "Simple Linear Regression: Predicting Birth Weight\nWe are fitting a linear model to see how well Mother’s Weight (lwt) predicts Birth Weight (bwt).\n\nAccessible Logic: We are looking for the equation of a line: \\[bwt = \\beta_0 + \\beta_1(lwt)\\]. * The Intercept (\\(\\beta_0\\)) is the predicted birth weight if the mother’s weight was zero. * The Slope (\\(\\beta_1\\)) tells us how many grams the birth weight increases for every 1-pound increase in mother’s weight.\n\n\nlibrary(broom)\n\n# 1. Fit the model\nlbw_model &lt;- lm(bwt ~ lwt, data = lbw_data)\n\n# 2. Tidy the coefficients into an accessible table\nmodel_stats &lt;- tidy(lbw_model)\n\nknitr::kable(\n  model_stats,\n  col.names = c(\"Term\", \"Estimate\", \"Std. Error\", \"t-statistic\", \"p-value\"),\n  digits = 3\n)\n\n\n\nTable 4: Regression coefficients for predicting Birth Weight from Mother’s Weight.\n\n\n\n\n\n\nTerm\nEstimate\nStd. Error\nt-statistic\np-value\n\n\n\n\n(Intercept)\n2369.184\n228.467\n10.370\n0.00\n\n\nlwt\n4.430\n1.713\n2.586\n0.01\n\n\n\n\n\n\n\n\n\n\nHow to interpret the summary:\n\nIntercept (\\(\\beta_0\\)): The predicted value of \\(y\\) when \\(x\\) is zero.\nSlope (\\(\\beta_1\\)): For every 1 unit increase in \\(x\\), how much \\(y\\) is expected to change.\nR-squared (\\(R^2\\)): The percentage of variation in \\(y\\) explained by your model. (e.g., \\(0.75\\) means your model explains 75% of the data).",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 17: Regression models"
+    ]
+  },
+  {
+    "objectID": "labs/lab17.html#part-4-making-predictions",
+    "href": "labs/lab17.html#part-4-making-predictions",
+    "title": "Lab 17: Linear Regression",
+    "section": "Part 4: Making Predictions",
+    "text": "Part 4: Making Predictions\nOnce you have a model, you can plug in a value for \\(x\\) to predict \\(y\\). If our model is \\(Mass = -100 + 1.2(Height)\\), we can predict the mass of a character who is 200cm tall. ## Model Prediction: 150lb Mother\nUsing our regression model, we can predict the specific birth weight for a baby based on the mother’s weight.\n\nAccessible Logic: We are plugging 150 into our regression equation (\\(y = mx + b\\)). The predict() function calculates this value for us automatically using the model we previously fitted.\n\n\n# 1. Create a data frame for the input (required by the predict function)\nnew_mom &lt;- data.frame(lwt = 150)\n\n# 2. Run the prediction\nprediction_val &lt;- predict(lbw_model, newdata = new_mom)\n\n# 3. Present the result in a clear, single-row table\nprediction_table &lt;- data.frame(\n  input_lwt = 150,\n  predicted_bwt = prediction_val\n)\n\nknitr::kable(\n  prediction_table,\n  col.names = c(\"Mother's Weight (lbs)\", \"Predicted Birth Weight (g)\"),\n  digits = 2\n)\n\n\n\nTable 5: Predicted Birth Weight for a mother weighing 150 lbs.\n\n\n\n\n\n\nMother’s Weight (lbs)\nPredicted Birth Weight (g)\n\n\n\n\n150\n3033.68\n\n\n\n\n\n\n\n\n\n\nLab Task 17:\n\nPick two numeric variables from your dataset that you think are related.\nCreate a Scatter Plot and add a linear regression line.\nUse the cor() function to find the correlation coefficient.\nFit a linear model using lm() and look at the summary().\nThe Report:\n\nWhat is the slope of your model?\nWhat is the \\(R^2\\) value?\nUse your model to make one prediction for a value not in your dataset.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 17: Regression models"
+    ]
+  },
+  {
+    "objectID": "labs/lab04.html",
+    "href": "labs/lab04.html",
+    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
+    "section": "",
+    "text": "Create a personal GitHub account.\nInitialize a new repository for MAT 186 work.\nUnderstand the “Commit” and “Push” workflow.\nHost a live version of a lab report using GitHub Pages.\n\n\n\n\n\nData Science is a collaborative field. GitHub is the industry standard for version control and sharing code. In this lab, you will set up your own “portfolio”—a place where you can showcase the work you do in this class to future employers or transfer institutions.\n\n\n\n\n\nGo to GitHub.com.\nSign up for a free account.\n\nTip: Choose a professional username (e.g., jsmith-dcc), as you may show this to employers later!\n\nVerify your email address.\n\n\n\n\n\nA Repository (or “Repo”) is like a project folder that lives in the cloud.\n\nClick the + icon in the top right and select New repository.\nRepository name: mat186-work\nDescription: “Labs and projects for Introduction to Data Science at DCC.”\nPublic/Private: Select Public.\nCheck the box that says Add a README file.\nClick Create repository.\n\n\n\n\n\nNow, let’s add the work you’ve done in previous labs.\n\nIn your new mat186-work repository, click Add file &gt; Upload files.\nDrag and drop your HTML files from Lab 2 and Lab 3 into the browser.\nAt the bottom, type a “Commit message” like: Initial upload of Lab 2 and 3.\nClick Commit changes.\n\n\n\n\n\nLet’s make your lab reports viewable as actual websites.\n\nGo to your repository Settings tab.\nOn the left menu, click Pages.\nUnder Build and deployment, set the Branch to main and click Save.\nAfter a minute, GitHub will give you a URL (e.g., https://username.github.io/mat186-work/).\n\n\n\nLab Task 4: 1. Create your mat186-work repository. 2. Upload the HTML version of your Lab 3 (Math Formulas). 3. Enable GitHub Pages. 4. Paste the link to your live GitHub Page into the Brightspace assignment.\n\n\n\n\nBy putting your work on GitHub, you are participating in Open Science. This allows others to learn from your code and allows you to track your own progress throughout the semester!",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 4: GitHub Repository"
+    ]
+  },
+  {
+    "objectID": "labs/lab04.html#learning-objectives",
+    "href": "labs/lab04.html#learning-objectives",
+    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
+    "section": "",
+    "text": "Create a personal GitHub account.\nInitialize a new repository for MAT 186 work.\nUnderstand the “Commit” and “Push” workflow.\nHost a live version of a lab report using GitHub Pages.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 4: GitHub Repository"
+    ]
+  },
+  {
+    "objectID": "labs/lab04.html#introduction",
+    "href": "labs/lab04.html#introduction",
+    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
+    "section": "",
+    "text": "Data Science is a collaborative field. GitHub is the industry standard for version control and sharing code. In this lab, you will set up your own “portfolio”—a place where you can showcase the work you do in this class to future employers or transfer institutions.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 4: GitHub Repository"
+    ]
+  },
+  {
+    "objectID": "labs/lab04.html#part-1-setting-up-your-account",
+    "href": "labs/lab04.html#part-1-setting-up-your-account",
+    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
+    "section": "",
+    "text": "Go to GitHub.com.\nSign up for a free account.\n\nTip: Choose a professional username (e.g., jsmith-dcc), as you may show this to employers later!\n\nVerify your email address.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 4: GitHub Repository"
+    ]
+  },
+  {
+    "objectID": "labs/lab04.html#part-2-creating-your-first-repository",
+    "href": "labs/lab04.html#part-2-creating-your-first-repository",
+    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
+    "section": "",
+    "text": "A Repository (or “Repo”) is like a project folder that lives in the cloud.\n\nClick the + icon in the top right and select New repository.\nRepository name: mat186-work\nDescription: “Labs and projects for Introduction to Data Science at DCC.”\nPublic/Private: Select Public.\nCheck the box that says Add a README file.\nClick Create repository.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 4: GitHub Repository"
+    ]
+  },
+  {
+    "objectID": "labs/lab04.html#part-3-uploading-your-lab-reports",
+    "href": "labs/lab04.html#part-3-uploading-your-lab-reports",
+    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
+    "section": "",
+    "text": "Now, let’s add the work you’ve done in previous labs.\n\nIn your new mat186-work repository, click Add file &gt; Upload files.\nDrag and drop your HTML files from Lab 2 and Lab 3 into the browser.\nAt the bottom, type a “Commit message” like: Initial upload of Lab 2 and 3.\nClick Commit changes.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 4: GitHub Repository"
+    ]
+  },
+  {
+    "objectID": "labs/lab04.html#part-4-publishing-with-github-pages",
+    "href": "labs/lab04.html#part-4-publishing-with-github-pages",
+    "title": "Lab 4: Creating Your Data Science Portfolio on GitHub",
+    "section": "",
+    "text": "Let’s make your lab reports viewable as actual websites.\n\nGo to your repository Settings tab.\nOn the left menu, click Pages.\nUnder Build and deployment, set the Branch to main and click Save.\nAfter a minute, GitHub will give you a URL (e.g., https://username.github.io/mat186-work/).\n\n\n\nLab Task 4: 1. Create your mat186-work repository. 2. Upload the HTML version of your Lab 3 (Math Formulas). 3. Enable GitHub Pages. 4. Paste the link to your live GitHub Page into the Brightspace assignment.\n\n\n\n\nBy putting your work on GitHub, you are participating in Open Science. This allows others to learn from your code and allows you to track your own progress throughout the semester!",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 4: GitHub Repository"
+    ]
+  },
+  {
+    "objectID": "solutions/lab05-ans-t8j3.html",
+    "href": "solutions/lab05-ans-t8j3.html",
+    "title": "Solution - Lab 5: Getting data into R",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab05-ans-t8j3.html#getting-data-into-r---official-solutions",
+    "href": "solutions/lab05-ans-t8j3.html#getting-data-into-r---official-solutions",
+    "title": "Solution - Lab 5: Getting data into R",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab17-ans-a6t2.html",
+    "href": "solutions/lab17-ans-a6t2.html",
+    "title": "Solution - Lab 17: Regression models",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab17-ans-a6t2.html#regression-models---official-solutions",
+    "href": "solutions/lab17-ans-a6t2.html#regression-models---official-solutions",
+    "title": "Solution - Lab 17: Regression models",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab10-ans-g4d8.html",
+    "href": "solutions/lab10-ans-g4d8.html",
+    "title": "Solution - Lab 10: Statistical inference for one mean",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab10-ans-g4d8.html#statistical-inference-for-one-mean---official-solutions",
+    "href": "solutions/lab10-ans-g4d8.html#statistical-inference-for-one-mean---official-solutions",
+    "title": "Solution - Lab 10: Statistical inference for one mean",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab13-ans-c7w4.html",
+    "href": "solutions/lab13-ans-c7w4.html",
+    "title": "Solution - Lab 13: Statistical inference for two proportions",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab13-ans-c7w4.html#statistical-inference-for-two-proportions---official-solutions",
+    "href": "solutions/lab13-ans-c7w4.html#statistical-inference-for-two-proportions---official-solutions",
+    "title": "Solution - Lab 13: Statistical inference for two proportions",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab16-ans-y3l9.html",
+    "href": "solutions/lab16-ans-y3l9.html",
+    "title": "Solution - Lab 16: Analysis of variance (ANOVA)",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab16-ans-y3l9.html#analysis-of-variance-anova---official-solutions",
+    "href": "solutions/lab16-ans-y3l9.html#analysis-of-variance-anova---official-solutions",
+    "title": "Solution - Lab 16: Analysis of variance (ANOVA)",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab08-ans-s3z7.html",
+    "href": "solutions/lab08-ans-s3z7.html",
+    "title": "Solution - Lab 8: Exploratory Data Analysis",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab08-ans-s3z7.html#exploratory-data-analysis---official-solutions",
+    "href": "solutions/lab08-ans-s3z7.html#exploratory-data-analysis---official-solutions",
+    "title": "Solution - Lab 8: Exploratory Data Analysis",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab15-ans-r5h1.html",
+    "href": "solutions/lab15-ans-r5h1.html",
+    "title": "Solution - Lab 15: Non-parametric methods",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "solutions/lab15-ans-r5h1.html#non-parametric-methods---official-solutions",
+    "href": "solutions/lab15-ans-r5h1.html#non-parametric-methods---official-solutions",
+    "title": "Solution - Lab 15: Non-parametric methods",
+    "section": "",
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
+  },
+  {
+    "objectID": "submission-criteria.html",
+    "href": "submission-criteria.html",
+    "title": "📋 Lab Submission Guide",
+    "section": "",
+    "text": "To earn full credit, your lab must be submitted correctly to both GitHub and Brightspace. Use this page as your final checklist!\n\n\n\n\n\n\n\n\n\n\n\nSection\nThe Goal\nPoints\n\n\n\n\nDoes it Run?\nYour Render button works. There are no red error messages in your final HTML.\n5 pts\n\n\nThe Story\nYou wrote 1-2 sentences under each graph/table explaining what the data shows.\n3 pts\n\n\nThe Details\nYour name is in the YAML, files are named correctly, and graphs have titles.\n2 pts\n\n\n\n\n\n\n\nProfessional data scientists make sure their work is readable by everyone!\n\nHuman Labels: Rename axis labels (like lwt) to real words (like “Mother’s Weight”).\nGraph Titles: Every visualization needs a clear, descriptive title.\nCaptions: Use #| fig-cap: \"Description\" inside your R code chunks.\nClean Tables: Use knitr::kable() to format your data nicely.\n\n\n\n\n\n\n\nBefore uploading, ensure your files follow this format:\nLab#_FirstName_LastName\nExample: Lab2_Jane_Doe.qmd and Lab2_Jane_Doe.html\n\n\n\n\nGo to your GitHub repository.\nClick Add file &gt; Upload files.\nDrag BOTH the .qmd and the .html files into the box.\nImportant: Scroll down and click the green Commit changes button.\n\n\n\n\n\nGo to the Lab folder in Brightspace.\nUpload ONLY the .html file. (This is the file I will grade).\n\n\n\n\n\n\n\nImportant🛑 If your code won’t “Render”\n\n\n\nIf you have a code error you can’t fix: 1. Put a # at the start of the broken line (e.g., # ggplot(...)). 2. This “comments out” the code so the rest of the document can finish. 3. You might lose a technical point, but you can still earn points for the rest of your work!",
+    "crumbs": [
+      "Home",
+      "Getting Started",
+      "How to Submit (Read First!)"
+    ]
+  },
+  {
+    "objectID": "submission-criteria.html#how-you-are-graded-10-points",
+    "href": "submission-criteria.html#how-you-are-graded-10-points",
+    "title": "📋 Lab Submission Guide",
+    "section": "",
+    "text": "Section\nThe Goal\nPoints\n\n\n\n\nDoes it Run?\nYour Render button works. There are no red error messages in your final HTML.\n5 pts\n\n\nThe Story\nYou wrote 1-2 sentences under each graph/table explaining what the data shows.\n3 pts\n\n\nThe Details\nYour name is in the YAML, files are named correctly, and graphs have titles.\n2 pts",
+    "crumbs": [
+      "Home",
+      "Getting Started",
+      "How to Submit (Read First!)"
+    ]
+  },
+  {
+    "objectID": "submission-criteria.html#accessibility-checklist",
+    "href": "submission-criteria.html#accessibility-checklist",
+    "title": "📋 Lab Submission Guide",
+    "section": "",
+    "text": "Professional data scientists make sure their work is readable by everyone!\n\nHuman Labels: Rename axis labels (like lwt) to real words (like “Mother’s Weight”).\nGraph Titles: Every visualization needs a clear, descriptive title.\nCaptions: Use #| fig-cap: \"Description\" inside your R code chunks.\nClean Tables: Use knitr::kable() to format your data nicely.",
+    "crumbs": [
+      "Home",
+      "Getting Started",
+      "How to Submit (Read First!)"
+    ]
+  },
+  {
+    "objectID": "submission-criteria.html#step-by-step-submission",
+    "href": "submission-criteria.html#step-by-step-submission",
+    "title": "📋 Lab Submission Guide",
+    "section": "",
+    "text": "Before uploading, ensure your files follow this format:\nLab#_FirstName_LastName\nExample: Lab2_Jane_Doe.qmd and Lab2_Jane_Doe.html\n\n\n\n\nGo to your GitHub repository.\nClick Add file &gt; Upload files.\nDrag BOTH the .qmd and the .html files into the box.\nImportant: Scroll down and click the green Commit changes button.\n\n\n\n\n\nGo to the Lab folder in Brightspace.\nUpload ONLY the .html file. (This is the file I will grade).\n\n\n\n\n\n\n\nImportant🛑 If your code won’t “Render”\n\n\n\nIf you have a code error you can’t fix: 1. Put a # at the start of the broken line (e.g., # ggplot(...)). 2. This “comments out” the code so the rest of the document can finish. 3. You might lose a technical point, but you can still earn points for the rest of your work!",
+    "crumbs": [
+      "Home",
+      "Getting Started",
+      "How to Submit (Read First!)"
+    ]
   }
 ]

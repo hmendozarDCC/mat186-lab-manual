@@ -1,0 +1,26 @@
+---
+title: "Solution - Lab 11: Statistical inference for one proportion"
+subtitle: "MAT 186: Introduction to Data Science"
+format:
+  html:
+    toc: true
+    toc-location: right
+---
+
+<script>
+  var password = "m1k5";
+  var res = prompt("DCC Instructor Key Required:");
+  if (res != password) {
+    alert("Incorrect password. Access denied.");
+    window.location.href = "../index.html";
+  }
+</script>
+
+## Statistical inference for one proportion - Official Solutions
+
+::: {.callout-note}
+### Instructor Note
+Add your specific DCC lab answers below this box.
+:::
+
+

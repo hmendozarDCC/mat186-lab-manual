@@ -1,0 +1,26 @@
+---
+title: "Solution - Lab 16: Analysis of variance (ANOVA)"
+subtitle: "MAT 186: Introduction to Data Science"
+format:
+  html:
+    toc: true
+    toc-location: right
+---
+
+<script>
+  var password = "y3l9";
+  var res = prompt("DCC Instructor Key Required:");
+  if (res != password) {
+    alert("Incorrect password. Access denied.");
+    window.location.href = "../index.html";
+  }
+</script>
+
+## Analysis of variance (ANOVA) - Official Solutions
+
+::: {.callout-note}
+### Instructor Note
+Add your specific DCC lab answers below this box.
+:::
+
+
