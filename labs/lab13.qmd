@@ -118,3 +118,15 @@ knitr::kable(
 
 ## Accessibility Tip: Color and Texture
 When creating stacked bar charts, rely on more than just color. Using high-contrast palettes like `scale_fill_brewer(palette = "Set1")` helps students with color blindness distinguish between the "Success" and "Failure" sections of your bars.
+
+---
+
+::: {.callout-tip}
+### Done with the Lab?
+If you have finished all the tasks above, you can verify your work against the official solutions.
+
+<center>
+<a href="../solutions.html" class="btn btn-outline-success" role="button">🔓 Access Lab Solutions</a>
+</center>
+:::
+

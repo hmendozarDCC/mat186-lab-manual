@@ -109,3 +109,15 @@ prob <- 1 - pnorm(190, mean = 170, sd = 10)
 4. **The Simulation:** Use the "CLT simulation" code above, but change the sample size from `30` to `5`. Render it. Then change it to `100` and render it again.
 5. **Observation:** Write 2 sentences explaining how the "spread" of the histogram changed when you increased the sample size.
 </div>
+
+---
+
+::: {.callout-tip}
+### Done with the Lab?
+If you have finished all the tasks above, you can verify your work against the official solutions.
+
+<center>
+<a href="../solutions.html" class="btn btn-outline-success" role="button">🔓 Access Lab Solutions</a>
+</center>
+:::
+

@@ -122,3 +122,15 @@ ggplot(data = starwars, mapping = aes(x = gender, y = height)) +
 4. Create a **Boxplot** that compares one numeric variable across different categories.
 5. **Observation:** In your Quarto document, write 3 sentences describing the most interesting pattern or outlier you found in your plots.
 </div>
+
+---
+
+::: {.callout-tip}
+### Done with the Lab?
+If you have finished all the tasks above, you can verify your work against the official solutions.
+
+<center>
+<a href="../solutions.html" class="btn btn-outline-success" role="button">🔓 Access Lab Solutions</a>
+</center>
+:::
+

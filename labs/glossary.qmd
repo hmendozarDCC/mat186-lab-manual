@@ -21,3 +21,15 @@ This glossary provides definitions for key terms used throughout MAT 186. If you
 
 ### **Y**
 **YAML:** Stands for "Yet Another Markup Language." In Quarto, the YAML header (at the top of the file) is where you define settings like the title, author, and output format.
+
+---
+
+::: {.callout-tip}
+### Done with the Lab?
+If you have finished all the tasks above, you can verify your work against the official solutions.
+
+<center>
+<a href="../solutions.html" class="btn btn-outline-success" role="button">🔓 Access Lab Solutions</a>
+</center>
+:::
+

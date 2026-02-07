@@ -79,3 +79,15 @@ $$y = \beta_0 + \beta_1 x + \epsilon$$
 
 ### **Accessibility Check**
 When you use this LaTeX method, students using screen readers can hear the math described clearly (e.g., "x bar equals fraction sum x sub i over n"). This is much better than using an image of an equation, which a screen reader cannot "see."
+
+---
+
+::: {.callout-tip}
+### Done with the Lab?
+If you have finished all the tasks above, you can verify your work against the official solutions.
+
+<center>
+<a href="../solutions.html" class="btn btn-outline-success" role="button">🔓 Access Lab Solutions</a>
+</center>
+:::
+

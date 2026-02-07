@@ -123,3 +123,15 @@ knitr::kable(head(tidy_sw[, c("name", "height", "mass", "species")]))
 
 ## Pro-Tip: The "Glimpse"
 Always run `glimpse(your_data)` after cleaning to make sure you haven't accidentally deleted something you meant to keep!
+
+---
+
+::: {.callout-tip}
+### Done with the Lab?
+If you have finished all the tasks above, you can verify your work against the official solutions.
+
+<center>
+<a href="../solutions.html" class="btn btn-outline-success" role="button">🔓 Access Lab Solutions</a>
+</center>
+:::
+

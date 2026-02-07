@@ -1532,16 +1532,16 @@
   {
     "objectID": "solutions/lab02-ans-v4n9.html",
     "href": "solutions/lab02-ans-v4n9.html",
-    "title": "Solution - Lab 2: RStudio Project and Quarto Documents",
+    "title": "Solution - Lab 02: RStudio & Quarto",
     "section": "",
-    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box.\n\n\n\n\n\n\n🏠 Back to Solutions Hub"
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
   },
   {
     "objectID": "solutions/lab02-ans-v4n9.html#lab-2-official-solutions",
     "href": "solutions/lab02-ans-v4n9.html#lab-2-official-solutions",
-    "title": "Solution - Lab 2: RStudio Project and Quarto Documents",
-    "section": "",
-    "text": "ImportantInstructor Key Required\n\n\n\nThis page contains solutions for Lab 2. If you are a student, ensure you have completed your own work before viewing these answers.\n\n\n\n\nThe following shows the exact structure the student’s document should have reached by step 6."
+    "title": "Solution - Lab 02: RStudio & Quarto",
+    "section": "Lab 2 Official Solutions",
+    "text": "Lab 2 Official Solutions\n\nTask 1: Basic Arithmetic\nThe student was asked to create a code chunk that calculates \\(2 + 2\\).\n\n2 + 2\n\n[1] 4\n\n\n\n\n\n\n🏠 Back to Solutions Hub"
   },
   {
     "objectID": "accessibility.html",
@@ -2069,9 +2069,9 @@
   {
     "objectID": "solutions/lab02-ans-v4n9.html#rstudio-project-and-quarto-documents---official-solutions",
     "href": "solutions/lab02-ans-v4n9.html#rstudio-project-and-quarto-documents---official-solutions",
-    "title": "Solution - Lab 2: RStudio Project and Quarto Documents",
+    "title": "Solution - Lab 02: RStudio & Quarto",
     "section": "",
-    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box.\n\n\n\n\n\n\n🏠 Back to Solutions Hub"
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box."
   },
   {
     "objectID": "instructor-dashboard.html",

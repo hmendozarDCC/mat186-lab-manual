@@ -68,3 +68,15 @@ Let's make your lab reports viewable as actual websites.
 
 ### **A Note on Open Science**
 By putting your work on GitHub, you are participating in **Open Science**. This allows others to learn from your code and allows you to track your own progress throughout the semester!
+
+---
+
+::: {.callout-tip}
+### Done with the Lab?
+If you have finished all the tasks above, you can verify your work against the official solutions.
+
+<center>
+<a href="../solutions.html" class="btn btn-outline-success" role="button">🔓 Access Lab Solutions</a>
+</center>
+:::
+

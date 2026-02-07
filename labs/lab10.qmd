@@ -101,3 +101,15 @@ In MAT 186, we typically use an **alpha ($\alpha$) level of 0.05**.
 
 ## Accessibility Tip: Reporting Results
 When writing your report, always include the **Confidence Interval**. This helps readers (and screen readers) understand the *magnitude* of your finding, not just whether it was "significant" or not.
+
+---
+
+::: {.callout-tip}
+### Done with the Lab?
+If you have finished all the tasks above, you can verify your work against the official solutions.
+
+<center>
+<a href="../solutions.html" class="btn btn-outline-success" role="button">🔓 Access Lab Solutions</a>
+</center>
+:::
+

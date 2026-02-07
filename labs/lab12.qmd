@@ -96,3 +96,15 @@ knitr::kable(
 
 ## Accessibility Tip: High-Contrast Visuals
 When using the `fill = species` aesthetic in your plots, remember that some students may have color vision deficiencies. Use `scale_fill_viridis_d()` to ensure your group comparisons are accessible to everyone.
+
+---
+
+::: {.callout-tip}
+### Done with the Lab?
+If you have finished all the tasks above, you can verify your work against the official solutions.
+
+<center>
+<a href="../solutions.html" class="btn btn-outline-success" role="button">🔓 Access Lab Solutions</a>
+</center>
+:::
+

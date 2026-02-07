@@ -121,3 +121,15 @@ knitr::kable(
 
 ## Pro-Tip: The "Equal Variance" Assumption
 ANOVA assumes that the "spread" (variance) is roughly the same for all groups. If one boxplot is massive and another is tiny, the math might be unreliable. In those cases, we go back to the **Non-parametric** methods from Lab 15!
+
+---
+
+::: {.callout-tip}
+### Done with the Lab?
+If you have finished all the tasks above, you can verify your work against the official solutions.
+
+<center>
+<a href="../solutions.html" class="btn btn-outline-success" role="button">🔓 Access Lab Solutions</a>
+</center>
+:::
+

@@ -101,3 +101,15 @@ Follow these steps to practice using Quarto:
 6.  **Check Results**: Look at your final HTML report. You should see your title **Lab 2**, the code `2 + 2`, and the result `4`.
 7.  **Submit**: upload your HTML report in Brightspace and submit it.
 :::
+
+---
+
+::: {.callout-tip}
+### Done with the Lab?
+If you have finished all the tasks above, you can verify your work against the official solutions.
+
+<center>
+<a href="../solutions.html" class="btn btn-outline-success" role="button">🔓 Access Lab Solutions</a>
+</center>
+:::
+

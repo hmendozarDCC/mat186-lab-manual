@@ -98,3 +98,15 @@ knitr::kable(
 5. Calculate the 95% Confidence Interval. 
 6. **Reflection:** In your Quarto document, explain in your own words why we "sample with replacement" during bootstrapping.
 </div>
+
+---
+
+::: {.callout-tip}
+### Done with the Lab?
+If you have finished all the tasks above, you can verify your work against the official solutions.
+
+<center>
+<a href="../solutions.html" class="btn btn-outline-success" role="button">🔓 Access Lab Solutions</a>
+</center>
+:::
+

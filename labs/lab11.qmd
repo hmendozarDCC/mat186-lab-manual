@@ -81,3 +81,15 @@ If your confidence interval is `(0.301, 0.508)`, it means we are 95% confident t
 
 ## Accessibility Note: Rounding for Clarity
 When reporting proportions to a general audience, always convert decimals to percentages and round to one decimal place (e.g., $0.4022$ becomes **40.2%**). This makes your findings much easier to digest for readers using assistive technology.
+
+---
+
+::: {.callout-tip}
+### Done with the Lab?
+If you have finished all the tasks above, you can verify your work against the official solutions.
+
+<center>
+<a href="../solutions.html" class="btn btn-outline-success" role="button">🔓 Access Lab Solutions</a>
+</center>
+:::
+

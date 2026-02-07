@@ -23,6 +23,33 @@ format:
 Add your specific DCC lab answers below this box.
 :::
 
+---
+title: "Solution - Lab 02: RStudio & Quarto"
+subtitle: "MAT 186: Introduction to Data Science"
+format:
+  html:
+    toc: true
+    toc-location: right
+---
+
+<script>
+  var password = "MAT186LABSOER"; 
+  var res = prompt("DCC Instructor Key Required:");
+  if (res != password) {
+    alert("Incorrect password. Access denied.");
+    window.location.href = "../index.html";
+  }
+</script>
+
+## Lab 2 Official Solutions
+
+### Task 1: Basic Arithmetic
+The student was asked to create a code chunk that calculates $2 + 2$.
+
+```{r}
+#| echo: true
+2 + 2
+```
 <br><br>
 
 ***

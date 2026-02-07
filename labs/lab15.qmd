@@ -109,3 +109,15 @@ While non-parametric tests are safer for "messy" data, they are slightly **less 
 
 ## Pro-Tip: When in Doubt, Rank it Out
 If you are presenting data to a stakeholder and you are worried about one or two "crazy" outliers ruining your average, the Wilcoxon test is your best friend. It treats the outlier as just "the highest rank," preventing it from pulling the results in its direction.
+
+---
+
+::: {.callout-tip}
+### Done with the Lab?
+If you have finished all the tasks above, you can verify your work against the official solutions.
+
+<center>
+<a href="../solutions.html" class="btn btn-outline-success" role="button">🔓 Access Lab Solutions</a>
+</center>
+:::
+
