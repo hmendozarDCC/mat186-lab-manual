@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>lab04 – MAT 186: Data Science</title>
+<title>lab01-sol – MAT 186: Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab01.html">Course Labs</a></li><li class="breadcrumb-item"><a href="../labs/lab04.html">Lab 4: GitHub Repository</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab01.html">Course Labs</a></li><li class="breadcrumb-item"><a href="../solutions/lab01-sol.html">🔑 Lab 1 Solution</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -181,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../solutions/lab01-sol.html" class="sidebar-item-text sidebar-link">
+  <a href="../solutions/lab01-sol.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">🔑 Lab 1 Solution</span></a>
   </div>
 </li>
@@ -199,7 +199,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab04.html" class="sidebar-item-text sidebar-link active">
+  <a href="../labs/lab04.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 4: GitHub Repository</span></a>
   </div>
 </li>
@@ -293,25 +293,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#lab-4-creating-your-data-science-portfolio-on-github" id="toc-lab-4-creating-your-data-science-portfolio-on-github" class="nav-link active" data-scroll-target="#lab-4-creating-your-data-science-portfolio-on-github">Lab 4: Creating Your Data Science Portfolio on GitHub</a>
-  <ul class="collapse">
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#part-1-setting-up-your-account" id="toc-part-1-setting-up-your-account" class="nav-link" data-scroll-target="#part-1-setting-up-your-account">Part 1: Setting Up Your Account</a></li>
-  <li><a href="#part-2-creating-your-first-repository" id="toc-part-2-creating-your-first-repository" class="nav-link" data-scroll-target="#part-2-creating-your-first-repository">Part 2: Creating Your First Repository</a></li>
-  <li><a href="#part-3-uploading-your-lab-reports" id="toc-part-3-uploading-your-lab-reports" class="nav-link" data-scroll-target="#part-3-uploading-your-lab-reports">Part 3: Uploading Your Lab Reports</a></li>
-  <li><a href="#part-4-publishing-with-github-pages" id="toc-part-4-publishing-with-github-pages" class="nav-link" data-scroll-target="#part-4-publishing-with-github-pages">Part 4: Publishing with GitHub Pages</a>
-  <ul class="collapse">
-  <li><a href="#a-note-on-open-science" id="toc-a-note-on-open-science" class="nav-link" data-scroll-target="#a-note-on-open-science"><strong>A Note on Open Science</strong></a></li>
-  </ul></li>
-  </ul></li>
+  <li><a href="#lab-1-solution" id="toc-lab-1-solution" class="nav-link active" data-scroll-target="#lab-1-solution">🌟 Lab 1 solution</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab01.html">Course Labs</a></li><li class="breadcrumb-item"><a href="../labs/lab04.html">Lab 4: GitHub Repository</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab01.html">Course Labs</a></li><li class="breadcrumb-item"><a href="../solutions/lab01-sol.html">🔑 Lab 1 Solution</a></li></ol></nav>
 <div class="quarto-title">
 </div>
 
@@ -335,80 +324,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="lab-4-creating-your-data-science-portfolio-on-github" class="level1">
-<h1>Lab 4: Creating Your Data Science Portfolio on GitHub</h1>
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
-<ul>
-<li>Create a personal GitHub account.</li>
-<li>Initialize a new repository for MAT 186 work.</li>
-<li>Understand the “Commit” and “Push” workflow.</li>
-<li>Host a live version of a lab report using GitHub Pages.</li>
-</ul>
-<hr>
-</section>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Data Science is a collaborative field. GitHub is the industry standard for version control and sharing code. In this lab, you will set up your own “portfolio”—a place where you can showcase the work you do in this class to future employers or transfer institutions.</p>
-<hr>
-</section>
-<section id="part-1-setting-up-your-account" class="level2">
-<h2 class="anchored" data-anchor-id="part-1-setting-up-your-account">Part 1: Setting Up Your Account</h2>
-<ol type="1">
-<li>Go to <a href="https://github.com">GitHub.com</a>.</li>
-<li>Sign up for a free account.
-<ul>
-<li><strong>Tip:</strong> Choose a professional username (e.g., <code>jsmith-dcc</code>), as you may show this to employers later!</li>
-</ul></li>
-<li>Verify your email address.</li>
-</ol>
-<hr>
-</section>
-<section id="part-2-creating-your-first-repository" class="level2">
-<h2 class="anchored" data-anchor-id="part-2-creating-your-first-repository">Part 2: Creating Your First Repository</h2>
-<p>A <strong>Repository</strong> (or “Repo”) is like a project folder that lives in the cloud.</p>
-<ol type="1">
-<li>Click the <strong>+</strong> icon in the top right and select <strong>New repository</strong>.</li>
-<li><strong>Repository name:</strong> <code>mat186-work</code></li>
-<li><strong>Description:</strong> “Labs and projects for Introduction to Data Science at DCC.”</li>
-<li><strong>Public/Private:</strong> Select <strong>Public</strong>.</li>
-<li>Check the box that says <strong>Add a README file</strong>.</li>
-<li>Click <strong>Create repository</strong>.</li>
-</ol>
-<hr>
-</section>
-<section id="part-3-uploading-your-lab-reports" class="level2">
-<h2 class="anchored" data-anchor-id="part-3-uploading-your-lab-reports">Part 3: Uploading Your Lab Reports</h2>
-<p>Now, let’s add the work you’ve done in previous labs.</p>
-<ol type="1">
-<li>In your new <code>mat186-work</code> repository, click <strong>Add file</strong> &gt; <strong>Upload files</strong>.</li>
-<li>Drag and drop your <strong>HTML files</strong> from Lab 2 and Lab 3 into the browser.</li>
-<li>At the bottom, type a “Commit message” like: <code>Initial upload of Lab 2 and 3</code>.</li>
-<li>Click <strong>Commit changes</strong>.</li>
-</ol>
-<hr>
-</section>
-<section id="part-4-publishing-with-github-pages" class="level2">
-<h2 class="anchored" data-anchor-id="part-4-publishing-with-github-pages">Part 4: Publishing with GitHub Pages</h2>
-<p>Let’s make your lab reports viewable as actual websites.</p>
-<ol type="1">
-<li>Go to your repository <strong>Settings</strong> tab.</li>
-<li>On the left menu, click <strong>Pages</strong>.</li>
-<li>Under <strong>Build and deployment</strong>, set the Branch to <strong>main</strong> and click <strong>Save</strong>.</li>
-<li>After a minute, GitHub will give you a URL (e.g., <code>https://username.github.io/mat186-work/</code>).</li>
-</ol>
-<hr>
-<div class="dcc-important">
-<p><strong>Lab Task 4:</strong> 1. Create your <code>mat186-work</code> repository. 2. Upload the HTML version of your Lab 3 (Math Formulas). 3. Enable GitHub Pages. 4. Paste the link to your live GitHub Page into the Brightspace assignment.</p>
-</div>
-<hr>
-<section id="a-note-on-open-science" class="level3">
-<h3 class="anchored" data-anchor-id="a-note-on-open-science"><strong>A Note on Open Science</strong></h3>
-<p>By putting your work on GitHub, you are participating in <strong>Open Science</strong>. This allows others to learn from your code and allows you to track your own progress throughout the semester!</p>
+<section id="lab-1-solution" class="level2">
+<h2 class="anchored" data-anchor-id="lab-1-solution">🌟 Lab 1 solution</h2>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
