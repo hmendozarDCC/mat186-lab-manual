@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>lab14 – MAT 186: Data Science</title>
+<title>Instructor Dashboard – MAT 186: Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,62 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-20ee48386a4b45868ab0b2e414518e75.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-20ee48386a4b45868ab0b2e414518e75.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -105,21 +70,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="index.qmd" class="navbar-brand navbar-brand-logo">
-    <img src="../images/dcc-logo.png" alt="Dutchess Community College Logo" class="navbar-logo light-content">
-    <img src="../images/dcc-logo.png" alt="Dutchess Community College Logo" class="navbar-logo dark-content">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/dcc-logo.png" alt="Dutchess Community College Logo" class="navbar-logo light-content">
+    <img src="./images/dcc-logo.png" alt="Dutchess Community College Logo" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="index.qmd">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">MAT 186: Data Science</span>
     </a>
   </div>
@@ -130,13 +95,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../references.html"> 
+    <a class="nav-link" href="./references.html"> 
 <span class="menu-text">References</span></a>
   </li>  
 </ul>
@@ -150,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab01.html">Course Labs</a></li><li class="breadcrumb-item"><a href="../labs/lab14.html">Lab 14: Bootstrapping</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Instructor Dashboard</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -181,19 +146,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../submission-criteria.html" class="sidebar-item-text sidebar-link">
+  <a href="./submission-criteria.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to Submit (Read First!)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sharing-guide.html" class="sidebar-item-text sidebar-link">
+  <a href="./sharing-guide.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Setup &amp; Sharing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../showcase.html" class="sidebar-item-text sidebar-link">
+  <a href="./showcase.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab Showcase</span></a>
   </div>
 </li>
@@ -210,109 +175,109 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab01.html" class="sidebar-item-text sidebar-link">
+  <a href="./labs/lab01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 1: R and RStudio Installation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../solutions/lab01-ans-k8p2.html" class="sidebar-item-text sidebar-link">
+  <a href="./solutions/lab01-ans-k8p2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">🔑 Lab 1 Solution</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab02.html" class="sidebar-item-text sidebar-link">
+  <a href="./labs/lab02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 2: RStudio Project and Quarto Documents</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab03.html" class="sidebar-item-text sidebar-link">
+  <a href="./labs/lab03.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 3: Mathematical Notation in Quarto</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab04.html" class="sidebar-item-text sidebar-link">
+  <a href="./labs/lab04.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 4: GitHub Repository</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab05.html" class="sidebar-item-text sidebar-link">
+  <a href="./labs/lab05.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 5: Getting data into R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab06.html" class="sidebar-item-text sidebar-link">
+  <a href="./labs/lab06.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 6: Data collection</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab07.html" class="sidebar-item-text sidebar-link">
+  <a href="./labs/lab07.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 7: Cleaning Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab08.html" class="sidebar-item-text sidebar-link">
+  <a href="./labs/lab08.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 8: Exploratory Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab09.html" class="sidebar-item-text sidebar-link">
+  <a href="./labs/lab09.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 9: Probability distribution</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab10.html" class="sidebar-item-text sidebar-link">
+  <a href="./labs/lab10.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 10: Statistical inference for one mean</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab11.html" class="sidebar-item-text sidebar-link">
+  <a href="./labs/lab11.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 11: Statistical inference for one proportion</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab12.html" class="sidebar-item-text sidebar-link">
+  <a href="./labs/lab12.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 12: Statistical inference for two means</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab13.html" class="sidebar-item-text sidebar-link">
+  <a href="./labs/lab13.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 13: Statistical inference for two proportions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab14.html" class="sidebar-item-text sidebar-link active">
+  <a href="./labs/lab14.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 14: Bootstrapping</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab15.html" class="sidebar-item-text sidebar-link">
+  <a href="./labs/lab15.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 15: Non-parametric methods</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab16.html" class="sidebar-item-text sidebar-link">
+  <a href="./labs/lab16.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 16: Analysis of variance (ANOVA)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab17.html" class="sidebar-item-text sidebar-link">
+  <a href="./labs/lab17.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 17: Regression models</span></a>
   </div>
 </li>
@@ -323,28 +288,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#lab-14-bootstrapping-and-resampling" id="toc-lab-14-bootstrapping-and-resampling" class="nav-link active" data-scroll-target="#lab-14-bootstrapping-and-resampling">Lab 14: Bootstrapping and Resampling</a>
-  <ul class="collapse">
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#introduction-pulling-yourself-up-by-your-boots" id="toc-introduction-pulling-yourself-up-by-your-boots" class="nav-link" data-scroll-target="#introduction-pulling-yourself-up-by-your-boots">Introduction: Pulling yourself up by your Boots</a></li>
-  <li><a href="#part-1-the-infer-package" id="toc-part-1-the-infer-package" class="nav-link" data-scroll-target="#part-1-the-infer-package">Part 1: The <code>infer</code> Package</a></li>
-  <li><a href="#part-2-visualizing-the-bootstrap-distribution" id="toc-part-2-visualizing-the-bootstrap-distribution" class="nav-link" data-scroll-target="#part-2-visualizing-the-bootstrap-distribution">Part 2: Visualizing the Bootstrap Distribution</a></li>
-  <li><a href="#part-3-the-percentile-method" id="toc-part-3-the-percentile-method" class="nav-link" data-scroll-target="#part-3-the-percentile-method">Part 3: The Percentile Method</a></li>
-  <li><a href="#part-4-why-use-bootstrapping" id="toc-part-4-why-use-bootstrapping" class="nav-link" data-scroll-target="#part-4-why-use-bootstrapping">Part 4: Why Use Bootstrapping?</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab01.html">Course Labs</a></li><li class="breadcrumb-item"><a href="../labs/lab14.html">Lab 14: Bootstrapping</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
+<h1 class="title">Instructor Dashboard</h1>
+<p class="subtitle lead">Secret Keys &amp; File Management</p>
 </div>
 
 
@@ -367,167 +318,137 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="lab-14-bootstrapping-and-resampling" class="level1">
-<h1>Lab 14: Bootstrapping and Resampling</h1>
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Confidential
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This page is for instructor use only. Do not link this page in the main website navigation.</p>
+</div>
+</div>
+<section id="master-password-key" class="level2">
+<h2 class="anchored" data-anchor-id="master-password-key">🔑 Master Password Key</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Lab #</th>
+<th style="text-align: left;">Topic</th>
+<th style="text-align: center;">Original Password</th>
+<th style="text-align: left;">Filename</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">02</td>
+<td style="text-align: left;">RStudio &amp; Quarto</td>
+<td style="text-align: center;"><code>v4n9</code></td>
+<td style="text-align: left;"><code>lab02-ans-v4n9.qmd</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">03</td>
+<td style="text-align: left;">Math Notation</td>
+<td style="text-align: center;"><code>x7m1</code></td>
+<td style="text-align: left;"><code>lab03-ans-x7m1.qmd</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">04</td>
+<td style="text-align: left;">GitHub Repo</td>
+<td style="text-align: center;"><code>b2r6</code></td>
+<td style="text-align: left;"><code>lab04-ans-b2r6.qmd</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">05</td>
+<td style="text-align: left;">Data Input</td>
+<td style="text-align: center;"><code>t8j3</code></td>
+<td style="text-align: left;"><code>lab05-ans-t8j3.qmd</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">06</td>
+<td style="text-align: left;">Data Collection</td>
+<td style="text-align: center;"><code>w5q1</code></td>
+<td style="text-align: left;"><code>lab06-ans-w5q1.qmd</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">07</td>
+<td style="text-align: left;">Cleaning Data</td>
+<td style="text-align: center;"><code>h9y4</code></td>
+<td style="text-align: left;"><code>lab07-ans-h9y4.qmd</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">08</td>
+<td style="text-align: left;">EDA</td>
+<td style="text-align: center;"><code>s3z7</code></td>
+<td style="text-align: left;"><code>lab08-ans-s3z7.qmd</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">09</td>
+<td style="text-align: left;">Probability</td>
+<td style="text-align: center;"><code>f6p2</code></td>
+<td style="text-align: left;"><code>lab09-ans-f6p2.qmd</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: left;">One Mean</td>
+<td style="text-align: center;"><code>g4d8</code></td>
+<td style="text-align: left;"><code>lab10-ans-g4d8.qmd</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">11</td>
+<td style="text-align: left;">One Proportion</td>
+<td style="text-align: center;"><code>m1k5</code></td>
+<td style="text-align: left;"><code>lab11-ans-m1k5.qmd</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">12</td>
+<td style="text-align: left;">Two Means</td>
+<td style="text-align: center;"><code>p9v2</code></td>
+<td style="text-align: left;"><code>lab12-ans-p9v2.qmd</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">13</td>
+<td style="text-align: left;">Two Proportions</td>
+<td style="text-align: center;"><code>c7w4</code></td>
+<td style="text-align: left;"><code>lab13-ans-c7w4.qmd</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">14</td>
+<td style="text-align: left;">Bootstrapping</td>
+<td style="text-align: center;"><code>x2n8</code></td>
+<td style="text-align: left;"><code>lab14-ans-x2n8.qmd</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">15</td>
+<td style="text-align: left;">Non-parametric</td>
+<td style="text-align: center;"><code>r5h1</code></td>
+<td style="text-align: left;"><code>lab15-ans-r5h1.qmd</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">16</td>
+<td style="text-align: left;">ANOVA</td>
+<td style="text-align: center;"><code>y3l9</code></td>
+<td style="text-align: left;"><code>lab16-ans-y3l9.qmd</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">17</td>
+<td style="text-align: left;">Regression</td>
+<td style="text-align: center;"><code>a6t2</code></td>
+<td style="text-align: left;"><code>lab17-ans-a6t2.qmd</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<section id="quick-admin-tasks" class="level3">
+<h3 class="anchored" data-anchor-id="quick-admin-tasks">🚀 Quick Admin Tasks</h3>
 <ul>
-<li>Understand the concept of <strong>Sampling with Replacement</strong>.</li>
-<li>Use the <code>infer</code> package to create a bootstrap distribution.</li>
-<li>Estimate a <strong>Confidence Interval</strong> without assuming the data is “Normal.”</li>
-<li>Compare Bootstrap results to traditional T-test results.</li>
+<li><strong>Current Temp Password:</strong> <code>MAT186LABSOER</code></li>
+<li><strong>To Restore:</strong> Run the “Restore Original Passwords” R script.</li>
+<li><strong>To Update Solutions:</strong> Go to the <code>solutions/</code> folder directly.</li>
 </ul>
-<hr>
-</section>
-<section id="introduction-pulling-yourself-up-by-your-boots" class="level2">
-<h2 class="anchored" data-anchor-id="introduction-pulling-yourself-up-by-your-boots">Introduction: Pulling yourself up by your Boots</h2>
-<p>What if your data is skewed, or you have a very small sample size? Traditional math might fail you. <strong>Bootstrapping</strong> solves this by treating your sample like a “mini-population.” We take thousands of samples from our own data to see how much the mean varies.</p>
-<hr>
-</section>
-<section id="part-1-the-infer-package" class="level2">
-<h2 class="anchored" data-anchor-id="part-1-the-infer-package">Part 1: The <code>infer</code> Package</h2>
-<p>In R, the <code>infer</code> package makes the logic of bootstrapping very clear. We follow four steps: <code>specify</code>, <code>generate</code>, <code>calculate</code>, and <code>visualize</code>.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load the infer package</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(infer)) <span class="fu">install.packages</span>(<span class="st">"infer"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(infer)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's bootstrap the mean height of Star Wars characters</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>boot_dist <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(height) <span class="sc">|&gt;</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> height) <span class="sc">|&gt;</span>              <span class="co"># 1. What variable?</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span> <span class="co"># 2. Resample 1000 times</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)                   <span class="co"># 3. Find the mean each time</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-boot-head</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "The first six rows of the bootstrap distribution, showing the calculated mean for each simulation replicate."</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(boot_dist) <span class="sc">|&gt;</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: right;">replicate</th>
-<th style="text-align: right;">stat</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">172.3086</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">172.7531</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">169.7654</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">169.7160</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">170.3827</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">176.4444</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<hr>
-</section>
-<section id="part-2-visualizing-the-bootstrap-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="part-2-visualizing-the-bootstrap-distribution">Part 2: Visualizing the Bootstrap Distribution</h2>
-<p>Instead of a theoretical curve, we look at the actual distribution of our 1,000 “fake” means.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">visualize</span>(boot_dist) <span class="sc">+</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Bootstrap Distribution of the Mean"</span>,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Sample Mean Height (cm)"</span>, </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div id="fig-visualize-bootstrap" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A histogram showing the distribution of 1,000 bootstrap sample means. The distribution is symmetric and bell-shaped, centered at approximately 174 cm. This visualization represents the sampling variability of the mean height. The x-axis shows the sample mean height in cm, and the y-axis shows the frequency of those means.">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-visualize-bootstrap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="lab14_files/figure-html/fig-visualize-bootstrap-1.png" class="img-fluid figure-img" alt="A histogram showing the distribution of 1,000 bootstrap sample means. The distribution is symmetric and bell-shaped, centered at approximately 174 cm. This visualization represents the sampling variability of the mean height. The x-axis shows the sample mean height in cm, and the y-axis shows the frequency of those means." width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-visualize-bootstrap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Bootstrap distribution of mean heights for Star Wars characters based on 1,000 resamples.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="part-3-the-percentile-method" class="level2">
-<h2 class="anchored" data-anchor-id="part-3-the-percentile-method">Part 3: The Percentile Method</h2>
-<p>To find a 95% Confidence Interval, we simply look at where the middle 95% of our 1,000 bootstrap means fall.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Calculate the interval</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>percentile_ci <span class="ot">&lt;-</span> boot_dist <span class="sc">|&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_confidence_interval</span>(<span class="at">level =</span> <span class="fl">0.95</span>, <span class="at">type =</span> <span class="st">"percentile"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Present as an accessible table</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  percentile_ci,</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Lower Bound (2.5%)"</span>, <span class="st">"Upper Bound (97.5%)"</span>),</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">2</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="tbl-bootstrap-ci" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-bootstrap-ci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: 95% Confidence Interval for mean height using the Percentile Method (1,000 bootstrap replicates).
-</figcaption>
-<div aria-describedby="tbl-bootstrap-ci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output-display">
-<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: right;">Lower Bound (2.5%)</th>
-<th style="text-align: right;">Upper Bound (97.5%)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">166.64</td>
-<td style="text-align: right;">181.72</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</figure>
-</div>
-</div>
-<hr>
-</section>
-<section id="part-4-why-use-bootstrapping" class="level2">
-<h2 class="anchored" data-anchor-id="part-4-why-use-bootstrapping">Part 4: Why Use Bootstrapping?</h2>
-<ol type="1">
-<li><strong>No “Normality” Required:</strong> It works even if your data is weirdly shaped.</li>
-<li><strong>Any Statistic:</strong> You can bootstrap the mean, the median, the standard deviation, or even the correlation coefficient.</li>
-<li><strong>Visual Logic:</strong> It helps you <em>see</em> the uncertainty in your estimate.</li>
-</ol>
-<hr>
-<div class="dcc-important">
-<p><strong>Lab Task 14:</strong></p>
-<ol type="1">
-<li>Pick a numeric variable from your dataset.</li>
-<li>Create a histogram of the original data. (Is it skewed?)</li>
-<li>Run the <code>infer</code> code above to generate 1,000 bootstrap reps for the <strong>Median</strong> instead of the mean (<code>stat = "median"</code>).</li>
-<li>Visualize the bootstrap distribution.</li>
-<li>Calculate the 95% Confidence Interval.</li>
-<li><strong>Reflection:</strong> In your Quarto document, explain in your own words why we “sample with replacement” during bootstrapping.</li>
-</ol>
-</div>
 
 
 </section>
@@ -938,13 +859,13 @@ Table&nbsp;1: 95% Confidence Interval for mean height using the Percentile Metho
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p><img src="../images/dcc-logo.png" alt="DCC Logo" style="width: 120px; margin-bottom: 10px;"> <br> <strong>Dutchess Community College</strong></p>
+<p><img src="./images/dcc-logo.png" alt="DCC Logo" style="width: 120px; margin-bottom: 10px;"> <br> <strong>Dutchess Community College</strong></p>
 </div>   
     <div class="nav-footer-center">
 <p>Last updated: February 7, 2026</p>
 </div>
     <div class="nav-footer-right">
-<p><a href="../accessibility.html">Accessibility Statement</a></p>
+<p><a href="./accessibility.html">Accessibility Statement</a></p>
 </div>
   </div>
 </footer>
