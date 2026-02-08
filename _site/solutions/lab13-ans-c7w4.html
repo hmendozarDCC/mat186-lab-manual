@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -69,6 +104,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../style.css">
 </head>
@@ -293,7 +357,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#statistical-inference-for-two-proportions---official-solutions" id="toc-statistical-inference-for-two-proportions---official-solutions" class="nav-link active" data-scroll-target="#statistical-inference-for-two-proportions---official-solutions">Statistical inference for two proportions - Official Solutions</a></li>
+  <li><a href="#statistical-inference-for-two-proportions---official-solutions" id="toc-statistical-inference-for-two-proportions---official-solutions" class="nav-link active" data-scroll-target="#statistical-inference-for-two-proportions---official-solutions">Statistical inference for two proportions - Official Solutions</a>
+  <ul class="collapse">
+  <li><a href="#task-1-preparing-the-binary-outcome" id="toc-task-1-preparing-the-binary-outcome" class="nav-link" data-scroll-target="#task-1-preparing-the-binary-outcome">Task 1: Preparing the Binary Outcome</a></li>
+  <li><a href="#task-2-visualizing-with-a-stacked-bar-chart" id="toc-task-2-visualizing-with-a-stacked-bar-chart" class="nav-link" data-scroll-target="#task-2-visualizing-with-a-stacked-bar-chart">Task 2: Visualizing with a Stacked Bar Chart</a></li>
+  <li><a href="#task-3-state-your-hypotheseswe-are-testing-if-the-proportion-of-hispaniclatino-students-is-the-same-in-both-sectors." id="toc-task-3-state-your-hypotheseswe-are-testing-if-the-proportion-of-hispaniclatino-students-is-the-same-in-both-sectors." class="nav-link" data-scroll-target="#task-3-state-your-hypotheseswe-are-testing-if-the-proportion-of-hispaniclatino-students-is-the-same-in-both-sectors.">Task 3: State Your HypothesesWe are testing if the proportion of Hispanic/Latino students is the same in both sectors.</a></li>
+  <li><a href="#task-4-running-the-proportion-test" id="toc-task-4-running-the-proportion-test" class="nav-link" data-scroll-target="#task-4-running-the-proportion-test">Task 4: Running the Proportion Test</a></li>
+  <li><a href="#task-5-conclusion" id="toc-task-5-conclusion" class="nav-link" data-scroll-target="#task-5-conclusion">Task 5: Conclusion</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -315,7 +386,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 7, 2026</p>
+      <p class="date-modified">February 8, 2026</p>
     </div>
   </div>
     
@@ -336,19 +407,104 @@ ul.task-list li input[type="checkbox"] {
 </script>
 <section id="statistical-inference-for-two-proportions---official-solutions" class="level2">
 <h2 class="anchored" data-anchor-id="statistical-inference-for-two-proportions---official-solutions">Statistical inference for two proportions - Official Solutions</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>In this lab, we compare the proportion of “Successes” (which we will define as Hispanic/Latino student enrollment) between two distinct groups (Community Colleges and Doctoral Institutions). ::: {.callout-note} ### Instructor Note Add your specific DCC lab answers below this box. ::: ## Lab 13 Official Solutions: Two-Sample Proportion Inference</p>
+<p>In this lab, we test whether the proportion of Hispanic/Latino students differs significantly between Community Colleges and Doctoral Institutions.</p>
+<section id="task-1-preparing-the-binary-outcome" class="level3">
+<h3 class="anchored" data-anchor-id="task-1-preparing-the-binary-outcome">Task 1: Preparing the Binary Outcome</h3>
+<p>Our dataset provides counts. To create a “Success/Failure” comparison, we define “Success” as being a Hispanic/Latino student and “Failure” as being any other student within that sector.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load and clean the data</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ny_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/race_ny.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Clean numeric columns and filter for two groups</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>comparison_data <span class="ot">&lt;-</span> ny_data <span class="sc">|&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">total =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, <span class="st">`</span><span class="at">Total Enrollment</span><span class="st">`</span>)),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">hispanic =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, <span class="st">`</span><span class="at">Hispanic/Latino</span><span class="st">`</span>)),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">other =</span> total <span class="sc">-</span> hispanic</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Institution Sector</span><span class="st">`</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Community Colleges"</span>, <span class="st">"Doctoral Degree Granting Institutions"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">Institution Sector</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_hispanic =</span> <span class="fu">sum</span>(hispanic, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_other =</span> <span class="fu">sum</span>(other, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_n =</span> <span class="fu">sum</span>(total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Instructor Note
+</section>
+<section id="task-2-visualizing-with-a-stacked-bar-chart" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-visualizing-with-a-stacked-bar-chart">Task 2: Visualizing with a Stacked Bar Chart</h3>
+<p>We use position = “fill” to create a chart that compares the relative proportions (the percentage) rather than the raw counts.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reshape data for plotting</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>plot_data <span class="ot">&lt;-</span> comparison_data <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(total_hispanic, total_other), </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Outcome"</span>, </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"Count"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plot_data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Institution Sector</span><span class="st">`</span>, <span class="at">y =</span> Count, <span class="at">fill =</span> Outcome)) <span class="sc">+</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>, <span class="st">"grey80"</span>), </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Hispanic/Latino"</span>, <span class="st">"Other"</span>)) <span class="sc">+</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Proportion of Hispanic/Latino Enrollment"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Institution Sector"</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Percentage of Total Enrollment"</span>) <span class="sc">+</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-stacked-bar" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A stacked bar chart comparing two sectors. The Y-axis represents the percentage (0 to 100%). Each bar is split into 'Hispanic' and 'Other'. The Community College bar shows a visually larger segment for Hispanic students compared to the Doctoral Institutions bar.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-stacked-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lab13-ans-c7w4_files/figure-html/fig-stacked-bar-1.png" class="img-fluid figure-img" alt="A stacked bar chart comparing two sectors. The Y-axis represents the percentage (0 to 100%). Each bar is split into 'Hispanic' and 'Other'. The Community College bar shows a visually larger segment for Hispanic students compared to the Doctoral Institutions bar." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stacked-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Stacked bar chart showing the proportion of Hispanic/Latino students versus other students by sector.
+</figcaption>
+</figure>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>Add your specific DCC lab answers below this box.</p>
+</div>
+</section>
+<section id="task-3-state-your-hypotheseswe-are-testing-if-the-proportion-of-hispaniclatino-students-is-the-same-in-both-sectors." class="level3">
+<h3 class="anchored" data-anchor-id="task-3-state-your-hypotheseswe-are-testing-if-the-proportion-of-hispaniclatino-students-is-the-same-in-both-sectors.">Task 3: State Your HypothesesWe are testing if the proportion of Hispanic/Latino students is the same in both sectors.</h3>
+<ul>
+<li><p><strong>Null Hypothesis (<span class="math inline">\(H_0\)</span>):</strong> The proportion of Hispanic students is the same in both sectors (<span class="math inline">\(p_1 = p_2\)</span>).</p></li>
+<li><p><strong>Alternative Hypothesis (<span class="math inline">\(H_a\)</span>):</strong> The proportion of Hispanic students is different between the two sectors (<span class="math inline">\(p_1 \neq p_2\)</span>).</p></li>
+</ul>
+</section>
+<section id="task-4-running-the-proportion-test" class="level3">
+<h3 class="anchored" data-anchor-id="task-4-running-the-proportion-test">Task 4: Running the Proportion Test</h3>
+<p>We use prop.test() by providing the vector of successes and the vector of total sample sizes.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the test</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># successes = c(Group1_Success, Group2_Success)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># totals = c(Group1_Total, Group2_Total)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>p_test <span class="ot">&lt;-</span> <span class="fu">prop.test</span>(<span class="at">x =</span> comparison_data<span class="sc">$</span>total_hispanic, </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">n =</span> comparison_data<span class="sc">$</span>total_n)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Display results</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>p_test</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    2-sample test for equality of proportions with continuity correction
+
+data:  comparison_data$total_hispanic out of comparison_data$total_n
+X-squared = 20695, df = 1, p-value &lt; 2.2e-16
+alternative hypothesis: two.sided
+95 percent confidence interval:
+ 0.03416619 0.03505954
+sample estimates:
+    prop 1     prop 2 
+0.11420780 0.07959493 </code></pre>
 </div>
 </div>
+</section>
+<section id="task-5-conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="task-5-conclusion">Task 5: Conclusion</h3>
+<p>Based on the statistical analysis:</p>
+<p><strong>Formal Conclusion:</strong> Since the p-value was r format.pval(p_test$p.value, digits = 4), which is less than the alpha level of 0.05, we reject the null hypothesis and conclude there is a significant difference in the proportions of Hispanic/Latino students between Community Colleges and Doctoral Institutions.</p>
 <p><br><br></p>
 <hr>
 <div class="content-block">
@@ -358,6 +514,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -768,7 +925,7 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="../images/dcc-logo.png" alt="DCC Logo" style="width: 120px; margin-bottom: 10px;"> <br> <strong>Dutchess Community College</strong></p>
 </div>   
     <div class="nav-footer-center">
-<p>Last updated: February 7, 2026</p>
+<p>Last updated: February 8, 2026</p>
 </div>
     <div class="nav-footer-right">
 <p><a href="../accessibility.html">Accessibility Statement</a></p>
