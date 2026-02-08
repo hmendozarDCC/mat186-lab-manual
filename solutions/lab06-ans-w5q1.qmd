@@ -23,6 +23,46 @@ format:
 Add your specific DCC lab answers below this box.
 :::
 
+### Tasks 1-4: Data Acquisition & Organization
+The student's project folder must be organized correctly for the code to run. 
+
+**Requirements:**
+1. **Source:** [NY State Open Data Portal](https://data.ny.gov/).
+2. **File Format:** CSV.
+3. **Location:** The file `race_ny.csv` must be moved from "Downloads" into the `data/` folder inside the RStudio Project.
+
+
+
+---
+
+### Task 5: Data Narrative (The Paragraph)
+*This is an example of what the student should have written in their Quarto document:*
+
+> "This dataset, **race_ny.csv**, was obtained from the NY State Open Data Portal. The data was collected by New York State government agencies to track demographic participation. One row in this dataset represents a single recorded observation of an individual or event entry categorized by race and ethnicity for a specific year and location."
+
+---
+
+### Task 6: Importing and Displaying Data
+The student must use `read_csv()` (from the `tidyverse` package) and `head(..., n = 10)`.
+
+::: {.callout-important}
+## Path Reminder
+Since this solution is inside the `solutions/` folder, we use `../data/` to access the data folder. In the student's main lab file, they would likely just use `data/race_ny.csv`.
+:::
+
+```{r}
+#| message: false
+#| warning: false
+# 1. Load the necessary library
+library(tidyverse)
+
+# 2. Load the data using the professional folder path
+# Replace 'race_ny.csv' with the actual name of your downloaded file
+ny_data <- read_csv("../data/race_ny.csv")
+
+# 3. Show the first 10 rows
+head(ny_data, n = 10)
+```
 <br><br>
 
 ***
