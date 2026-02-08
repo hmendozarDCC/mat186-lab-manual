@@ -1618,14 +1618,14 @@
     "href": "solutions/lab12-ans-p9v2.html",
     "title": "Solution - Lab 12: Statistical inference for two means",
     "section": "",
-    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box.\n\n\n\n\n\n\n🏠 Back to Solutions Hub"
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box.\n\n\nTo solve Lab 12, we perform a Two-Sample T-Test. This test is used to compare the means of a numeric variable across two distinct groups. Using your SUNY dataset, we will compare the average enrollment of Community Colleges versus Doctoral Degree Granting Institutions.\nHere is the complete solution for solutions/lab12-ans-q8w1.qmd, including all accessibility requirements."
   },
   {
     "objectID": "solutions/lab12-ans-p9v2.html#statistical-inference-for-two-means---official-solutions",
     "href": "solutions/lab12-ans-p9v2.html#statistical-inference-for-two-means---official-solutions",
     "title": "Solution - Lab 12: Statistical inference for two means",
     "section": "",
-    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box.\n\n\n\n\n\n\n🏠 Back to Solutions Hub"
+    "text": "NoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box.\n\n\nTo solve Lab 12, we perform a Two-Sample T-Test. This test is used to compare the means of a numeric variable across two distinct groups. Using your SUNY dataset, we will compare the average enrollment of Community Colleges versus Doctoral Degree Granting Institutions.\nHere is the complete solution for solutions/lab12-ans-q8w1.qmd, including all accessibility requirements."
   },
   {
     "objectID": "solutions/lab14-ans-x2n8.html",
@@ -2093,5 +2093,19 @@
     "title": "Lab 17: Linear Regression",
     "section": "",
     "text": "TipDone with the Lab?\n\n\n\nIf you have finished all the tasks above, you can verify your work against the official solutions.\n\n🔓 Access Lab Solutions"
+  },
+  {
+    "objectID": "solutions/lab12-ans-p9v2.html#markdown",
+    "href": "solutions/lab12-ans-p9v2.html#markdown",
+    "title": "Solution - Lab 12: Statistical inference for two means",
+    "section": "Markdown",
+    "text": "Markdown\ntitle: “Solution - Lab 12: Comparing Two Means” subtitle: “MAT 186: Introduction to Data Science” format: html: toc: true toc-location: right —"
+  },
+  {
+    "objectID": "solutions/lab12-ans-p9v2.html#lab-12-official-solutions-two-sample-inference",
+    "href": "solutions/lab12-ans-p9v2.html#lab-12-official-solutions-two-sample-inference",
+    "title": "Solution - Lab 12: Statistical inference for two means",
+    "section": "Lab 12 Official Solutions: Two-Sample Inference",
+    "text": "Lab 12 Official Solutions: Two-Sample Inference\nIn this lab, we test whether there is a statistically significant difference between the enrollment means of two different SUNY sectors.\n\nTask 1: Loading and Filtering Data\nWe prepare our data by cleaning the numeric enrollment column and filtering our categorical variable to include only two specific groups: Community Colleges and Doctoral Degree Granting Institutions.\n\nlibrary(tidyverse)\n\n# Load the data\nny_data &lt;- read_csv(\"../data/race_ny.csv\")\n\n# Clean data: \n# 1. Remove commas from enrollment numbers\n# 2. Filter for only TWO groups in the 'Institution Sector'\ncomparison_data &lt;- ny_data |&gt;\n  mutate(total_enroll = as.numeric(gsub(\",\", \"\", `Total Enrollment`))) |&gt;\n  filter(`Institution Sector` %in% c(\"Community Colleges\", \"Doctoral Degree Granting Institutions\")) |&gt;\n  rename(sector = `Institution Sector`)\n\n\n\nTask 2: Visualizing the Comparison\nA boxplot allows us to see the center and spread of enrollment for both groups side-by-side.\n\nggplot(comparison_data, aes(x = sector, y = total_enroll, fill = sector)) +\n  geom_boxplot(alpha = 0.7) +\n  scale_fill_manual(values = c(\"steelblue\", \"darkorange\")) +\n  labs(title = \"Enrollment Comparison: Community vs. Doctoral\",\n       x = \"Institution Sector\",\n       y = \"Total Students\") +\n  theme_minimal() +\n  guides(fill = \"none\") # Hide legend as X-axis labels are sufficient\n\n\n\n\n\n\n\nFigure 1: Boxplot comparing Total Enrollment between Community Colleges and Doctoral Institutions.\n\n\n\n\n\n\n\nTask 3: State Your Hypotheses\nWe are testing if there is a real difference in the average size of these two types of institutions.\n\nNull Hypothesis (\\(H_0\\)): There is no difference in mean enrollment between the two sectors (\\(\\mu_1 = \\mu_2\\)).\nAlternative Hypothesis (\\(H_a\\)): There is a significant difference in mean enrollment between the two sectors (\\(\\mu_1 \\neq \\mu_2\\)).\n\n\n\nTask 4: Running the Two-Sample T-Test\nWe use the formula syntax numeric_variable ~ categorical_variable to run the test.\n\n# Run the two-sample t-test\nt_results &lt;- t.test(total_enroll ~ sector, data = comparison_data)\n\n# Display results\nt_results\n\n\n    Welch Two Sample t-test\n\ndata:  total_enroll by sector\nt = 17.047, df = 24.837, p-value = 3.228e-15\nalternative hypothesis: true difference in means between group Community Colleges and group Doctoral Degree Granting Institutions is not equal to 0\n95 percent confidence interval:\n  91558.41 116731.86\nsample estimates:\n                   mean in group Community Colleges \n                                           207878.5 \nmean in group Doctoral Degree Granting Institutions \n                                           103733.4 \n\n\n\n\nTask 5: The Conclusion\nBased on the statistical analysis:\nFormal Conclusion: Since the p-value was r format.pval(t_results$p.value, digits = 4), which is much smaller than the alpha level of 0.05, we reject the null hypothesis. The data provides strong evidence that the average enrollment at Community Colleges is significantly different (higher) than the average enrollment at Doctoral Degree Granting Institutions.\n\n\n\n\n🏠 Back to Solutions Hub"
   }
 ]
