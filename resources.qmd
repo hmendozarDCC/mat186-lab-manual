@@ -1,0 +1,49 @@
+---
+title: "Student Resources"
+---
+
+Welcome to the MAT 186 Resource Hub. Use these tools to support your learning throughout the semester.
+
+---
+
+## 🛠️ Essential R & Data Science Tools
+
+### RStudio Cheat Sheets
+R can be challenging to memorize. These official "Cheat Sheets" are the industry standard for quick reference:
+* [Data Visualization with ggplot2](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
+* [Data Transformation with dplyr](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
+* [Quarto Markdown Reference](https://quarto.org/docs/authoring/markdown.html)
+
+### AI for Learning (Generative AI Policy)
+In this course, we use AI as a **tutor, not a replacement**. 
+* **Good use:** "Explain why this t-test code is giving me an error."
+* **Bad use:** "Write the entire conclusion for Lab 12 for me."
+* *Tip: Always double-check AI-generated code; it can sometimes suggest outdated packages!*
+
+---
+
+## 🎓 Dutchess Community College Support
+
+### Academic Support & Tutoring
+If you are struggling with the math or coding concepts, help is available:
+* **The Math Center:** Located in Washington Center (Room 224). They offer walk-in tutoring for statistics.
+* **Writing Center:** Excellent for help with your final project reports.
+* **DCC Help Desk:** For issues with your DCC login or Microsoft 365. [Submit a Ticket](https://www.sunydutchess.edu/its)
+
+### Accommodative Services
+If you have a documented disability and require specific accommodations for this course, please visit the [Office of Accommodative Services](https://www.sunydutchess.edu/accommodativeservices/) in the Orcutt Student Center.
+
+---
+
+## 📊 Practice Data Sources
+Want to explore data outside of our labs? These sites offer free, clean datasets:
+1.  **[NY.gov Open Data](https://data.ny.gov/):** Real data about New York State (similar to our enrollment data).
+2.  **[Kaggle](https://www.kaggle.com/datasets):** A massive community for data science competitions and datasets.
+3.  **[TidyTuesday](https://github.com/rfordatascience/tidytuesday):** A weekly social data project in R.
+
+---
+
+## 📺 Recommended Tutorials
+If you prefer watching to reading:
+* [R Programming for Beginners (YouTube)](https://www.youtube.com/watch?v=yZ0f_WvYI5A)
+* [StatQuest with Josh Starmer](https://www.youtube.com/user/joshstarmer): The best channel for understanding the "logic" behind p-values and regression.

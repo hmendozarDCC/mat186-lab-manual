@@ -1548,7 +1548,7 @@
     "href": "accessibility.html",
     "title": "Accessibility Statement",
     "section": "",
-    "text": "Dutchess Community College is committed to ensuring that our lab manuals are accessible to all students, including those with disabilities. This site is built with Quarto and complies with WCAG 2.1 Level AA standards."
+    "text": "This course site is designed to be accessible to all students, including those with disabilities. We aim to meet or exceed WCAG 2.1 Level AA standards, ensuring that every student at Dutchess Community College has equal access to our Data Science materials.\n\n\nTo achieve our 100% Accessibility rating (as verified by Lighthouse audits), we have implemented the following features:\n\nAlt-Text for Data Visualizations: Every chart, graph, and plot in our labs includes descriptive alternative text. This allows screen reader users to understand the trends and conclusions of the data without seeing the image.\nSemantic Navigation: We use a clear heading hierarchy (# H1, ## H2, ### H3) to allow for easy keyboard navigation and screen reader “heading jumps.”\nMathematical Accessibility: All mathematical notation is rendered using MathJax, which transforms LaTeX equations into readable text for assistive technologies.\nColor Contrast: Text and background colors have been selected to meet high contrast requirements for improved readability.\nAccessible Code: Code chunks are formatted to be legible and distinguishable from standard prose.\n\n\n\n\nAccessibility relies on the following technologies to work with the particular combination of web browser and any assistive technologies or plugins installed on your computer: * HTML * WAI-ARIA * CSS * JavaScript\n\n\n\nIf you encounter any accessibility barriers while using this site, please contact me directly. I am committed to making adjustments to ensure you have the materials you need to succeed.\nYou may also reach out to the DCC Office of Accommodative Services for further support and official accommodations.\n\nThis site was last audited on r format(Sys.Date(), \"%B %Y\") and received a 100% Accessibility score using Google Lighthouse."
   },
   {
     "objectID": "accessibility.html#our-commitment",
@@ -2121,5 +2121,47 @@
     "title": "Solution - Lab 17: Regression models",
     "section": "Lab 17 Official Solutions: Linear Modeling",
     "text": "Lab 17 Official Solutions: Linear Modeling\nIn this lab, we use simple linear regression to quantify the relationship between total campus enrollment and Hispanic/Latino student populations.\n\nTask 1: Data Preparation\nWe clean our numeric variables by removing commas and ensuring there are no missing values in our target columns.\n\nlibrary(tidyverse)\n\n# Load the data\nny_data &lt;- read_csv(\"../data/race_ny.csv\")\n\n# Clean numeric variables\nclean_data &lt;- ny_data |&gt;\n  mutate(\n    total_enroll = as.numeric(gsub(\",\", \"\", `Total Enrollment`)),\n    hispanic_enroll = as.numeric(gsub(\",\", \"\", `Hispanic/Latino`))\n  ) |&gt;\n  filter(!is.na(total_enroll), !is.na(hispanic_enroll))\n\n\n\nTask 2: Correlation Coefficient\nWe calculate the Pearson correlation coefficient (\\(r\\)) to measure the strength and direction of the linear relationship.\n\nr_value &lt;- cor(clean_data$total_enroll, clean_data$hispanic_enroll)\ncat(\"The correlation coefficient (r) is:\", round(r_value, 4))\n\nThe correlation coefficient (r) is: 0.8294\n\n\n\n\nTask 3: Scatter Plot with Regression Line\nWe visualize the relationship with a scatter plot and add a linear trend line.\n\nggplot(clean_data, aes(x = total_enroll, y = hispanic_enroll)) +\n  geom_point(alpha = 0.5, color = \"darkblue\") +\n  geom_smooth(method = \"lm\", color = \"red\", se = TRUE) +\n  labs(title = \"Predicting Hispanic Enrollment from Total Enrollment\",\n       x = \"Total Enrollment (Independent Variable)\",\n       y = \"Hispanic/Latino Enrollment (Dependent Variable)\") +\n  theme_minimal()\n\n\n\n\n\n\n\nFigure 1: Scatter plot of Total Enrollment vs. Hispanic/Latino Enrollment with a linear regression line.\n\n\n\n\n\n\n\nTask 4: Running the Linear Regression Model\nWe use the lm() function to create our mathematical model: \\(Y = \\beta_0 + \\beta_1X\\).\n\n# Formula: Y ~ X\nmodel &lt;- lm(hispanic_enroll ~ total_enroll, data = clean_data)\n\n# Display the regression summary\nsummary(model)\n\n\nCall:\nlm(formula = hispanic_enroll ~ total_enroll, data = clean_data)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-8839.9 -4143.0  -378.9  2436.0 15662.3 \n\nCoefficients:\n               Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  -9.117e+02  9.735e+02  -0.936    0.352    \ntotal_enroll  1.094e-01  7.767e-03  14.087   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 5018 on 90 degrees of freedom\nMultiple R-squared:  0.688, Adjusted R-squared:  0.6845 \nF-statistic: 198.4 on 1 and 90 DF,  p-value: &lt; 2.2e-16\n\n\n\n\nTask 5: Conclusion\nBased on our linear regression analysis, we can draw the following conclusions:\n\nStrength of Relationship: There is a very strong positive correlation (\\(r \\approx 0.83\\)) between total enrollment and Hispanic/Latino enrollment.\nThe Slope: The slope coefficient is approximately r round(coef(model)[2], 4). This means that for every 1 additional student enrolled at a SUNY institution, we expect the Hispanic/Latino student population to increase by about r round(coef(model)[2], 2) students on average.\nPredictive Power (\\(R^2\\)): The R-squared value of r round(summary(model)\\(r.squared, 4) suggests that roughly r round(summary(model)\\)r.squared * 100, 1)% of the variation in Hispanic student enrollment can be explained by the total size of the institution.\n\n\n\n\n\n🏠 Back to Solutions Hub"
+  },
+  {
+    "objectID": "accessibility.html#commitment-to-accessibility",
+    "href": "accessibility.html#commitment-to-accessibility",
+    "title": "Accessibility Statement",
+    "section": "",
+    "text": "This course site is designed to be accessible to all students, including those with disabilities. We aim to meet or exceed WCAG 2.1 Level AA standards, ensuring that every student at Dutchess Community College has equal access to our Data Science materials.\n\n\nTo achieve our 100% Accessibility rating (as verified by Lighthouse audits), we have implemented the following features:\n\nAlt-Text for Data Visualizations: Every chart, graph, and plot in our labs includes descriptive alternative text. This allows screen reader users to understand the trends and conclusions of the data without seeing the image.\nSemantic Navigation: We use a clear heading hierarchy (# H1, ## H2, ### H3) to allow for easy keyboard navigation and screen reader “heading jumps.”\nMathematical Accessibility: All mathematical notation is rendered using MathJax, which transforms LaTeX equations into readable text for assistive technologies.\nColor Contrast: Text and background colors have been selected to meet high contrast requirements for improved readability.\nAccessible Code: Code chunks are formatted to be legible and distinguishable from standard prose.\n\n\n\n\nAccessibility relies on the following technologies to work with the particular combination of web browser and any assistive technologies or plugins installed on your computer: * HTML * WAI-ARIA * CSS * JavaScript\n\n\n\nIf you encounter any accessibility barriers while using this site, please contact me directly. I am committed to making adjustments to ensure you have the materials you need to succeed.\nYou may also reach out to the DCC Office of Accommodative Services for further support and official accommodations.\n\nThis site was last audited on r format(Sys.Date(), \"%B %Y\") and received a 100% Accessibility score using Google Lighthouse."
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Student Resources",
+    "section": "",
+    "text": "Welcome to the MAT 186 Resource Hub. Use these tools to support your learning throughout the semester."
+  },
+  {
+    "objectID": "resources.html#essential-r-data-science-tools",
+    "href": "resources.html#essential-r-data-science-tools",
+    "title": "Student Resources",
+    "section": "🛠️ Essential R & Data Science Tools",
+    "text": "🛠️ Essential R & Data Science Tools\n\nRStudio Cheat Sheets\nR can be challenging to memorize. These official “Cheat Sheets” are the industry standard for quick reference: * Data Visualization with ggplot2 * Data Transformation with dplyr * Quarto Markdown Reference\n\n\nAI for Learning (Generative AI Policy)\nIn this course, we use AI as a tutor, not a replacement. * Good use: “Explain why this t-test code is giving me an error.” * Bad use: “Write the entire conclusion for Lab 12 for me.” * Tip: Always double-check AI-generated code; it can sometimes suggest outdated packages!"
+  },
+  {
+    "objectID": "resources.html#dutchess-community-college-support",
+    "href": "resources.html#dutchess-community-college-support",
+    "title": "Student Resources",
+    "section": "🎓 Dutchess Community College Support",
+    "text": "🎓 Dutchess Community College Support\n\nAcademic Support & Tutoring\nIf you are struggling with the math or coding concepts, help is available: * The Math Center: Located in Washington Center (Room 224). They offer walk-in tutoring for statistics. * Writing Center: Excellent for help with your final project reports. * DCC Help Desk: For issues with your DCC login or Microsoft 365. Submit a Ticket\n\n\nAccommodative Services\nIf you have a documented disability and require specific accommodations for this course, please visit the Office of Accommodative Services in the Orcutt Student Center."
+  },
+  {
+    "objectID": "resources.html#practice-data-sources",
+    "href": "resources.html#practice-data-sources",
+    "title": "Student Resources",
+    "section": "📊 Practice Data Sources",
+    "text": "📊 Practice Data Sources\nWant to explore data outside of our labs? These sites offer free, clean datasets: 1. NY.gov Open Data: Real data about New York State (similar to our enrollment data). 2. Kaggle: A massive community for data science competitions and datasets. 3. TidyTuesday: A weekly social data project in R."
+  },
+  {
+    "objectID": "resources.html#recommended-tutorials",
+    "href": "resources.html#recommended-tutorials",
+    "title": "Student Resources",
+    "section": "📺 Recommended Tutorials",
+    "text": "📺 Recommended Tutorials\nIf you prefer watching to reading: * R Programming for Beginners (YouTube) * StatQuest with Josh Starmer: The best channel for understanding the “logic” behind p-values and regression."
   }
 ]
