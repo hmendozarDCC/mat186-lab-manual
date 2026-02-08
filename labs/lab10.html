@@ -104,8 +104,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -582,7 +596,7 @@ window.Quarto = {
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
 <ul>
-<li>Understand the logic of <strong>Null (<span class="math inline">\(H_0\)</span>)</strong> and <strong>Alternative (<span class="math inline">\(H_a\)</span>)</strong> Hypotheses.</li>
+<li>Understand the logic of <strong>Null (<span class="math inline">H_0</span>)</strong> and <strong>Alternative (<span class="math inline">H_a</span>)</strong> Hypotheses.</li>
 <li>Calculate and interpret <strong>Confidence Intervals</strong>.</li>
 <li>Conduct a <strong>One-Sample t-test</strong> in R.</li>
 <li>Interpret the <strong>p-value</strong> to make a statistical decision.</li>
@@ -593,8 +607,8 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="part-1-the-logic-of-inference">Part 1: The Logic of Inference</h2>
 <p>We rarely have data for an entire population (like every person in New York). Instead, we use a <strong>Sample</strong> to make an educated guess about the <strong>Population</strong>.</p>
 <ol type="1">
-<li><strong>Null Hypothesis (<span class="math inline">\(H_0\)</span>):</strong> The status quo. There is “nothing going on” or no difference.</li>
-<li><strong>Alternative Hypothesis (<span class="math inline">\(H_a\)</span>):</strong> What we are trying to prove. There is a significant difference.</li>
+<li><strong>Null Hypothesis (<span class="math inline">H_0</span>):</strong> The status quo. There is “nothing going on” or no difference.</li>
+<li><strong>Alternative Hypothesis (<span class="math inline">H_a</span>):</strong> What we are trying to prove. There is a significant difference.</li>
 </ol>
 <hr>
 </section>
@@ -710,7 +724,7 @@ Table&nbsp;2: One-sample t-test results comparing Star Wars character heights to
 </section>
 <section id="part-4-making-a-decision" class="level2">
 <h2 class="anchored" data-anchor-id="part-4-making-a-decision">Part 4: Making a Decision</h2>
-<p>In MAT 186, we typically use an <strong>alpha (<span class="math inline">\(\alpha\)</span>) level of 0.05</strong>.</p>
+<p>In MAT 186, we typically use an <strong>alpha (<span class="math inline">\alpha</span>) level of 0.05</strong>.</p>
 <ul>
 <li><strong>If p-value &lt; 0.05:</strong> We <strong>Reject</strong> the Null Hypothesis. The result is “Statistically Significant.”</li>
 <li><strong>If p-value &gt; 0.05:</strong> We <strong>Fail to Reject</strong> the Null Hypothesis. We do not have enough evidence to support the change.</li>
@@ -721,9 +735,9 @@ Table&nbsp;2: One-sample t-test results comparing Star Wars character heights to
 <ol type="1">
 <li>Use your personal dataset from previous labs.</li>
 <li>Pick a numeric variable (e.g., age, price, or score).</li>
-<li><strong>State your Hypotheses:</strong> * <span class="math inline">\(H_0: \mu = \text{choose a number close to your average}\)</span>
+<li><strong>State your Hypotheses:</strong> * <span class="math inline">H_0: \mu = \text{choose a number close to your average}</span>
 <ul>
-<li><span class="math inline">\(H_a: \mu \neq \text{that same number}\)</span></li>
+<li><span class="math inline">H_a: \mu \neq \text{that same number}</span></li>
 </ul></li>
 <li>Run a <code>t.test()</code> in R using your variable and your chosen <code>mu</code>.</li>
 <li><strong>The Conclusion:</strong> In your Quarto document, write a formal conclusion. “Since the p-value was [insert p-value], we [reject/fail to reject] the null hypothesis. There [is/is not] sufficient evidence to suggest the mean is different from [insert mu].”</li>

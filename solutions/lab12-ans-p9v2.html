@@ -104,8 +104,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -662,8 +676,8 @@ Figure&nbsp;1: Boxplot comparing Total Enrollment between Community Colleges and
 <h3 class="anchored" data-anchor-id="task-3-state-your-hypotheses">Task 3: State Your Hypotheses</h3>
 <p>We are testing if there is a real difference in the average size of these two types of institutions.</p>
 <ul>
-<li><strong>Null Hypothesis (<span class="math inline">\(H_0\)</span>):</strong> There is no difference in mean enrollment between the two sectors (<span class="math inline">\(\mu_1 = \mu_2\)</span>).</li>
-<li><strong>Alternative Hypothesis (<span class="math inline">\(H_a\)</span>):</strong> There is a significant difference in mean enrollment between the two sectors (<span class="math inline">\(\mu_1 \neq \mu_2\)</span>).</li>
+<li><strong>Null Hypothesis (<span class="math inline">H_0</span>):</strong> There is no difference in mean enrollment between the two sectors (<span class="math inline">\mu_1 = \mu_2</span>).</li>
+<li><strong>Alternative Hypothesis (<span class="math inline">H_a</span>):</strong> There is a significant difference in mean enrollment between the two sectors (<span class="math inline">\mu_1 \neq \mu_2</span>).</li>
 </ul>
 </section>
 <section id="task-4-running-the-two-sample-t-test" class="level3">

@@ -104,8 +104,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -623,7 +637,7 @@ window.Quarto = {
 </section>
 <section id="task-2-state-your-hypotheses" class="level3">
 <h3 class="anchored" data-anchor-id="task-2-state-your-hypotheses">Task 2: State Your Hypotheses</h3>
-<p>We are testing the claim that exactly one-quarter of our data entries come from the Community College sector.Null Hypothesis (<span class="math inline">\(H_0\)</span>): The proportion of Community Colleges is 0.25 (<span class="math inline">\(p = 0.25\)</span>).Alternative Hypothesis (<span class="math inline">\(H_a\)</span>): The proportion of Community Colleges is not 0.25 (<span class="math inline">\(p \neq 0.25\)</span>).</p>
+<p>We are testing the claim that exactly one-quarter of our data entries come from the Community College sector.Null Hypothesis (<span class="math inline">H_0</span>): The proportion of Community Colleges is 0.25 (<span class="math inline">p = 0.25</span>).Alternative Hypothesis (<span class="math inline">H_a</span>): The proportion of Community Colleges is not 0.25 (<span class="math inline">p \neq 0.25</span>).</p>
 </section>
 <section id="task-3-running-the-proportion-test" class="level3">
 <h3 class="anchored" data-anchor-id="task-3-running-the-proportion-test">Task 3: Running the Proportion Test</h3>
@@ -679,9 +693,9 @@ Figure&nbsp;1: Bar chart showing the frequency of different SUNY Institution Sec
 <h3 class="anchored" data-anchor-id="task-5-final-report">Task 5: Final Report</h3>
 <p>Based on the statistical output above, here is our formal summary:</p>
 <ul>
-<li><p><strong>Sample Proportion (<span class="math inline">\(\hat{p}\)</span>):</strong> The calculated sample proportion is r round(prop_results$estimate, 2).</p></li>
+<li><p><strong>Sample Proportion (<span class="math inline">\hat{p}</span>):</strong> The calculated sample proportion is r round(prop_results$estimate, 2).</p></li>
 <li><p><strong>Significance:</strong> The p-value is r round(prop_results$p.value, 4). Since this is greater than 0.05, our result is not significant.</p></li>
-<li><p><strong>Confidence Interval:</strong> We are 95% confident that the true proportion of Community Colleges in this dataset lies between r round(prop_results<span class="math inline">\(conf.int[1], 3) and r round(prop_results\)</span>conf.int[2], 3).</p></li>
+<li><p><strong>Confidence Interval:</strong> We are 95% confident that the true proportion of Community Colleges in this dataset lies between r round(prop_results<span class="math inline">conf.int[1], 3) and r round(prop_results</span>conf.int[2], 3).</p></li>
 <li><p><strong>Conclusion:</strong> Since the p-value is 1 (or very high), we fail to reject the null hypothesis. There is no evidence to suggest the proportion is different from 0.25; in fact, it matches our hypothesis exactly.</p></li>
 </ul>
 <p><br><br></p>
