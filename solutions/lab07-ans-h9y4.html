@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -293,7 +328,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#cleaning-data---official-solutions" id="toc-cleaning-data---official-solutions" class="nav-link active" data-scroll-target="#cleaning-data---official-solutions">Cleaning Data - Official Solutions</a></li>
+  <li><a href="#cleaning-data---official-solutions" id="toc-cleaning-data---official-solutions" class="nav-link active" data-scroll-target="#cleaning-data---official-solutions">Cleaning Data - Official Solutions</a>
+  <ul class="collapse">
+  <li><a href="#task-1-introduction-to-data-cleaning" id="toc-task-1-introduction-to-data-cleaning" class="nav-link" data-scroll-target="#task-1-introduction-to-data-cleaning">Task 1: Introduction to Data Cleaning</a></li>
+  <li><a href="#task-2-loading-the-dataset" id="toc-task-2-loading-the-dataset" class="nav-link" data-scroll-target="#task-2-loading-the-dataset">Task 2: Loading the Dataset</a></li>
+  <li><a href="#task-3-5-the-cleaning-pipeline" id="toc-task-3-5-the-cleaning-pipeline" class="nav-link" data-scroll-target="#task-3-5-the-cleaning-pipeline">Task 3-5: The Cleaning Pipeline</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -349,6 +389,74 @@ ul.task-list li input[type="checkbox"] {
 <p>Add your specific DCC lab answers below this box.</p>
 </div>
 </div>
+<section id="task-1-introduction-to-data-cleaning" class="level3">
+<h3 class="anchored" data-anchor-id="task-1-introduction-to-data-cleaning">Task 1: Introduction to Data Cleaning</h3>
+<p>In this lab, we move from simply looking at data to <strong>transforming</strong> it. Raw data from portals like NY Open Data often contains too many variables or messy formatting. We use the <code>dplyr</code> library to keep only what is relevant to our research question.</p>
+<hr>
+</section>
+<section id="task-2-loading-the-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-loading-the-dataset">Task 2: Loading the Dataset</h3>
+<p>We continue using the <code>tidyverse</code> package. We must be careful with our file paths; since this solution is in the <code>solutions/</code> folder, we use <code>../</code> to find our data.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the SUNY Enrollment data</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ny_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/race_ny.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="task-3-5-the-cleaning-pipeline" class="level3">
+<h3 class="anchored" data-anchor-id="task-3-5-the-cleaning-pipeline">Task 3-5: The Cleaning Pipeline</h3>
+<p>The goal of this task was to create a “Clean” version of our table by selecting 4 key columns, filtering for a specific sector, and renaming columns for better readability.</p>
+<section id="our-cleaning-strategy" class="level4">
+<h4 class="anchored" data-anchor-id="our-cleaning-strategy">Our Cleaning Strategy:</h4>
+<ul>
+<li><p><strong>Select:</strong> We kept Term , Institution Sector, Total Enrollment, and Hispanic/Latino.</p></li>
+<li><p><strong>Rename:</strong> We shortened the names to semester, sector, total, and hispanic_latino.</p></li>
+<li><p><strong>Filter:</strong> We narrowed the results to only show <strong>“Community Colleges”</strong>.</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the cleaned object</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>cleaned_suny <span class="ot">&lt;-</span> ny_data <span class="sc">|&gt;</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Task 2: Select the 4 most important columns by their position</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># This avoids "Column not found" errors caused by hidden spaces!</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">6</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Task 4: Rename the columns for clarity</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># rename(new_name = old_position_or_name)</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">semester =</span> <span class="dv">1</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">sector =</span> <span class="dv">2</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">total_enrollment =</span> <span class="dv">3</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">hispanic_latino =</span> <span class="dv">4</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Task 3: Filter for a specific category</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sector <span class="sc">==</span> <span class="st">"Community Colleges"</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Task 5: Show the first 10 rows</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cleaned_suny, <span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 4
+   semester  sector             total_enrollment hispanic_latino
+   &lt;chr&gt;     &lt;chr&gt;                         &lt;dbl&gt;           &lt;dbl&gt;
+ 1 Fall 2019 Community Colleges           192959           31531
+ 2 Fall 2018 Community Colleges           199873           31057
+ 3 Fall 2017 Community Colleges           209418           30861
+ 4 Fall 2016 Community Colleges           216277           30097
+ 5 Fall 2015 Community Colleges           222998           29222
+ 6 Fall 2014 Community Colleges           233812           28584
+ 7 Fall 2013 Community Colleges           239791           27436
+ 8 Fall 2012 Community Colleges           243007           25968
+ 9 Fall 2011 Community Colleges           247667           24101
+10 Fall 2010 Community Colleges           249343           21809</code></pre>
+</div>
+</div>
+</section>
+<section id="narrative-description-of-results" class="level4">
+<h4 class="anchored" data-anchor-id="narrative-description-of-results">Narrative Description of Results</h4>
+<p>By applying these transformations, we have turned a large dataset into a focused report.</p>
+<ul>
+<li><p>The Observation: Each row now represents a specific semester’s enrollment data for the Community College sector.</p></li>
+<li><p>The Benefit: Instead of 12 columns, we now have the 4 most important variables for analyzing Hispanic/Latino enrollment trends in community colleges.</p></li>
+</ul>
 <p><br><br></p>
 <hr>
 <div class="content-block">
@@ -358,6 +466,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
