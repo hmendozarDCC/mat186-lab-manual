@@ -2141,27 +2141,27 @@
     "href": "resources.html#essential-r-data-science-tools",
     "title": "Student Resources",
     "section": "🛠️ Essential R & Data Science Tools",
-    "text": "🛠️ Essential R & Data Science Tools\n\nRStudio Cheat Sheets\nR can be challenging to memorize. These official “Cheat Sheets” are the industry standard for quick reference: * Data Visualization with ggplot2 * Data Transformation with dplyr * Quarto Markdown Reference\n\n\nAI for Learning (Generative AI Policy)\nIn this course, we use AI as a tutor, not a replacement. * Good use: “Explain why this t-test code is giving me an error.” * Bad use: “Write the entire conclusion for Lab 12 for me.” * Tip: Always double-check AI-generated code; it can sometimes suggest outdated packages!"
+    "text": "🛠️ Essential R & Data Science Tools\n\nRStudio Cheat Sheets\nR can be challenging to memorize. These official “Cheat Sheets” are the industry standard for quick reference:\n\nData Visualization with ggplot2\nData Transformation with dplyr\nQuarto Markdown Reference\n\n\n\nAI for Learning (Generative AI Policy)\nIn this course, we use AI as a tutor, not a replacement.\n\nGood use: “Explain why this t-test code is giving me an error.”\nBad use: “Write the entire conclusion for Lab 12 for me.”\nTip: Always double-check AI-generated code; it can sometimes suggest outdated packages!"
   },
   {
     "objectID": "resources.html#dutchess-community-college-support",
     "href": "resources.html#dutchess-community-college-support",
     "title": "Student Resources",
     "section": "🎓 Dutchess Community College Support",
-    "text": "🎓 Dutchess Community College Support\n\nAcademic Support & Tutoring\nIf you are struggling with the math or coding concepts, help is available: * The Math Center: Located in Washington Center (Room 224). They offer walk-in tutoring for statistics. * Writing Center: Excellent for help with your final project reports. * DCC Help Desk: For issues with your DCC login or Microsoft 365. Submit a Ticket\n\n\nAccommodative Services\nIf you have a documented disability and require specific accommodations for this course, please visit the Office of Accommodative Services in the Orcutt Student Center."
+    "text": "🎓 Dutchess Community College Support\n\nAcademic Support & Tutoring\nIf you are struggling with the math or coding concepts, help is available:\n\nThe Math Center: Located in Washington Center (Room 224). They offer walk-in tutoring for statistics.\nWriting Center: Excellent for help with your final project reports.\nDCC Help Desk: For issues with your DCC login or Microsoft 365. Submit a Ticket\n\n\n\nAccommodative Services\nIf you have a documented disability and require specific accommodations for this course, please visit the Office of Accommodative Services in the Orcutt Student Center."
   },
   {
     "objectID": "resources.html#practice-data-sources",
     "href": "resources.html#practice-data-sources",
     "title": "Student Resources",
     "section": "📊 Practice Data Sources",
-    "text": "📊 Practice Data Sources\nWant to explore data outside of our labs? These sites offer free, clean datasets: 1. NY.gov Open Data: Real data about New York State (similar to our enrollment data). 2. Kaggle: A massive community for data science competitions and datasets. 3. TidyTuesday: A weekly social data project in R."
+    "text": "📊 Practice Data Sources\nWant to explore data outside of our labs? These sites offer free, clean datasets:\n\nNY.gov Open Data: Real data about New York State (similar to our enrollment data).\nKaggle: A massive community for data science competitions and datasets.\nTidyTuesday: A weekly social data project in R."
   },
   {
     "objectID": "resources.html#recommended-tutorials",
     "href": "resources.html#recommended-tutorials",
     "title": "Student Resources",
     "section": "📺 Recommended Tutorials",
-    "text": "📺 Recommended Tutorials\nIf you prefer watching to reading: * R Programming for Beginners (YouTube) * StatQuest with Josh Starmer: The best channel for understanding the “logic” behind p-values and regression."
+    "text": "📺 Recommended Tutorials\nIf you prefer watching to reading:\n\nR Programming for Beginners (YouTube)\nStatQuest with Josh Starmer: The best channel for understanding the “logic” behind p-values and regression."
   }
 ]
