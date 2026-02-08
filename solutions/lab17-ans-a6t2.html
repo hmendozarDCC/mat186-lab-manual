@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -69,6 +104,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../style.css">
 </head>
@@ -294,6 +358,14 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#regression-models---official-solutions" id="toc-regression-models---official-solutions" class="nav-link active" data-scroll-target="#regression-models---official-solutions">Regression models - Official Solutions</a></li>
+  <li><a href="#lab-17-official-solutions-linear-modeling" id="toc-lab-17-official-solutions-linear-modeling" class="nav-link" data-scroll-target="#lab-17-official-solutions-linear-modeling">Lab 17 Official Solutions: Linear Modeling</a>
+  <ul class="collapse">
+  <li><a href="#task-1-data-preparation" id="toc-task-1-data-preparation" class="nav-link" data-scroll-target="#task-1-data-preparation">Task 1: Data Preparation</a></li>
+  <li><a href="#task-2-correlation-coefficient" id="toc-task-2-correlation-coefficient" class="nav-link" data-scroll-target="#task-2-correlation-coefficient">Task 2: Correlation Coefficient</a></li>
+  <li><a href="#task-3-scatter-plot-with-regression-line" id="toc-task-3-scatter-plot-with-regression-line" class="nav-link" data-scroll-target="#task-3-scatter-plot-with-regression-line">Task 3: Scatter Plot with Regression Line</a></li>
+  <li><a href="#task-4-running-the-linear-regression-model" id="toc-task-4-running-the-linear-regression-model" class="nav-link" data-scroll-target="#task-4-running-the-linear-regression-model">Task 4: Running the Linear Regression Model</a></li>
+  <li><a href="#task-5-conclusion" id="toc-task-5-conclusion" class="nav-link" data-scroll-target="#task-5-conclusion">Task 5: Conclusion</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -336,19 +408,104 @@ ul.task-list li input[type="checkbox"] {
 </script>
 <section id="regression-models---official-solutions" class="level2">
 <h2 class="anchored" data-anchor-id="regression-models---official-solutions">Regression models - Official Solutions</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>To solve Lab 17, we focus on Correlation and Simple Linear Regression. This lab allows us to model the relationship between two numeric variables. In your SUNY dataset, we will investigate how Total Enrollment (the independent variable) predicts the number of Hispanic/Latino students (the dependent variable). ::: {.callout-note} ### Instructor Note Add your specific DCC lab answers below this box. :::</p>
+</section>
+<section id="lab-17-official-solutions-linear-modeling" class="level2">
+<h2 class="anchored" data-anchor-id="lab-17-official-solutions-linear-modeling">Lab 17 Official Solutions: Linear Modeling</h2>
+<p>In this lab, we use simple linear regression to quantify the relationship between total campus enrollment and Hispanic/Latino student populations.</p>
+<section id="task-1-data-preparation" class="level3">
+<h3 class="anchored" data-anchor-id="task-1-data-preparation">Task 1: Data Preparation</h3>
+<p>We clean our numeric variables by removing commas and ensuring there are no missing values in our target columns.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ny_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/race_ny.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean numeric variables</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>clean_data <span class="ot">&lt;-</span> ny_data <span class="sc">|&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_enroll =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, <span class="st">`</span><span class="at">Total Enrollment</span><span class="st">`</span>)),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">hispanic_enroll =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, <span class="st">`</span><span class="at">Hispanic/Latino</span><span class="st">`</span>))</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(total_enroll), <span class="sc">!</span><span class="fu">is.na</span>(hispanic_enroll))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Instructor Note
+</section>
+<section id="task-2-correlation-coefficient" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-correlation-coefficient">Task 2: Correlation Coefficient</h3>
+<p>We calculate the Pearson correlation coefficient (<span class="math inline">\(r\)</span>) to measure the strength and direction of the linear relationship.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>r_value <span class="ot">&lt;-</span> <span class="fu">cor</span>(clean_data<span class="sc">$</span>total_enroll, clean_data<span class="sc">$</span>hispanic_enroll)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"The correlation coefficient (r) is:"</span>, <span class="fu">round</span>(r_value, <span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The correlation coefficient (r) is: 0.8294</code></pre>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>Add your specific DCC lab answers below this box.</p>
+</section>
+<section id="task-3-scatter-plot-with-regression-line" class="level3">
+<h3 class="anchored" data-anchor-id="task-3-scatter-plot-with-regression-line">Task 3: Scatter Plot with Regression Line</h3>
+<p>We visualize the relationship with a scatter plot and add a linear trend line.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_data, <span class="fu">aes</span>(<span class="at">x =</span> total_enroll, <span class="at">y =</span> hispanic_enroll)) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Predicting Hispanic Enrollment from Total Enrollment"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Total Enrollment (Independent Variable)"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Hispanic/Latino Enrollment (Dependent Variable)"</span>) <span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-regression-plot" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A scatter plot showing a very strong, positive linear relationship between total enrollment and Hispanic student count. Most data points fall very close to the red linear regression line.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regression-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lab17-ans-a6t2_files/figure-html/fig-regression-plot-1.png" class="img-fluid figure-img" alt="A scatter plot showing a very strong, positive linear relationship between total enrollment and Hispanic student count. Most data points fall very close to the red linear regression line." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regression-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Scatter plot of Total Enrollment vs.&nbsp;Hispanic/Latino Enrollment with a linear regression line.
+</figcaption>
+</figure>
 </div>
 </div>
+</div>
+</section>
+<section id="task-4-running-the-linear-regression-model" class="level3">
+<h3 class="anchored" data-anchor-id="task-4-running-the-linear-regression-model">Task 4: Running the Linear Regression Model</h3>
+<p>We use the lm() function to create our mathematical model: <span class="math inline">\(Y = \beta_0 + \beta_1X\)</span>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Formula: Y ~ X</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(hispanic_enroll <span class="sc">~</span> total_enroll, <span class="at">data =</span> clean_data)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the regression summary</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = hispanic_enroll ~ total_enroll, data = clean_data)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-8839.9 -4143.0  -378.9  2436.0 15662.3 
+
+Coefficients:
+               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  -9.117e+02  9.735e+02  -0.936    0.352    
+total_enroll  1.094e-01  7.767e-03  14.087   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 5018 on 90 degrees of freedom
+Multiple R-squared:  0.688, Adjusted R-squared:  0.6845 
+F-statistic: 198.4 on 1 and 90 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</section>
+<section id="task-5-conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="task-5-conclusion">Task 5: Conclusion</h3>
+<p>Based on our linear regression analysis, we can draw the following conclusions:</p>
+<ol type="1">
+<li><p><strong>Strength of Relationship:</strong> There is a very strong positive correlation (<span class="math inline">\(r \approx 0.83\)</span>) between total enrollment and Hispanic/Latino enrollment.</p></li>
+<li><p><strong>The Slope:</strong> The slope coefficient is approximately r round(coef(model)[2], 4). This means that for every 1 additional student enrolled at a SUNY institution, we expect the Hispanic/Latino student population to increase by about r round(coef(model)[2], 2) students on average.</p></li>
+<li><p><strong>Predictive Power (<span class="math inline">\(R^2\)</span>):</strong> The R-squared value of r round(summary(model)<span class="math inline">\(r.squared, 4) suggests that roughly r round(summary(model)\)</span>r.squared * 100, 1)% of the variation in Hispanic student enrollment can be explained by the total size of the institution.</p></li>
+</ol>
 <p><br><br></p>
 <hr>
 <div class="content-block">
@@ -358,6 +515,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
