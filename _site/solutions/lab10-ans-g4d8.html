@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -69,6 +104,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../style.css">
 </head>
@@ -293,7 +357,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#statistical-inference-for-one-mean---official-solutions" id="toc-statistical-inference-for-one-mean---official-solutions" class="nav-link active" data-scroll-target="#statistical-inference-for-one-mean---official-solutions">Statistical inference for one mean - Official Solutions</a></li>
+  <li><a href="#statistical-inference-for-one-mean---official-solutions" id="toc-statistical-inference-for-one-mean---official-solutions" class="nav-link active" data-scroll-target="#statistical-inference-for-one-mean---official-solutions">Statistical inference for one mean - Official Solutions</a>
+  <ul class="collapse">
+  <li><a href="#task-1-loading-and-preparing-data" id="toc-task-1-loading-and-preparing-data" class="nav-link" data-scroll-target="#task-1-loading-and-preparing-data">Task 1: Loading and Preparing Data</a></li>
+  <li><a href="#task-2-state-your-hypotheses" id="toc-task-2-state-your-hypotheses" class="nav-link" data-scroll-target="#task-2-state-your-hypotheses">Task 2: State Your Hypotheses</a></li>
+  <li><a href="#task-3-running-the-t-test" id="toc-task-3-running-the-t-test" class="nav-link" data-scroll-target="#task-3-running-the-t-test">Task 3: Running the T-Test</a></li>
+  <li><a href="#task-4-visualizing-the-distribution" id="toc-task-4-visualizing-the-distribution" class="nav-link" data-scroll-target="#task-4-visualizing-the-distribution">Task 4: Visualizing the Distribution</a></li>
+  <li><a href="#task-5-the-conclusion" id="toc-task-5-the-conclusion" class="nav-link" data-scroll-target="#task-5-the-conclusion">Task 5: The Conclusion</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -315,7 +386,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 7, 2026</p>
+      <p class="date-modified">February 8, 2026</p>
     </div>
   </div>
     
@@ -349,6 +420,82 @@ ul.task-list li input[type="checkbox"] {
 <p>Add your specific DCC lab answers below this box.</p>
 </div>
 </div>
+<section id="task-1-loading-and-preparing-data" class="level3">
+<h3 class="anchored" data-anchor-id="task-1-loading-and-preparing-data">Task 1: Loading and Preparing Data</h3>
+<p>As in previous labs, we must clean the <code>Total Enrollment</code> column by removing commas and converting it to a numeric format to ensure the <code>t.test()</code> function can process the data correctly.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ny_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/race_ny.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean numeric variable for accessibility and analysis</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>clean_data <span class="ot">&lt;-</span> ny_data <span class="sc">|&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total_enroll =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, <span class="st">`</span><span class="at">Total Enrollment</span><span class="st">`</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(total_enroll))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="task-2-state-your-hypotheses" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-state-your-hypotheses">Task 2: State Your Hypotheses</h3>
+<p>We want to test if the true mean enrollment across all SUNY sectors is significantly different from 100,000 students.</p>
+<ul>
+<li><strong>Null Hypothesis (<span class="math inline">\(H_0\)</span>):</strong> The mean enrollment is equal to 100,000 (<span class="math inline">\(\mu = 100,000\)</span>).</li>
+<li><strong>Alternative Hypothesis (<span class="math inline">\(H_a\)</span>):</strong> The mean enrollment is not equal to 100,000 (<span class="math inline">\(\mu \neq 100,000\)</span>).</li>
+</ul>
+</section>
+<section id="task-3-running-the-t-test" class="level3">
+<h3 class="anchored" data-anchor-id="task-3-running-the-t-test">Task 3: Running the T-Test</h3>
+<p>We use the t.test() function in R. We set mu = 100000 to test our hypothesis.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform the t-test</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>test_results <span class="ot">&lt;-</span> <span class="fu">t.test</span>(clean_data<span class="sc">$</span>total_enroll, <span class="at">mu =</span> <span class="dv">100000</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the results</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>test_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One Sample t-test
+
+data:  clean_data$total_enroll
+t = 0.80733, df = 91, p-value = 0.4216
+alternative hypothesis: true mean is not equal to 1e+05
+95 percent confidence interval:
+  91674.45 119726.98
+sample estimates:
+mean of x 
+ 105700.7 </code></pre>
+</div>
+</div>
+</section>
+<section id="task-4-visualizing-the-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="task-4-visualizing-the-distribution">Task 4: Visualizing the Distribution</h3>
+<p>To provide context for our test, we visualize the data distribution relative to our test value (<span class="math inline">\(\mu\)</span>).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_data, <span class="fu">aes</span>(<span class="at">x =</span> total_enroll)) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">bins =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">100000</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Enrollment Distribution vs. Null Hypothesis"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Total Enrollment"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frequency"</span>) <span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-inference-plot" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A histogram showing SUNY enrollment distribution. A vertical dashed red line is positioned at 100,000, representing the null hypothesis value. The data appears spread out around this line.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-inference-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lab10-ans-g4d8_files/figure-html/fig-inference-plot-1.png" class="img-fluid figure-img" alt="A histogram showing SUNY enrollment distribution. A vertical dashed red line is positioned at 100,000, representing the null hypothesis value. The data appears spread out around this line." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-inference-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Histogram of enrollment with the null hypothesis mean (100,000) marked as a dashed red line.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="task-5-the-conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="task-5-the-conclusion">Task 5: The Conclusion</h3>
+<p>Based on the results of our t-test:</p>
+<p><strong>Formal Conclusion:</strong> Since the p-value was r round(test_results$p.value, 4), which is greater than the standard alpha level of 0.05, we fail to reject the null hypothesis. There is not sufficient evidence to suggest that the mean enrollment is significantly different from 100,000.</p>
 <p><br><br></p>
 <hr>
 <div class="content-block">
@@ -358,6 +505,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -768,7 +916,7 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="../images/dcc-logo.png" alt="DCC Logo" style="width: 120px; margin-bottom: 10px;"> <br> <strong>Dutchess Community College</strong></p>
 </div>   
     <div class="nav-footer-center">
-<p>Last updated: February 7, 2026</p>
+<p>Last updated: February 8, 2026</p>
 </div>
     <div class="nav-footer-right">
 <p><a href="../accessibility.html">Accessibility Statement</a></p>

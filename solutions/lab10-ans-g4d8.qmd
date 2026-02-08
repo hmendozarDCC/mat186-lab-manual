@@ -22,6 +22,61 @@ format:
 ### Instructor Note
 Add your specific DCC lab answers below this box.
 :::
+### Task 1: Loading and Preparing Data
+As in previous labs, we must clean the `Total Enrollment` column by removing commas and converting it to a numeric format to ensure the `t.test()` function can process the data correctly.
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)
+
+# Load the data
+ny_data <- read_csv("../data/race_ny.csv")
+
+# Clean numeric variable for accessibility and analysis
+clean_data <- ny_data |>
+  mutate(total_enroll = as.numeric(gsub(",", "", `Total Enrollment`))) |>
+  filter(!is.na(total_enroll))
+```
+
+### Task 2: State Your Hypotheses
+We want to test if the true mean enrollment across all SUNY sectors is significantly different from 100,000 students.
+
+* **Null Hypothesis ($H_0$):** The mean enrollment is equal to 100,000 ($\mu = 100,000$).
+* **Alternative Hypothesis ($H_a$):** The mean enrollment is not equal to 100,000 ($\mu \neq 100,000$).
+
+### Task 3: Running the T-Test
+We use the t.test() function in R. We set mu = 100000 to test our hypothesis.
+
+```{r}
+#| label: t-test-results
+#| fig-cap: "Summary of the one-sample t-test results for total enrollment."
+# Perform the t-test
+test_results <- t.test(clean_data$total_enroll, mu = 100000)
+
+# Display the results
+test_results
+```
+
+### Task 4: Visualizing the Distribution
+To provide context for our test, we visualize the data distribution relative to our test value ($\mu$).
+```{r}
+#| label: fig-inference-plot
+#| fig-cap: "Histogram of enrollment with the null hypothesis mean (100,000) marked as a dashed red line."
+#| fig-alt: "A histogram showing SUNY enrollment distribution. A vertical dashed red line is positioned at 100,000, representing the null hypothesis value. The data appears spread out around this line."
+ggplot(clean_data, aes(x = total_enroll)) +
+  geom_histogram(fill = "steelblue", color = "white", bins = 15) +
+  geom_vline(xintercept = 100000, color = "red", linetype = "dashed", size = 1) +
+  labs(title = "Enrollment Distribution vs. Null Hypothesis",
+       x = "Total Enrollment",
+       y = "Frequency") +
+  theme_minimal()
+```
+### Task 5: The Conclusion
+Based on the results of our t-test:
+
+**Formal Conclusion:** Since the p-value was r round(test_results$p.value, 4), which is greater than the standard alpha level of 0.05, we fail to reject the null hypothesis. There is not sufficient evidence to suggest that the mean enrollment is significantly different from 100,000.
+
 
 <br><br>
 
