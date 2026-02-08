@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -293,7 +328,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#bootstrapping---official-solutions" id="toc-bootstrapping---official-solutions" class="nav-link active" data-scroll-target="#bootstrapping---official-solutions">Bootstrapping - Official Solutions</a></li>
+  <li><a href="#bootstrapping---official-solutions" id="toc-bootstrapping---official-solutions" class="nav-link active" data-scroll-target="#bootstrapping---official-solutions">Bootstrapping - Official Solutions</a>
+  <ul class="collapse">
+  <li><a href="#task-1-loading-and-preparing-data" id="toc-task-1-loading-and-preparing-data" class="nav-link" data-scroll-target="#task-1-loading-and-preparing-data">Task 1: Loading and Preparing Data</a></li>
+  <li><a href="#task-2-initial-visualization" id="toc-task-2-initial-visualization" class="nav-link" data-scroll-target="#task-2-initial-visualization">Task 2: Initial Visualization</a></li>
+  <li><a href="#task-3-4-generating-and-visualizing-the-bootstrap-distribution" id="toc-task-3-4-generating-and-visualizing-the-bootstrap-distribution" class="nav-link" data-scroll-target="#task-3-4-generating-and-visualizing-the-bootstrap-distribution">Task 3 &amp; 4: Generating and Visualizing the Bootstrap Distribution</a></li>
+  <li><a href="#task-5-calculating-the-95-confidence-interval" id="toc-task-5-calculating-the-95-confidence-interval" class="nav-link" data-scroll-target="#task-5-calculating-the-95-confidence-interval">Task 5: Calculating the 95% Confidence Interval</a></li>
+  <li><a href="#task-6-reflection" id="toc-task-6-reflection" class="nav-link" data-scroll-target="#task-6-reflection">Task 6: Reflection</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -336,19 +378,101 @@ ul.task-list li input[type="checkbox"] {
 </script>
 <section id="bootstrapping---official-solutions" class="level2">
 <h2 class="anchored" data-anchor-id="bootstrapping---official-solutions">Bootstrapping - Official Solutions</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>To solve Lab 14, we focus on Bootstrapping, a powerful non-parametric method for estimating the uncertainty of a statistic (like the Median) without assuming the data is normally distributed. ::: {.callout-note} ### Instructor Note Add your specific DCC lab answers below this box. ::: ## Lab 14 Official Solutions: Resampling Methods</p>
+<p>In this lab, we use the <code>infer</code> package to estimate the 95% confidence interval for the median enrollment in the SUNY system using bootstrapping.</p>
+<section id="task-1-loading-and-preparing-data" class="level3">
+<h3 class="anchored" data-anchor-id="task-1-loading-and-preparing-data">Task 1: Loading and Preparing Data</h3>
+<p>We load the necessary libraries and clean our numeric variable by removing commas from the “Total Enrollment” column.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(infer) <span class="co"># Used for bootstrapping</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>ny_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/race_ny.csv"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean numeric variable</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>clean_data <span class="ot">&lt;-</span> ny_data <span class="sc">|&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total_enroll =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, <span class="st">`</span><span class="at">Total Enrollment</span><span class="st">`</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(total_enroll))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Instructor Note
+</section>
+<section id="task-2-initial-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-initial-visualization">Task 2: Initial Visualization</h3>
+<p>Before bootstrapping, we examine the original distribution of the data.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_data, <span class="fu">aes</span>(<span class="at">x =</span> total_enroll)) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">bins =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Original Enrollment Distribution"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Total Students"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-original-hist" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A histogram showing that the original enrollment data is highly right-skewed, with many small campuses and a few very large ones.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-original-hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lab14-ans-x2n8_files/figure-html/fig-original-hist-1.png" class="img-fluid figure-img" alt="A histogram showing that the original enrollment data is highly right-skewed, with many small campuses and a few very large ones." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-original-hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Histogram of the original SUNY enrollment data.
+</figcaption>
+</figure>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>Add your specific DCC lab answers below this box.</p>
+</div>
+<p><strong>Observation:</strong> The original data is strongly right-skewed. Because the distribution is not symmetrical, the Median is a better measure of the “typical” enrollment than the Mean.</p>
+</section>
+<section id="task-3-4-generating-and-visualizing-the-bootstrap-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="task-3-4-generating-and-visualizing-the-bootstrap-distribution">Task 3 &amp; 4: Generating and Visualizing the Bootstrap Distribution</h3>
+<p>We use the infer pipeline to generate 1,000 bootstrap replicates of the median.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Specify the variable</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Generate 1,000 resamples with replacement</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Calculate the median for each resample</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>boot_dist <span class="ot">&lt;-</span> clean_data <span class="sc">|&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> total_enroll) <span class="sc">|&gt;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"median"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the bootstrap distribution</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-boot-dist</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Distribution of 1,000 bootstrap medians."</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-alt: "A histogram showing the distribution of the calculated medians from 1,000 bootstrap samples. The distribution is much more symmetrical and bell-shaped than the original data."</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">visualize</span>(boot_dist) <span class="sc">+</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Bootstrap Distribution of the Median"</span>,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Bootstrap Median Enrollment"</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frequency"</span>) <span class="sc">+</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lab14-ans-x2n8_files/figure-html/bootstrap-median-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
+</div>
+</section>
+<section id="task-5-calculating-the-95-confidence-interval" class="level3">
+<h3 class="anchored" data-anchor-id="task-5-calculating-the-95-confidence-interval">Task 5: Calculating the 95% Confidence Interval</h3>
+<p>We calculate the lower and upper bounds of our estimate using the percentile method.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the 95% Confidence Interval</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>percentile_ci <span class="ot">&lt;-</span> boot_dist <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_confidence_interval</span>(<span class="at">level =</span> <span class="fl">0.95</span>, <span class="at">type =</span> <span class="st">"percentile"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>percentile_ci</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  lower_ci upper_ci
+     &lt;dbl&gt;    &lt;dbl&gt;
+1   88892.  101060.</code></pre>
+</div>
+</div>
+</section>
+<section id="task-6-reflection" class="level3">
+<h3 class="anchored" data-anchor-id="task-6-reflection">Task 6: Reflection</h3>
+<p>Why do we “sample with replacement” during bootstrapping?</p>
+<p>We sample with replacement because we are treating our original sample as a “pseudo-population.” By allowing the same observation to be picked more than once (or not at all) in a single bootstrap resample, we simulate the natural variation that would occur if we were able to take many new independent samples from the actual entire population. Without replacement, every resample would simply be identical to the original dataset, and we would have no way to measure the uncertainty of our statistic.</p>
 <p><br><br></p>
 <hr>
 <div class="content-block">
@@ -358,6 +482,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
