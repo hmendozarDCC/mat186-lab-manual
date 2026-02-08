@@ -1,5 +1,6 @@
 project:
   type: website
+  author: "Henry Mendoza Rivera"
 lang: en
 
 execute:
@@ -129,12 +130,17 @@ website:
   page-footer:
     left: |
       <img src="/images/dcc-logo.png" alt="DCC Logo" style="width: 120px; margin-bottom: 10px;">
-      <br> **Dutchess Community College**
+      <br> **Henry Mendoza Rivera**
+      <br> Instructor, Mathematics and Computer Science
+      <br> Dutchess Community College
     center: |
-      This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/). 
-      <br> <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png" alt="CC BY-NC-SA License Graphic" style="height: 31px; margin-top: 10px;">
+      This work is licensed under a [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). 
+      <br> <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png" alt="CC BY-NC-SA Graphic" style="height: 31px; margin-top: 10px;">
     right: |
-      [Accessibility Statement](accessibility.qmd)
+      **Contact Information**
+      <br> Email: [henry.mendozarivera@sunydutchess.edu](mailto:henry.mendozarivera@sunydutchess.edu)
+      <br> Phone: 845-431-8554
+      <br> [Accessibility Statement](accessibility.qmd)
 
 
 format:
