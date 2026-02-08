@@ -22,6 +22,69 @@ format:
 ### Instructor Note
 Add your specific DCC lab answers below this box.
 :::
+### Task 1: Introduction to Data Cleaning
+In this lab, we move from simply looking at data to **transforming** it. Raw data from portals like NY Open Data often contains too many variables or messy formatting. We use the `dplyr` library to keep only what is relevant to our research question.
+
+
+
+---
+
+### Task 2: Loading the Dataset
+We continue using the `tidyverse` package. We must be careful with our file paths; since this solution is in the `solutions/` folder, we use `../` to find our data.
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)
+
+# Load the SUNY Enrollment data
+ny_data <- read_csv("../data/race_ny.csv")
+```
+
+
+### Task 3-5: The Cleaning Pipeline
+The goal of this task was to create a "Clean" version of our table by selecting 4 key columns, filtering for a specific sector, and renaming columns for better readability.
+
+#### Our Cleaning Strategy:
+
+* **Select:** We kept Term , Institution Sector, Total Enrollment, and Hispanic/Latino.
+
+* **Rename:** We shortened the names to semester, sector, total, and hispanic_latino.
+
+* **Filter:** We narrowed the results to only show **"Community Colleges"**.
+
+```{r}
+#| label: data-cleaning-steps
+
+# Create the cleaned object
+cleaned_suny <- ny_data |> 
+  # Task 2: Select the 4 most important columns by their position
+  # This avoids "Column not found" errors caused by hidden spaces!
+  select(1, 2, 3, 6) |> 
+  
+  # Task 4: Rename the columns for clarity
+  # rename(new_name = old_position_or_name)
+  rename(semester = 1,
+         sector = 2,
+         total_enrollment = 3,
+         hispanic_latino = 4) |> 
+  
+  # Task 3: Filter for a specific category
+  filter(sector == "Community Colleges")
+
+# Task 5: Show the first 10 rows
+head(cleaned_suny, n = 10)
+```
+
+
+#### Narrative Description of Results
+
+By applying these transformations, we have turned a large dataset into a focused report.
+
+* The Observation: Each row now represents a specific semester's enrollment data for the Community College sector.
+
+* The Benefit: Instead of 12 columns, we now have the 4 most important variables for analyzing Hispanic/Latino enrollment trends in community colleges.
+
 
 <br><br>
 
