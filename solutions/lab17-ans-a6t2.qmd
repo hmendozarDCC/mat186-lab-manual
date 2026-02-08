@@ -17,11 +17,80 @@ format:
 </script>
 
 ## Regression models - Official Solutions
-
+To solve Lab 17, we focus on Correlation and Simple Linear Regression. This lab allows us to model the relationship between two numeric variables. In your SUNY dataset, we will investigate how Total Enrollment (the independent variable) predicts the number of Hispanic/Latino students (the dependent variable).
 ::: {.callout-note}
 ### Instructor Note
 Add your specific DCC lab answers below this box.
 :::
+
+## Lab 17 Official Solutions: Linear Modeling
+
+In this lab, we use simple linear regression to quantify the relationship between total campus enrollment and Hispanic/Latino student populations.
+
+### Task 1: Data Preparation
+We clean our numeric variables by removing commas and ensuring there are no missing values in our target columns.
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)
+
+# Load the data
+ny_data <- read_csv("../data/race_ny.csv")
+
+# Clean numeric variables
+clean_data <- ny_data |>
+  mutate(
+    total_enroll = as.numeric(gsub(",", "", `Total Enrollment`)),
+    hispanic_enroll = as.numeric(gsub(",", "", `Hispanic/Latino`))
+  ) |>
+  filter(!is.na(total_enroll), !is.na(hispanic_enroll))
+```
+
+### Task 2: Correlation Coefficient
+We calculate the Pearson correlation coefficient ($r$) to measure the strength and direction of the linear relationship.
+```{r}
+#| label: correlation-calc
+r_value <- cor(clean_data$total_enroll, clean_data$hispanic_enroll)
+cat("The correlation coefficient (r) is:", round(r_value, 4))
+```
+
+### Task 3: Scatter Plot with Regression Line
+We visualize the relationship with a scatter plot and add a linear trend line.
+
+```{r}
+#| label: fig-regression-plot
+#| fig-cap: "Scatter plot of Total Enrollment vs. Hispanic/Latino Enrollment with a linear regression line."
+#| fig-alt: "A scatter plot showing a very strong, positive linear relationship between total enrollment and Hispanic student count. Most data points fall very close to the red linear regression line."
+ggplot(clean_data, aes(x = total_enroll, y = hispanic_enroll)) +
+  geom_point(alpha = 0.5, color = "darkblue") +
+  geom_smooth(method = "lm", color = "red", se = TRUE) +
+  labs(title = "Predicting Hispanic Enrollment from Total Enrollment",
+       x = "Total Enrollment (Independent Variable)",
+       y = "Hispanic/Latino Enrollment (Dependent Variable)") +
+  theme_minimal()
+```
+
+### Task 4: Running the Linear Regression Model
+We use the lm() function to create our mathematical model: $Y = \beta_0 + \beta_1X$.
+
+```{r}
+#| label: regression-model
+# Formula: Y ~ X
+model <- lm(hispanic_enroll ~ total_enroll, data = clean_data)
+
+# Display the regression summary
+summary(model)
+```
+
+### Task 5: Conclusion
+Based on our linear regression analysis, we can draw the following conclusions:
+
+1. **Strength of Relationship:** There is a very strong positive correlation ($r \approx `r round(r_value, 2)`$) between total enrollment and Hispanic/Latino enrollment.
+
+2. **The Slope:** The slope coefficient is approximately r round(coef(model)[2], 4). This means that for every 1 additional student enrolled at a SUNY institution, we expect the Hispanic/Latino student population to increase by about r round(coef(model)[2], 2) students on average.
+
+3. **Predictive Power ($R^2$):** The R-squared value of r round(summary(model)$r.squared, 4) suggests that roughly r round(summary(model)$r.squared * 100, 1)% of the variation in Hispanic student enrollment can be explained by the total size of the institution.
 
 <br><br>
 
