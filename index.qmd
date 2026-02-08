@@ -55,3 +55,6 @@ If you encounter any barriers—such as difficult visualizations or navigation i
 Solution keys are available in the sidebar menu. Please note that these are **password protected** and codes will be released in class following the submission deadline for each lab.
 
 ---
+## About the Author
+**Henry Mendoza Rivera** is an Instructor in the Department of Mathematics and Computer Science at Dutchess Community College. This OER project was developed to provide high-quality, zero-cost data science education to the DCC community.
+---
