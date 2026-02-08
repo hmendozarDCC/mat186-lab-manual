@@ -32,136 +32,96 @@ website:
       - section: "Getting Started"
         contents:
           - text: "How to Submit (Read First!)"
-            file: submission-criteria.qmd # Removed underscore to prevent download prompt
-          - text: "GitHub Setup & Sharing"  # <--- NEW LINK HERE
+            file: submission-criteria.qmd
+          - text: "GitHub Setup & Sharing"
             file: sharing-guide.qmd
           - text: "Lab Showcase"
             file: showcase.qmd
       - section: "Course Labs"
         contents:
           # --- LAB 01 ---
-          - text: "Lab 1: R and RStudio Installation"
+          - section: "Lab 1: R and RStudio Installation"
             file: labs/lab01.qmd
-          - text: "🔑 Lab 1 Solution"
-            file: solutions/lab01-ans-k8p2.qmd
+            contents:
+              - text: "🔑 Lab 1 Solution"
+                file: solutions/lab01-ans-k8p2.qmd
 
           # --- LAB 02 ---
-          - text: "Lab 2: RStudio Project and Quarto Documents"
+          - section: "Lab 2: RStudio Project and Quarto Documents"
             file: labs/lab02.qmd
-          # - text: "🔑 Lab 2 Solution"
-          #   file: solutions/lab02-ans-v4n9.qmd
+            contents:
+              - text: "🔑 Lab 2 Solution"
+                file: solutions/lab02-ans-v4n9.qmd
 
           # --- LAB 03 ---
-          - text: "Lab 3: Mathematical Notation in Quarto"
+          - section: "Lab 3: Mathematical Notation in Quarto"
             file: labs/lab03.qmd
-          # - text: "🔑 Lab 3 Solution"
-          #   file: solutions/lab03-ans-x7m1.qmd
+            contents:
+              - text: "🔑 Lab 3 Solution"
+                file: solutions/lab03-ans-x7m1.qmd
 
           # --- LAB 04 ---
-          - text: "Lab 4: GitHub Repository"
+          - section: "Lab 4: GitHub Repository"
             file: labs/lab04.qmd
-          # - text: "🔑 Lab 4 Solution"
-          #   file: solutions/lab04-ans-b2r6.qmd
+            contents:
+              - text: "🔑 Lab 4 Solution"
+                file: solutions/lab04-ans-b2r6.qmd
 
           # --- LAB 05 ---
-          - text: "Lab 5: Getting data into R"
+          - section: "Lab 5: Getting data into R"
             file: labs/lab05.qmd
-          # - text: "🔑 Lab 5 Solution"
-          #   file: solutions/lab05-ans-t8j3.qmd
+            contents:
+              - text: "🔑 Lab 5 Solution"
+                file: solutions/lab05-ans-t8j3.qmd
 
           # --- LAB 06 ---
-          - text: "Lab 6: Data collection"
+          - section: "Lab 6: Data collection"
             file: labs/lab06.qmd
-          # - text: "🔑 Lab 6 Solution"
-          #   file: solutions/lab06-ans-w5q1.qmd
+            contents:
+              - text: "🔑 Lab 6 Solution"
+                file: solutions/lab06-ans-w5q1.qmd
 
           # --- LAB 07 ---
-          - text: "Lab 7: Cleaning Data"
+          - section: "Lab 7: Cleaning Data"
             file: labs/lab07.qmd
-          # - text: "🔑 Lab 7 Solution"
-          #   file: solutions/lab07-ans-h9y4.qmd
+            contents:
+              - text: "🔑 Lab 7 Solution"
+                file: solutions/lab07-ans-w9x2.qmd
 
           # --- LAB 08 ---
-          - text: "Lab 8: Exploratory Data Analysis"
+          - section: "Lab 8: Exploratory Data Analysis"
             file: labs/lab08.qmd
-          # - text: "🔑 Lab 8 Solution"
-          #   file: solutions/lab08-ans-s3z7.qmd
+            contents:
+              - text: "🔑 Lab 8 Solution"
+                file: solutions/lab08-ans-p4m1.qmd
 
           # --- LAB 09 ---
-          - text: "Lab 9: Probability distribution"
+          - section: "Lab 9: Probability distribution"
             file: labs/lab09.qmd
-          # - text: "🔑 Lab 9 Solution"
-          #   file: solutions/lab09-ans-f6p2.qmd
+            contents:
+              - text: "🔑 Lab 9 Solution"
+                file: solutions/lab09-ans-k2n7.qmd
 
           # --- LAB 10 ---
-          - text: "Lab 10: Statistical inference for one mean"
+          - section: "Lab 10: Statistical inference for one mean"
             file: labs/lab10.qmd
-          # - text: "🔑 Lab 10 Solution"
-          #   file: solutions/lab10-ans-g4d8.qmd
+            contents:
+              - text: "🔑 Lab 10 Solution"
+                file: solutions/lab10-ans-j3k8.qmd
 
           # --- LAB 11 ---
-          - text: "Lab 11: Statistical inference for one proportion"
+          - section: "Lab 11: Statistical inference for one proportion"
             file: labs/lab11.qmd
-          # - text: "🔑 Lab 11 Solution"
-          #   file: solutions/lab11-ans-m1k5.qmd
+            contents:
+              - text: "🔑 Lab 11 Solution"
+                file: solutions/lab11-ans-m1k5.qmd
 
           # --- LAB 12 ---
-          - text: "Lab 12: Statistical inference for two means"
+          - section: "Lab 12: Statistical inference for two means"
             file: labs/lab12.qmd
-          # - text: "🔑 Lab 12 Solution"
-          #   file: solutions/lab12-ans-p9v2.qmd
+            contents:
+              - text: "🔑 Lab 12 Solution"
+                file: solutions/lab12-ans-q8w1.qmd
 
           # --- LAB 13 ---
-          - text: "Lab 13: Statistical inference for two proportions"
-            file: labs/lab13.qmd
-          # - text: "🔑 Lab 13 Solution"
-          #   file: solutions/lab13-ans-c7w4.qmd
-
-          # --- LAB 14 ---
-          - text: "Lab 14: Bootstrapping"
-            file: labs/lab14.qmd
-          # - text: "🔑 Lab 14 Solution"
-          #   file: solutions/lab14-ans-x2n8.qmd
-
-          # --- LAB 15 ---
-          - text: "Lab 15: Non-parametric methods"
-            file: labs/lab15.qmd
-          # - text: "🔑 Lab 15 Solution"
-          #   file: solutions/lab15-ans-r5h1.qmd
-
-          # --- LAB 16 ---
-          - text: "Lab 16: Analysis of variance (ANOVA)"
-            file: labs/lab16.qmd
-          # - text: "🔑 Lab 16 Solution"
-          #   file: solutions/lab16-ans-y3l9.qmd
-
-          # --- LAB 17 ---
-          - text: "Lab 17: Regression models"
-            file: labs/lab17.qmd
-          # - text: "🔑 Lab 17 Solution"
-          #   file: solutions/lab17-ans-a6t2.qmd
-
-  # Page Footer
-  page-footer:
-    left: |
-      <img src="/images/dcc-logo.png" alt="DCC Logo" style="width: 120px; margin-bottom: 10px;">
-      <br> **Dutchess Community College**
-    center: "Last updated: {{< meta date-modified >}}"
-    right: |
-      [Accessibility Statement](/accessibility.qmd)
-
-format:
-  html:
-    html-math-method: mathjax
-    theme: cosmo
-    css: style.css
-    date-modified: last-modified
-    date-format: "MMMM D, YYYY"
-    toc: true
-    toc-location: right
-    fig-cap-location: bottom
-    image-lazy-loading: true
-    fig-responsive: true
-
-bibliography: references.bib
-cite-method: citeproc
+          - section: "Lab
