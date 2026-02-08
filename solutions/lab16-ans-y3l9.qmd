@@ -17,11 +17,83 @@ format:
 </script>
 
 ## Analysis of variance (ANOVA) - Official Solutions
+To solve Lab 16, we focus on ANOVA (Analysis of Variance). This statistical method is used to compare the means of three or more groups to see if at least one is significantly different from the others. In your SUNY dataset, the "Institution Sector" has 4 distinct categories, making it perfect for this test.
+
 
 ::: {.callout-note}
 ### Instructor Note
 Add your specific DCC lab answers below this box.
 :::
+
+
+## Lab 16 Official Solutions: ANOVA
+
+In this lab, we determine if there are significant differences in average enrollment across the four different SUNY institution sectors.
+
+### Task 1: Data Preparation
+We clean the `Total Enrollment` column by removing commas and ensuring the `Institution Sector` variable is treated as a factor for our analysis.
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)
+
+# Load the data
+ny_data <- read_csv("../data/race_ny.csv")
+
+# Clean data: 
+# Remove commas from enrollment and ensure Sector has at least 3 groups
+clean_data <- ny_data |>
+  mutate(total_enroll = as.numeric(gsub(",", "", `Total Enrollment`))) |>
+  rename(sector = `Institution Sector`) |>
+  filter(!is.na(total_enroll))
+```
+
+###Task 2: Visual Comparison (Boxplot)
+We visualize the distribution of enrollment across all four sectors.
+
+```{r}
+#| label: fig-anova-boxplot
+#| fig-cap: "Boxplot comparing Total Enrollment across four SUNY sectors."
+#| fig-alt: "A side-by-side boxplot comparing four sectors: Community Colleges, Comprehensive Colleges, Doctoral, and Technology Colleges. Community Colleges show the highest enrollment levels, while Technology Colleges show the lowest."
+ggplot(clean_data, aes(x = sector, y = total_enroll, fill = sector)) +
+  geom_boxplot(alpha = 0.7) +
+  labs(title = "Enrollment Variance Across SUNY Sectors",
+       x = "Institution Sector",
+       y = "Total Students") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  guides(fill = "none")
+```
+
+
+### Task 3: Running the ANOVA
+We use the aov() function to test our null hypothesis that all sector means are equal ($H_0: \mu_1 = \mu_2 = \mu_3 = \mu_4$).
+```{r}
+#| label: anova-test
+# Run the ANOVA model
+anova_model <- aov(total_enroll ~ sector, data = clean_data)
+
+# Display the summary table
+summary(anova_model)
+```
+
+### Task 4: Post-Hoc Testing (Tukey HSD)
+Since our ANOVA returned a p-value much smaller than 0.05, we must run a Tukey HSD test to see which specific pairs of sectors are different.
+
+```{r}
+#| label: tukey-test
+# Run Tukey Honestly Significant Difference test
+tukey_results <- TukeyHSD(anova_model)
+tukey_results
+```
+
+### Task 5: Conclusion
+Based on the statistical analysis:
+
+**Formal Conclusion:** The ANOVA results yielded a p-value of < 2e-16, which is significantly less than 0.05. Therefore, we reject the null hypothesis and conclude that there is a significant difference in mean enrollment between at least two of the SUNY sectors.
+
+**Follow-up Analysis:** According to the Tukey HSD test, almost all pairs show significant differences (p-adj < 0.05). Specifically, the difference between Community Colleges and Technology Colleges is among the most extreme, while some other pairs might show overlapping intervals. This confirms that the size of an institution is heavily dependent on its specific sector classification.
 
 <br><br>
 
