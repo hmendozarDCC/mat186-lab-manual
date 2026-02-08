@@ -79,7 +79,8 @@ ggplot(plot_data, aes(x = `Institution Sector`, y = Count, fill = Outcome)) +
   theme_minimal()
 ```
 
-### Task 3: State Your HypothesesWe are testing if the proportion of Hispanic/Latino students is the same in both sectors.
+### Task 3: State Your Hypotheses
+We are testing if the proportion of Hispanic/Latino students is the same in both sectors.
 
 * **Null Hypothesis ($H_0$):** The proportion of Hispanic students is the same in both sectors ($p_1 = p_2$).
 
