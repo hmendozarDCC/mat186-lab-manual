@@ -57,4 +57,10 @@ Solution keys are available in the sidebar menu. Please note that these are **pa
 ---
 ## About the Author
 **Henry Mendoza Rivera** is an Instructor in the Department of Mathematics and Computer Science at Dutchess Community College. This OER project was developed to provide high-quality, zero-cost data science education to the DCC community.
----
+
+
+
+::: {.callout-note appearance="simple"}
+### Suggested Citation
+Mendoza Rivera, H. (2026). *MAT 186: Introduction to Data Science Lab Manual*. Dutchess Community College. Available at: [https://hmendozardcc.github.io/mat186-lab-manual/](https://hmendozardcc.github.io/mat186-lab-manual/). Licensed under CC BY-NC-SA 4.0.
+:::
