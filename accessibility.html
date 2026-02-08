@@ -474,9 +474,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#our-commitment" id="toc-our-commitment" class="nav-link active" data-scroll-target="#our-commitment">Our Commitment</a></li>
-  <li><a href="#accessibility-features" id="toc-accessibility-features" class="nav-link" data-scroll-target="#accessibility-features">Accessibility Features</a></li>
-  <li><a href="#support" id="toc-support" class="nav-link" data-scroll-target="#support">Support</a></li>
+  <li><a href="#commitment-to-accessibility" id="toc-commitment-to-accessibility" class="nav-link active" data-scroll-target="#commitment-to-accessibility">Commitment to Accessibility</a></li>
   </ul>
 </nav>
     </div>
@@ -508,24 +506,33 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="our-commitment" class="level2">
-<h2 class="anchored" data-anchor-id="our-commitment">Our Commitment</h2>
-<p>Dutchess Community College is committed to ensuring that our lab manuals are accessible to all students, including those with disabilities. This site is built with Quarto and complies with WCAG 2.1 Level AA standards.</p>
-</section>
-<section id="accessibility-features" class="level2">
-<h2 class="anchored" data-anchor-id="accessibility-features">Accessibility Features</h2>
+<section id="commitment-to-accessibility" class="level2">
+<h2 class="anchored" data-anchor-id="commitment-to-accessibility">Commitment to Accessibility</h2>
+<p>This course site is designed to be accessible to all students, including those with disabilities. We aim to meet or exceed <strong>WCAG 2.1 Level AA</strong> standards, ensuring that every student at Dutchess Community College has equal access to our Data Science materials.</p>
+<section id="accessibility-features" class="level3">
+<h3 class="anchored" data-anchor-id="accessibility-features">Accessibility Features</h3>
+<p>To achieve our <strong>100% Accessibility rating</strong> (as verified by Lighthouse audits), we have implemented the following features:</p>
 <ul>
-<li><strong>Mathematical Formulas:</strong> We use <strong>MathJax</strong> to render equations. This allows formulas to be read by screen readers and zoomed without loss of resolution.</li>
-<li><strong>Keyboard Navigation:</strong> All parts of this site are navigable using the <code>Tab</code> key.</li>
-<li><strong>High Contrast:</strong> Colors have been selected to meet contrast requirements for readability.</li>
-<li><strong>Alternative Text:</strong> All structural images include descriptive alt-text.</li>
+<li><strong>Alt-Text for Data Visualizations:</strong> Every chart, graph, and plot in our labs includes descriptive alternative text. This allows screen reader users to understand the trends and conclusions of the data without seeing the image.</li>
+<li><strong>Semantic Navigation:</strong> We use a clear heading hierarchy (# H1, ## H2, ### H3) to allow for easy keyboard navigation and screen reader “heading jumps.”</li>
+<li><strong>Mathematical Accessibility:</strong> All mathematical notation is rendered using <strong>MathJax</strong>, which transforms LaTeX equations into readable text for assistive technologies.</li>
+<li><strong>Color Contrast:</strong> Text and background colors have been selected to meet high contrast requirements for improved readability.</li>
+<li><strong>Accessible Code:</strong> Code chunks are formatted to be legible and distinguishable from standard prose.</li>
 </ul>
 </section>
-<section id="support" class="level2">
-<h2 class="anchored" data-anchor-id="support">Support</h2>
-<p>If you encounter any accessibility barriers or have difficulty accessing the content in these labs, please contact your instructor or the DCC Office of Accommodative Services.</p>
+<section id="technical-specifications" class="level3">
+<h3 class="anchored" data-anchor-id="technical-specifications">Technical Specifications</h3>
+<p>Accessibility relies on the following technologies to work with the particular combination of web browser and any assistive technologies or plugins installed on your computer: * HTML * WAI-ARIA * CSS * JavaScript</p>
+</section>
+<section id="feedback-support" class="level3">
+<h3 class="anchored" data-anchor-id="feedback-support">Feedback &amp; Support</h3>
+<p>If you encounter any accessibility barriers while using this site, please contact me directly. I am committed to making adjustments to ensure you have the materials you need to succeed.</p>
+<p>You may also reach out to the <strong>DCC Office of Accommodative Services</strong> for further support and official accommodations.</p>
+<hr>
+<p><em>This site was last audited on <code>r format(Sys.Date(), "%B %Y")</code> and received a 100% Accessibility score using Google Lighthouse.</em></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
