@@ -3,6 +3,7 @@ project:
 lang: en
 
 execute:
+  freeze: auto  
   warning: false
   message: false
 
@@ -133,7 +134,7 @@ website:
 
 format:
   html:
-    html-math-method: mathjax
+    html-math-method: katex
     theme: cosmo
     css: style.css
     date-modified: last-modified
