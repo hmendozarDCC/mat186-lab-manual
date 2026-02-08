@@ -20,6 +20,8 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: resources.qmd  # Add this line
+        text: Resources
     right:
       - href: references.qmd
         text: "References"
