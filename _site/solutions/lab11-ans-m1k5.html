@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -69,6 +104,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../style.css">
 </head>
@@ -293,7 +357,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#statistical-inference-for-one-proportion---official-solutions" id="toc-statistical-inference-for-one-proportion---official-solutions" class="nav-link active" data-scroll-target="#statistical-inference-for-one-proportion---official-solutions">Statistical inference for one proportion - Official Solutions</a></li>
+  <li><a href="#statistical-inference-for-one-proportion---official-solutions" id="toc-statistical-inference-for-one-proportion---official-solutions" class="nav-link active" data-scroll-target="#statistical-inference-for-one-proportion---official-solutions">Statistical inference for one proportion - Official Solutions</a>
+  <ul class="collapse">
+  <li><a href="#task-1-loading-and-counting-data" id="toc-task-1-loading-and-counting-data" class="nav-link" data-scroll-target="#task-1-loading-and-counting-data">Task 1: Loading and Counting Data</a></li>
+  <li><a href="#task-2-state-your-hypotheses" id="toc-task-2-state-your-hypotheses" class="nav-link" data-scroll-target="#task-2-state-your-hypotheses">Task 2: State Your Hypotheses</a></li>
+  <li><a href="#task-3-running-the-proportion-test" id="toc-task-3-running-the-proportion-test" class="nav-link" data-scroll-target="#task-3-running-the-proportion-test">Task 3: Running the Proportion Test</a></li>
+  <li><a href="#task-4-visualization-for-accessibility" id="toc-task-4-visualization-for-accessibility" class="nav-link" data-scroll-target="#task-4-visualization-for-accessibility">Task 4: Visualization for Accessibility</a></li>
+  <li><a href="#task-5-final-report" id="toc-task-5-final-report" class="nav-link" data-scroll-target="#task-5-final-report">Task 5: Final Report</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -315,7 +386,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 7, 2026</p>
+      <p class="date-modified">February 8, 2026</p>
     </div>
   </div>
     
@@ -349,6 +420,96 @@ ul.task-list li input[type="checkbox"] {
 <p>Add your specific DCC lab answers below this box.</p>
 </div>
 </div>
+<section id="task-1-loading-and-counting-data" class="level3">
+<h3 class="anchored" data-anchor-id="task-1-loading-and-counting-data">Task 1: Loading and Counting Data</h3>
+<p>We load our dataset and count how many times “Community Colleges” appears compared to the total number of observations.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ny_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/race_ny.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Count successes (Community Colleges)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>successes <span class="ot">&lt;-</span> ny_data <span class="sc">|&gt;</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Institution Sector</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Community Colleges"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>()</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Count total observations</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>total_n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(ny_data)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Display counts</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">Category =</span> <span class="st">"Community Colleges"</span>, <span class="at">Successes =</span> successes, <span class="at">Total =</span> total_n)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  Category           Successes Total
+  &lt;chr&gt;                  &lt;int&gt; &lt;int&gt;
+1 Community Colleges        23    92</code></pre>
+</div>
+</div>
+</section>
+<section id="task-2-state-your-hypotheses" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-state-your-hypotheses">Task 2: State Your Hypotheses</h3>
+<p>We are testing the claim that exactly one-quarter of our data entries come from the Community College sector.Null Hypothesis (<span class="math inline">\(H_0\)</span>): The proportion of Community Colleges is 0.25 (<span class="math inline">\(p = 0.25\)</span>).Alternative Hypothesis (<span class="math inline">\(H_a\)</span>): The proportion of Community Colleges is not 0.25 (<span class="math inline">\(p \neq 0.25\)</span>).</p>
+</section>
+<section id="task-3-running-the-proportion-test" class="level3">
+<h3 class="anchored" data-anchor-id="task-3-running-the-proportion-test">Task 3: Running the Proportion Test</h3>
+<p>We use prop.test() to determine if our sample proportion is significantly different from our hypothesized value of 0.25.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the proportion test</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># x = number of successes, n = total sample size, p = hypothesized proportion</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>prop_results <span class="ot">&lt;-</span> <span class="fu">prop.test</span>(<span class="at">x =</span> successes, <span class="at">n =</span> total_n, <span class="at">p =</span> <span class="fl">0.25</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Display results</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>prop_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    1-sample proportions test without continuity correction
+
+data:  successes out of total_n, null probability 0.25
+X-squared = 0, df = 1, p-value = 1
+alternative hypothesis: true p is not equal to 0.25
+95 percent confidence interval:
+ 0.1727526 0.3472881
+sample estimates:
+   p 
+0.25 </code></pre>
+</div>
+</div>
+</section>
+<section id="task-4-visualization-for-accessibility" class="level3">
+<h3 class="anchored" data-anchor-id="task-4-visualization-for-accessibility">Task 4: Visualization for Accessibility</h3>
+<p>We visualize the frequency of each sector to show how the “Success” category compares to the others.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ny_data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Institution Sector</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"darkred"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Frequency of Institution Sectors"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Sector"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Number of Observations"</span>) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-prop-viz" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A bar chart with four bars of equal height. Each sector (Community Colleges, Comprehensive Colleges, Doctoral, and Technology) has exactly 23 observations, representing 25% of the total data each.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-prop-viz-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lab11-ans-m1k5_files/figure-html/fig-prop-viz-1.png" class="img-fluid figure-img" alt="A bar chart with four bars of equal height. Each sector (Community Colleges, Comprehensive Colleges, Doctoral, and Technology) has exactly 23 observations, representing 25% of the total data each." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-prop-viz-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Bar chart showing the frequency of different SUNY Institution Sectors in the dataset.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="task-5-final-report" class="level3">
+<h3 class="anchored" data-anchor-id="task-5-final-report">Task 5: Final Report</h3>
+<p>Based on the statistical output above, here is our formal summary:</p>
+<ul>
+<li><p><strong>Sample Proportion (<span class="math inline">\(\hat{p}\)</span>):</strong> The calculated sample proportion is r round(prop_results$estimate, 2).</p></li>
+<li><p><strong>Significance:</strong> The p-value is r round(prop_results$p.value, 4). Since this is greater than 0.05, our result is not significant.</p></li>
+<li><p><strong>Confidence Interval:</strong> We are 95% confident that the true proportion of Community Colleges in this dataset lies between r round(prop_results<span class="math inline">\(conf.int[1], 3) and r round(prop_results\)</span>conf.int[2], 3).</p></li>
+<li><p><strong>Conclusion:</strong> Since the p-value is 1 (or very high), we fail to reject the null hypothesis. There is no evidence to suggest the proportion is different from 0.25; in fact, it matches our hypothesis exactly.</p></li>
+</ul>
 <p><br><br></p>
 <hr>
 <div class="content-block">
@@ -358,6 +519,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -768,7 +930,7 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="../images/dcc-logo.png" alt="DCC Logo" style="width: 120px; margin-bottom: 10px;"> <br> <strong>Dutchess Community College</strong></p>
 </div>   
     <div class="nav-footer-center">
-<p>Last updated: February 7, 2026</p>
+<p>Last updated: February 8, 2026</p>
 </div>
     <div class="nav-footer-right">
 <p><a href="../accessibility.html">Accessibility Statement</a></p>

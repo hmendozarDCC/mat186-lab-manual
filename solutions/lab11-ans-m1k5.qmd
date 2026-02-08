@@ -22,6 +22,69 @@ format:
 ### Instructor Note
 Add your specific DCC lab answers below this box.
 :::
+### Task 1: Loading and Counting Data
+We load our dataset and count how many times "Community Colleges" appears compared to the total number of observations.
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)
+
+# Load the data
+ny_data <- read_csv("../data/race_ny.csv")
+
+# 1. Count successes (Community Colleges)
+successes <- ny_data |> 
+  filter(`Institution Sector` == "Community Colleges") |> 
+  nrow()
+
+# 2. Count total observations
+total_n <- nrow(ny_data)
+
+# Display counts
+tibble(Category = "Community Colleges", Successes = successes, Total = total_n)
+```
+### Task 2: State Your Hypotheses
+We are testing the claim that exactly one-quarter of our data entries come from the Community College sector.Null Hypothesis ($H_0$): The proportion of Community Colleges is 0.25 ($p = 0.25$).Alternative Hypothesis ($H_a$): The proportion of Community Colleges is not 0.25 ($p \neq 0.25$).
+
+### Task 3: Running the Proportion Test
+We use prop.test() to determine if our sample proportion is significantly different from our hypothesized value of 0.25.
+
+```{r}
+#| label: prop-test-results
+# Run the proportion test
+# x = number of successes, n = total sample size, p = hypothesized proportion
+prop_results <- prop.test(x = successes, n = total_n, p = 0.25)
+
+# Display results
+prop_results
+```
+### Task 4: Visualization for Accessibility
+We visualize the frequency of each sector to show how the "Success" category compares to the others.
+```{r}
+#| label: fig-prop-viz
+#| fig-cap: "Bar chart showing the frequency of different SUNY Institution Sectors in the dataset."
+#| fig-alt: "A bar chart with four bars of equal height. Each sector (Community Colleges, Comprehensive Colleges, Doctoral, and Technology) has exactly 23 observations, representing 25% of the total data each."
+ggplot(ny_data, aes(x = `Institution Sector`)) +
+  geom_bar(fill = "darkred", color = "black") +
+  labs(title = "Frequency of Institution Sectors",
+       x = "Sector",
+       y = "Number of Observations") +
+  theme_minimal() +
+  coord_flip()
+```
+
+### Task 5: Final Report
+Based on the statistical output above, here is our formal summary:
+
+* **Sample Proportion ($\hat{p}$):** The calculated sample proportion is r round(prop_results$estimate, 2).
+
+* **Significance:** The p-value is r round(prop_results$p.value, 4). Since this is greater than 0.05, our result is not significant.
+
+* **Confidence Interval:** We are 95% confident that the true proportion of Community Colleges in this dataset lies between r round(prop_results$conf.int[1], 3) and r round(prop_results$conf.int[2], 3).
+
+* **Conclusion:** Since the p-value is 1 (or very high), we fail to reject the null hypothesis. There is no evidence to suggest the proportion is different from 0.25; in fact, it matches our hypothesis exactly.
+
 
 <br><br>
 
