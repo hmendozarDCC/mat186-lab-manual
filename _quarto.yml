@@ -130,9 +130,12 @@ website:
     left: |
       <img src="/images/dcc-logo.png" alt="DCC Logo" style="width: 120px; margin-bottom: 10px;">
       <br> **Dutchess Community College**
-    center: "Last updated: {{< meta date-modified >}}"
+    center: |
+      This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/). 
+      <br> <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png" alt="CC BY-NC-SA License Graphic" style="height: 31px; margin-top: 10px;">
     right: |
-      [Accessibility Statement](/accessibility.qmd)
+      [Accessibility Statement](accessibility.qmd)
+
 
 format:
   html:
