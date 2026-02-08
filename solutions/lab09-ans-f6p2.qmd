@@ -22,6 +22,86 @@ format:
 ### Instructor Note
 Add your specific DCC lab answers below this box.
 :::
+### Task 1: Accessible Data Loading
+We load the `tidyverse` and import our dataset. Because our CSV uses commas inside numbers (e.g., "192,959"), we must clean the data so R can perform calculations.
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)
+
+# Import the data
+ny_data <- read_csv("../data/race_ny.csv")
+
+# Data Cleaning for Accessibility:
+# 1. Select 'Total Enrollment' (Column 3)
+# 2. Remove commas so R sees it as a number
+clean_data <- ny_data |>
+  mutate(total_enroll = as.numeric(gsub(",", "", `Total Enrollment`))) |>
+  filter(!is.na(total_enroll))
+```
+
+### Task 2: Distribution Visualization
+We create a histogram of total_enrollment to check for normality.
+
+```{r}
+#| label: fig-histogram
+#| fig-cap: "Histogram showing the frequency distribution of total student enrollment across SUNY sectors."
+#| fig-alt: "A histogram with a long right tail showing that most SUNY sectors have lower enrollment, while a few have very high enrollment, indicating a non-normal, right-skewed distribution."
+ggplot(clean_data, aes(x = total_enroll)) +
+  geom_histogram(fill = "steelblue", color = "white", bins = 20) +
+  labs(title = "Distribution of SUNY Enrollment",
+       x = "Total Students",
+       y = "Frequency") +
+  theme_minimal()
+```
+
+**Observation:** The data is not Normal. It is heavily skewed to the right. A "Normal" distribution would be symmetrical like a bell, but here most data is clustered on the left with a long tail on the right.
+
+### Task 3: Center and Spread
+We find the mean (the center) and the standard deviation (the spread) for our variable.
+
+```{r}
+#| label: summary-stats
+e_mean <- mean(clean_data$total_enroll)
+e_sd <- sd(clean_data$total_enroll)
+
+# Display results in an accessible table
+tibble(Metric = c("Mean (Center)", "Standard Deviation (Spread)"), 
+       Value = c(round(e_mean, 2), round(e_sd, 2)))
+```
+
+
+### Task 4: The Central Limit Theorem Simulation
+The Central Limit Theorem (CLT) tells us that if we take the average of many samples, that average will look normal, even if the original data does not.
+
+**Small Sample Size (n = 5)**
+
+```{r}
+#| label: fig-sim5
+#| fig-cap: "CLT Simulation with a small sample size (n = 5)."
+#| fig-alt: "A histogram of 1,000 sample means where each sample size is 5. The distribution is somewhat spread out and slightly skewed."
+set.seed(123)
+sim_5 <- replicate(1000, mean(sample(clean_data$total_enroll, 5, replace = TRUE)))
+hist(sim_5, col = "skyblue", border = "white", 
+     main = "Sample Size n = 5", xlab = "Sample Means")
+```
+
+**Large Sample Size (n = 100)**
+
+```{r}
+#| label: fig-sim100
+#| fig-cap: "CLT Simulation with a large sample size (n = 100)."
+#| fig-alt: "A histogram of 1,000 sample means where each sample size is 100. The distribution is very narrow, tall, and perfectly bell-shaped."
+set.seed(123)
+sim_100 <- replicate(1000, mean(sample(clean_data$total_enroll, 100, replace = TRUE)))
+hist(sim_100, col = "darkblue", border = "white", 
+     main = "Sample Size n = 100", xlab = "Sample Means")
+```
+
+### Task 5: Observation
+
+When the sample size increased from 5 to 100, the spread of the histogram became significantly narrower. The sample means became more concentrated around the true population mean, and the shape transformed into a clear, symmetrical bell curve. This demonstrates that larger samples provide more consistent and predictable estimates.
 
 <br><br>
 

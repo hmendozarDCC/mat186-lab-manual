@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -293,7 +328,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#probability-distribution---official-solutions" id="toc-probability-distribution---official-solutions" class="nav-link active" data-scroll-target="#probability-distribution---official-solutions">Probability distribution - Official Solutions</a></li>
+  <li><a href="#probability-distribution---official-solutions" id="toc-probability-distribution---official-solutions" class="nav-link active" data-scroll-target="#probability-distribution---official-solutions">Probability distribution - Official Solutions</a>
+  <ul class="collapse">
+  <li><a href="#task-1-accessible-data-loading" id="toc-task-1-accessible-data-loading" class="nav-link" data-scroll-target="#task-1-accessible-data-loading">Task 1: Accessible Data Loading</a></li>
+  <li><a href="#task-2-distribution-visualization" id="toc-task-2-distribution-visualization" class="nav-link" data-scroll-target="#task-2-distribution-visualization">Task 2: Distribution Visualization</a></li>
+  <li><a href="#task-3-center-and-spread" id="toc-task-3-center-and-spread" class="nav-link" data-scroll-target="#task-3-center-and-spread">Task 3: Center and Spread</a></li>
+  <li><a href="#task-4-the-central-limit-theorem-simulation" id="toc-task-4-the-central-limit-theorem-simulation" class="nav-link" data-scroll-target="#task-4-the-central-limit-theorem-simulation">Task 4: The Central Limit Theorem Simulation</a></li>
+  <li><a href="#task-5-observation" id="toc-task-5-observation" class="nav-link" data-scroll-target="#task-5-observation">Task 5: Observation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -315,7 +357,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 7, 2026</p>
+      <p class="date-modified">February 8, 2026</p>
     </div>
   </div>
     
@@ -349,6 +391,112 @@ ul.task-list li input[type="checkbox"] {
 <p>Add your specific DCC lab answers below this box.</p>
 </div>
 </div>
+<section id="task-1-accessible-data-loading" class="level3">
+<h3 class="anchored" data-anchor-id="task-1-accessible-data-loading">Task 1: Accessible Data Loading</h3>
+<p>We load the <code>tidyverse</code> and import our dataset. Because our CSV uses commas inside numbers (e.g., “192,959”), we must clean the data so R can perform calculations.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the data</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ny_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/race_ny.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Data Cleaning for Accessibility:</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Select 'Total Enrollment' (Column 3)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Remove commas so R sees it as a number</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>clean_data <span class="ot">&lt;-</span> ny_data <span class="sc">|&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total_enroll =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, <span class="st">`</span><span class="at">Total Enrollment</span><span class="st">`</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(total_enroll))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="task-2-distribution-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-distribution-visualization">Task 2: Distribution Visualization</h3>
+<p>We create a histogram of total_enrollment to check for normality.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clean_data, <span class="fu">aes</span>(<span class="at">x =</span> total_enroll)) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">bins =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of SUNY Enrollment"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Total Students"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frequency"</span>) <span class="sc">+</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-histogram" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A histogram with a long right tail showing that most SUNY sectors have lower enrollment, while a few have very high enrollment, indicating a non-normal, right-skewed distribution.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lab09-ans-f6p2_files/figure-html/fig-histogram-1.png" class="img-fluid figure-img" alt="A histogram with a long right tail showing that most SUNY sectors have lower enrollment, while a few have very high enrollment, indicating a non-normal, right-skewed distribution." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Histogram showing the frequency distribution of total student enrollment across SUNY sectors.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Observation:</strong> The data is not Normal. It is heavily skewed to the right. A “Normal” distribution would be symmetrical like a bell, but here most data is clustered on the left with a long tail on the right.</p>
+</section>
+<section id="task-3-center-and-spread" class="level3">
+<h3 class="anchored" data-anchor-id="task-3-center-and-spread">Task 3: Center and Spread</h3>
+<p>We find the mean (the center) and the standard deviation (the spread) for our variable.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>e_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(clean_data<span class="sc">$</span>total_enroll)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>e_sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(clean_data<span class="sc">$</span>total_enroll)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display results in an accessible table</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">Metric =</span> <span class="fu">c</span>(<span class="st">"Mean (Center)"</span>, <span class="st">"Standard Deviation (Spread)"</span>), </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">Value =</span> <span class="fu">c</span>(<span class="fu">round</span>(e_mean, <span class="dv">2</span>), <span class="fu">round</span>(e_sd, <span class="dv">2</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  Metric                        Value
+  &lt;chr&gt;                         &lt;dbl&gt;
+1 Mean (Center)               105701.
+2 Standard Deviation (Spread)  67729.</code></pre>
+</div>
+</div>
+</section>
+<section id="task-4-the-central-limit-theorem-simulation" class="level3">
+<h3 class="anchored" data-anchor-id="task-4-the-central-limit-theorem-simulation">Task 4: The Central Limit Theorem Simulation</h3>
+<p>The Central Limit Theorem (CLT) tells us that if we take the average of many samples, that average will look normal, even if the original data does not.</p>
+<p><strong>Small Sample Size (n = 5)</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sim_5 <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, <span class="fu">mean</span>(<span class="fu">sample</span>(clean_data<span class="sc">$</span>total_enroll, <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(sim_5, <span class="at">col =</span> <span class="st">"skyblue"</span>, <span class="at">border =</span> <span class="st">"white"</span>, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Sample Size n = 5"</span>, <span class="at">xlab =</span> <span class="st">"Sample Means"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-sim5" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A histogram of 1,000 sample means where each sample size is 5. The distribution is somewhat spread out and slightly skewed.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sim5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lab09-ans-f6p2_files/figure-html/fig-sim5-1.png" class="img-fluid figure-img" alt="A histogram of 1,000 sample means where each sample size is 5. The distribution is somewhat spread out and slightly skewed." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sim5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: CLT Simulation with a small sample size (n = 5).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Large Sample Size (n = 100)</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sim_100 <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, <span class="fu">mean</span>(<span class="fu">sample</span>(clean_data<span class="sc">$</span>total_enroll, <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(sim_100, <span class="at">col =</span> <span class="st">"darkblue"</span>, <span class="at">border =</span> <span class="st">"white"</span>, </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Sample Size n = 100"</span>, <span class="at">xlab =</span> <span class="st">"Sample Means"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-sim100" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A histogram of 1,000 sample means where each sample size is 100. The distribution is very narrow, tall, and perfectly bell-shaped.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sim100-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lab09-ans-f6p2_files/figure-html/fig-sim100-1.png" class="img-fluid figure-img" alt="A histogram of 1,000 sample means where each sample size is 100. The distribution is very narrow, tall, and perfectly bell-shaped." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sim100-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: CLT Simulation with a large sample size (n = 100).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="task-5-observation" class="level3">
+<h3 class="anchored" data-anchor-id="task-5-observation">Task 5: Observation</h3>
+<p>When the sample size increased from 5 to 100, the spread of the histogram became significantly narrower. The sample means became more concentrated around the true population mean, and the shape transformed into a clear, symmetrical bell curve. This demonstrates that larger samples provide more consistent and predictable estimates.</p>
 <p><br><br></p>
 <hr>
 <div class="content-block">
@@ -358,6 +506,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -768,7 +917,7 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="../images/dcc-logo.png" alt="DCC Logo" style="width: 120px; margin-bottom: 10px;"> <br> <strong>Dutchess Community College</strong></p>
 </div>   
     <div class="nav-footer-center">
-<p>Last updated: February 7, 2026</p>
+<p>Last updated: February 8, 2026</p>
 </div>
     <div class="nav-footer-right">
 <p><a href="../accessibility.html">Accessibility Statement</a></p>
