@@ -22,6 +22,89 @@ format:
 ### Instructor Note
 Add your specific DCC lab answers below this box.
 :::
+### Task 1: Preparing the Data
+We load our library and re-apply the cleaning steps from Lab 7 to ensure we are working with the correct variables.
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)
+
+# 1. Load data
+ny_data <- read_csv("../data/race_ny.csv")
+
+# 2. Re-apply Lab 7 Cleaning (using indices for accessibility)
+cleaned_suny <- ny_data |> 
+  select(1, 2, 3, 6) |> 
+  rename(semester = 1,
+         sector = 2,
+         total_enrollment = 3,
+         hispanic_latino = 4) |> 
+  filter(sector == "Community Colleges")
+```
+
+### Task 2: Mean and Standard Deviation
+We calculate the summary statistics for our main numeric variable: total_enrollment.
+
+```{r}
+#| label: summary-stats
+stats <- cleaned_suny |> 
+  summarise(
+    mean_enrollment = mean(total_enrollment, na.rm = TRUE),
+    sd_enrollment = sd(total_enrollment, na.rm = TRUE)
+  )
+
+stats
+```
+
+### Task 3: Histogram
+A histogram helps us see the distribution of enrollment across different community college campuses and semesters.
+
+```{r}
+#| label: histogram
+ggplot(cleaned_suny, aes(x = total_enrollment)) +
+  geom_histogram(fill = "steelblue", color = "white", bins = 15) +
+  labs(title = "Distribution of Total Enrollment",
+       subtitle = "SUNY Community Colleges",
+       x = "Total Students",
+       y = "Count") +
+  theme_minimal()
+```
+
+
+**Observation:** The data appears to be right-skewed. Most community colleges have a smaller enrollment (under 10,000), while a few very large institutions pull the tail to the right.
+
+### Task 4: Scatter Plot with Trend Line
+We compare total_enrollment to hispanic_latino enrollment to see if they grow together.
+
+```{r}
+#| label: scatter-plot
+ggplot(cleaned_suny, aes(x = total_enrollment, y = hispanic_latino)) +
+  geom_point(alpha = 0.6, color = "darkgreen") +
+  geom_smooth(method = "lm", color = "red", se = FALSE) +
+  labs(title = "Total Enrollment vs. Hispanic/Latino Enrollment",
+       x = "Total Students",
+       y = "Hispanic/Latino Students") +
+  theme_minimal()
+```
+### Task 5: Boxplot by Category
+We compare the distribution of total enrollment across different semesters.
+```{r}
+#| label: boxplot
+ggplot(cleaned_suny, aes(x = semester, y = total_enrollment)) +
+  geom_boxplot(fill = "orange", alpha = 0.7) +
+  labs(title = "Enrollment Distribution by Semester",
+       x = "Semester",
+       y = "Total Students") +
+  theme_minimal() +
+  coord_flip() # Flipping for easier reading of labels
+```
+
+**Final Observation (3 Sentences)**
+In these plots, there is a very strong positive correlation between the size of a college and its Hispanic/Latino student population, as shown by the linear trend in the scatter plot. Interestingly, the boxplot reveals that total enrollment has been gradually declining across the semesters, evidenced by the median line shifting downward. A major outlier exists in the community college sector, representing a massive campus that significantly exceeds the average enrollment of all other schools.
+
+
+
 
 <br><br>
 
