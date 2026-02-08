@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -69,6 +104,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../style.css">
 </head>
@@ -294,6 +358,15 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#statistical-inference-for-two-means---official-solutions" id="toc-statistical-inference-for-two-means---official-solutions" class="nav-link active" data-scroll-target="#statistical-inference-for-two-means---official-solutions">Statistical inference for two means - Official Solutions</a></li>
+  <li><a href="#markdown" id="toc-markdown" class="nav-link" data-scroll-target="#markdown">Markdown</a></li>
+  <li><a href="#lab-12-official-solutions-two-sample-inference" id="toc-lab-12-official-solutions-two-sample-inference" class="nav-link" data-scroll-target="#lab-12-official-solutions-two-sample-inference">Lab 12 Official Solutions: Two-Sample Inference</a>
+  <ul class="collapse">
+  <li><a href="#task-1-loading-and-filtering-data" id="toc-task-1-loading-and-filtering-data" class="nav-link" data-scroll-target="#task-1-loading-and-filtering-data">Task 1: Loading and Filtering Data</a></li>
+  <li><a href="#task-2-visualizing-the-comparison" id="toc-task-2-visualizing-the-comparison" class="nav-link" data-scroll-target="#task-2-visualizing-the-comparison">Task 2: Visualizing the Comparison</a></li>
+  <li><a href="#task-3-state-your-hypotheses" id="toc-task-3-state-your-hypotheses" class="nav-link" data-scroll-target="#task-3-state-your-hypotheses">Task 3: State Your Hypotheses</a></li>
+  <li><a href="#task-4-running-the-two-sample-t-test" id="toc-task-4-running-the-two-sample-t-test" class="nav-link" data-scroll-target="#task-4-running-the-two-sample-t-test">Task 4: Running the Two-Sample T-Test</a></li>
+  <li><a href="#task-5-the-conclusion" id="toc-task-5-the-conclusion" class="nav-link" data-scroll-target="#task-5-the-conclusion">Task 5: The Conclusion</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -349,6 +422,106 @@ ul.task-list li input[type="checkbox"] {
 <p>Add your specific DCC lab answers below this box.</p>
 </div>
 </div>
+<p>To solve Lab 12, we perform a Two-Sample T-Test. This test is used to compare the means of a numeric variable across two distinct groups. Using your SUNY dataset, we will compare the average enrollment of Community Colleges versus Doctoral Degree Granting Institutions.</p>
+<p>Here is the complete solution for solutions/lab12-ans-q8w1.qmd, including all accessibility requirements.</p>
+</section>
+<section id="markdown" class="level2">
+<h2 class="anchored" data-anchor-id="markdown">Markdown</h2>
+<p>title: “Solution - Lab 12: Comparing Two Means” subtitle: “MAT 186: Introduction to Data Science” format: html: toc: true toc-location: right —</p>
+<script>
+  var password = "MAT186LABSOER"; 
+  var res = prompt("DCC Instructor Key Required:");
+  if (res != password) {
+    alert("Incorrect password. Access denied.");
+    window.location.href = "../index.html";
+  }
+</script>
+</section>
+<section id="lab-12-official-solutions-two-sample-inference" class="level2">
+<h2 class="anchored" data-anchor-id="lab-12-official-solutions-two-sample-inference">Lab 12 Official Solutions: Two-Sample Inference</h2>
+<p>In this lab, we test whether there is a statistically significant difference between the enrollment means of two different SUNY sectors.</p>
+<section id="task-1-loading-and-filtering-data" class="level3">
+<h3 class="anchored" data-anchor-id="task-1-loading-and-filtering-data">Task 1: Loading and Filtering Data</h3>
+<p>We prepare our data by cleaning the numeric enrollment column and filtering our categorical variable to include only two specific groups: <strong>Community Colleges</strong> and <strong>Doctoral Degree Granting Institutions</strong>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ny_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/race_ny.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean data: </span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Remove commas from enrollment numbers</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Filter for only TWO groups in the 'Institution Sector'</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>comparison_data <span class="ot">&lt;-</span> ny_data <span class="sc">|&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total_enroll =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, <span class="st">`</span><span class="at">Total Enrollment</span><span class="st">`</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Institution Sector</span><span class="st">`</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Community Colleges"</span>, <span class="st">"Doctoral Degree Granting Institutions"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">sector =</span> <span class="st">`</span><span class="at">Institution Sector</span><span class="st">`</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="task-2-visualizing-the-comparison" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-visualizing-the-comparison">Task 2: Visualizing the Comparison</h3>
+<p>A boxplot allows us to see the center and spread of enrollment for both groups side-by-side.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(comparison_data, <span class="fu">aes</span>(<span class="at">x =</span> sector, <span class="at">y =</span> total_enroll, <span class="at">fill =</span> sector)) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"darkorange"</span>)) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Enrollment Comparison: Community vs. Doctoral"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Institution Sector"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Total Students"</span>) <span class="sc">+</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) <span class="co"># Hide legend as X-axis labels are sufficient</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-boxplot-comparison" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A side-by-side boxplot. The Community Colleges group shows a significantly higher median and a wider spread of enrollment compared to the Doctoral Institutions group.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-boxplot-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lab12-ans-p9v2_files/figure-html/fig-boxplot-comparison-1.png" class="img-fluid figure-img" alt="A side-by-side boxplot. The Community Colleges group shows a significantly higher median and a wider spread of enrollment compared to the Doctoral Institutions group." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-boxplot-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Boxplot comparing Total Enrollment between Community Colleges and Doctoral Institutions.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="task-3-state-your-hypotheses" class="level3">
+<h3 class="anchored" data-anchor-id="task-3-state-your-hypotheses">Task 3: State Your Hypotheses</h3>
+<p>We are testing if there is a real difference in the average size of these two types of institutions.</p>
+<ul>
+<li><strong>Null Hypothesis (<span class="math inline">\(H_0\)</span>):</strong> There is no difference in mean enrollment between the two sectors (<span class="math inline">\(\mu_1 = \mu_2\)</span>).</li>
+<li><strong>Alternative Hypothesis (<span class="math inline">\(H_a\)</span>):</strong> There is a significant difference in mean enrollment between the two sectors (<span class="math inline">\(\mu_1 \neq \mu_2\)</span>).</li>
+</ul>
+</section>
+<section id="task-4-running-the-two-sample-t-test" class="level3">
+<h3 class="anchored" data-anchor-id="task-4-running-the-two-sample-t-test">Task 4: Running the Two-Sample T-Test</h3>
+<p>We use the formula syntax numeric_variable ~ categorical_variable to run the test.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the two-sample t-test</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>t_results <span class="ot">&lt;-</span> <span class="fu">t.test</span>(total_enroll <span class="sc">~</span> sector, <span class="at">data =</span> comparison_data)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display results</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>t_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  total_enroll by sector
+t = 17.047, df = 24.837, p-value = 3.228e-15
+alternative hypothesis: true difference in means between group Community Colleges and group Doctoral Degree Granting Institutions is not equal to 0
+95 percent confidence interval:
+  91558.41 116731.86
+sample estimates:
+                   mean in group Community Colleges 
+                                           207878.5 
+mean in group Doctoral Degree Granting Institutions 
+                                           103733.4 </code></pre>
+</div>
+</div>
+</section>
+<section id="task-5-the-conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="task-5-the-conclusion">Task 5: The Conclusion</h3>
+<p>Based on the statistical analysis:</p>
+<p><strong>Formal Conclusion:</strong> Since the p-value was r format.pval(t_results$p.value, digits = 4), which is much smaller than the alpha level of 0.05, we reject the null hypothesis. The data provides strong evidence that the average enrollment at Community Colleges is significantly different (higher) than the average enrollment at Doctoral Degree Granting Institutions.</p>
 <p><br><br></p>
 <hr>
 <div class="content-block">
@@ -358,6 +531,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
