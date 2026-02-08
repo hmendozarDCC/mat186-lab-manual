@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -293,7 +328,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#non-parametric-methods---official-solutions" id="toc-non-parametric-methods---official-solutions" class="nav-link active" data-scroll-target="#non-parametric-methods---official-solutions">Non-parametric methods - Official Solutions</a></li>
+  <li><a href="#non-parametric-methods---official-solutions" id="toc-non-parametric-methods---official-solutions" class="nav-link active" data-scroll-target="#non-parametric-methods---official-solutions">Non-parametric methods - Official Solutions</a>
+  <ul class="collapse">
+  <li><a href="#task-1-loading-and-filtering-data" id="toc-task-1-loading-and-filtering-data" class="nav-link" data-scroll-target="#task-1-loading-and-filtering-data">Task 1: Loading and Filtering Data</a></li>
+  <li><a href="#task-2-visualizing-skewness" id="toc-task-2-visualizing-skewness" class="nav-link" data-scroll-target="#task-2-visualizing-skewness">Task 2: Visualizing Skewness</a></li>
+  <li><a href="#task-3-4-running-the-tests" id="toc-task-3-4-running-the-tests" class="nav-link" data-scroll-target="#task-3-4-running-the-tests">Task 3 &amp; 4: Running the Tests</a></li>
+  <li><a href="#task-5-comparison-and-reflection" id="toc-task-5-comparison-and-reflection" class="nav-link" data-scroll-target="#task-5-comparison-and-reflection">Task 5: Comparison and Reflection</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -336,20 +377,97 @@ ul.task-list li input[type="checkbox"] {
 </script>
 <section id="non-parametric-methods---official-solutions" class="level2">
 <h2 class="anchored" data-anchor-id="non-parametric-methods---official-solutions">Non-parametric methods - Official Solutions</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>To solve Lab 15, we focus on Non-parametric Testing. This lab is crucial for real-world data science because many datasets (like your SUNY enrollment data) are skewed and do not follow a “Normal” distribution. We will compare the standard T-test with the Wilcoxon Rank-Sum test to see how they handle skewed data differently. ::: {.callout-note} ### Instructor Note Add your specific DCC lab answers below this box. ::: ## Lab 15 Official Solutions: Wilcoxon vs.&nbsp;T-Test</p>
+<p>In this final lab, we investigate how to handle highly skewed data by comparing parametric and non-parametric tests.</p>
+<section id="task-1-loading-and-filtering-data" class="level3">
+<h3 class="anchored" data-anchor-id="task-1-loading-and-filtering-data">Task 1: Loading and Filtering Data</h3>
+<p>We prepare our data by cleaning the enrollment numbers and filtering for two distinct sectors: <strong>Community Colleges</strong> and <strong>Doctoral Degree Granting Institutions</strong>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ny_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/race_ny.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean data: </span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove commas and filter for two groups</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>comparison_data <span class="ot">&lt;-</span> ny_data <span class="sc">|&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total_enroll =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, <span class="st">`</span><span class="at">Total Enrollment</span><span class="st">`</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Institution Sector</span><span class="st">`</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Community Colleges"</span>, <span class="st">"Doctoral Degree Granting Institutions"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">sector =</span> <span class="st">`</span><span class="at">Institution Sector</span><span class="st">`</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Instructor Note
+</section>
+<section id="task-2-visualizing-skewness" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-visualizing-skewness">Task 2: Visualizing Skewness</h3>
+<p>We use a boxplot to visualize the distribution of enrollment.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(comparison_data, <span class="fu">aes</span>(<span class="at">x =</span> sector, <span class="at">y =</span> total_enroll, <span class="at">fill =</span> sector)) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"darkgreen"</span>, <span class="st">"purple"</span>)) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Enrollment Distribution by Sector"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Sector"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Total Students"</span>) <span class="sc">+</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-boxplot-skew" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A boxplot showing Community Colleges have much higher total enrollment than Doctoral Institutions. Both groups show potential outliers and a non-symmetrical distribution, indicating skewness.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-boxplot-skew-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lab15-ans-r5h1_files/figure-html/fig-boxplot-skew-1.png" class="img-fluid figure-img" alt="A boxplot showing Community Colleges have much higher total enrollment than Doctoral Institutions. Both groups show potential outliers and a non-symmetrical distribution, indicating skewness." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-boxplot-skew-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Boxplot comparing Total Enrollment across two SUNY sectors.
+</figcaption>
+</figure>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>Add your specific DCC lab answers below this box.</p>
+</div>
+</section>
+<section id="task-3-4-running-the-tests" class="level3">
+<h3 class="anchored" data-anchor-id="task-3-4-running-the-tests">Task 3 &amp; 4: Running the Tests</h3>
+<p>We run both a Wilcoxon Rank-Sum Test (which compares medians/ranks) and a T-Test (which compares means).</p>
+<p><strong>The Wilcoxon Test (Non-parametric)</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>wilcox_results <span class="ot">&lt;-</span> <span class="fu">wilcox.test</span>(total_enroll <span class="sc">~</span> sector, <span class="at">data =</span> comparison_data)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>wilcox_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon rank sum exact test
+
+data:  total_enroll by sector
+W = 529, p-value = 2.429e-13
+alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
 </div>
-<p><br><br></p>
+<p><strong>The T-Test (Parametric)</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>t_results <span class="ot">&lt;-</span> <span class="fu">t.test</span>(total_enroll <span class="sc">~</span> sector, <span class="at">data =</span> comparison_data)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>t_results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  total_enroll by sector
+t = 17.047, df = 24.837, p-value = 3.228e-15
+alternative hypothesis: true difference in means between group Community Colleges and group Doctoral Degree Granting Institutions is not equal to 0
+95 percent confidence interval:
+  91558.41 116731.86
+sample estimates:
+                   mean in group Community Colleges 
+                                           207878.5 
+mean in group Doctoral Degree Granting Institutions 
+                                           103733.4 </code></pre>
+</div>
+</div>
+</section>
+<section id="task-5-comparison-and-reflection" class="level3">
+<h3 class="anchored" data-anchor-id="task-5-comparison-and-reflection">Task 5: Comparison and Reflection</h3>
+<p><strong>P-Value Comparison:</strong></p>
+<ul>
+<li><p>**Wilcoxon P-value: r format.pval(wilcox_results$p.value, digits = 4)</p></li>
+<li><p>**T-Test P-value: r format.pval(t_results$p.value, digits = 4)</p></li>
+</ul>
+<p><strong>Reflection:</strong> In this specific dataset, both p-values are extremely small (well below 0.05), so both tests lead us to reject the null hypothesis. However, I trust the Wilcoxon test more for this specific data.</p>
+<p><strong>Why?</strong> The enrollment data is highly skewed and contains outliers (massive differences between campus sizes). The T-test assumes the data follows a normal distribution and is sensitive to outliers because it relies on the mean. The Wilcoxon test is more robust because it uses the ranks of the data rather than the raw values, making it the more appropriate “accessible” choice for messy, real-world data that isn’t bell-shaped. <br><br></p>
 <hr>
 <div class="content-block">
 <center>
@@ -358,6 +476,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
