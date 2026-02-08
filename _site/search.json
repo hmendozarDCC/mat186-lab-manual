@@ -2163,5 +2163,26 @@
     "title": "Student Resources",
     "section": "📺 Recommended Tutorials",
     "text": "📺 Recommended Tutorials\nIf you prefer watching to reading:\n\nR Programming for Beginners (YouTube)\nStatQuest with Josh Starmer: The best channel for understanding the “logic” behind p-values and regression."
+  },
+  {
+    "objectID": "license.html",
+    "href": "license.html",
+    "title": "License",
+    "section": "",
+    "text": "This course, MAT 186: Introduction to Data Science, is an Open Educational Resource. All materials created for this course are shared openly to reduce the cost of education for students and to encourage collaboration among educators."
+  },
+  {
+    "objectID": "license.html#open-educational-resource-oer",
+    "href": "license.html#open-educational-resource-oer",
+    "title": "License",
+    "section": "",
+    "text": "This course, MAT 186: Introduction to Data Science, is an Open Educational Resource. All materials created for this course are shared openly to reduce the cost of education for students and to encourage collaboration among educators."
+  },
+  {
+    "objectID": "license.html#creative-commons-license",
+    "href": "license.html#creative-commons-license",
+    "title": "License",
+    "section": "Creative Commons License",
+    "text": "Creative Commons License\nExcept where otherwise noted, the content on this site is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License.\n\nWhat this means for you:\n\nAttribution: You must give appropriate credit, provide a link to the license, and indicate if changes were made.\nNonCommercial: You may not use the material for commercial purposes.\nShareAlike: If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.\n\nFor more information, visit the Creative Commons website."
   }
 ]

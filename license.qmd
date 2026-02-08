@@ -1,0 +1,18 @@
+---
+title: "License"
+---
+
+## Open Educational Resource (OER)
+This course, **MAT 186: Introduction to Data Science**, is an Open Educational Resource. All materials created for this course are shared openly to reduce the cost of education for students and to encourage collaboration among educators.
+
+## Creative Commons License
+Except where otherwise noted, the content on this site is licensed under a **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License**.
+
+
+
+### What this means for you:
+* **Attribution:** You must give appropriate credit, provide a link to the license, and indicate if changes were made.
+* **NonCommercial:** You may not use the material for commercial purposes.
+* **ShareAlike:** If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+
+For more information, visit the [Creative Commons website](https://creativecommons.org/licenses/by-nc-sa/4.0/).
