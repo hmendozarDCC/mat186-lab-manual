@@ -9,11 +9,12 @@ Welcome to the MAT 186 Resource Hub. Use these tools to support your learning th
 ## 🛠️ Essential R & Data Science Tools
 
 ### RStudio Cheat Sheets
-R can be challenging to memorize. These official "Cheat Sheets" are the industry standard for quick reference:
+R can be challenging to memorize. These official "Cheat Sheets" are the industry standard for quick reference. These links lead to the official Posit documentation:
 
-* [Data Visualization with ggplot2](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
-* [Data Transformation with dplyr](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
-* [Quarto Markdown Reference](https://quarto.org/docs/authoring/markdown.html)
+* [**Data Visualization (ggplot2)**](https://rstudio.github.io/cheatsheets/html/data-visualization.html)
+* [**Data Transformation (dplyr)**](https://rstudio.github.io/cheatsheets/html/data-transformation.html)
+* [**Quarto Markdown Reference**](https://quarto.org/docs/authoring/markdown.html)
+* [**Browse All Posit Cheat Sheets**](https://posit.co/resources/cheatsheets/)
 
 ### AI for Learning (Generative AI Policy)
 In this course, we use AI as a **tutor, not a replacement**. 
@@ -24,10 +25,28 @@ In this course, we use AI as a **tutor, not a replacement**.
 
 ---
 
+## 📺 Video Tutorials (Creative Commons)
+If you prefer visual learning, these tutorials cover the core concepts of our course.
+
+### 1. Introduction to the Data Science Workflow
+Understand how "Tidy" data moves from import to communication.
+{{< video https://www.youtube.com/embed/K-ss_Rh26P4 >}}
+
+
+
+### 2. Getting Started with R & RStudio
+A great refresher on the environment we use in the labs.
+{{< video https://www.youtube.com/embed/q8S7S9mH9cI >}}
+
+### 3. Understanding Statistical Logic (StatQuest)
+Josh Starmer breaks down complex concepts like P-values and Regression into simple terms.
+* [StatQuest with Josh Starmer Channel](https://www.youtube.com/user/joshstarmer)
+
+---
+
 ## 🎓 Dutchess Community College Support
 
 ### Academic Support & Tutoring
-
 If you are struggling with the math or coding concepts, help is available:
 
 * **The Math Center:** Located in Washington Center (Room 224). They offer walk-in tutoring for statistics.
@@ -45,11 +64,3 @@ Want to explore data outside of our labs? These sites offer free, clean datasets
 1.  **[NY.gov Open Data](https://data.ny.gov/):** Real data about New York State (similar to our enrollment data).
 2.  **[Kaggle](https://www.kaggle.com/datasets):** A massive community for data science competitions and datasets.
 3.  **[TidyTuesday](https://github.com/rfordatascience/tidytuesday):** A weekly social data project in R.
-
----
-
-## 📺 Recommended Tutorials
-If you prefer watching to reading:
-
-* [R Programming for Beginners (YouTube)](https://www.youtube.com/watch?v=yZ0f_WvYI5A)
-* [StatQuest with Josh Starmer](https://www.youtube.com/user/joshstarmer): The best channel for understanding the "logic" behind p-values and regression.
