@@ -46,42 +46,37 @@ Understand the "Tidyverse" approach to importing, cleaning, and visualizing data
 ![The Data Science Workflow](images/workflow.png){fig-alt="A flowchart showing the iterative data science process: Import, Tidy, then a cycle of Transform, Visualize, and Model, ending with Communicate."}
 
 
-### 2. R and RStudio: A First Look
-This video provides a clear walkthrough of the RStudio interface. It explains how R (the engine) and RStudio (the dashboard) work together to help you analyze data.
 
-<div class="video-container" style="text-align: center; margin: 20px 0;">
-  <iframe width="560" height="315" 
-    src="https://www.youtube.com/embed/S9p6itNfV08" 
-    title="Video: Getting Started with R and RStudio" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen 
-    aria-label="YouTube video player showing the RStudio interface and basic workflow">
-  </iframe>
-  <p><strong>Accessibility Link:</strong> [Watch "Getting Started with R and RStudio" on YouTube](https://www.youtube.com/watch?v=S9p6itNfV08)</p>
-</div>
-
-![The RStudio Four-Pane Layout](images/rstudio-panes.png){fig-alt="A diagram of the RStudio interface divided into four labeled quadrants: Source Editor, Console, Environment/History, and Files/Plots/Help."}
-
-### 3. Quarto for Data Science
-Learn how to mix your R code with your written analysis to create professional, reproducible reports.
-
-<div class="video-container" style="text-align: center; margin: 20px 0;">
-  <iframe width="560" height="315" 
-    src="https://www.youtube.com/embed/_f3latmOhew" 
-    title="Video: Introduction to Quarto Markdown" 
-    frameborder="0" allowfullscreen 
-    aria-label="YouTube video player showing how to create a Quarto document and render it to HTML">
-  </iframe>
-  <p><strong>Accessibility Link:</strong> [Watch "Quarto for Data Science" with Transcript on YouTube](https://www.youtube.com/watch?v=_f3latmOhew)</p>
-</div>
 
 ### 4. Understanding Statistical Logic (StatQuest)
-Josh Starmer breaks down complex concepts into simple, visual terms.
+Josh Starmer breaks down complex concepts like P-values and Regression into simple, visual terms. We highly recommend these for reinforcing lab concepts.
 
-* [**StatQuest: P-Values Explained**](https://www.youtube.com/watch?v=vemZtEM63GY)
-* [**StatQuest: Linear Regression**](https://www.youtube.com/watch?v=PaFPbb66DxQ)
-* [**Official StatQuest Channel**](https://www.youtube.com/user/joshstarmer)
+<div class="video-container" style="text-align: center; margin: 20px 0;">
+  <iframe width="560" height="315" 
+    src="https://www.youtube.com/embed/vemZtEM63GY" 
+    title="Video: P-Values Explained Simply" 
+    frameborder="0" allowfullscreen 
+    aria-label="YouTube video player explaining the logic of p-values">
+  </iframe>
+  <p><strong>Accessibility Link:</strong> [Watch "P-Values Explained" with Transcript on YouTube](https://www.youtube.com/watch?v=vemZtEM63GY)</p>
+</div>
+
+
+
+<div class="video-container" style="text-align: center; margin: 20px 0;">
+  <iframe width="560" height="315" 
+    src="https://www.youtube.com/embed/PaFPbb66DxQ" 
+    title="Video: Linear Regression Clearly Explained" 
+    frameborder="0" allowfullscreen 
+    aria-label="YouTube video player explaining linear regression and line of best fit">
+  </iframe>
+  <p><strong>Accessibility Link:</strong> [Watch "Linear Regression" with Transcript on YouTube](https://www.youtube.com/watch?v=PaFPbb66DxQ)</p>
+</div>
+
+
+
+* **Explore More:** [Official StatQuest Channel](https://www.youtube.com/user/joshstarmer)
+
 
 ---
 
