@@ -30,25 +30,10 @@ In this course, we use AI as a **tutor, not a replacement**.
 ## 📺 Video Tutorials (Accessible OER)
 If you prefer visual learning, these tutorials cover the core concepts of our course. All videos include Closed Captioning (CC) and transcripts via the YouTube links.
 
-### 1. The Data Science Workflow
-Understand the "Tidyverse" approach to importing, cleaning, and visualizing data.
-
-<div class="video-container" style="text-align: center; margin: 20px 0;">
-  <iframe width="560" height="315" 
-    src="https://www.youtube.com/embed/s3JldKoA0zw" 
-    title="Video: Overview of the Tidyverse Data Science Workflow" 
-    frameborder="0" allowfullscreen 
-    aria-label="YouTube video player showing the stages of data science: import, tidy, transform, visualize, and model">
-  </iframe>
-  <p><strong>Accessibility Link:</strong> [Watch "The Data Science Workflow" with Transcript on YouTube](https://www.youtube.com/watch?v=s3JldKoA0zw)</p>
-</div>
-
-![The Data Science Workflow](images/workflow.png){fig-alt="A flowchart showing the iterative data science process: Import, Tidy, then a cycle of Transform, Visualize, and Model, ending with Communicate."}
 
 
 
-
-### 4. Understanding Statistical Logic (StatQuest)
+### 1. Understanding Statistical Logic (StatQuest)
 Josh Starmer breaks down complex concepts like P-values and Regression into simple, visual terms. We highly recommend these for reinforcing lab concepts.
 
 <div class="video-container" style="text-align: center; margin: 20px 0;">
