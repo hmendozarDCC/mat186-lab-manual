@@ -39,10 +39,14 @@ This video explains the "Tidyverse" approach to importing, cleaning, and visuali
 
 
 
-### 2. R & RStudio for Beginners
-This is a stable, high-quality walkthrough of the RStudio IDE, specifically focusing on the Console, Environment, and Files panes we use in MAT 186.
-{{< video https://www.youtube.com/watch?v=LJuVqsS9I7c >}}
 
+### 2. R and RStudio: A First Look
+This video provides a professional walkthrough of the RStudio environment, specifically tailored for students starting their first data science lab.
+
+<div class="video-container" style="text-align: center; margin: 20px 0;">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/S_7UvYm2Xv0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <p><a href="https://www.youtube.com/watch?v=S_7UvYm2Xv0" target="_blank">Click here to watch on YouTube: R and RStudio (CC BY)</a></p>
+</div>
 
 
 ### 3. Quarto for Data Science
