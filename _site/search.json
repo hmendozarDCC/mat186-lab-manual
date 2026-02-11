@@ -2141,21 +2141,21 @@
     "href": "resources.html#essential-r-data-science-tools",
     "title": "Student Resources",
     "section": "🛠️ Essential R & Data Science Tools",
-    "text": "🛠️ Essential R & Data Science Tools\n\nQuarto & Markdown Help\nSince we use Quarto for all lab reports, these guides will help you format your text, equations, and tables:\n\nData Visualization (ggplot2)\nData Transformation (dplyr)\nQuarto Markdown Basics — Official guide for bolding, lists, and headers.\nBrowse All Posit Cheat Sheets\nFormatting Equations (LaTeX) — How to write professional math symbols.\nTable Syntax — How to organize data into accessible tables.\n\n\n\nAI for Learning (Generative AI Policy)\nIn this course, we use AI as a tutor, not a replacement.\n\nGood use: “Explain why this t-test code is giving me an error.”\nBad use: “Write the entire conclusion for Lab 12 for me.”\nTip: Always double-check AI-generated code; it can sometimes suggest outdated packages!"
+    "text": "🛠️ Essential R & Data Science Tools\n\nQuarto & Markdown Help\nSince we use Quarto for all lab reports, these guides will help you format your text, equations, and tables using industry standards:\n\nData Visualization (ggplot2) — Reference for creating plots.\nData Transformation (dplyr) — Reference for cleaning and filtering data.\nQuarto Markdown Basics — Official guide for bolding, lists, and headers.\nFormatting Equations (LaTeX) — How to write professional math symbols.\nTable Syntax — How to organize data into accessible tables.\nBrowse All Posit Cheat Sheets\n\n\n\nAI for Learning (Generative AI Policy)\nIn this course, we use AI as a tutor, not a replacement.\n\nGood use: “Explain why this t-test code is giving me an error.”\nBad use: “Write the entire conclusion for Lab 12 for me.”\nTip: Always double-check AI-generated code; it can sometimes suggest outdated packages!"
   },
   {
     "objectID": "resources.html#dutchess-community-college-support",
     "href": "resources.html#dutchess-community-college-support",
     "title": "Student Resources",
     "section": "🎓 Dutchess Community College Support",
-    "text": "🎓 Dutchess Community College Support\n\nAcademic Support & Tutoring\nIf you are struggling with the math or coding concepts, help is available:\n\nThe Math Center: Located in Washington Center (Room 224). They offer walk-in tutoring for statistics.\nWriting Center: Excellent for help with your final project reports.\nDCC Help Desk: For issues with your DCC login or Microsoft 365. Submit a Ticket\n\n\n\nAccommodative Services\nIf you have a documented disability and require specific accommodations for this course, please visit the Office of Accommodative Services in the Orcutt Student Center."
+    "text": "🎓 Dutchess Community College Support\n\nAcademic Support & Tutoring\n\nThe Math Center: Located in Washington Center (Room 224). They offer walk-in tutoring for statistics.\nWriting Center: Excellent for help with your final project reports.\nDCC Help Desk: For issues with your DCC login or Microsoft 365. Submit a Ticket\n\n\n\nAccommodative Services\nIf you have a documented disability and require specific accommodations for this course, please visit the Office of Accommodative Services in the Orcutt Student Center."
   },
   {
     "objectID": "resources.html#practice-data-sources",
     "href": "resources.html#practice-data-sources",
     "title": "Student Resources",
     "section": "📊 Practice Data Sources",
-    "text": "📊 Practice Data Sources\nWant to explore data outside of our labs? These sites offer free, clean datasets:\n\nNY.gov Open Data: Real data about New York State (similar to our enrollment data).\nKaggle: A massive community for data science competitions and datasets.\nTidyTuesday: A weekly social data project in R."
+    "text": "📊 Practice Data Sources\nWant to explore data outside of our labs? These sites offer free, clean datasets:\n\nNY.gov Open Data: Real data about New York State.\nKaggle: A massive community for data science competitions and datasets.\nTidyTuesday: A weekly social data project in R."
   },
   {
     "objectID": "resources.html#recommended-tutorials",
@@ -2198,5 +2198,12 @@
     "title": "Student Resources",
     "section": "📺 Video Tutorials (Creative Commons)",
     "text": "📺 Video Tutorials (Creative Commons)\nIf you prefer visual learning, these tutorials cover the core concepts of our course.\n\n1. The Data Science Workflow\nThis video explains the “Tidyverse” approach to importing, cleaning, and visualizing data. \n\n\n2. R and RStudio: A First Look\nThis video provides a professional walkthrough of the RStudio environment, specifically tailored for students starting their first data science lab.\n\n\n\nClick here to watch on YouTube: R and RStudio (CC BY)\n\n\n\n\n3. Quarto for Data Science\nSince your lab reports must be submitted as Quarto documents, this video shows how to mix your R code with your written analysis. \n\n\n4. Understanding Statistical Logic (StatQuest)\nJosh Starmer is famous for “Silly Music, Serious Stats.” His videos are the best way to understand the math without the headache.\n\nStatQuest: P-Values Explained\nStatQuest: Linear Regression\nOfficial StatQuest Channel"
+  },
+  {
+    "objectID": "resources.html#video-tutorials-accessible-oer",
+    "href": "resources.html#video-tutorials-accessible-oer",
+    "title": "Student Resources",
+    "section": "📺 Video Tutorials (Accessible OER)",
+    "text": "📺 Video Tutorials (Accessible OER)\nIf you prefer visual learning, these tutorials cover the core concepts of our course. All videos include Closed Captioning (CC) and transcripts via the YouTube links.\n\n1. The Data Science Workflow\nUnderstand the “Tidyverse” approach to importing, cleaning, and visualizing data.\n\n \n\nAccessibility Link: Watch “The Data Science Workflow” with Transcript on YouTube\n\n\n\n\n\nThe Data Science Workflow\n\n\n\n\n2. R and RStudio: A First Look\nThis video provides a clear walkthrough of the RStudio interface. It explains how R (the engine) and RStudio (the dashboard) work together to help you analyze data.\n\n \n\nAccessibility Link: Watch “Getting Started with R and RStudio” on YouTube\n\n\n\n\n\nThe RStudio Four-Pane Layout\n\n\n\n\n3. Quarto for Data Science\nLearn how to mix your R code with your written analysis to create professional, reproducible reports.\n\n \n\nAccessibility Link: Watch “Quarto for Data Science” with Transcript on YouTube\n\n\n\n\n4. Understanding Statistical Logic (StatQuest)\nJosh Starmer breaks down complex concepts into simple, visual terms.\n\nStatQuest: P-Values Explained\nStatQuest: Linear Regression\nOfficial StatQuest Channel"
   }
 ]
