@@ -8,13 +8,18 @@ Welcome to the MAT 186 Resource Hub. Use these tools to support your learning th
 
 ## 🛠️ Essential R & Data Science Tools
 
-### RStudio Cheat Sheets
-R can be challenging to memorize. These official "Cheat Sheets" are the industry standard for quick reference. These links lead to the official Posit documentation:
+### Quarto & Markdown Help
+Since we use Quarto for all lab reports, these guides will help you format your text, equations, and tables:
 
 * [**Data Visualization (ggplot2)**](https://rstudio.github.io/cheatsheets/html/data-visualization.html)
 * [**Data Transformation (dplyr)**](https://rstudio.github.io/cheatsheets/html/data-transformation.html)
-* [**Quarto Markdown Reference**](https://quarto.org/docs/authoring/markdown.html)
+* [**Quarto Markdown Basics**](https://quarto.org/docs/authoring/markdown-basics.html) — Official guide for bolding, lists, and headers.
 * [**Browse All Posit Cheat Sheets**](https://posit.co/resources/cheatsheets/)
+* [**Formatting Equations (LaTeX)**](https://quarto.org/docs/authoring/markdown-basics.html#equations) — How to write professional math symbols.
+* [**Table Syntax**](https://quarto.org/docs/authoring/tables.html) — How to organize data into accessible tables. 
+
+
+
 
 ### AI for Learning (Generative AI Policy)
 In this course, we use AI as a **tutor, not a replacement**. 
@@ -28,20 +33,21 @@ In this course, we use AI as a **tutor, not a replacement**.
 ## 📺 Video Tutorials (Creative Commons)
 If you prefer visual learning, these tutorials cover the core concepts of our course.
 
-### 1. Introduction to the Data Science Workflow
-Understand how "Tidy" data moves from import to communication.
-{{< video https://www.youtube.com/embed/K-ss_Rh26P4 >}}
+### 1. The Data Science Workflow
+This video explains the "Tidyverse" approach to importing, cleaning, and visualizing data.
+{{< video https://www.youtube.com/watch?v=s3JldKoA0zw >}}
 
 
 
-### 2. Getting Started with R & RStudio
-A great refresher on the environment we use in the labs.
-{{< video https://www.youtube.com/embed/q8S7S9mH9cI >}}
+### 2. R & RStudio for Beginners
+A comprehensive walkthrough of the RStudio interface, including the Console, Environment, and Files panes.
+{{< video https://www.youtube.com/watch?v=FIrsOOnx398 >}}
 
 ### 3. Understanding Statistical Logic (StatQuest)
-Josh Starmer breaks down complex concepts like P-values and Regression into simple terms.
-* [StatQuest with Josh Starmer Channel](https://www.youtube.com/user/joshstarmer)
-
+Josh Starmer is famous for "Silly Music, Serious Stats." His videos are the best way to understand the math without the headache.
+* [**StatQuest: P-Values Explained**](https://www.youtube.com/watch?v=vemZtEM63GY)
+* [**StatQuest: Linear Regression**](https://www.youtube.com/watch?v=PaFPbb66DxQ)
+* [**Official StatQuest Channel**](https://www.youtube.com/user/joshstarmer)
 ---
 
 ## 🎓 Dutchess Community College Support
