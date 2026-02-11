@@ -2141,7 +2141,7 @@
     "href": "resources.html#essential-r-data-science-tools",
     "title": "Student Resources",
     "section": "🛠️ Essential R & Data Science Tools",
-    "text": "🛠️ Essential R & Data Science Tools\n\nRStudio Cheat Sheets\nR can be challenging to memorize. These official “Cheat Sheets” are the industry standard for quick reference:\n\nData Visualization with ggplot2\nData Transformation with dplyr\nQuarto Markdown Reference\n\n\n\nAI for Learning (Generative AI Policy)\nIn this course, we use AI as a tutor, not a replacement.\n\nGood use: “Explain why this t-test code is giving me an error.”\nBad use: “Write the entire conclusion for Lab 12 for me.”\nTip: Always double-check AI-generated code; it can sometimes suggest outdated packages!"
+    "text": "🛠️ Essential R & Data Science Tools\n\nRStudio Cheat Sheets\nR can be challenging to memorize. These official “Cheat Sheets” are the industry standard for quick reference. These links lead to the official Posit documentation:\n\nData Visualization (ggplot2)\nData Transformation (dplyr)\nQuarto Markdown Reference\nBrowse All Posit Cheat Sheets\n\n\n\nAI for Learning (Generative AI Policy)\nIn this course, we use AI as a tutor, not a replacement.\n\nGood use: “Explain why this t-test code is giving me an error.”\nBad use: “Write the entire conclusion for Lab 12 for me.”\nTip: Always double-check AI-generated code; it can sometimes suggest outdated packages!"
   },
   {
     "objectID": "resources.html#dutchess-community-college-support",
@@ -2191,5 +2191,12 @@
     "title": "MAT 186: Data Science Lab Manual",
     "section": "",
     "text": "Henry Mendoza Rivera is an Instructor in the Department of Mathematics and Computer Science at Dutchess Community College. This OER project was developed to provide high-quality, zero-cost data science education to the DCC community.\n\n\n\n\n\n\nNoteSuggested Citation\n\n\n\nMendoza Rivera, H. (2026). MAT 186: Introduction to Data Science Lab Manual. Dutchess Community College. Available at: https://hmendozardcc.github.io/mat186-lab-manual/. Licensed under CC BY-NC-SA 4.0."
+  },
+  {
+    "objectID": "resources.html#video-tutorials-creative-commons",
+    "href": "resources.html#video-tutorials-creative-commons",
+    "title": "Student Resources",
+    "section": "📺 Video Tutorials (Creative Commons)",
+    "text": "📺 Video Tutorials (Creative Commons)\nIf you prefer visual learning, these tutorials cover the core concepts of our course.\n\n1. Introduction to the Data Science Workflow\nUnderstand how “Tidy” data moves from import to communication. \n\n\n2. Getting Started with R & RStudio\nA great refresher on the environment we use in the labs. \n\n\n3. Understanding Statistical Logic (StatQuest)\nJosh Starmer breaks down complex concepts like P-values and Regression into simple terms. * StatQuest with Josh Starmer Channel"
   }
 ]
