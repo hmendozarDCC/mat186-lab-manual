@@ -40,11 +40,18 @@ This video explains the "Tidyverse" approach to importing, cleaning, and visuali
 
 
 ### 2. R & RStudio for Beginners
-A comprehensive walkthrough of the RStudio interface, including the Console, Environment, and Files panes.
-{{< video https://www.youtube.com/watch?v=FIrsOOnx398 >}}
+This is a stable, high-quality walkthrough of the RStudio IDE, specifically focusing on the Console, Environment, and Files panes we use in MAT 186.
+{{< video https://www.youtube.com/watch?v=LJuVqsS9I7c >}}
 
-### 3. Understanding Statistical Logic (StatQuest)
+
+
+### 3. Quarto for Data Science
+Since your lab reports must be submitted as Quarto documents, this video shows how to mix your R code with your written analysis.
+{{< video https://www.youtube.com/watch?v=_f3latmOhew >}}
+
+### 4. Understanding Statistical Logic (StatQuest)
 Josh Starmer is famous for "Silly Music, Serious Stats." His videos are the best way to understand the math without the headache.
+
 * [**StatQuest: P-Values Explained**](https://www.youtube.com/watch?v=vemZtEM63GY)
 * [**StatQuest: Linear Regression**](https://www.youtube.com/watch?v=PaFPbb66DxQ)
 * [**Official StatQuest Channel**](https://www.youtube.com/user/joshstarmer)
