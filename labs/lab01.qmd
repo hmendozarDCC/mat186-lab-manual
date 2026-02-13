@@ -55,7 +55,7 @@ Let's make sure the "engine" and "dashboard" are talking to each other.
 2. Find the **Console** pane (usually on the bottom left).
 3. Type the following code and press **Enter**:
 ```{r}
-print("Hello, MAT 186!")
+print("Hello, MAT 186! I am yourname")
 ```
 
 ::: {.callout-important}
@@ -71,15 +71,3 @@ Follow these steps to take a screenshot of your R console:
 3. **Save Your Work**: Save the screenshot into your **Mat186** folder on your computer. Give it a clear name like `Lab2_Screenshot`.
 4. **Submit**: Upload this image file to the **Lab 2** assignment folder in your course portal.
 :::
-
----
-
-::: {.callout-tip}
-### Done with the Lab?
-If you have finished all the tasks above, you can verify your work against the official solutions.
-
-<center>
-<a href="../solutions.html" class="btn btn-outline-success" role="button">🔓 Access Lab Solutions</a>
-</center>
-:::
-
