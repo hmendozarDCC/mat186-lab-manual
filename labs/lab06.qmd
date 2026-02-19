@@ -17,7 +17,7 @@ Data doesn't just appear out of nowhere; it is collected via sensors, surveys, w
 Government agencies often provide "Open Data" portals where anyone can download datasets for free. These are excellent sources for your final projects.
 
 ### Recommended Portals:
-* **[Dutchess County Open Data](https://data.dutchessny.gov/):** Local data on parcels, transit, and public safety.
+* **[Dutchess County Open Data](https://opendata-dcny.hub.arcgis.com/):** Local data on parcels, transit, and public safety.
 * **[NY State Open Data](https://data.ny.gov/):** Information on education, health, and the environment across New York.
 * **[U.S. Census Bureau](https://data.census.gov/):** The gold standard for demographic data in the United States.
 
