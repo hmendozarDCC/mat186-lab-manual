@@ -72,8 +72,11 @@ website:
               - text: "🔑 Lab 6 Solution"
                 file: solutions/lab06-ans-w5q1.qmd
           - section: "Lab 7: Cleaning Data"
-            file: labs/lab07.qmd
+            # We move the lab file to be the first item in 'contents' 
+            # instead of putting it on the section header line.
             contents:
+              - text: "📘 Lab Instructions"
+                file: labs/lab07.qmd
               - text: "🔑 Lab 7 Solution"
                 file: solutions/lab07-ans-w9x2.qmd
           - section: "Lab 8: Exploratory Data Analysis"
