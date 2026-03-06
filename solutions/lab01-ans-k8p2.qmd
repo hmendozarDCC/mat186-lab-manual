@@ -21,20 +21,14 @@ robots: noindex
 knitr::include_graphics("../images/res_01_99x.png")
 ```
 
+<div id="password-gate" style="background: #f8f9fa; padding: 20px; border: 1px solid #dee2e6; border-radius: 5px; text-align: center;">
+  <h3>🔒 Solutions Protected</h3>
+  <p>Please enter the classroom code to unlock Lab 1 results.</p>
+  <input type="password" id="pass-input" style="padding: 5px;" placeholder="Enter password...">
+  <button onclick="checkPassword()" style="padding: 5px 15px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer;">Unlock</button>
 </div>
 
-<script>
-function checkPassword() {
-  var password = document.getElementById("pass-input").value;
-  // Change "MAT186" to whatever password you want
-  if (password === "MAT186") {
-    document.getElementById("password-gate").style.display = "none";
-    document.getElementById("solution-content").style.display = "block";
-  } else {
-    alert("Incorrect password. Please try again.");
-  }
-}
-</script>
+<div id="solution-content" style="display:none;">
 
 
 
@@ -45,4 +39,5 @@ function checkPassword() {
 <a href="../solutions.html" class="btn btn-primary btn-lg" role="button">🏠 Back to Solutions Hub</a>
 </center>
 :::
+
 
