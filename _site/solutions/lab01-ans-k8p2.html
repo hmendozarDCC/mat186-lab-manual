@@ -105,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 </head><body class="nav-sidebar docked nav-fixed quarto-light">// Central password storage
-const LAB_PASSWORD = “hmroermat186labs;
+const LAB_PASSWORD = “MAT186;
 
 
 <link rel="stylesheet" href="../style.css">
@@ -589,12 +589,11 @@ Figure&nbsp;1: The code: print(‘Hello, MAT 186!’)
 </div>
 <script>
 function checkPassword() {
-  // Change "pass" to "pass-input" to match your HTML
-  var userPass = document.getElementById("pass-input").value; 
-  
-  if (userPass === "MAT186") { 
+  var userPass = document.getElementById("pass").value;
+  // It now looks for the password defined in security.js
+  if (userPass === LAB_PASSWORD) { 
+    document.getElementById("content").style.display = "block";
     document.getElementById("password-gate").style.display = "none";
-    document.getElementById("solution-content").style.display = "block";
   } else {
     alert("Incorrect Password");
   }
