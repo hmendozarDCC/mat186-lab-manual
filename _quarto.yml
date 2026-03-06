@@ -78,22 +78,22 @@ website:
               - text: "📘 Lab Instructions"
                 file: labs/lab07.qmd
               - text: "🔑 Lab 7 Solution"
-                file: solutions/lab07-ans-w9x2.qmd
+                file: solutions/lab07-ans-h9y4.qmd
           - section: "Lab 8: Exploratory Data Analysis"
             file: labs/lab08.qmd
             contents:
               - text: "🔑 Lab 8 Solution"
-                file: solutions/lab08-ans-p4m1.qmd
+                file: solutions/lab08-ans-s3z7.qmd
           - section: "Lab 9: Probability distribution"
             file: labs/lab09.qmd
             contents:
               - text: "🔑 Lab 9 Solution"
-                file: solutions/lab09-ans-k2n7.qmd
+                file: solutions/lab09-ans-f6p2.qmd
           - section: "Lab 10: Statistical inference for one mean"
             file: labs/lab10.qmd
             contents:
               - text: "🔑 Lab 10 Solution"
-                file: solutions/lab10-ans-j3k8.qmd
+                file: solutions/lab10-ans-g4d8.qmd
           - section: "Lab 11: Statistical inference for one proportion"
             file: labs/lab11.qmd
             contents:
@@ -103,7 +103,7 @@ website:
             file: labs/lab12.qmd
             contents:
               - text: "🔑 Lab 12 Solution"
-                file: solutions/lab12-ans-q8w1.qmd
+                file: solutions/lab12-ans-p9v2.qmd
           - section: "Lab 13: Statistical inference for two proportions"
             file: labs/lab13.qmd
             contents:
@@ -113,22 +113,22 @@ website:
             file: labs/lab14.qmd
             contents:
               - text: "🔑 Lab 14 Solution"
-                file: solutions/lab14-ans-u2p5.qmd
+                file: solutions/lab14-ans-x2n8.qmd
           - section: "Lab 15: Non-parametric methods"
             file: labs/lab15.qmd
             contents:
               - text: "🔑 Lab 15 Solution"
-                file: solutions/lab15-ans-z7r2.qmd
+                file: solutions/lab15-ans-r5h1.qmd
           - section: "Lab 16: Analysis of variance (ANOVA)"
             file: labs/lab16.qmd
             contents:
               - text: "🔑 Lab 16 Solution"
-                file: solutions/lab16-ans-x5y9.qmd
+                file: solutions/lab16-ans-y3l9.qmd
           - section: "Lab 17: Regression models"
             file: labs/lab17.qmd
             contents:
               - text: "🔑 Lab 17 Solution"
-                file: solutions/lab17-ans-w2q3.qmd
+                file: solutions/lab17-ans-a6t2.qmd
 
   page-footer:
     left: |
