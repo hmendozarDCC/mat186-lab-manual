@@ -1,2 +1,2 @@
 // Central password storage
-const LAB_PASSWORD = “MAT186;
+const LAB_PASSWORD = “MAT186";
