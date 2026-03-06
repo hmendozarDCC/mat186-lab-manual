@@ -148,7 +148,8 @@ website:
 
 format:
   html:
-    include-in-header: security.js  # This loads your password script on every page
+    include-in-header: 
+      - file: security.js # This loads your password script on every page
     html-math-method: katex
     theme: cosmo
     css: style.css
