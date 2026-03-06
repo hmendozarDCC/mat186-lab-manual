@@ -589,11 +589,12 @@ Figure&nbsp;1: The code: print(‘Hello, MAT 186!’)
 </div>
 <script>
 function checkPassword() {
-  var userPass = document.getElementById("pass").value;
-  // It now looks for the password defined in security.js
+  // Change "pass" to "pass-input" to match your HTML
+  var userPass = document.getElementById("pass-input").value; 
+  
   if (userPass === LAB_PASSWORD) { 
-    document.getElementById("content").style.display = "block";
     document.getElementById("password-gate").style.display = "none";
+    document.getElementById("solution-content").style.display = "block";
   } else {
     alert("Incorrect Password");
   }
