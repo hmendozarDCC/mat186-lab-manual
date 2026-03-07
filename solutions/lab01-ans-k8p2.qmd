@@ -26,7 +26,7 @@ function checkPassword() {
   // Change "pass" to "pass-input" to match your HTML
   var userPass = document.getElementById("pass-input").value; 
   
-  if (userPass === LAB_PASSWORD) { 
+  if (userPass === "MAT186") { 
     document.getElementById("password-gate").style.display = "none";
     document.getElementById("solution-content").style.display = "block";
   } else {
