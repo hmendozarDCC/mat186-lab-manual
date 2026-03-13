@@ -152,6 +152,7 @@ format:
       - file: security.js # This loads your password script on every page
     html-math-method: katex
     theme: cosmo
+    include-in-header: security.js  # Correct: This keeps it invisible in the background
     css: style.css
     date-modified: last-modified
     date-format: "MMMM D, YYYY"
