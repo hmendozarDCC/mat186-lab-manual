@@ -7,14 +7,15 @@ format:
     toc-location: right
 ---
 
-<script>
-  var password = "MAT186LABSOER";
-  var res = prompt("DCC Instructor Key Required:");
-  if (res != password) {
-    alert("Incorrect password. Access denied.");
-    window.location.href = "../index.html";
-  }
-</script>
+
+<div id="password-gate" style="background: #f8f9fa; padding: 20px; border: 1px solid #dee2e6; border-radius: 5px; text-align: center;">
+  <h3>🔒 Solutions Protected</h3>
+  <p>Please enter the classroom code to unlock Lab results.</p>
+  <input type="password" id="pass-input" style="padding: 5px;" placeholder="Enter password...">
+  <button onclick="checkPassword()" style="padding: 5px 15px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer;">Unlock</button>
+</div>
+
+<div id="solution-content" style="display:none;">
 
 ## Regression models - Official Solutions
 To solve Lab 17, we focus on Correlation and Simple Linear Regression. This lab allows us to model the relationship between two numeric variables. In your SUNY dataset, we will investigate how Total Enrollment (the independent variable) predicts the number of Hispanic/Latino students (the dependent variable).

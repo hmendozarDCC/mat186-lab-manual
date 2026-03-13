@@ -7,14 +7,15 @@ format:
     toc-location: right
 ---
 
-<script>
-  var password = "MAT186LABSOER";
-  var res = prompt("DCC Instructor Key Required:");
-  if (res != password) {
-    alert("Incorrect password. Access denied.");
-    window.location.href = "../index.html";
-  }
-</script>
+
+<div id="password-gate" style="background: #f8f9fa; padding: 20px; border: 1px solid #dee2e6; border-radius: 5px; text-align: center;">
+  <h3>🔒 Solutions Protected</h3>
+  <p>Please enter the classroom code to unlock Lab results.</p>
+  <input type="password" id="pass-input" style="padding: 5px;" placeholder="Enter password...">
+  <button onclick="checkPassword()" style="padding: 5px 15px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer;">Unlock</button>
+</div>
+
+<div id="solution-content" style="display:none;">
 
 ## Non-parametric methods - Official Solutions
 To solve Lab 15, we focus on Non-parametric Testing. This lab is crucial for real-world data science because many datasets (like your SUNY enrollment data) are skewed and do not follow a "Normal" distribution. We will compare the standard T-test with the Wilcoxon Rank-Sum test to see how they handle skewed data differently.
@@ -95,6 +96,31 @@ t_results
 **Why?** The enrollment data is highly skewed and contains outliers (massive differences between campus sizes). The T-test assumes the data follows a normal distribution and is sensitive to outliers because it relies on the mean. The Wilcoxon test is more robust because it uses the ranks of the data rather than the raw values, making it the more appropriate "accessible" choice for messy, real-world data that isn't bell-shaped.
 <br><br>
 
+</div>
+
+<script>
+function checkPassword() {
+var userPass = document.getElementById("pass-input").value;
+
+// This uses the LAB_PASSWORD from your security.js file
+if (userPass === LAB_PASSWORD) {
+document.getElementById("password-gate").style.display = "none";
+document.getElementById("solution-content").style.display = "block";
+} else {
+alert("Incorrect password. Please try again.");
+}
+}
+
+// Allow "Enter" key to trigger the button
+document.getElementById("pass-input").addEventListener("keypress", function(event) {
+if (event.key === "Enter") {
+checkPassword();
+}
+});
+</script>
+
+
+
 ***
 
 ::: {.content-block}
@@ -102,4 +128,6 @@ t_results
 <a href="../solutions.html" class="btn btn-primary btn-lg" role="button">🏠 Back to Solutions Hub</a>
 </center>
 :::
+
+
 

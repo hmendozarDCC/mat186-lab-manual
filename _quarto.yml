@@ -42,33 +42,39 @@ website:
       - section: "Course Labs"
         contents:
           - section: "Lab 1: R and RStudio Installation"
-            file: labs/lab01.qmd
             contents:
+              - text: "📘 Lab Instructions"
+                file: labs/lab01.qmd
               - text: "🔑 Lab 1 Solution"
                 file: solutions/lab01-ans-k8p2.qmd
           - section: "Lab 2: RStudio Project and Quarto Documents"
-            file: labs/lab02.qmd
             contents:
+              - text: "📘 Lab Instructions"
+                file: labs/lab02.qmd
               - text: "🔑 Lab 2 Solution"
                 file: solutions/lab02-ans-v4n9.qmd
           - section: "Lab 3: Mathematical Notation in Quarto"
-            file: labs/lab03.qmd
             contents:
+              - text: "📘 Lab Instructions"
+                file: labs/lab03.qmd
               - text: "🔑 Lab 3 Solution"
                 file: solutions/lab03-ans-x7m1.qmd
           - section: "Lab 4: GitHub Repository"
-            file: labs/lab04.qmd
             contents:
+              - text: "📘 Lab Instructions"
+                file: labs/lab04.qmd
               - text: "🔑 Lab 4 Solution"
                 file: solutions/lab04-ans-b2r6.qmd
           - section: "Lab 5: Getting data into R"
-            file: labs/lab05.qmd
             contents:
+              - text: "📘 Lab Instructions"
+                file: labs/lab05.qmd
               - text: "🔑 Lab 5 Solution"
                 file: solutions/lab05-ans-t8j3.qmd
           - section: "Lab 6: Data collection"
-            file: labs/lab06.qmd
             contents:
+              - text: "📘 Lab Instructions"
+                file: labs/lab06.qmd
               - text: "🔑 Lab 6 Solution"
                 file: solutions/lab06-ans-w5q1.qmd
           - section: "Lab 7: Cleaning Data"
@@ -80,53 +86,63 @@ website:
               - text: "🔑 Lab 7 Solution"
                 file: solutions/lab07-ans-h9y4.qmd
           - section: "Lab 8: Exploratory Data Analysis"
-            file: labs/lab08.qmd
             contents:
+              - text: "📘 Lab Instructions"
+                file: labs/lab08.qmd
               - text: "🔑 Lab 8 Solution"
                 file: solutions/lab08-ans-s3z7.qmd
           - section: "Lab 9: Probability distribution"
-            file: labs/lab09.qmd
             contents:
+              - text: "📘 Lab Instructions"
+                file: labs/lab09.qmd
               - text: "🔑 Lab 9 Solution"
                 file: solutions/lab09-ans-f6p2.qmd
           - section: "Lab 10: Statistical inference for one mean"
-            file: labs/lab10.qmd
             contents:
+              - text: "📘 Lab Instructions"
+                file: labs/lab10.qmd
               - text: "🔑 Lab 10 Solution"
                 file: solutions/lab10-ans-g4d8.qmd
           - section: "Lab 11: Statistical inference for one proportion"
-            file: labs/lab11.qmd
             contents:
+              - text: "📘 Lab Instructions"
+                file: labs/lab11.qmd
               - text: "🔑 Lab 11 Solution"
                 file: solutions/lab11-ans-m1k5.qmd
           - section: "Lab 12: Statistical inference for two means"
-            file: labs/lab12.qmd
             contents:
+              - text: "📘 Lab Instructions"
+                file: labs/lab12.qmd
               - text: "🔑 Lab 12 Solution"
                 file: solutions/lab12-ans-p9v2.qmd
           - section: "Lab 13: Statistical inference for two proportions"
-            file: labs/lab13.qmd
             contents:
+              - text: "📘 Lab Instructions"
+                file: labs/lab13.qmd
               - text: "🔑 Lab 13 Solution"
                 file: solutions/lab13-ans-v9x4.qmd
           - section: "Lab 14: Bootstrapping"
-            file: labs/lab14.qmd
             contents:
+              - text: "📘 Lab Instructions"
+                file: labs/lab14.qmd
               - text: "🔑 Lab 14 Solution"
                 file: solutions/lab14-ans-x2n8.qmd
           - section: "Lab 15: Non-parametric methods"
-            file: labs/lab15.qmd
             contents:
+              - text: "📘 Lab Instructions"
+                file: labs/lab15.qmd
               - text: "🔑 Lab 15 Solution"
                 file: solutions/lab15-ans-r5h1.qmd
           - section: "Lab 16: Analysis of variance (ANOVA)"
-            file: labs/lab16.qmd
             contents:
+              - text: "📘 Lab Instructions"
+                file: labs/lab16.qmd
               - text: "🔑 Lab 16 Solution"
                 file: solutions/lab16-ans-y3l9.qmd
           - section: "Lab 17: Regression models"
-            file: labs/lab17.qmd
             contents:
+              - text: "📘 Lab Instructions"
+                file: labs/lab17.qmd
               - text: "🔑 Lab 17 Solution"
                 file: solutions/lab17-ans-a6t2.qmd
 
@@ -148,8 +164,6 @@ website:
 
 format:
   html:
-    include-in-header: 
-      - file: security.js # This loads your password script on every page
     html-math-method: katex
     theme: cosmo
     include-in-header: security.js  # Correct: This keeps it invisible in the background

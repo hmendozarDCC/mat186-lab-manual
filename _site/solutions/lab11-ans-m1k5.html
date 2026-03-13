@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Henry Mendoza Rivera">
 
 <title>Solution - Lab 11: Statistical inference for one proportion – MAT 186: Data Science</title>
 <style>
@@ -103,9 +104,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script>
+  // Central password storage
+  const LAB_PASSWORD = "MAT186";
+</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -162,6 +181,10 @@ window.Quarto = {
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../resources.html"> 
+<span class="menu-text">Resources</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
@@ -179,7 +202,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Solution - Lab 11: Statistical inference for one proportion</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Course Labs</li><li class="breadcrumb-item"><a href="../labs/lab11.html">Lab 11: Statistical inference for one proportion</a></li><li class="breadcrumb-item"><a href="../solutions/lab11-ans-m1k5.html">🔑 Lab 11 Solution</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -237,10 +260,19 @@ window.Quarto = {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Lab 1: R and RStudio Installation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/lab01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 1: R and RStudio Installation</span></a>
+ <span class="menu-text">📘 Lab Instructions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -249,102 +281,376 @@ window.Quarto = {
  <span class="menu-text">🔑 Lab 1 Solution</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Lab 2: RStudio Project and Quarto Documents</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/lab02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 2: RStudio Project and Quarto Documents</span></a>
+ <span class="menu-text">📘 Lab Instructions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../solutions/lab02-ans-v4n9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 2 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Lab 3: Mathematical Notation in Quarto</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/lab03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 3: Mathematical Notation in Quarto</span></a>
+ <span class="menu-text">📘 Lab Instructions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../solutions/lab03-ans-x7m1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 3 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Lab 4: GitHub Repository</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/lab04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 4: GitHub Repository</span></a>
+ <span class="menu-text">📘 Lab Instructions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../solutions/lab04-ans-b2r6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 4 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text">Lab 5: Getting data into R</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/lab05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 5: Getting data into R</span></a>
+ <span class="menu-text">📘 Lab Instructions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../solutions/lab05-ans-t8j3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 5 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">Lab 6: Data collection</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/lab06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 6: Data collection</span></a>
+ <span class="menu-text">📘 Lab Instructions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../solutions/lab06-ans-w5q1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 6 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Lab 7: Cleaning Data</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/lab07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 7: Cleaning Data</span></a>
+ <span class="menu-text">📘 Lab Instructions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../solutions/lab07-ans-h9y4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 7 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+ <span class="menu-text">Lab 8: Exploratory Data Analysis</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/lab08.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 8: Exploratory Data Analysis</span></a>
+ <span class="menu-text">📘 Lab Instructions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../solutions/lab08-ans-s3z7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 8 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
+ <span class="menu-text">Lab 9: Probability distribution</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/lab09.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 9: Probability distribution</span></a>
+ <span class="menu-text">📘 Lab Instructions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../solutions/lab09-ans-f6p2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 9 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+ <span class="menu-text">Lab 10: Statistical inference for one mean</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/lab10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 10: Statistical inference for one mean</span></a>
+ <span class="menu-text">📘 Lab Instructions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../solutions/lab10-ans-g4d8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 10 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
+ <span class="menu-text">Lab 11: Statistical inference for one proportion</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/lab11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 11: Statistical inference for one proportion</span></a>
+ <span class="menu-text">📘 Lab Instructions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../solutions/lab11-ans-m1k5.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">🔑 Lab 11 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false">
+ <span class="menu-text">Lab 12: Statistical inference for two means</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/lab12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 12: Statistical inference for two means</span></a>
+ <span class="menu-text">📘 Lab Instructions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../solutions/lab12-ans-p9v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 12 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false">
+ <span class="menu-text">Lab 13: Statistical inference for two proportions</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/lab13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 13: Statistical inference for two proportions</span></a>
+ <span class="menu-text">📘 Lab Instructions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../solutions/lab13-ans-v9x4.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 13 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false">
+ <span class="menu-text">Lab 14: Bootstrapping</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/lab14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 14: Bootstrapping</span></a>
+ <span class="menu-text">📘 Lab Instructions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../solutions/lab14-ans-x2n8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 14 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false">
+ <span class="menu-text">Lab 15: Non-parametric methods</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/lab15.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 15: Non-parametric methods</span></a>
+ <span class="menu-text">📘 Lab Instructions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../solutions/lab15-ans-r5h1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 15 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="false">
+ <span class="menu-text">Lab 16: Analysis of variance (ANOVA)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/lab16.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 16: Analysis of variance (ANOVA)</span></a>
+ <span class="menu-text">📘 Lab Instructions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab17.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 17: Regression models</span></a>
+  <a href="../solutions/lab16-ans-y3l9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 16 Solution</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="false">
+ <span class="menu-text">Lab 17: Regression models</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab17.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📘 Lab Instructions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../solutions/lab17-ans-a6t2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 17 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
     </ul>
@@ -356,22 +662,15 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
-  <li><a href="#statistical-inference-for-one-proportion---official-solutions" id="toc-statistical-inference-for-one-proportion---official-solutions" class="nav-link active" data-scroll-target="#statistical-inference-for-one-proportion---official-solutions">Statistical inference for one proportion - Official Solutions</a>
   <ul class="collapse">
-  <li><a href="#task-1-loading-and-counting-data" id="toc-task-1-loading-and-counting-data" class="nav-link" data-scroll-target="#task-1-loading-and-counting-data">Task 1: Loading and Counting Data</a></li>
-  <li><a href="#task-2-state-your-hypotheses" id="toc-task-2-state-your-hypotheses" class="nav-link" data-scroll-target="#task-2-state-your-hypotheses">Task 2: State Your Hypotheses</a></li>
-  <li><a href="#task-3-running-the-proportion-test" id="toc-task-3-running-the-proportion-test" class="nav-link" data-scroll-target="#task-3-running-the-proportion-test">Task 3: Running the Proportion Test</a></li>
-  <li><a href="#task-4-visualization-for-accessibility" id="toc-task-4-visualization-for-accessibility" class="nav-link" data-scroll-target="#task-4-visualization-for-accessibility">Task 4: Visualization for Accessibility</a></li>
-  <li><a href="#task-5-final-report" id="toc-task-5-final-report" class="nav-link" data-scroll-target="#task-5-final-report">Task 5: Final Report</a></li>
-  </ul></li>
+  <li><a href="#statistical-inference-for-one-proportion---official-solutions" id="toc-statistical-inference-for-one-proportion---official-solutions" class="nav-link active" data-scroll-target="#statistical-inference-for-one-proportion---official-solutions">Statistical inference for one proportion - Official Solutions</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Course Labs</li><li class="breadcrumb-item"><a href="../labs/lab11.html">Lab 11: Statistical inference for one proportion</a></li><li class="breadcrumb-item"><a href="../solutions/lab11-ans-m1k5.html">🔑 Lab 11 Solution</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Solution - Lab 11: Statistical inference for one proportion</h1>
 <p class="subtitle lead">MAT 186: Introduction to Data Science</p>
@@ -381,12 +680,18 @@ window.Quarto = {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Henry Mendoza Rivera </p>
+          </div>
+  </div>
     
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 8, 2026</p>
+      <p class="date-modified">March 13, 2026</p>
     </div>
   </div>
     
@@ -397,14 +702,16 @@ window.Quarto = {
 </header>
 
 
-<script>
-  var password = "MAT186LABSOER";
-  var res = prompt("DCC Instructor Key Required:");
-  if (res != password) {
-    alert("Incorrect password. Access denied.");
-    window.location.href = "../index.html";
-  }
-</script>
+<div id="password-gate" style="background: #f8f9fa; padding: 20px; border: 1px solid #dee2e6; border-radius: 5px; text-align: center;">
+<h3 class="anchored">
+🔒 Solutions Protected
+</h3>
+<p>
+Please enter the classroom code to unlock Lab results.
+</p>
+<p><input type="password" id="pass-input" style="padding: 5px;" placeholder="Enter password..."> <button onclick="checkPassword()" style="padding: 5px 15px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer;">Unlock</button></p>
+</div>
+<div id="solution-content" style="display:none;">
 <section id="statistical-inference-for-one-proportion---official-solutions" class="level2">
 <h2 class="anchored" data-anchor-id="statistical-inference-for-one-proportion---official-solutions">Statistical inference for one proportion - Official Solutions</h2>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -449,7 +756,7 @@ window.Quarto = {
 </section>
 <section id="task-2-state-your-hypotheses" class="level3">
 <h3 class="anchored" data-anchor-id="task-2-state-your-hypotheses">Task 2: State Your Hypotheses</h3>
-<p>We are testing the claim that exactly one-quarter of our data entries come from the Community College sector.Null Hypothesis (<span class="math inline">\(H_0\)</span>): The proportion of Community Colleges is 0.25 (<span class="math inline">\(p = 0.25\)</span>).Alternative Hypothesis (<span class="math inline">\(H_a\)</span>): The proportion of Community Colleges is not 0.25 (<span class="math inline">\(p \neq 0.25\)</span>).</p>
+<p>We are testing the claim that exactly one-quarter of our data entries come from the Community College sector.Null Hypothesis (<span class="math inline">H_0</span>): The proportion of Community Colleges is 0.25 (<span class="math inline">p = 0.25</span>).Alternative Hypothesis (<span class="math inline">H_a</span>): The proportion of Community Colleges is not 0.25 (<span class="math inline">p \neq 0.25</span>).</p>
 </section>
 <section id="task-3-running-the-proportion-test" class="level3">
 <h3 class="anchored" data-anchor-id="task-3-running-the-proportion-test">Task 3: Running the Proportion Test</h3>
@@ -505,12 +812,35 @@ Figure&nbsp;1: Bar chart showing the frequency of different SUNY Institution Sec
 <h3 class="anchored" data-anchor-id="task-5-final-report">Task 5: Final Report</h3>
 <p>Based on the statistical output above, here is our formal summary:</p>
 <ul>
-<li><p><strong>Sample Proportion (<span class="math inline">\(\hat{p}\)</span>):</strong> The calculated sample proportion is r round(prop_results$estimate, 2).</p></li>
+<li><p><strong>Sample Proportion (<span class="math inline">\hat{p}</span>):</strong> The calculated sample proportion is r round(prop_results$estimate, 2).</p></li>
 <li><p><strong>Significance:</strong> The p-value is r round(prop_results$p.value, 4). Since this is greater than 0.05, our result is not significant.</p></li>
-<li><p><strong>Confidence Interval:</strong> We are 95% confident that the true proportion of Community Colleges in this dataset lies between r round(prop_results<span class="math inline">\(conf.int[1], 3) and r round(prop_results\)</span>conf.int[2], 3).</p></li>
+<li><p><strong>Confidence Interval:</strong> We are 95% confident that the true proportion of Community Colleges in this dataset lies between r round(prop_results<span class="math inline">conf.int[1], 3) and r round(prop_results</span>conf.int[2], 3).</p></li>
 <li><p><strong>Conclusion:</strong> Since the p-value is 1 (or very high), we fail to reject the null hypothesis. There is no evidence to suggest the proportion is different from 0.25; in fact, it matches our hypothesis exactly.</p></li>
 </ul>
 <p><br><br></p>
+</section>
+</section>
+</div>
+<script>
+function checkPassword() {
+var userPass = document.getElementById("pass-input").value;
+
+// This uses the LAB_PASSWORD from your security.js file
+if (userPass === LAB_PASSWORD) {
+document.getElementById("password-gate").style.display = "none";
+document.getElementById("solution-content").style.display = "block";
+} else {
+alert("Incorrect password. Please try again.");
+}
+}
+
+// Allow "Enter" key to trigger the button
+document.getElementById("pass-input").addEventListener("keypress", function(event) {
+if (event.key === "Enter") {
+checkPassword();
+}
+});
+</script>
 <hr>
 <div class="content-block">
 <center>
@@ -519,8 +849,6 @@ Figure&nbsp;1: Bar chart showing the frequency of different SUNY Institution Sec
 </div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -927,13 +1255,13 @@ Figure&nbsp;1: Bar chart showing the frequency of different SUNY Institution Sec
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p><img src="../images/dcc-logo.png" alt="DCC Logo" style="width: 120px; margin-bottom: 10px;"> <br> <strong>Dutchess Community College</strong></p>
+<p><img src="../images/dcc-logo.png" alt="DCC Logo" style="width: 120px; margin-bottom: 10px;"> <br> <strong>Henry Mendoza Rivera</strong> <br> Instructor, Mathematics and Computer Science <br> Dutchess Community College</p>
 </div>   
     <div class="nav-footer-center">
-<p>Last updated: February 8, 2026</p>
+<p>This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>. <br> <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png" alt="CC BY-NC-SA Graphic" style="height: 31px; margin-top: 10px;"></p>
 </div>
     <div class="nav-footer-right">
-<p><a href="../accessibility.html">Accessibility Statement</a></p>
+<p><strong>Contact Information</strong> <br> Email: <a href="mailto:henry.mendozarivera@sunydutchess.edu">henry.mendozarivera@sunydutchess.edu</a> <br> Phone: 845-431-8554 <br> <a href="accessibility.qmd">Accessibility Statement</a></p>
 </div>
   </div>
 </footer>

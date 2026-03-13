@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Henry Mendoza Rivera">
 
 <title>lab03 – MAT 186: Data Science</title>
 <style>
@@ -68,9 +69,27 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+  // Central password storage
+  const LAB_PASSWORD = "MAT186";
+</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -126,6 +145,10 @@ window.Quarto = {
   <li class="nav-item">
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../resources.html"> 
+<span class="menu-text">Resources</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -202,114 +225,301 @@ window.Quarto = {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../labs/lab01.html" class="sidebar-item-text sidebar-link">
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../labs/lab01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 1: R and RStudio Installation</span></a>
-  </div>
-</li>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../solutions/lab01-ans-k8p2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">🔑 Lab 1 Solution</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../labs/lab02.html" class="sidebar-item-text sidebar-link">
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../labs/lab02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 2: RStudio Project and Quarto Documents</span></a>
-  </div>
-</li>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab03.html" class="sidebar-item-text sidebar-link active">
+  <a href="../solutions/lab02-ans-v4n9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 2 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../labs/lab03.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lab 3: Mathematical Notation in Quarto</span></a>
-  </div>
-</li>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab04.html" class="sidebar-item-text sidebar-link">
+  <a href="../solutions/lab03-ans-x7m1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 3 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../labs/lab04.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 4: GitHub Repository</span></a>
-  </div>
-</li>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab05.html" class="sidebar-item-text sidebar-link">
+  <a href="../solutions/lab04-ans-b2r6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 4 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../labs/lab05.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 5: Getting data into R</span></a>
-  </div>
-</li>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 6: Data collection</span></a>
+  <a href="../solutions/lab05-ans-t8j3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 5 Solution</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../labs/lab06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 6: Data collection</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../solutions/lab06-ans-w5q1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 6 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Lab 7: Cleaning Data</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/lab07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 7: Cleaning Data</span></a>
+ <span class="menu-text">📘 Lab Instructions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab08.html" class="sidebar-item-text sidebar-link">
+  <a href="../solutions/lab07-ans-h9y4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 7 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../labs/lab08.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 8: Exploratory Data Analysis</span></a>
-  </div>
-</li>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab09.html" class="sidebar-item-text sidebar-link">
+  <a href="../solutions/lab08-ans-s3z7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 8 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../labs/lab09.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 9: Probability distribution</span></a>
-  </div>
-</li>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab10.html" class="sidebar-item-text sidebar-link">
+  <a href="../solutions/lab09-ans-f6p2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 9 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../labs/lab10.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 10: Statistical inference for one mean</span></a>
-  </div>
-</li>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab11.html" class="sidebar-item-text sidebar-link">
+  <a href="../solutions/lab10-ans-g4d8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 10 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../labs/lab11.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 11: Statistical inference for one proportion</span></a>
-  </div>
-</li>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab12.html" class="sidebar-item-text sidebar-link">
+  <a href="../solutions/lab11-ans-m1k5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 11 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../labs/lab12.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 12: Statistical inference for two means</span></a>
-  </div>
-</li>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab13.html" class="sidebar-item-text sidebar-link">
+  <a href="../solutions/lab12-ans-p9v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 12 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../labs/lab13.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 13: Statistical inference for two proportions</span></a>
-  </div>
-</li>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab14.html" class="sidebar-item-text sidebar-link">
+  <a href="../solutions/lab13-ans-v9x4.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 13 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../labs/lab14.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 14: Bootstrapping</span></a>
-  </div>
-</li>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab15.html" class="sidebar-item-text sidebar-link">
+  <a href="../solutions/lab14-ans-x2n8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 14 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../labs/lab15.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 15: Non-parametric methods</span></a>
-  </div>
-</li>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab16.html" class="sidebar-item-text sidebar-link">
+  <a href="../solutions/lab15-ans-r5h1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 15 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../labs/lab16.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 16: Analysis of variance (ANOVA)</span></a>
-  </div>
-</li>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab17.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 17: Regression models</span></a>
+  <a href="../solutions/lab16-ans-y3l9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 16 Solution</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../labs/lab17.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 17: Regression models</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../solutions/lab17-ans-a6t2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🔑 Lab 17 Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
     </ul>
@@ -321,22 +531,15 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="collapse">
   <li><a href="#lab-3-mathematical-notation-in-quarto" id="toc-lab-3-mathematical-notation-in-quarto" class="nav-link active" data-scroll-target="#lab-3-mathematical-notation-in-quarto">Lab 3: Mathematical Notation in Quarto</a>
   <ul class="collapse">
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#part-1-the-two-math-modes" id="toc-part-1-the-two-math-modes" class="nav-link" data-scroll-target="#part-1-the-two-math-modes">Part 1: The Two Math Modes</a>
-  <ul class="collapse">
-  <li><a href="#inline-math" id="toc-inline-math" class="nav-link" data-scroll-target="#inline-math">1. Inline Math</a></li>
-  <li><a href="#display-math" id="toc-display-math" class="nav-link" data-scroll-target="#display-math">2. Display Math</a></li>
-  </ul></li>
+  <li><a href="#part-1-the-two-math-modes" id="toc-part-1-the-two-math-modes" class="nav-link" data-scroll-target="#part-1-the-two-math-modes">Part 1: The Two Math Modes</a></li>
   <li><a href="#part-2-common-symbols-for-mat-186" id="toc-part-2-common-symbols-for-mat-186" class="nav-link" data-scroll-target="#part-2-common-symbols-for-mat-186">Part 2: Common Symbols for MAT 186</a></li>
   <li><a href="#part-3-writing-equations" id="toc-part-3-writing-equations" class="nav-link" data-scroll-target="#part-3-writing-equations">Part 3: Writing Equations</a></li>
-  <li><a href="#troubleshooting-math-errors" id="toc-troubleshooting-math-errors" class="nav-link" data-scroll-target="#troubleshooting-math-errors">Troubleshooting Math Errors</a>
-  <ul class="collapse">
-  <li><a href="#accessibility-check" id="toc-accessibility-check" class="nav-link" data-scroll-target="#accessibility-check"><strong>Accessibility Check</strong></a></li>
-  </ul></li>
+  <li><a href="#troubleshooting-math-errors" id="toc-troubleshooting-math-errors" class="nav-link" data-scroll-target="#troubleshooting-math-errors">Troubleshooting Math Errors</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -352,6 +555,12 @@ window.Quarto = {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Henry Mendoza Rivera </p>
+          </div>
+  </div>
     
   
     <div>
@@ -374,7 +583,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
 <ul>
 <li>Distinguish between <strong>Inline</strong> and <strong>Display</strong> math modes in Quarto.</li>
-<li>Use LaTeX syntax to write essential statistical symbols (<span class="math inline">\(\mu, \sigma, \bar{x}\)</span>).</li>
+<li>Use LaTeX syntax to write essential statistical symbols (<span class="math inline">\mu, \sigma, \bar{x}</span>).</li>
 <li>Format complex equations like Linear Regression for professional lab reports.</li>
 </ul>
 <hr>
@@ -392,7 +601,7 @@ window.Quarto = {
 <p>Use a single dollar sign <code>$ ... $</code> when the math should stay inside a sentence.</p>
 <ul>
 <li><p><strong>Code:</strong> <code>The population mean is represented by $\mu$.</code></p></li>
-<li><p><strong>Result:</strong> The population mean is represented by <span class="math inline">\(\mu\)</span>.</p></li>
+<li><p><strong>Result:</strong> The population mean is represented by <span class="math inline">\mu</span>.</p></li>
 </ul>
 </section>
 <section id="display-math" class="level3">
@@ -400,7 +609,7 @@ window.Quarto = {
 <p>Use double dollar signs <code>$$...$$</code> to center the formula on its own line.</p>
 <ul>
 <li><p><strong>Code:</strong> <code>$$\bar{x} = \frac{\sum x_i}{n}$$</code></p></li>
-<li><p><strong>Result:</strong> <span class="math display">\[\bar{x} = \frac{\sum x_i}{n}\]</span></p></li>
+<li><p><strong>Result:</strong> <span class="math display">\bar{x} = \frac{\sum x_i}{n}</span></p></li>
 </ul>
 <hr>
 </section>
@@ -420,27 +629,27 @@ window.Quarto = {
 <tr class="odd">
 <td style="text-align: left;"><strong>Sample Mean</strong></td>
 <td style="text-align: left;"><code>$\bar{x}$</code></td>
-<td style="text-align: left;"><span class="math inline">\(\bar{x}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\bar{x}</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Standard Deviation</strong></td>
 <td style="text-align: left;"><code>$\sigma$</code></td>
-<td style="text-align: left;"><span class="math inline">\(\sigma\)</span></td>
+<td style="text-align: left;"><span class="math inline">\sigma</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>Summation</strong></td>
 <td style="text-align: left;"><code>$\sum$</code></td>
-<td style="text-align: left;"><span class="math inline">\(\sum\)</span></td>
+<td style="text-align: left;"><span class="math inline">\sum</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Correlation Coefficient</strong></td>
 <td style="text-align: left;"><code>$r$</code></td>
-<td style="text-align: left;"><span class="math inline">\(r\)</span></td>
+<td style="text-align: left;"><span class="math inline">r</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>Coefficient of Determination</strong></td>
 <td style="text-align: left;"><code>$R^2$</code></td>
-<td style="text-align: left;"><span class="math inline">\(R^2\)</span></td>
+<td style="text-align: left;"><span class="math inline">R^2</span></td>
 </tr>
 </tbody>
 </table>
@@ -450,7 +659,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="part-3-writing-equations">Part 3: Writing Equations</h2>
 <p>For Linear Regression, we combine several symbols. Try typing this in your Quarto file:</p>
 <p><strong>Code:</strong> <code>$$y = \beta_0 + \beta_1 x + \epsilon$$</code></p>
-<p><strong>Result:</strong> <span class="math display">\[y = \beta_0 + \beta_1 x + \epsilon\]</span></p>
+<p><strong>Result:</strong> <span class="math display">y = \beta_0 + \beta_1 x + \epsilon</span></p>
 <hr>
 <div class="dcc-important">
 <p><strong>Lab Task 3:</strong></p>
@@ -905,13 +1114,13 @@ window.Quarto = {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p><img src="../images/dcc-logo.png" alt="DCC Logo" style="width: 120px; margin-bottom: 10px;"> <br> <strong>Dutchess Community College</strong></p>
+<p><img src="../images/dcc-logo.png" alt="DCC Logo" style="width: 120px; margin-bottom: 10px;"> <br> <strong>Henry Mendoza Rivera</strong> <br> Instructor, Mathematics and Computer Science <br> Dutchess Community College</p>
 </div>   
     <div class="nav-footer-center">
-<p>Last updated: February 7, 2026</p>
+<p>This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>. <br> <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png" alt="CC BY-NC-SA Graphic" style="height: 31px; margin-top: 10px;"></p>
 </div>
     <div class="nav-footer-right">
-<p><a href="../accessibility.html">Accessibility Statement</a></p>
+<p><strong>Contact Information</strong> <br> Email: <a href="mailto:henry.mendozarivera@sunydutchess.edu">henry.mendozarivera@sunydutchess.edu</a> <br> Phone: 845-431-8554 <br> <a href="accessibility.qmd">Accessibility Statement</a></p>
 </div>
   </div>
 </footer>

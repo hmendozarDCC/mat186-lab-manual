@@ -7,14 +7,14 @@ format:
     toc-location: right
 ---
 
-<script>
-  var password = "MAT186LABSOER";
-  var res = prompt("DCC Instructor Key Required:");
-  if (res != password) {
-    alert("Incorrect password. Access denied.");
-    window.location.href = "../index.html";
-  }
-</script>
+<div id="password-gate" style="background: #f8f9fa; padding: 20px; border: 1px solid #dee2e6; border-radius: 5px; text-align: center;">
+  <h3>🔒 Solutions Protected</h3>
+  <p>Please enter the classroom code to unlock Lab results.</p>
+  <input type="password" id="pass-input" style="padding: 5px;" placeholder="Enter password...">
+  <button onclick="checkPassword()" style="padding: 5px 15px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer;">Unlock</button>
+</div>
+
+<div id="solution-content" style="display:none;">
 
 ## RStudio Project and Quarto Documents - Official Solutions
 
@@ -23,23 +23,7 @@ format:
 Add your specific DCC lab answers below this box.
 :::
 
----
-title: "Solution - Lab 02: RStudio & Quarto"
-subtitle: "MAT 186: Introduction to Data Science"
-format:
-  html:
-    toc: true
-    toc-location: right
----
 
-<script>
-  var password = "MAT186LABSOER"; 
-  var res = prompt("DCC Instructor Key Required:");
-  if (res != password) {
-    alert("Incorrect password. Access denied.");
-    window.location.href = "../index.html";
-  }
-</script>
 
 ## Lab 2 Official Solutions
 
@@ -51,6 +35,31 @@ The student was asked to create a code chunk that calculates $2 + 2$.
 2 + 2
 ```
 <br><br>
+
+</div>
+
+<script>
+function checkPassword() {
+var userPass = document.getElementById("pass-input").value;
+
+// This uses the LAB_PASSWORD from your security.js file
+if (userPass === LAB_PASSWORD) {
+document.getElementById("password-gate").style.display = "none";
+document.getElementById("solution-content").style.display = "block";
+} else {
+alert("Incorrect password. Please try again.");
+}
+}
+
+// Allow "Enter" key to trigger the button
+document.getElementById("pass-input").addEventListener("keypress", function(event) {
+if (event.key === "Enter") {
+checkPassword();
+}
+});
+</script>
+
+
 
 ***
 

@@ -7,14 +7,14 @@ format:
     toc-location: right
 ---
 
-<script>
-  var password = "MAT186LABSOER";
-  var res = prompt("DCC Instructor Key Required:");
-  if (res != password) {
-    alert("Incorrect password. Access denied.");
-    window.location.href = "../index.html";
-  }
-</script>
+<div id="password-gate" style="background: #f8f9fa; padding: 20px; border: 1px solid #dee2e6; border-radius: 5px; text-align: center;">
+  <h3>🔒 Solutions Protected</h3>
+  <p>Please enter the classroom code to unlock Lab results.</p>
+  <input type="password" id="pass-input" style="padding: 5px;" placeholder="Enter password...">
+  <button onclick="checkPassword()" style="padding: 5px 15px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer;">Unlock</button>
+</div>
+
+<div id="solution-content" style="display:none;">
 
 ## Exploratory Data Analysis - Official Solutions
 
@@ -108,6 +108,31 @@ In these plots, there is a very strong positive correlation between the size of 
 
 <br><br>
 
+</div>
+
+<script>
+function checkPassword() {
+var userPass = document.getElementById("pass-input").value;
+
+// This uses the LAB_PASSWORD from your security.js file
+if (userPass === LAB_PASSWORD) {
+document.getElementById("password-gate").style.display = "none";
+document.getElementById("solution-content").style.display = "block";
+} else {
+alert("Incorrect password. Please try again.");
+}
+}
+
+// Allow "Enter" key to trigger the button
+document.getElementById("pass-input").addEventListener("keypress", function(event) {
+if (event.key === "Enter") {
+checkPassword();
+}
+});
+</script>
+
+
+
 ***
 
 ::: {.content-block}
@@ -115,4 +140,6 @@ In these plots, there is a very strong positive correlation between the size of 
 <a href="../solutions.html" class="btn btn-primary btn-lg" role="button">🏠 Back to Solutions Hub</a>
 </center>
 :::
+
+
 
