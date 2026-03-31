@@ -634,6 +634,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#the-three-parts-of-a-quarto-document" id="toc-the-three-parts-of-a-quarto-document" class="nav-link" data-scroll-target="#the-three-parts-of-a-quarto-document">The Three Parts of a Quarto Document</a></li>
   <li><a href="#part-3-rendering-the-magic-button" id="toc-part-3-rendering-the-magic-button" class="nav-link" data-scroll-target="#part-3-rendering-the-magic-button">Part 3: Rendering (The “Magic” Button)</a></li>
   </ul></li>
+  <li><a href="#lab-2-final-submission-instructions" id="toc-lab-2-final-submission-instructions" class="nav-link" data-scroll-target="#lab-2-final-submission-instructions">Lab 2 Final Submission Instructions</a></li>
   </ul>
 </nav>
     </div>
@@ -706,15 +707,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Click <strong>Create Project</strong>.</li>
 </ol>
 </section>
-<section id="step-2-create-professional-sub-folders" class="level3">
-<h3 class="anchored" data-anchor-id="step-2-create-professional-sub-folders">Step 2: Create Professional Sub-folders</h3>
+<section id="step-2-create-professional-sub-folders" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-create-professional-sub-folders">Step 2: Create Professional Sub-folders</h2>
 <p>Data scientists never leave files “floating” in the main folder. Use the <strong>Files pane</strong> (bottom-right window) to create a professional structure:</p>
 <ol type="1">
 <li>Click the <strong>New Folder</strong> button.</li>
 <li>Type <code>data</code> and click <strong>OK</strong>. (This is where you will save datasets).</li>
 <li>Click the <strong>New Folder</strong> button again.</li>
 <li>Type <code>images</code> and click <strong>OK</strong>. (This is where you will save plots and graphs).</li>
+<li>Click the <strong>New Folder</strong> button again.</li>
+<li>Type <code>Lab_solutions</code> and click <strong>OK</strong>. (This is your master folder for the entire semester).</li>
+<li><strong>Important:</strong> In the Files pane, click on the <code>Lab_solutions</code> folder to enter it.</li>
+<li>While inside <code>Lab_solutions</code>, click the <strong>New Folder</strong> button one last time.</li>
+<li>Type <code>Lab02_yourname</code> and click <strong>OK</strong>.</li>
 </ol>
+</section>
+<section id="step-3-verification-submission" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-verification-submission">Step 3: Verification &amp; Submission</h2>
+<p>To verify your setup, take a <strong>screenshot</strong> of your RStudio interface.</p>
+<p><strong>Your screenshot must clearly show:</strong> 1. The project name <code>MAT186_Labs</code> in the top-right corner of RStudio. 2. The <code>data</code> and <code>images</code> folders in the <strong>Files</strong> pane (bottom-right). * The <code>Lab02_yourname</code> folder nested inside <code>Lab_solutions</code> in the Files pane.</p>
+<p>Save this as <code>lab02_setup.png</code> on your <code>Lab02_yourname</code> folder.</p>
 </section>
 </div>
 </div>
@@ -824,6 +836,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>Check Results</strong>: Look at your final HTML report. You should see your title <strong>Lab 2</strong>, the code <code>2 + 2</code>, and the result <code>4</code>.</p></li>
 <li><p><strong>Submit</strong>: upload your HTML report in Brightspace and submit it.</p></li>
 </ol>
+</div>
+</div>
+</section>
+</section>
+<section id="lab-2-final-submission-instructions" class="level1">
+<h1>Lab 2 Final Submission Instructions</h1>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>📝 Final Checklist for Lab 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before submitting, ensure you have completed both Part 1 (Folder Setup) and Part 2 (Quarto Document). Your work must be organized exactly as described below to receive full credit.</p>
+</div>
+</div>
+<section id="step-1-organize-your-folder" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-organize-your-folder">Step 1: Organize Your Folder</h3>
+<p>By now, your <strong>Files pane</strong> in RStudio should look like this:</p>
+<ol type="1">
+<li><p>You are inside the <code>Lab_solutions</code> folder.</p></li>
+<li><p>You have a folder named <code>Lab02_YourName</code> (e.g., <code>Lab02_HenryMendoza</code>).</p></li>
+<li><p><strong>Inside</strong> that <code>Lab02_YourName</code> folder, you must have exactly three files:</p>
+<ul>
+<li><code>lab02_setup.png</code> (The screenshot of your RStudio interface).</li>
+<li><code>Lab2_yourname.qmd</code> (Your working Quarto code).</li>
+<li><code>Lab2_yourname.html</code> (The final report generated when you clicked <strong>Render</strong>).</li>
+</ul></li>
+</ol>
+</section>
+<section id="step-2-create-the-zip-archive" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-create-the-zip-archive">Step 2: Create the ZIP Archive</h3>
+<p>Brightspace requires a single upload. Follow these steps to package your folder:</p>
+<ol type="1">
+<li>Open your computer’s <strong>File Explorer</strong> (Windows) or <strong>Finder</strong> (Mac).</li>
+<li>Navigate to your <code>MAT186_Labs/Lab_solutions/</code> directory.</li>
+<li><strong>Right-click</strong> on your <code>Lab02_YourName</code> folder.</li>
+<li>Select <strong>Compress</strong> (Mac) or <strong>Send to &gt; Compressed (zipped) folder</strong> (Windows).</li>
+<li>You will now see a new file named <code>Lab02_YourName.zip</code>.</li>
+</ol>
+</section>
+<section id="step-3-submit-to-brightspace" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-submit-to-brightspace">Step 3: Submit to Brightspace</h3>
+<ol type="1">
+<li>Log into <strong>Brightspace</strong> and navigate to the <strong>MAT 186</strong> course.</li>
+<li>Go to <strong>Assignments &gt; Lab 2 Submission</strong>.</li>
+<li>Upload your <strong>.zip</strong> file.</li>
+<li>Click <strong>Submit</strong>.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Why a ZIP file?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Zipping the folder preserves your professional structure. It ensures that when I open your work, the images and data remain linked to your code, just like a professional Data Science project!</p>
 </div>
 </div>
 <hr>
