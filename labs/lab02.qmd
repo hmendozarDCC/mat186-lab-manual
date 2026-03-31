@@ -23,14 +23,32 @@ Before writing any code, you must organize your environment. Follow these steps 
 5. **Create project as subdirectory of:** Click *Browse* and select your **Documents** folder.
 6. Click **Create Project**.
 
-### Step 2: Create Professional Sub-folders
+## Step 2: Create Professional Sub-folders
+
 Data scientists never leave files "floating" in the main folder. Use the **Files pane** (bottom-right window) to create a professional structure:
 
 1. Click the **New Folder** button.
 2. Type `data` and click **OK**. (This is where you will save datasets).
 3. Click the **New Folder** button again.
 4. Type `images` and click **OK**. (This is where you will save plots and graphs).
+5. Click the **New Folder** button again.
+6. Type `Lab_solutions` and click **OK**. (This is your master folder for the entire semester).
+7. **Important:** In the Files pane, click on the `Lab_solutions` folder to enter it.
+8. While inside `Lab_solutions`, click the **New Folder** button one last time.
+9. Type `Lab02_yourname` and click **OK**.
+
+## Step 3: Verification & Submission
+To verify your setup, take a **screenshot** of your RStudio interface. 
+
+**Your screenshot must clearly show:**
+1. The project name `MAT186_Labs` in the top-right corner of RStudio.
+2. The `data` and `images` folders in the **Files** pane (bottom-right).
+* The `Lab02_yourname` folder nested inside `Lab_solutions` in the Files pane.
+
+Save this as `lab02_setup.png` on your `Lab02_yourname` folder.
 :::
+
+
 
 
 
@@ -122,6 +140,46 @@ Follow these steps to practice using Quarto:
 7.  **Submit**: upload your HTML report in Brightspace and submit it.
 :::
 
+
+
+
+# Lab 2 Final Submission Instructions
+
+::: {.callout-important}
+## 📝 Final Checklist for Lab 2
+Before submitting, ensure you have completed both Part 1 (Folder Setup) and Part 2 (Quarto Document). Your work must be organized exactly as described below to receive full credit.
+:::
+
+### Step 1: Organize Your Folder
+By now, your **Files pane** in RStudio should look like this:
+
+1. You are inside the `Lab_solutions` folder.
+2. You have a folder named `Lab02_YourName` (e.g., `Lab02_HenryMendoza`).
+3. **Inside** that `Lab02_YourName` folder, you must have exactly three files:
+
+    - `lab02_setup.png` (The screenshot of your RStudio interface).
+    - `Lab2_yourname.qmd` (Your working Quarto code).
+    - `Lab2_yourname.html` (The final report generated when you clicked **Render**).
+
+### Step 2: Create the ZIP Archive
+Brightspace requires a single upload. Follow these steps to package your folder:
+
+1. Open your computer's **File Explorer** (Windows) or **Finder** (Mac).
+2. Navigate to your `MAT186_Labs/Lab_solutions/` directory.
+3. **Right-click** on your `Lab02_YourName` folder.
+4. Select **Compress** (Mac) or **Send to > Compressed (zipped) folder** (Windows).
+5. You will now see a new file named `Lab02_YourName.zip`.
+
+### Step 3: Submit to Brightspace
+1. Log into **Brightspace** and navigate to the **MAT 186** course.
+2. Go to **Assignments > Lab 2 Submission**.
+3. Upload your **.zip** file.
+4. Click **Submit**.
+
+::: {.callout-tip}
+## Why a ZIP file?
+Zipping the folder preserves your professional structure. It ensures that when I open your work, the images and data remain linked to your code, just like a professional Data Science project!
+:::
 ---
 
 ::: {.callout-tip}

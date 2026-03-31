@@ -1248,7 +1248,7 @@
     "href": "labs/lab02.html",
     "title": "Lab 2: RStudio Projects and Quarto Documents",
     "section": "",
-    "text": "Create an RStudio Project to organize your work.\nUnderstand the structure of a Quarto (.qmd) document.\n“Render” a document into a professional HTML report.\n\n\n\n\n\nIn Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\n\n\n\n\n\nImportant📝 Lab Task 1: Setting Up Your Workspace\n\n\n\nBefore writing any code, you must organize your environment. Follow these steps to create your project structure:\n\n\n\nOpen RStudio.\nIn the top menu, click File &gt; New Project…\nSelect New Directory &gt; New Project.\nDirectory Name: Type MAT186_Labs.\nCreate project as subdirectory of: Click Browse and select your Documents folder.\nClick Create Project.\n\n\n\n\nData scientists never leave files “floating” in the main folder. Use the Files pane (bottom-right window) to create a professional structure:\n\nClick the New Folder button.\nType data and click OK. (This is where you will save datasets).\nClick the New Folder button again.\nType images and click OK. (This is where you will save plots and graphs).\n\n\n\n\n\n\n\n\n\n\nNoteWhy do this?\n\n\n\nBy creating these now, you are ready for Lab 5! You will put all your datasets in /data and all your plots/diagrams in /images.",
+    "text": "Create an RStudio Project to organize your work.\nUnderstand the structure of a Quarto (.qmd) document.\n“Render” a document into a professional HTML report.\n\n\n\n\n\nIn Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\n\n\n\n\n\nImportant📝 Lab Task 1: Setting Up Your Workspace\n\n\n\nBefore writing any code, you must organize your environment. Follow these steps to create your project structure:\n\n\n\nOpen RStudio.\nIn the top menu, click File &gt; New Project…\nSelect New Directory &gt; New Project.\nDirectory Name: Type MAT186_Labs.\nCreate project as subdirectory of: Click Browse and select your Documents folder.\nClick Create Project.\n\n\n\n\nData scientists never leave files “floating” in the main folder. Use the Files pane (bottom-right window) to create a professional structure:\n\nClick the New Folder button.\nType data and click OK. (This is where you will save datasets).\nClick the New Folder button again.\nType images and click OK. (This is where you will save plots and graphs).\nClick the New Folder button again.\nType Lab_solutions and click OK. (This is your master folder for the entire semester).\nImportant: In the Files pane, click on the Lab_solutions folder to enter it.\nWhile inside Lab_solutions, click the New Folder button one last time.\nType Lab02_yourname and click OK.\n\n\n\n\nTo verify your setup, take a screenshot of your RStudio interface.\nYour screenshot must clearly show: 1. The project name MAT186_Labs in the top-right corner of RStudio. 2. The data and images folders in the Files pane (bottom-right). * The Lab02_yourname folder nested inside Lab_solutions in the Files pane.\nSave this as lab02_setup.png on your Lab02_yourname folder.\n\n\n\n\n\n\n\n\n\nNoteWhy do this?\n\n\n\nBy creating these now, you are ready for Lab 5! You will put all your datasets in /data and all your plots/diagrams in /images.",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -1274,7 +1274,7 @@
     "href": "labs/lab02.html#part-1-rstudio-projects",
     "title": "Lab 2: RStudio Projects and Quarto Documents",
     "section": "",
-    "text": "In Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\n\n\n\n\n\nImportant📝 Lab Task 1: Setting Up Your Workspace\n\n\n\nBefore writing any code, you must organize your environment. Follow these steps to create your project structure:\n\n\n\nOpen RStudio.\nIn the top menu, click File &gt; New Project…\nSelect New Directory &gt; New Project.\nDirectory Name: Type MAT186_Labs.\nCreate project as subdirectory of: Click Browse and select your Documents folder.\nClick Create Project.\n\n\n\n\nData scientists never leave files “floating” in the main folder. Use the Files pane (bottom-right window) to create a professional structure:\n\nClick the New Folder button.\nType data and click OK. (This is where you will save datasets).\nClick the New Folder button again.\nType images and click OK. (This is where you will save plots and graphs).\n\n\n\n\n\n\n\n\n\n\nNoteWhy do this?\n\n\n\nBy creating these now, you are ready for Lab 5! You will put all your datasets in /data and all your plots/diagrams in /images.",
+    "text": "In Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\n\n\n\n\n\nImportant📝 Lab Task 1: Setting Up Your Workspace\n\n\n\nBefore writing any code, you must organize your environment. Follow these steps to create your project structure:\n\n\n\nOpen RStudio.\nIn the top menu, click File &gt; New Project…\nSelect New Directory &gt; New Project.\nDirectory Name: Type MAT186_Labs.\nCreate project as subdirectory of: Click Browse and select your Documents folder.\nClick Create Project.\n\n\n\n\nData scientists never leave files “floating” in the main folder. Use the Files pane (bottom-right window) to create a professional structure:\n\nClick the New Folder button.\nType data and click OK. (This is where you will save datasets).\nClick the New Folder button again.\nType images and click OK. (This is where you will save plots and graphs).\nClick the New Folder button again.\nType Lab_solutions and click OK. (This is your master folder for the entire semester).\nImportant: In the Files pane, click on the Lab_solutions folder to enter it.\nWhile inside Lab_solutions, click the New Folder button one last time.\nType Lab02_yourname and click OK.\n\n\n\n\nTo verify your setup, take a screenshot of your RStudio interface.\nYour screenshot must clearly show: 1. The project name MAT186_Labs in the top-right corner of RStudio. 2. The data and images folders in the Files pane (bottom-right). * The Lab02_yourname folder nested inside Lab_solutions in the Files pane.\nSave this as lab02_setup.png on your Lab02_yourname folder.\n\n\n\n\n\n\n\n\n\nNoteWhy do this?\n\n\n\nBy creating these now, you are ready for Lab 5! You will put all your datasets in /data and all your plots/diagrams in /images.",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -1313,7 +1313,7 @@
     "href": "labs/lab02.html#part-3-rendering-the-magic-button",
     "title": "Lab 2: RStudio Projects and Quarto Documents",
     "section": "Part 3: Rendering (The “Magic” Button)",
-    "text": "Part 3: Rendering (The “Magic” Button)\nTo turn your code into a report:\n\nClick the Render button (blue arrow icon) at the top of the editor.\nRStudio will save the file and pop up a beautiful HTML window.\n\n\n\n\n\n\n\n\nImportant📝 Lab Task 2: Your First Calculation\n\n\n\nFollow these steps to practice using Quarto:\n\nCreate a Document: In RStudio, go to File &gt; New File &gt; Quarto Document. Name it Lab2_yourname.\nClean the Workspace: Find the heading that says Quarto. Delete all the example text and code below that line so you have a blank white space.\nAdd a Title: In that new blank area, type a title for your work: # Lab 2. (Note: Using the # symbol makes the text large like a heading!)\nInsert a Chunk: Click the +C button to create a new gray R chunk. Inside the chunk, type: 2 + 2\nRender the Report: Click the Render button (blue arrow icon) at the top of your screen.\nCheck Results: Look at your final HTML report. You should see your title Lab 2, the code 2 + 2, and the result 4.\nSubmit: upload your HTML report in Brightspace and submit it.\n\n\n\n\n\n\n\n\n\n\nTipDone with the Lab?\n\n\n\nIf you have finished all the tasks above, you can verify your work against the official solutions.\n\n🔓 Access Lab Solutions",
+    "text": "Part 3: Rendering (The “Magic” Button)\nTo turn your code into a report:\n\nClick the Render button (blue arrow icon) at the top of the editor.\nRStudio will save the file and pop up a beautiful HTML window.\n\n\n\n\n\n\n\n\nImportant📝 Lab Task 2: Your First Calculation\n\n\n\nFollow these steps to practice using Quarto:\n\nCreate a Document: In RStudio, go to File &gt; New File &gt; Quarto Document. Name it Lab2_yourname.\nClean the Workspace: Find the heading that says Quarto. Delete all the example text and code below that line so you have a blank white space.\nAdd a Title: In that new blank area, type a title for your work: # Lab 2. (Note: Using the # symbol makes the text large like a heading!)\nInsert a Chunk: Click the +C button to create a new gray R chunk. Inside the chunk, type: 2 + 2\nRender the Report: Click the Render button (blue arrow icon) at the top of your screen.\nCheck Results: Look at your final HTML report. You should see your title Lab 2, the code 2 + 2, and the result 4.\nSubmit: upload your HTML report in Brightspace and submit it.",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -2271,7 +2271,7 @@
     "href": "solutions/lab02-ans-v4n9.html#rstudio-project-and-quarto-documents---official-solutions",
     "title": "Solution - Lab 2: RStudio Project and Quarto Documents",
     "section": "RStudio Project and Quarto Documents - Official Solutions",
-    "text": "RStudio Project and Quarto Documents - Official Solutions\n\n\n\n\n\n\nNoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box.",
+    "text": "RStudio Project and Quarto Documents - Official Solutions",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -2435,5 +2435,31 @@
     "title": "Student Resources",
     "section": "📺 Video Tutorials (Accessible OER)",
     "text": "📺 Video Tutorials (Accessible OER)\nIf you prefer visual learning, these tutorials cover the core concepts of our course. All videos include Closed Captioning (CC) and transcripts via the YouTube links.\n\n1. Understanding Statistical Logic (StatQuest)\nJosh Starmer breaks down complex concepts like P-values and Regression into simple, visual terms. We highly recommend these for reinforcing lab concepts.\n\n \n\nAccessibility Link: Watch “P-Values Explained” with Transcript on YouTube\n\n\n\n \n\nAccessibility Link: Watch “Linear Regression” with Transcript on YouTube\n\n\n\nExplore More: Official StatQuest Channel"
+  },
+  {
+    "objectID": "labs/lab02.html#step-3-verification-submission",
+    "href": "labs/lab02.html#step-3-verification-submission",
+    "title": "Lab 2: RStudio Projects and Quarto Documents",
+    "section": "",
+    "text": "To verify your setup, take a screenshot of your RStudio interface.\nYour screenshot must clearly show: 1. The project name MAT186_Labs in the top-right corner of RStudio. 2. The data and images folders in the Files pane (bottom-right). * The Lab02_yourname folder nested inside Lab_solutions in the Files pane.\nSave this as lab02_setup.png on your Lab02_yourname folder.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 2: RStudio Project and Quarto Documents",
+      "📘 Lab Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/lab02.html#step-2-create-professional-sub-folders",
+    "href": "labs/lab02.html#step-2-create-professional-sub-folders",
+    "title": "Lab 2: RStudio Projects and Quarto Documents",
+    "section": "",
+    "text": "Data scientists never leave files “floating” in the main folder. Use the Files pane (bottom-right window) to create a professional structure:\n\nClick the New Folder button.\nType data and click OK. (This is where you will save datasets).\nClick the New Folder button again.\nType images and click OK. (This is where you will save plots and graphs).\nClick the New Folder button again.\nType Lab_solutions and click OK. (This is your master folder for the entire semester).\nImportant: In the Files pane, click on the Lab_solutions folder to enter it.\nWhile inside Lab_solutions, click the New Folder button one last time.\nType Lab02_yourname and click OK.",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 2: RStudio Project and Quarto Documents",
+      "📘 Lab Instructions"
+    ]
   }
 ]

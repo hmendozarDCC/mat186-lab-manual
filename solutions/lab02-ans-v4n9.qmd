@@ -18,10 +18,7 @@ format:
 
 ## RStudio Project and Quarto Documents - Official Solutions
 
-::: {.callout-note}
-### Instructor Note
-Add your specific DCC lab answers below this box.
-:::
+
 
 
 
