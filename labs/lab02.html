@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,6 +10,9 @@
 
 <title>lab02 – MAT 186: Data Science</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -68,15 +71,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9c8680b658b91faabdf51f46162cc5c2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ac55fdcdd7ce7638b8dd883c069a9afc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -657,7 +659,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">March 13, 2026</p>
+      <p class="date-modified">March 31, 2026</p>
     </div>
   </div>
     
@@ -682,24 +684,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="part-1-rstudio-projects" class="level2">
 <h2 class="anchored" data-anchor-id="part-1-rstudio-projects">Part 1: RStudio Projects</h2>
 <p>In Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.</p>
-<section id="step-1-create-the-project" class="level3">
-<h3 class="anchored" data-anchor-id="step-1-create-the-project">Step 1: Create the Project</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>📝 Lab Task 1: Setting Up Your Workspace
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before writing any code, you must organize your environment. Follow these steps to create your project structure:</p>
+<section id="step-1-create-the-rstudio-project" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-create-the-rstudio-project">Step 1: Create the RStudio Project</h3>
 <ol type="1">
-<li>Open RStudio.</li>
-<li>Click <strong>File &gt; New Project…</strong></li>
+<li>Open <strong>RStudio</strong>.</li>
+<li>In the top menu, click <strong>File &gt; New Project…</strong></li>
 <li>Select <strong>New Directory</strong> &gt; <strong>New Project</strong>.</li>
-<li>Name your directory <code>MAT186_Labs</code> and save it to your Documents folder.</li>
+<li><strong>Directory Name:</strong> Type <code>MAT186_Labs</code>.</li>
+<li><strong>Create project as subdirectory of:</strong> Click <em>Browse</em> and select your <strong>Documents</strong> folder.</li>
+<li>Click <strong>Create Project</strong>.</li>
 </ol>
 </section>
 <section id="step-2-create-professional-sub-folders" class="level3">
 <h3 class="anchored" data-anchor-id="step-2-create-professional-sub-folders">Step 2: Create Professional Sub-folders</h3>
-<p>Now, look at the <strong>Files pane</strong> (usually in the bottom-right of RStudio). You need to create a place for your future files:</p>
+<p>Data scientists never leave files “floating” in the main folder. Use the <strong>Files pane</strong> (bottom-right window) to create a professional structure:</p>
 <ol type="1">
 <li>Click the <strong>New Folder</strong> button.</li>
-<li>Type <code>data</code> and click OK.</li>
+<li>Type <code>data</code> and click <strong>OK</strong>. (This is where you will save datasets).</li>
 <li>Click the <strong>New Folder</strong> button again.</li>
-<li>Type <code>images</code> and click OK.</li>
+<li>Type <code>images</code> and click <strong>OK</strong>. (This is where you will save plots and graphs).</li>
 </ol>
+</section>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -714,7 +732,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <hr>
-</section>
 </section>
 <section id="part-2-creating-a-quarto-document" class="level2">
 <h2 class="anchored" data-anchor-id="part-2-creating-a-quarto-document">Part 2: Creating a Quarto Document</h2>
