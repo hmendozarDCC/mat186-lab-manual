@@ -2,12 +2,6 @@
 title: "Lab 1: R and RStudio Installation"
 ---
 
-## Learning Objectives
-
-* By the end of this lab, students will...
-
-* Successfully install the **R**...
-# Lab 1: R and RStudio Installation
 
 ## Learning Objectives
 
@@ -59,7 +53,7 @@ print("Hello, MAT 186! I am yourname")
 ```
 
 ::: {.callout-important}
-## 📝 Lab Task 2: Capturing Your Work
+## 📝 Lab Task: Capturing Your Work
 
 Follow these steps to take a screenshot of your R console:
 

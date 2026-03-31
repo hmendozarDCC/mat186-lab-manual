@@ -4,11 +4,12 @@
     "href": "labs/lab01.html",
     "title": "Lab 1: R and RStudio Installation",
     "section": "",
-    "text": "By the end of this lab, students will…\nSuccessfully install the R… # Lab 1: R and RStudio Installation",
+    "text": "By the end of this lab, students will be able to:\n\nSuccessfully install the R programming language.\nInstall the RStudio Desktop Integrated Development Environment (IDE).\nVerify the installation by running a simple command.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 1: R and RStudio Installation"
+      "Lab 1: R and RStudio Installation",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -16,11 +17,12 @@
     "href": "labs/lab01.html#learning-objectives",
     "title": "Lab 1: R and RStudio Installation",
     "section": "",
-    "text": "By the end of this lab, students will…\nSuccessfully install the R… # Lab 1: R and RStudio Installation",
+    "text": "By the end of this lab, students will be able to:\n\nSuccessfully install the R programming language.\nInstall the RStudio Desktop Integrated Development Environment (IDE).\nVerify the installation by running a simple command.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 1: R and RStudio Installation"
+      "Lab 1: R and RStudio Installation",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -32,7 +34,8 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 1: R and RStudio Installation"
+      "Lab 1: R and RStudio Installation",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -44,7 +47,8 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 1: R and RStudio Installation"
+      "Lab 1: R and RStudio Installation",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -56,7 +60,8 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 1: R and RStudio Installation"
+      "Lab 1: R and RStudio Installation",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -64,11 +69,12 @@
     "href": "labs/lab01.html#step-3-verify-your-setup",
     "title": "Lab 1: R and RStudio Installation",
     "section": "Step 3: Verify Your Setup",
-    "text": "Step 3: Verify Your Setup\nLet’s make sure the “engine” and “dashboard” are talking to each other.\n\nOpen RStudio from your applications folder or start menu.\nFind the Console pane (usually on the bottom left).\nType the following code and press Enter:\n\n\nprint(\"Hello, MAT 186! I am yourname\")\n\n[1] \"Hello, MAT 186! I am yourname\"\n\n\n\n\n\n\n\n\nImportant📝 Lab Task 2: Capturing Your Work\n\n\n\nFollow these steps to take a screenshot of your R console:\n\nRun the Code: In your Console (the bottom-left panel of RStudio), type the following exactly and press Enter: print(\"Hello, MAT 186!\")\nTake a Screenshot: Capture an image of your screen showing that message.\n\nWindows: Use Windows Key + Shift + S.\nMac: Use Cmd + Shift + 4.\n\nSave Your Work: Save the screenshot into your Mat186 folder on your computer. Give it a clear name like Lab2_Screenshot.\nSubmit: Upload this image file to the Lab 2 assignment folder in your course portal.",
+    "text": "Step 3: Verify Your Setup\nLet’s make sure the “engine” and “dashboard” are talking to each other.\n\nOpen RStudio from your applications folder or start menu.\nFind the Console pane (usually on the bottom left).\nType the following code and press Enter:\n\n\nprint(\"Hello, MAT 186! I am yourname\")\n\n[1] \"Hello, MAT 186! I am yourname\"\n\n\n\n\n\n\n\n\nImportant📝 Lab Task: Capturing Your Work\n\n\n\nFollow these steps to take a screenshot of your R console:\n\nRun the Code: In your Console (the bottom-left panel of RStudio), type the following exactly and press Enter: print(\"Hello, MAT 186!\")\nTake a Screenshot: Capture an image of your screen showing that message.\n\nWindows: Use Windows Key + Shift + S.\nMac: Use Cmd + Shift + 4.\n\nSave Your Work: Save the screenshot into your Mat186 folder on your computer. Give it a clear name like Lab2_Screenshot.\nSubmit: Upload this image file to the Lab 2 assignment folder in your course portal.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 1: R and RStudio Installation"
+      "Lab 1: R and RStudio Installation",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -1242,11 +1248,12 @@
     "href": "labs/lab02.html",
     "title": "Lab 2: RStudio Projects and Quarto Documents",
     "section": "",
-    "text": "Create an RStudio Project to organize your work.\nUnderstand the structure of a Quarto (.qmd) document.\n“Render” a document into a professional HTML report.\n\n\n\n\n\nIn Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\n\n\nOpen RStudio.\nClick File &gt; New Project…\nSelect New Directory &gt; New Project.\nName your directory MAT186_Labs and save it to your Documents folder.\n\n\n\n\nNow, look at the Files pane (usually in the bottom-right of RStudio). You need to create a place for your future files:\n\nClick the New Folder button.\nType data and click OK.\nClick the New Folder button again.\nType images and click OK.\n\n\n\n\n\n\n\nNoteWhy do this?\n\n\n\nBy creating these now, you are ready for Lab 5! You will put all your datasets in /data and all your plots/diagrams in /images.",
+    "text": "Create an RStudio Project to organize your work.\nUnderstand the structure of a Quarto (.qmd) document.\n“Render” a document into a professional HTML report.\n\n\n\n\n\nIn Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\n\n\n\n\n\nImportant📝 Lab Task 1: Setting Up Your Workspace\n\n\n\nBefore writing any code, you must organize your environment. Follow these steps to create your project structure:\n\n\n\nOpen RStudio.\nIn the top menu, click File &gt; New Project…\nSelect New Directory &gt; New Project.\nDirectory Name: Type MAT186_Labs.\nCreate project as subdirectory of: Click Browse and select your Documents folder.\nClick Create Project.\n\n\n\n\nData scientists never leave files “floating” in the main folder. Use the Files pane (bottom-right window) to create a professional structure:\n\nClick the New Folder button.\nType data and click OK. (This is where you will save datasets).\nClick the New Folder button again.\nType images and click OK. (This is where you will save plots and graphs).\n\n\n\n\n\n\n\n\n\n\nNoteWhy do this?\n\n\n\nBy creating these now, you are ready for Lab 5! You will put all your datasets in /data and all your plots/diagrams in /images.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 2: RStudio Project and Quarto Documents"
+      "Lab 2: RStudio Project and Quarto Documents",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -1258,7 +1265,8 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 2: RStudio Project and Quarto Documents"
+      "Lab 2: RStudio Project and Quarto Documents",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -1266,11 +1274,12 @@
     "href": "labs/lab02.html#part-1-rstudio-projects",
     "title": "Lab 2: RStudio Projects and Quarto Documents",
     "section": "",
-    "text": "In Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\n\n\nOpen RStudio.\nClick File &gt; New Project…\nSelect New Directory &gt; New Project.\nName your directory MAT186_Labs and save it to your Documents folder.\n\n\n\n\nNow, look at the Files pane (usually in the bottom-right of RStudio). You need to create a place for your future files:\n\nClick the New Folder button.\nType data and click OK.\nClick the New Folder button again.\nType images and click OK.\n\n\n\n\n\n\n\nNoteWhy do this?\n\n\n\nBy creating these now, you are ready for Lab 5! You will put all your datasets in /data and all your plots/diagrams in /images.",
+    "text": "In Data Science, organization is everything. An RStudio Project keeps your code, data, and images in one “folder” so R always knows where to look.\n\n\n\n\n\n\nImportant📝 Lab Task 1: Setting Up Your Workspace\n\n\n\nBefore writing any code, you must organize your environment. Follow these steps to create your project structure:\n\n\n\nOpen RStudio.\nIn the top menu, click File &gt; New Project…\nSelect New Directory &gt; New Project.\nDirectory Name: Type MAT186_Labs.\nCreate project as subdirectory of: Click Browse and select your Documents folder.\nClick Create Project.\n\n\n\n\nData scientists never leave files “floating” in the main folder. Use the Files pane (bottom-right window) to create a professional structure:\n\nClick the New Folder button.\nType data and click OK. (This is where you will save datasets).\nClick the New Folder button again.\nType images and click OK. (This is where you will save plots and graphs).\n\n\n\n\n\n\n\n\n\n\nNoteWhy do this?\n\n\n\nBy creating these now, you are ready for Lab 5! You will put all your datasets in /data and all your plots/diagrams in /images.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 2: RStudio Project and Quarto Documents"
+      "Lab 2: RStudio Project and Quarto Documents",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -1282,7 +1291,8 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 2: RStudio Project and Quarto Documents"
+      "Lab 2: RStudio Project and Quarto Documents",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -1294,7 +1304,8 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 2: RStudio Project and Quarto Documents"
+      "Lab 2: RStudio Project and Quarto Documents",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -1306,7 +1317,8 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 2: RStudio Project and Quarto Documents"
+      "Lab 2: RStudio Project and Quarto Documents",
+      "📘 Lab Instructions"
     ]
   },
   {
