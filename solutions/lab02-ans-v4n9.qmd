@@ -16,15 +16,21 @@ format:
 
 <div id="solution-content" style="display:none;">
 
-## RStudio Project and Quarto Documents - Official Solutions
-
-
-
-
 
 ## Lab 2 Official Solutions
 
-### Task 1: Basic Arithmetic
+### Lab Task 1: Setting Up Your Workspace
+```{r,echo=FALSE}
+#| label: fig-rstudio-setup
+#| fig-cap: "**screenshot** 1. Project name (MAT186_Labs) in the top-right. 2. Data and Images folders in the Files pane. 3. Your named lab folder nested inside Lab_solutions."
+#| out-width: "100%"
+#| fig-align: "center"
+
+knitr::include_graphics("lab02_task1.png")
+```
+
+
+### Task 2: Basic Arithmetic
 The student was asked to create a code chunk that calculates $2 + 2$.
 
 ```{r}

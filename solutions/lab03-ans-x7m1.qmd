@@ -25,9 +25,10 @@ The student was asked to render the sample standard deviation formula using LaTe
 
 $$s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}}$$
 
-### Task 2: Inline vs. Display Math
-* **Inline Math:** We use single dollar signs, like $E = mc^2$, to put math inside a sentence.
-* **Display Math:** We use double dollar signs to center the math on its own line.
+### Task 2: The Inline Math 
+**The expected output:**
+
+The population mean is represented by $\mu$.
 
 
 

@@ -54,18 +54,22 @@ For Linear Regression, we combine several symbols. Try typing this in your Quart
 
 **Result:**
 $$y = \beta_0 + \beta_1 x + \epsilon$$
-
 ---
 
-<div class="dcc-important">
-**Lab Task 3:** 
+
+::: {.callout-important}
+## 📝 Lab Task 1: 
 
 1. Open your `MAT186_Labs` project in RStudio.
 2. Create a new Quarto document (`.qmd`) titled "Math Practice."
-3. Write the formula for the **Standard Deviation** exactly as shown below:
+3. **Display Math:** Write the formula for the **Standard Deviation** exactly as shown below:
    `$$s = \sqrt{\frac{\sum (x_i - \bar{x})^2}{n - 1}}$$`
-4. **Render** the document to HTML and confirm the formula appears correctly.
-</div>
+4. **Inline Math:** Write `The population mean is represented by $\mu$.`
+
+5. **Render** the document to HTML and confirm the formula appears correctly.
+:::
+
+
 
 ---
 
@@ -76,6 +80,42 @@ $$y = \beta_0 + \beta_1 x + \epsilon$$
 * **Missing Signs:** If your formula looks like plain text, check if you forgot the closing `$`.
 
 ---
+
+# Lab 3 Final Submission Instructions
+
+::: {.callout-important}
+## 📝 Final Checklist for Lab 3
+Before submitting, ensure your LaTeX formulas (the Standard Deviation and Population Mean) are rendering correctly in your HTML report. Your folder must be organized exactly as follows:
+:::
+
+### Step 1: Organize Your Folder
+By now, your **Files pane** in RStudio should show the following structure:
+
+1. You are inside the `Lab_solutions` folder.
+2. You have a folder named `Lab03_YourName` (e.g., `Lab03_HenryMendoza`).
+3. **Inside** that `Lab03_YourName` folder, you must have these two files:
+    - `Lab3_yourname.qmd` (Your Quarto file containing the LaTeX code).
+    - `Lab3_yourname.html` (The rendered report showing the math formulas).
+
+### Step 2: Create the ZIP Archive
+Since Lab 3 contains both your source code and your rendered math, you must package them together:
+
+1. Open your computer's **File Explorer** (Windows) or **Finder** (Mac).
+2. Navigate to your `MAT186_Labs/Lab_solutions/` directory.
+3. **Right-click** on your `Lab03_YourName` folder.
+4. Select **Compress** (Mac) or **Send to > Compressed (zipped) folder** (Windows).
+5. You will now see a new file named `Lab03_YourName.zip`.
+
+### Step 3: Submit to Brightspace
+
+1. Log into **Brightspace** and navigate to **Assignments > Lab 3 Submission**.
+2. Upload your **.zip** file.
+3. Click **Submit**.
+
+::: {.callout-tip}
+## Troubleshooting LaTeX
+If your formulas do not look like the math in the instructions, make sure you have enclosed the Standard Deviation formula in double dollar signs `$$...$$` and the population mean in single dollar signs `$...$`.
+:::
 
 ### **Accessibility Check**
 When you use this LaTeX method, students using screen readers can hear the math described clearly (e.g., "x bar equals fraction sum x sub i over n"). This is much better than using an image of an equation, which a screen reader cannot "see."

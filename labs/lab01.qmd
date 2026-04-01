@@ -3,12 +3,16 @@ title: "Lab 1: R and RStudio Installation"
 ---
 
 
-## Learning Objectives
+---
+title: "Lab 1: R and RStudio Installation"
+---
 
-By the end of this lab, students will be able to:
+## Learning Objectives
+By the end of this lab, you will be able to:
 
 * Successfully install the **R** programming language.
-* Install the **RStudio Desktop** Integrated Development Environment (IDE).
+* Install the **RStudio Desktop** IDE.
+* Organize your professional course directory.
 * Verify the installation by running a simple command.
 
 ---
@@ -16,52 +20,68 @@ By the end of this lab, students will be able to:
 ## Introduction
 To perform data science at DCC, we use two primary tools. Think of **R** as the "engine" of a car and **RStudio** as the "dashboard." You need the engine to go, but you need the dashboard to steer and see where you are going.
 
-<div class="dcc-note">
-If you are using a DCC Chromebook or a computer where you cannot install software, please contact the instructor about using **Posit Cloud** (the web-based version of RStudio).
-</div>
+::: {.callout-note}
+If you are using a DCC Chromebook or a computer where you cannot install software, please contact the instructor about using **Posit Cloud**.
+:::
 
 ---
 
 ## Step 1: Install R (The Engine)
 You must install R **before** you install RStudio.
 
-1. Go to the [CRAN (Comprehensive R Archive Network)](https://cran.rstudio.com/) website.
+1. Go to the [CRAN website](https://cran.rstudio.com/).
 2. Select the download link for your operating system:
-   * **Download R for Windows** -> Click "base" -> Click "Download R 4.x.x for Windows."
-   * **Download R for (macOS)** -> Download the `.pkg` file that matches your chip (Apple silicon M1/M2 or Intel).
-3. Run the downloaded installer and keep all default settings by clicking "Next" or "Continue."
-
----
+   * **Windows:** Click "base" -> "Download R 4.x.x for Windows."
+   * **macOS:** Download the `.pkg` file matching your chip (Apple silicon M1/M2 or Intel).
+3. Run the installer and keep all **default settings**.
 
 ## Step 2: Install RStudio (The Dashboard)
-RStudio is the interface where you will write your code and view your data visualizations.
-
 1. Visit the [Posit Download Page](https://posit.co/download/rstudio-desktop/).
-2. Scroll down to **"2: Install RStudio"** and click the button for your operating system.
-3. Run the installer. Like R, it is best to keep all default settings.
+2. Click the button under **"2: Install RStudio"** for your OS.
+3. Run the installer using all **default settings**.
 
 ---
 
-## Step 3: Verify Your Setup
-Let's make sure the "engine" and "dashboard" are talking to each other.
+## Step 3: Professional Folder Setup
+Before verifying your install, set up your workspace exactly like we will for the rest of the semester:
 
-1. Open **RStudio** from your applications folder or start menu.
-2. Find the **Console** pane (usually on the bottom left).
-3. Type the following code and press **Enter**:
-```{r}
-print("Hello, MAT 186! I am yourname")
-```
+1. Open **RStudio**.
+2. Create a folder on your computer named `MAT186_Labs`.
+3. Inside that folder, create a sub-folder named `Lab_solutions`.
+4. Inside `Lab_solutions`, create a folder named `Lab01_YourName` (e.g., `Lab01_HenryMendoza`).
+
+---
 
 ::: {.callout-important}
-## 📝 Lab Task: Capturing Your Work
+## 📝 Lab Task 1: Verification & Screenshot
 
-Follow these steps to take a screenshot of your R console:
-
-1. **Run the Code**: In your **Console** (the bottom-left panel of RStudio), type the following exactly and press **Enter**:
-   `print("Hello, MAT 186!")`
-2. **Take a Screenshot**: Capture an image of your screen showing that message.
-   * **Windows:** Use `Windows Key + Shift + S`.
-   * **Mac:** Use `Cmd + Shift + 4`.
-3. **Save Your Work**: Save the screenshot into your **Mat186** folder on your computer. Give it a clear name like `Lab2_Screenshot`.
-4. **Submit**: Upload this image file to the **Lab 2** assignment folder in your course portal.
+1. **Run the Code**: In the RStudio **Console** (bottom-left), type the following and press **Enter**:
+   `print("Hello, MAT 186! This is [Your Name]")`
+2. **Take a Screenshot**: Capture your entire RStudio screen. 
+   * **Must show:** Your typed "Hello" message in the console and your `Lab01_YourName` folder in the Files pane.
+3. **Save**: Save this image as `lab01_task1.png` **inside** your `Lab01_YourName` folder.
 :::
+
+---
+
+## Lab 1 Final Submission Instructions
+
+### Step 1: Organize Your Folder
+Your `Lab01_YourName` folder should now contain:
+
+* `lab01_task1.png` (The screenshot of your console).
+
+### Step 2: Create the ZIP Archive
+Brightspace requires a single upload. Package your folder now:
+
+1. Open your computer's **File Explorer** (Windows) or **Finder** (Mac).
+2. Navigate to your `MAT186_Labs/Lab_solutions/` directory.
+3. **Right-click** on your `Lab01_YourName` folder.
+4. Select **Compress** (Mac) or **Send to > Compressed (zipped) folder** (Windows).
+5. You will now see a file named `Lab01_YourName.zip`.
+
+### Step 3: Submit to Brightspace
+1. Log into **Brightspace** and go to **Assignments > Lab 1 Submission**.
+2. Upload your **.zip** file and click **Submit**.
+
+

@@ -13,12 +13,12 @@ robots: noindex
 <div id="solution-content" style="display:none;">
 
 # Lab01-solution
-```{r}
+```{r,echo=FALSE}
 #| label: fig-lab01-sol
 #| fig-cap: "The code: print('Hello, MAT 186!')"
 #| out-width: "100%"
 
-knitr::include_graphics("../images/res_01_99x.png")
+knitr::include_graphics("../images/lab01_task1.png")
 ```
 
 <script>
