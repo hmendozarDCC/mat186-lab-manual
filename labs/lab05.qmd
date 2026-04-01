@@ -30,6 +30,7 @@ To check where R is looking,
 
 ---
 
+
 ## Part 2: Loading Data from a URL
 The easiest way to get started is to pull data directly from the internet. We will use the `read_csv()` function from the `tidyverse`.
 
@@ -44,11 +45,13 @@ The easiest way to get started is to pull data directly from the internet. We wi
 :::
 
 
-### Task: Loading our Research Data
+::: {.callout-important}
+### Task 1: Reading the Dataset from a URL
 
 In this step, we will tell R to go to the internet, find our dataset, and bring it into RStudio so we can analyze it.
 
 **Follow these steps:**
+
 1. **Create a new R chunk** in your RStudio document.
 2. **Copy the code below** by clicking the copy icon in the top-right corner of the gray box.
 3. **Paste the code** into your new chunk in RStudio.
@@ -73,6 +76,8 @@ lbw_data <- read_csv(url)
 head(lbw_data)
 ```
 
+:::
+
 ::: {.callout-tip}
 ## ✅ Success Check
 If the code worked, you should see a table appear directly below your code chunk starting with column names like `rownames`, `low`, `age`, and `lwt`.
@@ -82,31 +87,14 @@ If the code worked, you should see a table appear directly below your code chunk
 
 ---
 
-## Part 3: Loading a Local CSV
-Often, you will download a dataset from a site like Kaggle or a government portal.[This link to free  data](https://vincentarelbundock.github.io/Rdatasets/articles/data.html)
+## Part 3: Downloading the Data from a URL
 
-1. Find a CSV file (or download a sample one).
-2. Move that file into your **MAT186_Labs** folder.
-3. Use the following code (replace `filename.csv` with your actual file name):
+::: {.callout-important}
+### Task 2: Downloading the Data from a URL
 
+1. Go to https://vincentarelbundock.github.io/Rdatasets/articles/data.html
 
-```r
-my_data <- read_csv("filename.csv")
-```
-
-
----
-
-## Part 4: Dealing with Common Errors
-* **"File not found":** This usually means the file is not in your Project folder, or you misspelled the name (remember: `Data.csv` is different from `data.csv`).
-* **Column Parsing:** Sometimes R guesses the data type wrong (e.g., thinking a zip code is a number instead of a label). We will learn to fix this in future labs!
-
----
-
-<div class="dcc-important">
-**Lab Task 5:** 
-
-1. Find any public CSV dataset. For example, [this link to free  data](https://vincentarelbundock.github.io/Rdatasets/articles/data.html). Use the *lbw* data set.
+2. Download the lbw.csv data set. 
 
 ::: {.callout-tip}
 ## 📥 How to Download the Data
@@ -117,23 +105,94 @@ Follow these steps to save the dataset to your computer:
 2. **Download the File**: Find the link labeled **CSV**. 
    * **Right-click** (or Ctrl+click on a Mac) the CSV link.
    * Select **"Save Link As..."** or **"Download Linked File As..."**.
-3. **Save it in the Right Place**: Save the file directly into your **Mat186** folder on your computer.
-
+3. **Save it in the Right Place**: Save the file directly into your your `data` folder inside **Mat186** folder on your computer.
 
 :::
 
-2. Import it into a new Quarto document using `read_csv`.
+:::
 
-3. Use the `glimpse()` command to show the structure of your data:
+::: {.callout-important}
+### Task 3: Importing the Dataset into RStudio
+
+1. Import the lbw data set into a new Quarto document using `read_csv`.
+
+Use the following code 
+
+```r
+my_data <- read_csv("data/lbw.csv")
+```
+
+:::
+
+
+---
+
+## Dealing with Common Errors
+
+* **"File not found":** This usually means the file is not in your Project folder, or you misspelled the name (remember: `Data.csv` is different from `data.csv`).
+* **Column Parsing:** Sometimes R guesses the data type wrong (e.g., thinking a zip code is a number instead of a label). We will learn to fix this in future labs!
+
+---
+
+
+
+
+::: {.callout-important}
+### Task 4: Show the structure
+Use the `glimpse()` command to show the structure of your data
 
 ```r
 glimpse(my_data)
 ```
+:::
 
-4. Render the document and confirm that your data table appears in the HTML.
-</div>
+
+::: {.callout-important}
+### Task 5: Display the first 6 rows of the table
+
+Render the document and confirm that your data table appears in the HTML.
+
+````{r}
+head(lbw_data)
+````
+
+:::
 
 ---
+
+# Lab 5 Final Submission Instructions
+
+::: {.callout-important}
+## 📝 Final Checklist for Lab 5
+Your folder must be organized exactly as follows:
+:::
+
+### Step 1: Organize Your Folder
+By now, your **Files pane** in RStudio should show the following structure:
+
+1. You are inside the `Lab_solutions` folder.
+2. You have a folder named `Lab05_YourName` (e.g., `Lab05_HenryMendoza`).
+3. **Inside** that `Lab05_YourName` folder, you must have these two files:
+    - `Lab5_yourname.qmd` (Your Quarto file).
+    - `Lab5_yourname.html` (The rendered report).
+
+### Step 2: Create the ZIP Archive
+Since Lab 5 contains both your source code and your rendered math, you must package them together:
+
+1. Open your computer's **File Explorer** (Windows) or **Finder** (Mac).
+2. Navigate to your `MAT186_Labs/Lab_solutions/` directory.
+3. **Right-click** on your `Lab05_YourName` folder.
+4. Select **Compress** (Mac) or **Send to > Compressed (zipped) folder** (Windows).
+5. You will now see a new file named `Lab05_YourName.zip`.
+
+### Step 3: Submit to Brightspace
+
+1. Log into **Brightspace** and navigate to **Assignments > Lab 5 Submission**.
+2. Upload your **.zip** file.
+3. Click **Submit**.
+
+
+
 
 ::: {.callout-tip}
 ### Done with the Lab?

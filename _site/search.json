@@ -94,11 +94,12 @@
     "href": "labs/lab05.html",
     "title": "Lab 5: Getting Data into R",
     "section": "",
-    "text": "By the end of this lab, students will be able to:\n\nUnderstand the difference between Absolute and Relative file paths.\nImport data from a local CSV file.\nImport data directly from a URL (Web).\nUse the readr package (part of the tidyverse).\n\n\n\n\n\nBefore we can visualize or model data, we have to “import” it into R’s memory. Most data you will encounter is stored in CSV (Comma Separated Values) format, which looks like an Excel spreadsheet but is much lighter and easier for programs to read.\n\n\n\n\nR needs to know which folder on your computer it should “look” in.\n\nCrucial Step: This is why we use RStudio Projects (from Lab 2). When you open your .Rproj file, R automatically sets your folder as the “Working Directory.”\n\nTo check where R is looking,\n\nLocate the Console pane (typically in the bottom-left of RStudio).\nType getwd() at the command prompt (&gt;). It is important to include the parentheses () because it is a function.\nPress the Enter (or Return) key on your keyboard.\n\n\n\n\n\nThe easiest way to get started is to pull data directly from the internet. We will use the read_csv() function from the tidyverse.\n\n\n\n\n\n\nNote💡 Tip: Working with Code Chunks\n\n\n\nTo Insert a New Chunk: Click the green “+C” icon (Insert) in the toolbar at the top of your editor script, then select R. This creates a new gray box for your code.\nTo Run the Code: Click the green “Play” button (the small triangle) in the top-right corner of the gray box. The results will appear directly below the chunk in your document.\n\n\n\n\nIn this step, we will tell R to go to the internet, find our dataset, and bring it into RStudio so we can analyze it.\nFollow these steps: 1. Create a new R chunk in your RStudio document. 2. Copy the code below by clicking the copy icon in the top-right corner of the gray box. 3. Paste the code into your new chunk in RStudio. 4. Click the Green Play button (the triangle) to run the code.\n\n# Step 1: Load the tidyverse tools\nlibrary(tidyverse)\n\n# Step 2: Set the web address for the Low Birth Weight (LBW) data\nurl &lt;- \"https://vincentarelbundock.github.io/Rdatasets/csv/COUNT/lbw.csv\"\n\n# Step 3: Download the data and name it 'lbw_data'\nlbw_data &lt;- read_csv(url)\n\n# Step 4: Show the first few rows of the data\nhead(lbw_data)\n\n# A tibble: 6 × 11\n  rownames   low smoke  race   age   lwt   ptl    ht    ui   ftv   bwt\n     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1        1     0     0     2    19   182     0     0     1     0  2523\n2        2     0     0     3    33   155     0     0     0     3  2551\n3        3     0     1     1    20   105     0     0     0     1  2557\n4        4     0     1     1    21   108     0     0     1     2  2594\n5        5     0     1     1    18   107     0     0     1     0  2600\n6        6     0     0     3    21   124     0     0     0     0  2622\n\n\n\n\n\n\n\n\nTip✅ Success Check\n\n\n\nIf the code worked, you should see a table appear directly below your code chunk starting with column names like rownames, low, age, and lwt.\n\n\n\n\n\n\n\nOften, you will download a dataset from a site like Kaggle or a government portal.This link to free data\n\nFind a CSV file (or download a sample one).\nMove that file into your MAT186_Labs folder.\nUse the following code (replace filename.csv with your actual file name):\n\nmy_data &lt;- read_csv(\"filename.csv\")\n\n\n\n\n\n“File not found”: This usually means the file is not in your Project folder, or you misspelled the name (remember: Data.csv is different from data.csv).\nColumn Parsing: Sometimes R guesses the data type wrong (e.g., thinking a zip code is a number instead of a label). We will learn to fix this in future labs!\n\n\n\nLab Task 5:\n\nFind any public CSV dataset. For example, this link to free data. Use the lbw data set.\n\n\n\n\n\n\n\nTip📥 How to Download the Data\n\n\n\nFollow these steps to save the dataset to your computer:\n\nSearch for the Data: In the search box at the top of the website, type “lbw”.\nDownload the File: Find the link labeled CSV.\n\nRight-click (or Ctrl+click on a Mac) the CSV link.\nSelect “Save Link As…” or “Download Linked File As…”.\n\nSave it in the Right Place: Save the file directly into your Mat186 folder on your computer.\n\n\n\n\nImport it into a new Quarto document using read_csv.\nUse the glimpse() command to show the structure of your data:\n\nglimpse(my_data)\n\nRender the document and confirm that your data table appears in the HTML.\n\n\n\n\n\n\n\n\n\nTipDone with the Lab?\n\n\n\nIf you have finished all the tasks above, you can verify your work against the official solutions.\n\n🔓 Access Lab Solutions",
+    "text": "By the end of this lab, students will be able to:\n\nUnderstand the difference between Absolute and Relative file paths.\nImport data from a local CSV file.\nImport data directly from a URL (Web).\nUse the readr package (part of the tidyverse).\n\n\n\n\n\nBefore we can visualize or model data, we have to “import” it into R’s memory. Most data you will encounter is stored in CSV (Comma Separated Values) format, which looks like an Excel spreadsheet but is much lighter and easier for programs to read.\n\n\n\n\nR needs to know which folder on your computer it should “look” in.\n\nCrucial Step: This is why we use RStudio Projects (from Lab 2). When you open your .Rproj file, R automatically sets your folder as the “Working Directory.”\n\nTo check where R is looking,\n\nLocate the Console pane (typically in the bottom-left of RStudio).\nType getwd() at the command prompt (&gt;). It is important to include the parentheses () because it is a function.\nPress the Enter (or Return) key on your keyboard.\n\n\n\n\n\nThe easiest way to get started is to pull data directly from the internet. We will use the read_csv() function from the tidyverse.\n\n\n\n\n\n\nNote💡 Tip: Working with Code Chunks\n\n\n\nTo Insert a New Chunk: Click the green “+C” icon (Insert) in the toolbar at the top of your editor script, then select R. This creates a new gray box for your code.\nTo Run the Code: Click the green “Play” button (the small triangle) in the top-right corner of the gray box. The results will appear directly below the chunk in your document.\n\n\n\n\n\n\n\n\nImportantTask 1: Reading the Dataset from a URL\n\n\n\nIn this step, we will tell R to go to the internet, find our dataset, and bring it into RStudio so we can analyze it.\nFollow these steps:\n\nCreate a new R chunk in your RStudio document.\nCopy the code below by clicking the copy icon in the top-right corner of the gray box.\nPaste the code into your new chunk in RStudio.\nClick the Green Play button (the triangle) to run the code.\n\n\n# Step 1: Load the tidyverse tools\nlibrary(tidyverse)\n\n# Step 2: Set the web address for the Low Birth Weight (LBW) data\nurl &lt;- \"https://vincentarelbundock.github.io/Rdatasets/csv/COUNT/lbw.csv\"\n\n# Step 3: Download the data and name it 'lbw_data'\nlbw_data &lt;- read_csv(url)\n\n# Step 4: Show the first few rows of the data\nhead(lbw_data)\n\n# A tibble: 6 × 11\n  rownames   low smoke  race   age   lwt   ptl    ht    ui   ftv   bwt\n     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1        1     0     0     2    19   182     0     0     1     0  2523\n2        2     0     0     3    33   155     0     0     0     3  2551\n3        3     0     1     1    20   105     0     0     0     1  2557\n4        4     0     1     1    21   108     0     0     1     2  2594\n5        5     0     1     1    18   107     0     0     1     0  2600\n6        6     0     0     3    21   124     0     0     0     0  2622\n\n\n\n\n\n\n\n\n\n\nTip✅ Success Check\n\n\n\nIf the code worked, you should see a table appear directly below your code chunk starting with column names like rownames, low, age, and lwt.\n\n\n\n\n\n\n\n\n\n\n\n\nImportantTask 2: Downloading the Data from a URL\n\n\n\n\nGo to https://vincentarelbundock.github.io/Rdatasets/articles/data.html\nDownload the lbw.csv data set.\n\n\n\n\n\n\n\nTip📥 How to Download the Data\n\n\n\nFollow these steps to save the dataset to your computer:\n\nSearch for the Data: In the search box at the top of the website, type “lbw”.\nDownload the File: Find the link labeled CSV.\n\nRight-click (or Ctrl+click on a Mac) the CSV link.\nSelect “Save Link As…” or “Download Linked File As…”.\n\nSave it in the Right Place: Save the file directly into your your data folder inside Mat186 folder on your computer.\n\n\n\n\n\n\n\n\n\n\n\nImportantTask 3: Importing the Dataset into RStudio\n\n\n\n\nImport the lbw data set into a new Quarto document using read_csv.\n\nUse the following code\nmy_data &lt;- read_csv(\"data/lbw.csv\")\n\n\n\n\n\n\n\n“File not found”: This usually means the file is not in your Project folder, or you misspelled the name (remember: Data.csv is different from data.csv).\nColumn Parsing: Sometimes R guesses the data type wrong (e.g., thinking a zip code is a number instead of a label). We will learn to fix this in future labs!\n\n\n\n\n\n\n\n\nImportantTask 4: Show the structure\n\n\n\nUse the glimpse() command to show the structure of your data\nglimpse(my_data)\n\n\n\n\n\n\n\n\nImportantTask 5: Display the first 6 rows of the table\n\n\n\nRender the document and confirm that your data table appears in the HTML.\n\nhead(lbw_data)\n\n# A tibble: 6 × 11\n  rownames   low smoke  race   age   lwt   ptl    ht    ui   ftv   bwt\n     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1        1     0     0     2    19   182     0     0     1     0  2523\n2        2     0     0     3    33   155     0     0     0     3  2551\n3        3     0     1     1    20   105     0     0     0     1  2557\n4        4     0     1     1    21   108     0     0     1     2  2594\n5        5     0     1     1    18   107     0     0     1     0  2600\n6        6     0     0     3    21   124     0     0     0     0  2622",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 5: Getting data into R"
+      "Lab 5: Getting data into R",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -110,7 +111,8 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 5: Getting data into R"
+      "Lab 5: Getting data into R",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -122,7 +124,8 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 5: Getting data into R"
+      "Lab 5: Getting data into R",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -134,7 +137,8 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 5: Getting data into R"
+      "Lab 5: Getting data into R",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -142,11 +146,12 @@
     "href": "labs/lab05.html#part-2-loading-data-from-a-url",
     "title": "Lab 5: Getting Data into R",
     "section": "",
-    "text": "The easiest way to get started is to pull data directly from the internet. We will use the read_csv() function from the tidyverse.\n\n\n\n\n\n\nNote💡 Tip: Working with Code Chunks\n\n\n\nTo Insert a New Chunk: Click the green “+C” icon (Insert) in the toolbar at the top of your editor script, then select R. This creates a new gray box for your code.\nTo Run the Code: Click the green “Play” button (the small triangle) in the top-right corner of the gray box. The results will appear directly below the chunk in your document.\n\n\n\n\nIn this step, we will tell R to go to the internet, find our dataset, and bring it into RStudio so we can analyze it.\nFollow these steps: 1. Create a new R chunk in your RStudio document. 2. Copy the code below by clicking the copy icon in the top-right corner of the gray box. 3. Paste the code into your new chunk in RStudio. 4. Click the Green Play button (the triangle) to run the code.\n\n# Step 1: Load the tidyverse tools\nlibrary(tidyverse)\n\n# Step 2: Set the web address for the Low Birth Weight (LBW) data\nurl &lt;- \"https://vincentarelbundock.github.io/Rdatasets/csv/COUNT/lbw.csv\"\n\n# Step 3: Download the data and name it 'lbw_data'\nlbw_data &lt;- read_csv(url)\n\n# Step 4: Show the first few rows of the data\nhead(lbw_data)\n\n# A tibble: 6 × 11\n  rownames   low smoke  race   age   lwt   ptl    ht    ui   ftv   bwt\n     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1        1     0     0     2    19   182     0     0     1     0  2523\n2        2     0     0     3    33   155     0     0     0     3  2551\n3        3     0     1     1    20   105     0     0     0     1  2557\n4        4     0     1     1    21   108     0     0     1     2  2594\n5        5     0     1     1    18   107     0     0     1     0  2600\n6        6     0     0     3    21   124     0     0     0     0  2622\n\n\n\n\n\n\n\n\nTip✅ Success Check\n\n\n\nIf the code worked, you should see a table appear directly below your code chunk starting with column names like rownames, low, age, and lwt.",
+    "text": "The easiest way to get started is to pull data directly from the internet. We will use the read_csv() function from the tidyverse.\n\n\n\n\n\n\nNote💡 Tip: Working with Code Chunks\n\n\n\nTo Insert a New Chunk: Click the green “+C” icon (Insert) in the toolbar at the top of your editor script, then select R. This creates a new gray box for your code.\nTo Run the Code: Click the green “Play” button (the small triangle) in the top-right corner of the gray box. The results will appear directly below the chunk in your document.\n\n\n\n\n\n\n\n\nImportantTask 1: Reading the Dataset from a URL\n\n\n\nIn this step, we will tell R to go to the internet, find our dataset, and bring it into RStudio so we can analyze it.\nFollow these steps:\n\nCreate a new R chunk in your RStudio document.\nCopy the code below by clicking the copy icon in the top-right corner of the gray box.\nPaste the code into your new chunk in RStudio.\nClick the Green Play button (the triangle) to run the code.\n\n\n# Step 1: Load the tidyverse tools\nlibrary(tidyverse)\n\n# Step 2: Set the web address for the Low Birth Weight (LBW) data\nurl &lt;- \"https://vincentarelbundock.github.io/Rdatasets/csv/COUNT/lbw.csv\"\n\n# Step 3: Download the data and name it 'lbw_data'\nlbw_data &lt;- read_csv(url)\n\n# Step 4: Show the first few rows of the data\nhead(lbw_data)\n\n# A tibble: 6 × 11\n  rownames   low smoke  race   age   lwt   ptl    ht    ui   ftv   bwt\n     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1        1     0     0     2    19   182     0     0     1     0  2523\n2        2     0     0     3    33   155     0     0     0     3  2551\n3        3     0     1     1    20   105     0     0     0     1  2557\n4        4     0     1     1    21   108     0     0     1     2  2594\n5        5     0     1     1    18   107     0     0     1     0  2600\n6        6     0     0     3    21   124     0     0     0     0  2622\n\n\n\n\n\n\n\n\n\n\nTip✅ Success Check\n\n\n\nIf the code worked, you should see a table appear directly below your code chunk starting with column names like rownames, low, age, and lwt.",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 5: Getting data into R"
+      "Lab 5: Getting data into R",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -158,7 +163,8 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 5: Getting data into R"
+      "Lab 5: Getting data into R",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -170,7 +176,8 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 5: Getting data into R"
+      "Lab 5: Getting data into R",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -178,11 +185,12 @@
     "href": "labs/lab06.html",
     "title": "Lab 6: Data Collection and Sources",
     "section": "",
-    "text": "Distinguish between Primary and Secondary data.\nExplore “Open Data” portals (Local, State, and Federal).\nUnderstand the concept of Tidy Data.\nPractice ethical data attribution.\n\n\n\n\n\nData doesn’t just appear out of nowhere; it is collected via sensors, surveys, web scraping, or manual entry. As a data scientist at DCC, you should know how to find reliable sources of information to answer real-world questions.\n\n\n\n\nGovernment agencies often provide “Open Data” portals where anyone can download datasets for free. These are excellent sources for your final projects.\n\n\n\nDutchess County Open Data: Local data on parcels, transit, and public safety.\nNY State Open Data: Information on education, health, and the environment across New York.\nU.S. Census Bureau: The gold standard for demographic data in the United States.\n\n\n\n\n\n\nOnce you collect data, it needs to be in a specific format for R to read it easily. This is called Tidy Data. There are three rules:\n\nEach variable must have its own column.\nEach observation (case) must have its own row.\nEach value must have its own cell.\n\n\n\n\n\nWhenever you collect data that you didn’t create yourself, you must provide a Data Citation. This gives credit to the original collectors and allows others to verify your work.\nA good citation includes:\n\nThe name of the organization.\nThe year the data was accessed.\nThe URL/Link to the dataset.\n\n\n\nLab Task 6: The Scavenger Hunt\n\nVisit the NY State Open Data Portal.\nSearch for a dataset that interests you (e.g., “Student Enrollment” or “Water Quality”).\nDownload the CSV version of that data.\nMove the file into your RStudio Project folder.\nIn a new Quarto document, write a short paragraph describing:\n\nWhere the data came from.\nWho collected it.\nWhat one row in the dataset represents (the observation).\n\nUse read_csv() to load the data and show the first 10 rows using head().\n\n\n\n\n\n\nData you find “in the wild” is rarely perfect. In the next lab, we will learn how to “clean” the data you just found—removing empty rows and fixing typos!\n\n\n\n\n\n\n\nTipDone with the Lab?\n\n\n\nIf you have finished all the tasks above, you can verify your work against the official solutions.\n\n🔓 Access Lab Solutions",
+    "text": "Distinguish between Primary and Secondary data.\nExplore “Open Data” portals (Local, State, and Federal).\nUnderstand the concept of Tidy Data.\nPractice ethical data attribution.\n\n\n\n\n\nData doesn’t just appear out of nowhere; it is collected via sensors, surveys, web scraping, or manual entry. As a data scientist at DCC, you should know how to find reliable sources of information to answer real-world questions.\n\n\n\n\nGovernment agencies often provide “Open Data” portals where anyone can download datasets for free. These are excellent sources for your final projects.\n\n\n\nDutchess County Open Data: Local data on parcels, transit, and public safety.\nNY State Open Data: Information on education, health, and the environment across New York.\nU.S. Census Bureau: The gold standard for demographic data in the United States.\n\n\n\n\n\n\nOnce you collect data, it needs to be in a specific format for R to read it easily. This is called Tidy Data. There are three rules:\n\nEach variable must have its own column.\nEach observation (case) must have its own row.\nEach value must have its own cell.\n\n\n\n\n\nWhenever you collect data that you didn’t create yourself, you must provide a Data Citation. This gives credit to the original collectors and allows others to verify your work.\nA good citation includes:\n\nThe name of the organization.\nThe year the data was accessed.\nThe URL/Link to the dataset.\n\n\n\n\n\n\n\n\nImportant📝 Lab Tasks 1-4: Data Acquisition & Organization\n\n\n\n\nVisit the NY State Open Data Portal.\nSearch for a CSV dataset that interests you (e.g., “race_ny.csv”).\nMove the file into your RStudio Project folder.\n\n\n\n\n\n\n\n\n\nImportant📝 Lab Task 5: Data Narrative (The Paragraph)\n\n\n\nIn a new Quarto document, write a short paragraph describing:\n\nWhere the data came from.\nWho collected it.\nWhat one row in the dataset represents (the observation).\n\n\n\n\n\n\n\n\n\nImportant📝 Lab Task 6: Importing and Displaying Data\n\n\n\n\nImport the data:\n\n\nCreate a chunk and load the necessary library library(tidyverse).\nInsert this code to read the data.\n\nny_data &lt;- read_csv(\"../data/race_ny.csv\")\n\nShow the first 10 rows. Insert this code head(ny_data, n = 10)\n\n\n\n\n\n\n\nData you find “in the wild” is rarely perfect. In the next lab, we will learn how to “clean” the data you just found—removing empty rows and fixing typos!\n\n\n\n\n\n\n\nTipDone with the Lab?\n\n\n\nIf you have finished all the tasks above, you can verify your work against the official solutions.\n\n🔓 Access Lab Solutions",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 6: Data collection"
+      "Lab 6: Data collection",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -194,7 +202,8 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 6: Data collection"
+      "Lab 6: Data collection",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -206,7 +215,8 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 6: Data collection"
+      "Lab 6: Data collection",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -218,7 +228,8 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 6: Data collection"
+      "Lab 6: Data collection",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -230,7 +241,8 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 6: Data collection"
+      "Lab 6: Data collection",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -238,11 +250,12 @@
     "href": "labs/lab06.html#part-3-data-ethics-attribution",
     "title": "Lab 6: Data Collection and Sources",
     "section": "",
-    "text": "Whenever you collect data that you didn’t create yourself, you must provide a Data Citation. This gives credit to the original collectors and allows others to verify your work.\nA good citation includes:\n\nThe name of the organization.\nThe year the data was accessed.\nThe URL/Link to the dataset.\n\n\n\nLab Task 6: The Scavenger Hunt\n\nVisit the NY State Open Data Portal.\nSearch for a dataset that interests you (e.g., “Student Enrollment” or “Water Quality”).\nDownload the CSV version of that data.\nMove the file into your RStudio Project folder.\nIn a new Quarto document, write a short paragraph describing:\n\nWhere the data came from.\nWho collected it.\nWhat one row in the dataset represents (the observation).\n\nUse read_csv() to load the data and show the first 10 rows using head().",
+    "text": "Whenever you collect data that you didn’t create yourself, you must provide a Data Citation. This gives credit to the original collectors and allows others to verify your work.\nA good citation includes:\n\nThe name of the organization.\nThe year the data was accessed.\nThe URL/Link to the dataset.\n\n\n\n\n\n\n\n\nImportant📝 Lab Tasks 1-4: Data Acquisition & Organization\n\n\n\n\nVisit the NY State Open Data Portal.\nSearch for a CSV dataset that interests you (e.g., “race_ny.csv”).\nMove the file into your RStudio Project folder.\n\n\n\n\n\n\n\n\n\nImportant📝 Lab Task 5: Data Narrative (The Paragraph)\n\n\n\nIn a new Quarto document, write a short paragraph describing:\n\nWhere the data came from.\nWho collected it.\nWhat one row in the dataset represents (the observation).\n\n\n\n\n\n\n\n\n\nImportant📝 Lab Task 6: Importing and Displaying Data\n\n\n\n\nImport the data:\n\n\nCreate a chunk and load the necessary library library(tidyverse).\nInsert this code to read the data.\n\nny_data &lt;- read_csv(\"../data/race_ny.csv\")\n\nShow the first 10 rows. Insert this code head(ny_data, n = 10)",
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 6: Data collection"
+      "Lab 6: Data collection",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -254,7 +267,8 @@
     "crumbs": [
       "Home",
       "Course Labs",
-      "Lab 6: Data collection"
+      "Lab 6: Data collection",
+      "📘 Lab Instructions"
     ]
   },
   {
@@ -1778,7 +1792,7 @@
     "href": "solutions/lab06-ans-w5q1.html#data-collection---official-solutions",
     "title": "Solution - Lab 6: Data collection",
     "section": "Data collection - Official Solutions",
-    "text": "Data collection - Official Solutions\n\n\n\n\n\n\nNoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box.\n\n\n\nTasks 1-4: Data Acquisition & Organization\nThe student’s project folder must be organized correctly for the code to run.\nRequirements: 1. Source: NY State Open Data Portal. 2. File Format: CSV. 3. Location: The file race_ny.csv must be moved from “Downloads” into the data/ folder inside the RStudio Project.\n\n\n\nTask 5: Data Narrative (The Paragraph)\nThis is an example of what the student should have written in their Quarto document:\n\n“This dataset, race_ny.csv, was obtained from the NY State Open Data Portal. The data was collected by New York State government agencies to track demographic participation. One row in this dataset represents a single recorded observation of an individual or event entry categorized by race and ethnicity for a specific year and location.”\n\n\n\n\nTask 6: Importing and Displaying Data\nThe student must use read_csv() (from the tidyverse package) and head(..., n = 10).\n\n\n\n\n\n\nImportantPath Reminder\n\n\n\nSince this solution is inside the solutions/ folder, we use ../data/ to access the data folder. In the student’s main lab file, they would likely just use data/race_ny.csv.\n\n\n\n# 1. Load the necessary library\nlibrary(tidyverse)\n\n# 2. Load the data using the professional folder path\n# Replace 'race_ny.csv' with the actual name of your downloaded file\nny_data &lt;- read_csv(\"../data/race_ny.csv\")\n\n# 3. Show the first 10 rows\nhead(ny_data, n = 10)\n\n# A tibble: 10 × 12\n   Term    `Institution Sector` `Total Enrollment`  White Black or African Ame…¹\n   &lt;chr&gt;   &lt;chr&gt;                             &lt;dbl&gt;  &lt;dbl&gt;                  &lt;dbl&gt;\n 1 Fall 2… Community Colleges               192959 109000                  22626\n 2 Fall 2… Comprehensive Colle…              83674  51819                  10215\n 3 Fall 2… Doctoral Degree Gra…             112265  51837                   9048\n 4 Fall 2… Technology Colleges               26674  16050                   3336\n 5 Fall 2… Community Colleges               199873 115352                  24025\n 6 Fall 2… Comprehensive Colle…              85613  53566                  10527\n 7 Fall 2… Doctoral Degree Gra…             111299  51711                   8952\n 8 Fall 2… Technology Colleges               27266  16700                   3381\n 9 Fall 2… Community Colleges               209418 120742                  25454\n10 Fall 2… Comprehensive Colle…              86301  54882                  10417\n# ℹ abbreviated name: ¹​`Black or African American`\n# ℹ 7 more variables: `Hispanic/Latino` &lt;dbl&gt;,\n#   `American Indian or Alaska Native` &lt;dbl&gt;,\n#   `Native Hawaiian or Other Pacific Islander` &lt;dbl&gt;,\n#   `Two or More Races` &lt;dbl&gt;, Asian &lt;dbl&gt;, `Non-resident Alien` &lt;dbl&gt;,\n#   Unknown &lt;dbl&gt;",
+    "text": "Data collection - Official Solutions\n\n\n\n\n\n\nNoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box.\n\n\n\nTasks 1-4: Data Acquisition & Organization\nThe student’s project folder must be organized correctly for the code to run.\nRequirements:\n\nSource: NY State Open Data Portal.\nFile Format: CSV.\nLocation: The file race_ny.csv must be moved from “Downloads” into the data/ folder inside the RStudio Project.\n\n\n\n\nTask 5: Data Narrative (The Paragraph)\nThis is an example of what the student should have written in their Quarto document:\n\n“This dataset, race_ny.csv, was obtained from the NY State Open Data Portal. The data was collected by New York State government agencies to track demographic participation. One row in this dataset represents a single recorded observation of an individual or event entry categorized by race and ethnicity for a specific year and location.”\n\n\n\n\nTask 6: Importing and Displaying Data\nThe student must use read_csv() (from the tidyverse package) and head(..., n = 10).\n\n\n\n\n\n\nImportantPath Reminder\n\n\n\nSince this solution is inside the solutions/ folder, we use ../data/ to access the data folder. In the student’s main lab file, they would likely just use data/race_ny.csv.\n\n\n\n# 1. Load the necessary library\nlibrary(tidyverse)\n\n# 2. Load the data using the professional folder path\n# Replace 'race_ny.csv' with the actual name of your downloaded file\nny_data &lt;- read_csv(\"../data/race_ny.csv\")\n\n# 3. Show the first 10 rows\nhead(ny_data, n = 10)\n\n# A tibble: 10 × 12\n   Term    `Institution Sector` `Total Enrollment`  White Black or African Ame…¹\n   &lt;chr&gt;   &lt;chr&gt;                             &lt;dbl&gt;  &lt;dbl&gt;                  &lt;dbl&gt;\n 1 Fall 2… Community Colleges               192959 109000                  22626\n 2 Fall 2… Comprehensive Colle…              83674  51819                  10215\n 3 Fall 2… Doctoral Degree Gra…             112265  51837                   9048\n 4 Fall 2… Technology Colleges               26674  16050                   3336\n 5 Fall 2… Community Colleges               199873 115352                  24025\n 6 Fall 2… Comprehensive Colle…              85613  53566                  10527\n 7 Fall 2… Doctoral Degree Gra…             111299  51711                   8952\n 8 Fall 2… Technology Colleges               27266  16700                   3381\n 9 Fall 2… Community Colleges               209418 120742                  25454\n10 Fall 2… Comprehensive Colle…              86301  54882                  10417\n# ℹ abbreviated name: ¹​`Black or African American`\n# ℹ 7 more variables: `Hispanic/Latino` &lt;dbl&gt;,\n#   `American Indian or Alaska Native` &lt;dbl&gt;,\n#   `Native Hawaiian or Other Pacific Islander` &lt;dbl&gt;,\n#   `Two or More Races` &lt;dbl&gt;, Asian &lt;dbl&gt;, `Non-resident Alien` &lt;dbl&gt;,\n#   Unknown &lt;dbl&gt;",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -2053,7 +2067,7 @@
     "href": "solutions/lab05-ans-t8j3.html#getting-data-into-r---official-solutions",
     "title": "Solution - Lab 5: Getting data into R",
     "section": "Getting data into R - Official Solutions",
-    "text": "Getting data into R - Official Solutions\n\n\n\n\n\n\nNoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box.\n\n\n\nTask 1: Downloading the Dataset\nStudents were required to download the lbw.csv dataset. Success in this task is confirmed by the file appearing in the project directory.\n\n\nTask 2: Importing the Data\nTo import the data correctly using the Tidyverse, the library(tidyverse) must be called first. We use read_csv() to create a tibble.\n\nlibrary(tidyverse)\n\n# Task 2: Import the data\n# Assumes 'lbw.csv' is in the same folder as this .qmd file\nlbw_data &lt;- read_csv(\"../data/lbw.csv\")",
+    "text": "Getting data into R - Official Solutions\n\n\n\n\n\n\nNoteInstructor Note\n\n\n\nAdd your specific DCC lab answers below this box.\n\n\n\nTask 1: Reading the Dataset from a URL\nStudents were required to download the lbw.csv dataset. Success in this task is confirmed by the file appearing in the project directory.\n\n\nTask 2: Downloading the Data from a URL\n\n\nTask 3: Importing the Dataset into RStudio\nTo import the data correctly using the Tidyverse, the library(tidyverse) must be called first. We use read_csv() to create a tibble.\n\nlibrary(tidyverse)\n\n# Task 2: Import the data\n# Assumes 'lbw.csv' is in the same folder as this .qmd file\nlbw_data &lt;- read_csv(\"../data/lbw.csv\")\n\n\n\nTask 4: Show the structure\n\nglimpse(lbw_data)\n\nRows: 189\nColumns: 11\n$ rownames &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18…\n$ low      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…\n$ smoke    &lt;dbl&gt; 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0…\n$ race     &lt;dbl&gt; 2, 3, 1, 1, 1, 3, 1, 3, 1, 1, 3, 3, 3, 3, 1, 1, 2, 1, 3, 1, 3…\n$ age      &lt;dbl&gt; 19, 33, 20, 21, 18, 21, 22, 17, 29, 26, 19, 19, 22, 30, 18, 1…\n$ lwt      &lt;dbl&gt; 182, 155, 105, 108, 107, 124, 118, 103, 123, 113, 95, 150, 95…\n$ ptl      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0…\n$ ht       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0…\n$ ui       &lt;dbl&gt; 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0…\n$ ftv      &lt;dbl&gt; 0, 3, 1, 2, 0, 0, 1, 1, 1, 0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 2…\n$ bwt      &lt;dbl&gt; 2523, 2551, 2557, 2594, 2600, 2622, 2637, 2637, 2663, 2665, 2…\n\n\n\n\nTask 5: Display the first 6 rows of the table\n\nhead(lbw_data)\n\n# A tibble: 6 × 11\n  rownames   low smoke  race   age   lwt   ptl    ht    ui   ftv   bwt\n     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1        1     0     0     2    19   182     0     0     1     0  2523\n2        2     0     0     3    33   155     0     0     0     3  2551\n3        3     0     1     1    20   105     0     0     0     1  2557\n4        4     0     1     1    21   108     0     0     1     2  2594\n5        5     0     1     1    18   107     0     0     1     0  2600\n6        6     0     0     3    21   124     0     0     0     0  2622",
     "crumbs": [
       "Home",
       "Course Labs",
@@ -2492,6 +2506,58 @@
       "Home",
       "Course Labs",
       "Lab 1: R and RStudio Installation",
+      "📘 Lab Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/lab05.html#task-2-loading-a-local-csv",
+    "href": "labs/lab05.html#task-2-loading-a-local-csv",
+    "title": "Lab 5: Getting Data into R",
+    "section": "",
+    "text": "Often, you will download a dataset from a site like Kaggle or a government portal.This link to free data\n\nFind a CSV file (or download a sample one).\nMove that file into your MAT186_Labs folder.\nUse the following code (replace filename.csv with your actual file name):\n\nmy_data &lt;- read_csv(\"filename.csv\")",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 5: Getting data into R",
+      "📘 Lab Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/lab05.html#part-3-loading-data-from-a-local-csv-file",
+    "href": "labs/lab05.html#part-3-loading-data-from-a-local-csv-file",
+    "title": "Lab 5: Getting Data into R",
+    "section": "",
+    "text": "ImportantTask 2: Downloading the Dataset\n\n\n\n\nGo to https://vincentarelbundock.github.io/Rdatasets/articles/data.html\nDownload the lbw.csv data set.\n\n\n\n\n\n\n\nTip📥 How to Download the Data\n\n\n\nFollow these steps to save the dataset to your computer:\n\nSearch for the Data: In the search box at the top of the website, type “lbw”.\nDownload the File: Find the link labeled CSV.\n\nRight-click (or Ctrl+click on a Mac) the CSV link.\nSelect “Save Link As…” or “Download Linked File As…”.\n\nSave it in the Right Place: Save the file directly into your your data folder inside Mat186 folder on your computer.\n\n\n\n\nImport it into a new Quarto document using read_csv.\n\nUse the following code\nmy_data &lt;- read_csv(\"data/lbw.csv\")",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 5: Getting data into R",
+      "📘 Lab Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/lab05.html#dealing-with-common-errors",
+    "href": "labs/lab05.html#dealing-with-common-errors",
+    "title": "Lab 5: Getting Data into R",
+    "section": "",
+    "text": "“File not found”: This usually means the file is not in your Project folder, or you misspelled the name (remember: Data.csv is different from data.csv).\nColumn Parsing: Sometimes R guesses the data type wrong (e.g., thinking a zip code is a number instead of a label). We will learn to fix this in future labs!\n\n\n\n\n\n\n\n\nImportantTask 4: Show the structure\n\n\n\nUse the glimpse() command to show the structure of your data\nglimpse(my_data)\n\n\n\n\n\n\n\n\nImportantTask 5: Display the first 6 rows of the table\n\n\n\nRender the document and confirm that your data table appears in the HTML.\n\nhead(lbw_data)\n\n# A tibble: 6 × 11\n  rownames   low smoke  race   age   lwt   ptl    ht    ui   ftv   bwt\n     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1        1     0     0     2    19   182     0     0     1     0  2523\n2        2     0     0     3    33   155     0     0     0     3  2551\n3        3     0     1     1    20   105     0     0     0     1  2557\n4        4     0     1     1    21   108     0     0     1     2  2594\n5        5     0     1     1    18   107     0     0     1     0  2600\n6        6     0     0     3    21   124     0     0     0     0  2622",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 5: Getting data into R",
+      "📘 Lab Instructions"
+    ]
+  },
+  {
+    "objectID": "labs/lab05.html#part-3-downloading-the-data-from-a-url",
+    "href": "labs/lab05.html#part-3-downloading-the-data-from-a-url",
+    "title": "Lab 5: Getting Data into R",
+    "section": "",
+    "text": "ImportantTask 2: Downloading the Data from a URL\n\n\n\n\nGo to https://vincentarelbundock.github.io/Rdatasets/articles/data.html\nDownload the lbw.csv data set.\n\n\n\n\n\n\n\nTip📥 How to Download the Data\n\n\n\nFollow these steps to save the dataset to your computer:\n\nSearch for the Data: In the search box at the top of the website, type “lbw”.\nDownload the File: Find the link labeled CSV.\n\nRight-click (or Ctrl+click on a Mac) the CSV link.\nSelect “Save Link As…” or “Download Linked File As…”.\n\nSave it in the Right Place: Save the file directly into your your data folder inside Mat186 folder on your computer.\n\n\n\n\n\n\n\n\n\n\n\nImportantTask 3: Importing the Dataset into RStudio\n\n\n\n\nImport the lbw data set into a new Quarto document using read_csv.\n\nUse the following code\nmy_data &lt;- read_csv(\"data/lbw.csv\")",
+    "crumbs": [
+      "Home",
+      "Course Labs",
+      "Lab 5: Getting data into R",
       "📘 Lab Instructions"
     ]
   }

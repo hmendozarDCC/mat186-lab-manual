@@ -51,23 +51,47 @@ Whenever you collect data that you didn't create yourself, you must provide a **
 
 ---
 
-<div class="dcc-important">
-**Lab Task 6: The Scavenger Hunt**
+::: {.callout-important}
+## 📝 Lab Tasks 1-4: Data Acquisition & Organization
 
 1. Visit the [NY State Open Data Portal](https://data.ny.gov/).
 
-2. Search for a dataset that interests you (e.g., "Student Enrollment" or "Water Quality").
+2. Search for a **CSV**  dataset that interests you (e.g., "race_ny.csv").
 
-3. Download the **CSV** version of that data.
+3. Move the file into your RStudio Project folder.
 
-4. Move the file into your RStudio Project folder.
 
-5. In a new Quarto document, write a short paragraph describing:
+
+:::
+
+
+::: {.callout-important}
+## 📝 Lab Task 5: Data Narrative (The Paragraph)
+In a new Quarto document, write a short paragraph describing:
+
    * **Where** the data came from.
    * **Who** collected it.
    * **What** one row in the dataset represents (the observation).
-6. Use `read_csv()` to load the data and show the first 10 rows using `head()`.
-</div>
+   
+:::
+
+
+::: {.callout-important}
+## 📝 Lab Task 6: Importing and Displaying Data
+
+
+1. Import the data:
+
+* Create a chunk and load the necessary library `library(tidyverse)`. 
+
+* Insert this code to read the data.
+
+`ny_data <- read_csv("../data/race_ny.csv")`
+
+* Show the first 10 rows. Insert this code
+`head(ny_data, n = 10)`
+
+::: 
 
 ---
 

@@ -27,6 +27,7 @@ Add your specific DCC lab answers below this box.
 The student's project folder must be organized correctly for the code to run. 
 
 **Requirements:**
+
 1. **Source:** [NY State Open Data Portal](https://data.ny.gov/).
 2. **File Format:** CSV.
 3. **Location:** The file `race_ny.csv` must be moved from "Downloads" into the `data/` folder inside the RStudio Project.
