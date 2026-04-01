@@ -628,9 +628,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#part-1-the-working-directory" id="toc-part-1-the-working-directory" class="nav-link" data-scroll-target="#part-1-the-working-directory">Part 1: The Working Directory</a></li>
   <li><a href="#part-2-loading-data-from-a-url" id="toc-part-2-loading-data-from-a-url" class="nav-link" data-scroll-target="#part-2-loading-data-from-a-url">Part 2: Loading Data from a URL</a></li>
-  <li><a href="#part-3-loading-a-local-csv" id="toc-part-3-loading-a-local-csv" class="nav-link" data-scroll-target="#part-3-loading-a-local-csv">Part 3: Loading a Local CSV</a></li>
-  <li><a href="#part-4-dealing-with-common-errors" id="toc-part-4-dealing-with-common-errors" class="nav-link" data-scroll-target="#part-4-dealing-with-common-errors">Part 4: Dealing with Common Errors</a></li>
+  <li><a href="#part-3-downloading-the-data-from-a-url" id="toc-part-3-downloading-the-data-from-a-url" class="nav-link" data-scroll-target="#part-3-downloading-the-data-from-a-url">Part 3: Downloading the Data from a URL</a></li>
+  <li><a href="#dealing-with-common-errors" id="toc-dealing-with-common-errors" class="nav-link" data-scroll-target="#dealing-with-common-errors">Dealing with Common Errors</a></li>
   </ul></li>
+  <li><a href="#lab-5-final-submission-instructions" id="toc-lab-5-final-submission-instructions" class="nav-link" data-scroll-target="#lab-5-final-submission-instructions">Lab 5 Final Submission Instructions</a></li>
   </ul>
 </nav>
     </div>
@@ -716,10 +717,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>To Run the Code:</strong> Click the <strong>green “Play” button</strong> (the small triangle) in the top-right corner of the gray box. The results will appear directly below the chunk in your document.</p>
 </div>
 </div>
-<section id="task-loading-our-research-data" class="level3">
-<h3 class="anchored" data-anchor-id="task-loading-our-research-data">Task: Loading our Research Data</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Task 1: Reading the Dataset from a URL
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>In this step, we will tell R to go to the internet, find our dataset, and bring it into RStudio so we can analyze it.</p>
-<p><strong>Follow these steps:</strong> 1. <strong>Create a new R chunk</strong> in your RStudio document. 2. <strong>Copy the code below</strong> by clicking the copy icon in the top-right corner of the gray box. 3. <strong>Paste the code</strong> into your new chunk in RStudio. 4. <strong>Click the Green Play button</strong> (the triangle) to run the code.</p>
+<p><strong>Follow these steps:</strong></p>
+<ol type="1">
+<li><strong>Create a new R chunk</strong> in your RStudio document.</li>
+<li><strong>Copy the code below</strong> by clicking the copy icon in the top-right corner of the gray box.</li>
+<li><strong>Paste the code</strong> into your new chunk in RStudio.</li>
+<li><strong>Click the Green Play button</strong> (the triangle) to run the code.</li>
+</ol>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Load the tidyverse tools</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -744,6 +759,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 6        6     0     0     3    21   124     0     0     0     0  2622</code></pre>
 </div>
 </div>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -759,29 +776,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <hr>
 </section>
-</section>
-<section id="part-3-loading-a-local-csv" class="level2">
-<h2 class="anchored" data-anchor-id="part-3-loading-a-local-csv">Part 3: Loading a Local CSV</h2>
-<p>Often, you will download a dataset from a site like Kaggle or a government portal.<a href="https://vincentarelbundock.github.io/Rdatasets/articles/data.html">This link to free data</a></p>
+<section id="part-3-downloading-the-data-from-a-url" class="level2">
+<h2 class="anchored" data-anchor-id="part-3-downloading-the-data-from-a-url">Part 3: Downloading the Data from a URL</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Task 2: Downloading the Data from a URL
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol type="1">
-<li>Find a CSV file (or download a sample one).</li>
-<li>Move that file into your <strong>MAT186_Labs</strong> folder.</li>
-<li>Use the following code (replace <code>filename.csv</code> with your actual file name):</li>
-</ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"filename.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<hr>
-</section>
-<section id="part-4-dealing-with-common-errors" class="level2">
-<h2 class="anchored" data-anchor-id="part-4-dealing-with-common-errors">Part 4: Dealing with Common Errors</h2>
-<ul>
-<li><strong>“File not found”:</strong> This usually means the file is not in your Project folder, or you misspelled the name (remember: <code>Data.csv</code> is different from <code>data.csv</code>).</li>
-<li><strong>Column Parsing:</strong> Sometimes R guesses the data type wrong (e.g., thinking a zip code is a number instead of a label). We will learn to fix this in future labs!</li>
-</ul>
-<hr>
-<div class="dcc-important">
-<p><strong>Lab Task 5:</strong></p>
-<ol type="1">
-<li>Find any public CSV dataset. For example, <a href="https://vincentarelbundock.github.io/Rdatasets/articles/data.html">this link to free data</a>. Use the <em>lbw</em> data set.</li>
+<li><p>Go to https://vincentarelbundock.github.io/Rdatasets/articles/data.html</p></li>
+<li><p>Download the lbw.csv data set.</p></li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -801,20 +810,128 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Right-click</strong> (or Ctrl+click on a Mac) the CSV link.</li>
 <li>Select <strong>“Save Link As…”</strong> or <strong>“Download Linked File As…”</strong>.</li>
 </ul></li>
-<li><strong>Save it in the Right Place</strong>: Save the file directly into your <strong>Mat186</strong> folder on your computer.</li>
+<li><strong>Save it in the Right Place</strong>: Save the file directly into your your <code>data</code> folder inside <strong>Mat186</strong> folder on your computer.</li>
 </ol>
 </div>
 </div>
-<ol start="2" type="1">
-<li><p>Import it into a new Quarto document using <code>read_csv</code>.</p></li>
-<li><p>Use the <code>glimpse()</code> command to show the structure of your data:</p></li>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Task 3: Importing the Dataset into RStudio
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Import the lbw data set into a new Quarto document using <code>read_csv</code>.</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(my_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ol start="4" type="1">
-<li>Render the document and confirm that your data table appears in the HTML.</li>
-</ol>
+<p>Use the following code</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/lbw.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </div>
 <hr>
+</section>
+<section id="dealing-with-common-errors" class="level2">
+<h2 class="anchored" data-anchor-id="dealing-with-common-errors">Dealing with Common Errors</h2>
+<ul>
+<li><strong>“File not found”:</strong> This usually means the file is not in your Project folder, or you misspelled the name (remember: <code>Data.csv</code> is different from <code>data.csv</code>).</li>
+<li><strong>Column Parsing:</strong> Sometimes R guesses the data type wrong (e.g., thinking a zip code is a number instead of a label). We will learn to fix this in future labs!</li>
+</ul>
+<hr>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Task 4: Show the structure
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use the <code>glimpse()</code> command to show the structure of your data</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(my_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Task 5: Display the first 6 rows of the table
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Render the document and confirm that your data table appears in the HTML.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lbw_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 11
+  rownames   low smoke  race   age   lwt   ptl    ht    ui   ftv   bwt
+     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1        1     0     0     2    19   182     0     0     1     0  2523
+2        2     0     0     3    33   155     0     0     0     3  2551
+3        3     0     1     1    20   105     0     0     0     1  2557
+4        4     0     1     1    21   108     0     0     1     2  2594
+5        5     0     1     1    18   107     0     0     1     0  2600
+6        6     0     0     3    21   124     0     0     0     0  2622</code></pre>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="lab-5-final-submission-instructions" class="level1">
+<h1>Lab 5 Final Submission Instructions</h1>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>📝 Final Checklist for Lab 5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Your folder must be organized exactly as follows:</p>
+</div>
+</div>
+<section id="step-1-organize-your-folder" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-organize-your-folder">Step 1: Organize Your Folder</h3>
+<p>By now, your <strong>Files pane</strong> in RStudio should show the following structure:</p>
+<ol type="1">
+<li>You are inside the <code>Lab_solutions</code> folder.</li>
+<li>You have a folder named <code>Lab05_YourName</code> (e.g., <code>Lab05_HenryMendoza</code>).</li>
+<li><strong>Inside</strong> that <code>Lab05_YourName</code> folder, you must have these two files:
+<ul>
+<li><code>Lab5_yourname.qmd</code> (Your Quarto file).</li>
+<li><code>Lab5_yourname.html</code> (The rendered report).</li>
+</ul></li>
+</ol>
+</section>
+<section id="step-2-create-the-zip-archive" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-create-the-zip-archive">Step 2: Create the ZIP Archive</h3>
+<p>Since Lab 5 contains both your source code and your rendered math, you must package them together:</p>
+<ol type="1">
+<li>Open your computer’s <strong>File Explorer</strong> (Windows) or <strong>Finder</strong> (Mac).</li>
+<li>Navigate to your <code>MAT186_Labs/Lab_solutions/</code> directory.</li>
+<li><strong>Right-click</strong> on your <code>Lab05_YourName</code> folder.</li>
+<li>Select <strong>Compress</strong> (Mac) or <strong>Send to &gt; Compressed (zipped) folder</strong> (Windows).</li>
+<li>You will now see a new file named <code>Lab05_YourName.zip</code>.</li>
+</ol>
+</section>
+<section id="step-3-submit-to-brightspace" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-submit-to-brightspace">Step 3: Submit to Brightspace</h3>
+<ol type="1">
+<li>Log into <strong>Brightspace</strong> and navigate to <strong>Assignments &gt; Lab 5 Submission</strong>.</li>
+<li>Upload your <strong>.zip</strong> file.</li>
+<li>Click <strong>Submit</strong>.</li>
+</ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

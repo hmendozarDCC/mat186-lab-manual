@@ -617,8 +617,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#getting-data-into-r---official-solutions" id="toc-getting-data-into-r---official-solutions" class="nav-link active" data-scroll-target="#getting-data-into-r---official-solutions">Getting data into R - Official Solutions</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -680,12 +686,15 @@ Please enter the classroom code to unlock Lab results.
 <p>Add your specific DCC lab answers below this box.</p>
 </div>
 </div>
-<section id="task-1-downloading-the-dataset" class="level3">
-<h3 class="anchored" data-anchor-id="task-1-downloading-the-dataset">Task 1: Downloading the Dataset</h3>
+<section id="task-1-reading-the-dataset-from-a-url" class="level3">
+<h3 class="anchored" data-anchor-id="task-1-reading-the-dataset-from-a-url">Task 1: Reading the Dataset from a URL</h3>
 <p>Students were required to download the <code>lbw.csv</code> dataset. Success in this task is confirmed by the file appearing in the project directory.</p>
 </section>
-<section id="task-2-importing-the-data" class="level3">
-<h3 class="anchored" data-anchor-id="task-2-importing-the-data">Task 2: Importing the Data</h3>
+<section id="task-2-downloading-the-data-from-a-url" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-downloading-the-data-from-a-url">Task 2: Downloading the Data from a URL</h3>
+</section>
+<section id="task-3-importing-the-dataset-into-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="task-3-importing-the-dataset-into-rstudio">Task 3: Importing the Dataset into RStudio</h3>
 <p>To import the data correctly using the Tidyverse, the <code>library(tidyverse)</code> must be called first. We use <code>read_csv()</code> to create a tibble.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -695,9 +704,8 @@ Please enter the classroom code to unlock Lab results.
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>lbw_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/lbw.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-</section>
-<section id="task-3-show-the-structure" class="level1">
-<h1>Task 3: Show the structure</h1>
+<section id="task-4-show-the-structure" class="level3">
+<h3 class="anchored" data-anchor-id="task-4-show-the-structure">Task 4: Show the structure</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(lbw_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -717,8 +725,8 @@ $ bwt      &lt;dbl&gt; 2523, 2551, 2557, 2594, 2600, 2622, 2637, 2637, 2663, 266
 </div>
 </div>
 </section>
-<section id="task-4-display-the-first-6-rows-of-the-table" class="level1">
-<h1>Task 4: Display the first 6 rows of the table</h1>
+<section id="task-5-display-the-first-6-rows-of-the-table" class="level3">
+<h3 class="anchored" data-anchor-id="task-5-display-the-first-6-rows-of-the-table">Task 5: Display the first 6 rows of the table</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lbw_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -734,6 +742,7 @@ $ bwt      &lt;dbl&gt; 2523, 2551, 2557, 2594, 2600, 2622, 2637, 2637, 2663, 266
 </div>
 </div>
 <p><br><br></p>
+</section>
 </section>
 </div>
 <script>

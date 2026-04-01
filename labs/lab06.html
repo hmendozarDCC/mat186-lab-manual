@@ -682,21 +682,63 @@ ul.task-list li input[type="checkbox"] {
 <li><p>The URL/Link to the dataset.</p></li>
 </ul>
 <hr>
-<div class="dcc-important">
-<p><strong>Lab Task 6: The Scavenger Hunt</strong></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>📝 Lab Tasks 1-4: Data Acquisition &amp; Organization
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol type="1">
 <li><p>Visit the <a href="https://data.ny.gov/">NY State Open Data Portal</a>.</p></li>
-<li><p>Search for a dataset that interests you (e.g., “Student Enrollment” or “Water Quality”).</p></li>
-<li><p>Download the <strong>CSV</strong> version of that data.</p></li>
+<li><p>Search for a <strong>CSV</strong> dataset that interests you (e.g., “race_ny.csv”).</p></li>
 <li><p>Move the file into your RStudio Project folder.</p></li>
-<li><p>In a new Quarto document, write a short paragraph describing:</p>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>📝 Lab Task 5: Data Narrative (The Paragraph)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In a new Quarto document, write a short paragraph describing:</p>
 <ul>
 <li><strong>Where</strong> the data came from.</li>
 <li><strong>Who</strong> collected it.</li>
 <li><strong>What</strong> one row in the dataset represents (the observation).</li>
-</ul></li>
-<li><p>Use <code>read_csv()</code> to load the data and show the first 10 rows using <code>head()</code>.</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>📝 Lab Task 6: Importing and Displaying Data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Import the data:</li>
 </ol>
+<ul>
+<li><p>Create a chunk and load the necessary library <code>library(tidyverse)</code>.</p></li>
+<li><p>Insert this code to read the data.</p></li>
+</ul>
+<p><code>ny_data &lt;- read_csv("../data/race_ny.csv")</code></p>
+<ul>
+<li>Show the first 10 rows. Insert this code <code>head(ny_data, n = 10)</code></li>
+</ul>
+</div>
 </div>
 <hr>
 </section>
