@@ -69,7 +69,7 @@ Before verifying your install, set up your workspace exactly like we will for th
 ### Step 1: Organize Your Folder
 Your `Lab01_YourName` folder should now contain:
 
-* `lab01_task1.png` (The screenshot of your console).
+* `lab01_task1.png` (The screenshot of your your entire RStudio).
 
 ### Step 2: Create the ZIP Archive
 Brightspace requires a single upload. Package your folder now:

@@ -9,9 +9,13 @@
 ---
 
 ## Introduction
-"Raw" data is rarely ready for analysis. It might have columns you don't need, rows that aren't relevant to your study, or names that are hard to type. In this lab, we use the `dplyr` package (part of the `tidyverse`) to "tidy up" our datasets.
+"Raw" data is rarely ready for analysis. It might have columns you don't need, rows that aren't relevant to your study, or names that are hard to type. In this lab, we move from simply looking at data to **transforming** it. Raw data from portals like NY Open Data often contains too many variables or messy formatting. we use the `dplyr` package (part of the `tidyverse`) to "tidy up" our datasets and to keep only what is relevant to our research question.
+
 
 ---
+
+
+
 
 ## Part 1: The Pipe Operator (`|>`)
 Think of the pipe operator as saying the words **"and then."** It takes the output of one function and passes it to the next.
@@ -108,16 +112,58 @@ knitr::kable(head(tidy_sw[, c("name", "height", "mass", "species")]))
 
 ---
 
-<div class="dcc-important">
-**Lab Task 7:**
+::: {.callout-important}
+### Task 1: Loading the Dataset
+We continue using the `tidyverse` package. We must be careful with our file paths; since this solution is in the `solutions/` folder, we use `../` to find our data.
 
-1. Open your Quarto document from Lab 6 (the one with your NY State Open Data).
-2. Create a new section called "Data Cleaning."
-3. Use `select()` to keep only the 4 most important columns in your dataset.
-4. Use `filter()` to narrow your data down to one specific category or a certain range of numbers.
-5. Use `rename()` to make at least one column name easier to read.
-6. **Render** your document and check that your new "Cleaned" table looks correct.
-</div>
+1. Create a quarto document
+2. Insert the code `library(tidyverse)` in a chunk
+3. Load the SUNY Enrollment data
+`cleaned_suny <- read_csv("../data/race_ny.csv")`
+::: 
+
+
+The goal of the following tasks is to create a "Clean" version of our table by selecting 4 key columns, filtering for a specific sector, and renaming columns for better readability.
+
+::: {.callout-important}
+### Task 2: select important columns
+
+Select the 4 most important columns by their position. This avoids "Column not found" errors caused by hidden spaces!
+
+kept Term , Institution Sector, Total Enrollment, and Hispanic/Latino.
+
+`cleaned_suny <- ny_data |>select(1, 2, 3, 6)`
+:::
+
+::: {.callout-important}
+# Task 3: Rename the columns for clarity: 
+ 
+We shortened the names to semester, sector, total, and hispanic_latino. In general: rename(new_name = old_position_or_name)
+  `cleaned_suny <- ny_data |>select(1, 2, 3, 6)|> rename(semester = 1,
+         sector = 2,
+         total_enrollment = 3,
+         hispanic_latino = 4)` 
+::: 
+
+::: {.callout-important}
+# Task 4: Filter for a specific category. We narrowed the results to only show **"Community Colleges"**.
+
+  `cleaned_suny <- ny_data |>select(1, 2, 3, 6)|> rename(semester = 1,
+         sector = 2,
+         total_enrollment = 3,
+         hispanic_latino = 4)|> filter(sector == "Community Colleges")`
+::: 
+
+::: {.callout-important}
+# Task 5: Show the first 10 rows
+`head(cleaned_suny, n = 10)`
+
+::: 
+
+::: {.callout-important}
+# Task 6: **Render** your document and check that your new "Cleaned" table looks correct.
+::: 
+
 
 ---
 
@@ -125,6 +171,38 @@ knitr::kable(head(tidy_sw[, c("name", "height", "mass", "species")]))
 Always run `glimpse(your_data)` after cleaning to make sure you haven't accidentally deleted something you meant to keep!
 
 ---
+
+
+# Lab 7 Final Submission Instructions
+
+::: {.callout-important}
+## 📝 Final Checklist for Lab 3
+Before submitting, your folder must be organized exactly as follows:
+:::
+
+### Step 1: Organize Your Folder
+By now, your **Files pane** in RStudio should show the following structure:
+1. You are inside the `Lab_solutions` folder.
+2. You have a folder named `Lab07_YourName` (e.g., `Lab07_HenryMendoza`).
+3. **Inside** that `Lab07_YourName` folder, you must have these two files:
+    - `Lab07_yourname.qmd` (Your Quarto file containing the LaTeX code).
+    - `Lab07_yourname.html` (The rendered report showing the math formulas).
+
+### Step 2: Create the ZIP Archive
+Since Lab 7 contains both your source code and your rendered math, you must package them together:
+1. Open your computer's **File Explorer** (Windows) or **Finder** (Mac).
+2. Navigate to your `MAT186_Labs/Lab_solutions/` directory.
+3. **Right-click** on your `Lab07_YourName` folder.
+4. Select **Compress** (Mac) or **Send to > Compressed (zipped) folder** (Windows).
+5. You will now see a new file named `Lab07_YourName.zip`.
+
+### Step 3: Submit to Brightspace
+1. Log into **Brightspace** and navigate to **Assignments > Lab 7 Submission**.
+2. Upload your **.zip** file.
+3. Click **Submit**.
+
+
+
 
 ::: {.callout-tip}
 ### Done with the Lab?
