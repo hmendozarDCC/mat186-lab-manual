@@ -24,41 +24,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -626,7 +591,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#step-1-install-r-the-engine" id="toc-step-1-install-r-the-engine" class="nav-link" data-scroll-target="#step-1-install-r-the-engine">Step 1: Install R (The Engine)</a></li>
   <li><a href="#step-2-install-rstudio-the-dashboard" id="toc-step-2-install-rstudio-the-dashboard" class="nav-link" data-scroll-target="#step-2-install-rstudio-the-dashboard">Step 2: Install RStudio (The Dashboard)</a></li>
-  <li><a href="#step-3-verify-your-setup" id="toc-step-3-verify-your-setup" class="nav-link" data-scroll-target="#step-3-verify-your-setup">Step 3: Verify Your Setup</a></li>
+  <li><a href="#step-3-professional-folder-setup" id="toc-step-3-professional-folder-setup" class="nav-link" data-scroll-target="#step-3-professional-folder-setup">Step 3: Professional Folder Setup</a></li>
+  <li><a href="#lab-1-final-submission-instructions" id="toc-lab-1-final-submission-instructions" class="nav-link" data-scroll-target="#lab-1-final-submission-instructions">Lab 1 Final Submission Instructions</a></li>
   </ul>
 </nav>
     </div>
@@ -653,7 +619,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">March 31, 2026</p>
+      <p class="date-modified">April 1, 2026</p>
     </div>
   </div>
     
@@ -666,10 +632,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
-<p>By the end of this lab, students will be able to:</p>
+<p>By the end of this lab, you will be able to:</p>
 <ul>
 <li>Successfully install the <strong>R</strong> programming language.</li>
-<li>Install the <strong>RStudio Desktop</strong> Integrated Development Environment (IDE).</li>
+<li>Install the <strong>RStudio Desktop</strong> IDE.</li>
+<li>Organize your professional course directory.</li>
 <li>Verify the installation by running a simple command.</li>
 </ul>
 <hr>
@@ -677,8 +644,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>To perform data science at DCC, we use two primary tools. Think of <strong>R</strong> as the “engine” of a car and <strong>RStudio</strong> as the “dashboard.” You need the engine to go, but you need the dashboard to steer and see where you are going.</p>
-<div class="dcc-note">
-<p>If you are using a DCC Chromebook or a computer where you cannot install software, please contact the instructor about using <strong>Posit Cloud</strong> (the web-based version of RStudio).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you are using a DCC Chromebook or a computer where you cannot install software, please contact the instructor about using <strong>Posit Cloud</strong>.</p>
+</div>
 </div>
 <hr>
 </section>
@@ -686,65 +663,85 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="step-1-install-r-the-engine">Step 1: Install R (The Engine)</h2>
 <p>You must install R <strong>before</strong> you install RStudio.</p>
 <ol type="1">
-<li>Go to the <a href="https://cran.rstudio.com/">CRAN (Comprehensive R Archive Network)</a> website.</li>
+<li>Go to the <a href="https://cran.rstudio.com/">CRAN website</a>.</li>
 <li>Select the download link for your operating system:
 <ul>
-<li><strong>Download R for Windows</strong> -&gt; Click “base” -&gt; Click “Download R 4.x.x for Windows.”</li>
-<li><strong>Download R for (macOS)</strong> -&gt; Download the <code>.pkg</code> file that matches your chip (Apple silicon M1/M2 or Intel).</li>
+<li><strong>Windows:</strong> Click “base” -&gt; “Download R 4.x.x for Windows.”</li>
+<li><strong>macOS:</strong> Download the <code>.pkg</code> file matching your chip (Apple silicon M1/M2 or Intel).</li>
 </ul></li>
-<li>Run the downloaded installer and keep all default settings by clicking “Next” or “Continue.”</li>
+<li>Run the installer and keep all <strong>default settings</strong>.</li>
 </ol>
-<hr>
 </section>
 <section id="step-2-install-rstudio-the-dashboard" class="level2">
 <h2 class="anchored" data-anchor-id="step-2-install-rstudio-the-dashboard">Step 2: Install RStudio (The Dashboard)</h2>
-<p>RStudio is the interface where you will write your code and view your data visualizations.</p>
 <ol type="1">
 <li>Visit the <a href="https://posit.co/download/rstudio-desktop/">Posit Download Page</a>.</li>
-<li>Scroll down to <strong>“2: Install RStudio”</strong> and click the button for your operating system.</li>
-<li>Run the installer. Like R, it is best to keep all default settings.</li>
+<li>Click the button under <strong>“2: Install RStudio”</strong> for your OS.</li>
+<li>Run the installer using all <strong>default settings</strong>.</li>
 </ol>
 <hr>
 </section>
-<section id="step-3-verify-your-setup" class="level2">
-<h2 class="anchored" data-anchor-id="step-3-verify-your-setup">Step 3: Verify Your Setup</h2>
-<p>Let’s make sure the “engine” and “dashboard” are talking to each other.</p>
+<section id="step-3-professional-folder-setup" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-professional-folder-setup">Step 3: Professional Folder Setup</h2>
+<p>Before verifying your install, set up your workspace exactly like we will for the rest of the semester:</p>
 <ol type="1">
-<li>Open <strong>RStudio</strong> from your applications folder or start menu.</li>
-<li>Find the <strong>Console</strong> pane (usually on the bottom left).</li>
-<li>Type the following code and press <strong>Enter</strong>:</li>
+<li>Open <strong>RStudio</strong>.</li>
+<li>Create a folder on your computer named <code>MAT186_Labs</code>.</li>
+<li>Inside that folder, create a sub-folder named <code>Lab_solutions</code>.</li>
+<li>Inside <code>Lab_solutions</code>, create a folder named <code>Lab01_YourName</code> (e.g., <code>Lab01_HenryMendoza</code>).</li>
 </ol>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Hello, MAT 186! I am yourname"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Hello, MAT 186! I am yourname"</code></pre>
-</div>
-</div>
+<hr>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>📝 Lab Task: Capturing Your Work
+<span class="screen-reader-only">Important</span>📝 Lab Task 1: Verification &amp; Screenshot
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Follow these steps to take a screenshot of your R console:</p>
 <ol type="1">
-<li><strong>Run the Code</strong>: In your <strong>Console</strong> (the bottom-left panel of RStudio), type the following exactly and press <strong>Enter</strong>: <code>print("Hello, MAT 186!")</code></li>
-<li><strong>Take a Screenshot</strong>: Capture an image of your screen showing that message.
+<li><strong>Run the Code</strong>: In the RStudio <strong>Console</strong> (bottom-left), type the following and press <strong>Enter</strong>: <code>print("Hello, MAT 186! This is [Your Name]")</code></li>
+<li><strong>Take a Screenshot</strong>: Capture your entire RStudio screen.
 <ul>
-<li><strong>Windows:</strong> Use <code>Windows Key + Shift + S</code>.</li>
-<li><strong>Mac:</strong> Use <code>Cmd + Shift + 4</code>.</li>
+<li><strong>Must show:</strong> Your typed “Hello” message in the console and your <code>Lab01_YourName</code> folder in the Files pane.</li>
 </ul></li>
-<li><strong>Save Your Work</strong>: Save the screenshot into your <strong>Mat186</strong> folder on your computer. Give it a clear name like <code>Lab2_Screenshot</code>.</li>
-<li><strong>Submit</strong>: Upload this image file to the <strong>Lab 2</strong> assignment folder in your course portal.</li>
+<li><strong>Save</strong>: Save this image as <code>lab01_task1.png</code> <strong>inside</strong> your <code>Lab01_YourName</code> folder.</li>
 </ol>
 </div>
 </div>
+<hr>
+</section>
+<section id="lab-1-final-submission-instructions" class="level2">
+<h2 class="anchored" data-anchor-id="lab-1-final-submission-instructions">Lab 1 Final Submission Instructions</h2>
+<section id="step-1-organize-your-folder" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-organize-your-folder">Step 1: Organize Your Folder</h3>
+<p>Your <code>Lab01_YourName</code> folder should now contain:</p>
+<ul>
+<li><code>lab01_task1.png</code> (The screenshot of your console).</li>
+</ul>
+</section>
+<section id="step-2-create-the-zip-archive" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-create-the-zip-archive">Step 2: Create the ZIP Archive</h3>
+<p>Brightspace requires a single upload. Package your folder now:</p>
+<ol type="1">
+<li>Open your computer’s <strong>File Explorer</strong> (Windows) or <strong>Finder</strong> (Mac).</li>
+<li>Navigate to your <code>MAT186_Labs/Lab_solutions/</code> directory.</li>
+<li><strong>Right-click</strong> on your <code>Lab01_YourName</code> folder.</li>
+<li>Select <strong>Compress</strong> (Mac) or <strong>Send to &gt; Compressed (zipped) folder</strong> (Windows).</li>
+<li>You will now see a file named <code>Lab01_YourName.zip</code>.</li>
+</ol>
+</section>
+<section id="step-3-submit-to-brightspace" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-submit-to-brightspace">Step 3: Submit to Brightspace</h3>
+<ol type="1">
+<li>Log into <strong>Brightspace</strong> and go to <strong>Assignments &gt; Lab 1 Submission</strong>.</li>
+<li>Upload your <strong>.zip</strong> file and click <strong>Submit</strong>.</li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

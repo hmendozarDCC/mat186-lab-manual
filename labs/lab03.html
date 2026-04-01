@@ -639,6 +639,7 @@ window.Quarto = {
   <li><a href="#part-3-writing-equations" id="toc-part-3-writing-equations" class="nav-link" data-scroll-target="#part-3-writing-equations">Part 3: Writing Equations</a></li>
   <li><a href="#troubleshooting-math-errors" id="toc-troubleshooting-math-errors" class="nav-link" data-scroll-target="#troubleshooting-math-errors">Troubleshooting Math Errors</a></li>
   </ul></li>
+  <li><a href="#lab-3-final-submission-instructions" id="toc-lab-3-final-submission-instructions" class="nav-link" data-scroll-target="#lab-3-final-submission-instructions">Lab 3 Final Submission Instructions</a></li>
   </ul>
 </nav>
     </div>
@@ -664,7 +665,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">March 31, 2026</p>
+      <p class="date-modified">April 1, 2026</p>
     </div>
   </div>
     
@@ -757,16 +758,25 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="part-3-writing-equations">Part 3: Writing Equations</h2>
 <p>For Linear Regression, we combine several symbols. Try typing this in your Quarto file:</p>
 <p><strong>Code:</strong> <code>$$y = \beta_0 + \beta_1 x + \epsilon$$</code></p>
-<p><strong>Result:</strong> <span class="math display">y = \beta_0 + \beta_1 x + \epsilon</span></p>
-<hr>
-<div class="dcc-important">
-<p><strong>Lab Task 3:</strong></p>
+<p><strong>Result:</strong> <span class="math display">y = \beta_0 + \beta_1 x + \epsilon</span> —</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>📝 Lab Task 1:
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol type="1">
-<li>Open your <code>MAT186_Labs</code> project in RStudio.</li>
-<li>Create a new Quarto document (<code>.qmd</code>) titled “Math Practice.”</li>
-<li>Write the formula for the <strong>Standard Deviation</strong> exactly as shown below: <code>$$s = \sqrt{\frac{\sum (x_i - \bar{x})^2}{n - 1}}$$</code></li>
-<li><strong>Render</strong> the document to HTML and confirm the formula appears correctly.</li>
+<li><p>Open your <code>MAT186_Labs</code> project in RStudio.</p></li>
+<li><p>Create a new Quarto document (<code>.qmd</code>) titled “Math Practice.”</p></li>
+<li><p><strong>Display Math:</strong> Write the formula for the <strong>Standard Deviation</strong> exactly as shown below: <code>$$s = \sqrt{\frac{\sum (x_i - \bar{x})^2}{n - 1}}$$</code></p></li>
+<li><p><strong>Inline Math:</strong> Write <code>The population mean is represented by $\mu$.</code></p></li>
+<li><p><strong>Render</strong> the document to HTML and confirm the formula appears correctly.</p></li>
 </ol>
+</div>
 </div>
 <hr>
 </section>
@@ -781,6 +791,68 @@ window.Quarto = {
 <li><strong>Missing Signs:</strong> If your formula looks like plain text, check if you forgot the closing <code>$</code>.</li>
 </ul>
 <hr>
+</section>
+</section>
+<section id="lab-3-final-submission-instructions" class="level1">
+<h1>Lab 3 Final Submission Instructions</h1>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>📝 Final Checklist for Lab 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before submitting, ensure your LaTeX formulas (the Standard Deviation and Population Mean) are rendering correctly in your HTML report. Your folder must be organized exactly as follows:</p>
+</div>
+</div>
+<section id="step-1-organize-your-folder" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-organize-your-folder">Step 1: Organize Your Folder</h3>
+<p>By now, your <strong>Files pane</strong> in RStudio should show the following structure:</p>
+<ol type="1">
+<li>You are inside the <code>Lab_solutions</code> folder.</li>
+<li>You have a folder named <code>Lab03_YourName</code> (e.g., <code>Lab03_HenryMendoza</code>).</li>
+<li><strong>Inside</strong> that <code>Lab03_YourName</code> folder, you must have these two files:
+<ul>
+<li><code>Lab3_yourname.qmd</code> (Your Quarto file containing the LaTeX code).</li>
+<li><code>Lab3_yourname.html</code> (The rendered report showing the math formulas).</li>
+</ul></li>
+</ol>
+</section>
+<section id="step-2-create-the-zip-archive" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-create-the-zip-archive">Step 2: Create the ZIP Archive</h3>
+<p>Since Lab 3 contains both your source code and your rendered math, you must package them together:</p>
+<ol type="1">
+<li>Open your computer’s <strong>File Explorer</strong> (Windows) or <strong>Finder</strong> (Mac).</li>
+<li>Navigate to your <code>MAT186_Labs/Lab_solutions/</code> directory.</li>
+<li><strong>Right-click</strong> on your <code>Lab03_YourName</code> folder.</li>
+<li>Select <strong>Compress</strong> (Mac) or <strong>Send to &gt; Compressed (zipped) folder</strong> (Windows).</li>
+<li>You will now see a new file named <code>Lab03_YourName.zip</code>.</li>
+</ol>
+</section>
+<section id="step-3-submit-to-brightspace" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-submit-to-brightspace">Step 3: Submit to Brightspace</h3>
+<ol type="1">
+<li>Log into <strong>Brightspace</strong> and navigate to <strong>Assignments &gt; Lab 3 Submission</strong>.</li>
+<li>Upload your <strong>.zip</strong> file.</li>
+<li>Click <strong>Submit</strong>.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Troubleshooting LaTeX
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If your formulas do not look like the math in the instructions, make sure you have enclosed the Standard Deviation formula in double dollar signs <code>$$...$$</code> and the population mean in single dollar signs <code>$...$</code>.</p>
+</div>
+</div>
+</section>
 <section id="accessibility-check" class="level3">
 <h3 class="anchored" data-anchor-id="accessibility-check"><strong>Accessibility Check</strong></h3>
 <p>When you use this LaTeX method, students using screen readers can hear the math described clearly (e.g., “x bar equals fraction sum x sub i over n”). This is much better than using an image of an equation, which a screen reader cannot “see.”</p>
@@ -803,7 +875,6 @@ window.Quarto = {
 </div>
 
 
-</section>
 </section>
 </section>
 
