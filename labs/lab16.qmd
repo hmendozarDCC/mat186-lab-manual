@@ -124,6 +124,38 @@ ANOVA assumes that the "spread" (variance) is roughly the same for all groups. I
 
 ---
 
+::: {.callout-caution collapse="true"}
+## 📥 Lab Final Submission Instructions (Click to Expand)
+
+
+### Step 1: Organize Your Folder
+Before zipping, verify that your **Files pane** shows the following:
+
+1. You are inside the `Lab_solutions` folder.
+2. You have a folder named `Lab01_YourName` (e.g., `Lab01_HenryMendoza`).
+3. **Inside** that folder, you have:
+    - Your Quarto file (`.qmd`) (e.g.,`Lab01_HenryMendoza.qmd`)
+    - Your rendered report (`.html`) (e.g.,`Lab01_HenryMendoza.html`)
+    - Your verification screenshot (`.png`) (e.g.,`lab01_task1.png`)
+
+### Step 2: Create the ZIP Archive
+
+1. Open your computer's **File Explorer** (Windows) or **Finder** (Mac).
+2. Navigate to your `MAT186_Labs/Lab_solutions/` directory.
+3. **Right-click** on your lab folder (e.g., `Lab01_YourName` )
+4. Select **Compress** (Mac) or **Send to > Compressed (zipped) folder** (Windows).
+5. You will now see a zipped file named (e.g.,`Lab01_YourName.zip`).    
+    
+### Step 3: Submit to Brightspace
+
+1. Log into **Brightspace** and navigate to **Lab Assignments** (e.g.,`Lab 1: R and RStudio Installation`).
+2. Select the correct Lab folder.
+3. Upload your **.zip** file and click **Submit**.
+:::
+
+
+---
+
 ::: {.callout-tip}
 ### Done with the Lab?
 If you have finished all the tasks above, you can verify your work against the official solutions.
@@ -132,4 +164,5 @@ If you have finished all the tasks above, you can verify your work against the o
 <a href="../solutions.html" class="btn btn-outline-success" role="button">🔓 Access Lab Solutions</a>
 </center>
 :::
+
 

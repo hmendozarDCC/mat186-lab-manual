@@ -76,6 +76,19 @@ By putting your work on GitHub, you are participating in **Open Science**. This 
 
 ---
 
+::: {.callout-caution collapse="true"}
+## 📥 Lab Final Submission Instructions (Click to Expand)
+
+### Step 1: Submit to Brightspace
+
+1. Log into **Brightspace** and navigate to **Lab Assignments** (e.g.,`Lab 1: R and RStudio Installation`).
+2. Paste the link to your live GitHub Page into the Brightspace assignment and click **Submit**.
+
+:::
+
+
+---
+
 ::: {.callout-tip}
 ### Done with the Lab?
 If you have finished all the tasks above, you can verify your work against the official solutions.
@@ -84,4 +97,5 @@ If you have finished all the tasks above, you can verify your work against the o
 <a href="../solutions.html" class="btn btn-outline-success" role="button">🔓 Access Lab Solutions</a>
 </center>
 :::
+
 

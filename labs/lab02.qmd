@@ -143,43 +143,36 @@ Follow these steps to practice using Quarto:
 
 
 
-# Lab 2 Final Submission Instructions
+::: {.callout-caution collapse="true"}
+## 📥 Lab Final Submission Instructions (Click to Expand)
 
-::: {.callout-important}
-## 📝 Final Checklist for Lab 2
-Before submitting, ensure you have completed both Part 1 (Folder Setup) and Part 2 (Quarto Document). Your work must be organized exactly as described below to receive full credit.
-:::
 
 ### Step 1: Organize Your Folder
-By now, your **Files pane** in RStudio should look like this:
+Before zipping, verify that your **Files pane** shows the following:
 
 1. You are inside the `Lab_solutions` folder.
-2. You have a folder named `Lab02_YourName` (e.g., `Lab02_HenryMendoza`).
-3. **Inside** that `Lab02_YourName` folder, you must have exactly three files:
-
-    - `lab02_task1.png` (The screenshot of your RStudio interface).
-    - `Lab2_yourname.qmd` (Your working Quarto code).
-    - `Lab2_yourname.html` (The final report generated when you clicked **Render**).
+2. You have a folder named `Lab01_YourName` (e.g., `Lab01_HenryMendoza`).
+3. **Inside** that folder, you have:
+    - Your Quarto file (`.qmd`) (e.g.,`Lab01_HenryMendoza.qmd`)
+    - Your rendered report (`.html`) (e.g.,`Lab01_HenryMendoza.html`)
+    - Your verification screenshot (`.png`) (e.g.,`lab01_task1.png`)
 
 ### Step 2: Create the ZIP Archive
-Brightspace requires a single upload. Follow these steps to package your folder:
 
 1. Open your computer's **File Explorer** (Windows) or **Finder** (Mac).
 2. Navigate to your `MAT186_Labs/Lab_solutions/` directory.
-3. **Right-click** on your `Lab02_YourName` folder.
+3. **Right-click** on your lab folder (e.g., `Lab01_YourName` )
 4. Select **Compress** (Mac) or **Send to > Compressed (zipped) folder** (Windows).
-5. You will now see a new file named `Lab02_YourName.zip`.
-
+5. You will now see a zipped file named (e.g.,`Lab01_YourName.zip`).    
+    
 ### Step 3: Submit to Brightspace
-1. Log into **Brightspace** and navigate to the **MAT 186** course.
-2. Go to **Assignments > Lab 2 Submission**.
-3. Upload your **.zip** file.
-4. Click **Submit**.
 
-::: {.callout-tip}
-## Why a ZIP file?
-Zipping the folder preserves your professional structure. It ensures that when I open your work, the images and data remain linked to your code, just like a professional Data Science project!
+1. Log into **Brightspace** and navigate to **Lab Assignments** (e.g.,`Lab 1: R and RStudio Installation`).
+2. Select the correct Lab folder.
+3. Upload your **.zip** file and click **Submit**.
 :::
+
+
 ---
 
 ::: {.callout-tip}

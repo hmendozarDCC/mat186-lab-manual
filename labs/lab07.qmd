@@ -173,36 +173,37 @@ Always run `glimpse(your_data)` after cleaning to make sure you haven't accident
 ---
 
 
-# Lab 7 Final Submission Instructions
+::: {.callout-caution collapse="true"}
+## 📥 Lab Final Submission Instructions (Click to Expand)
 
-::: {.callout-important}
-## 📝 Final Checklist for Lab 3
-Before submitting, your folder must be organized exactly as follows:
-:::
 
 ### Step 1: Organize Your Folder
-By now, your **Files pane** in RStudio should show the following structure:
+Before zipping, verify that your **Files pane** shows the following:
+
 1. You are inside the `Lab_solutions` folder.
-2. You have a folder named `Lab07_YourName` (e.g., `Lab07_HenryMendoza`).
-3. **Inside** that `Lab07_YourName` folder, you must have these two files:
-    - `Lab07_yourname.qmd` (Your Quarto file containing the LaTeX code).
-    - `Lab07_yourname.html` (The rendered report showing the math formulas).
+2. You have a folder named `Lab01_YourName` (e.g., `Lab01_HenryMendoza`).
+3. **Inside** that folder, you have:
+    - Your Quarto file (`.qmd`) (e.g.,`Lab01_HenryMendoza.qmd`)
+    - Your rendered report (`.html`) (e.g.,`Lab01_HenryMendoza.html`)
+    - Your verification screenshot (`.png`) (e.g.,`lab01_task1.png`)
 
 ### Step 2: Create the ZIP Archive
-Since Lab 7 contains both your source code and your rendered math, you must package them together:
+
 1. Open your computer's **File Explorer** (Windows) or **Finder** (Mac).
 2. Navigate to your `MAT186_Labs/Lab_solutions/` directory.
-3. **Right-click** on your `Lab07_YourName` folder.
+3. **Right-click** on your lab folder (e.g., `Lab01_YourName` )
 4. Select **Compress** (Mac) or **Send to > Compressed (zipped) folder** (Windows).
-5. You will now see a new file named `Lab07_YourName.zip`.
-
+5. You will now see a zipped file named (e.g.,`Lab01_YourName.zip`).    
+    
 ### Step 3: Submit to Brightspace
-1. Log into **Brightspace** and navigate to **Assignments > Lab 7 Submission**.
-2. Upload your **.zip** file.
-3. Click **Submit**.
+
+1. Log into **Brightspace** and navigate to **Lab Assignments** (e.g.,`Lab 1: R and RStudio Installation`).
+2. Select the correct Lab folder.
+3. Upload your **.zip** file and click **Submit**.
+:::
 
 
-
+---
 
 ::: {.callout-tip}
 ### Done with the Lab?

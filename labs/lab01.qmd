@@ -3,9 +3,6 @@ title: "Lab 1: R and RStudio Installation"
 ---
 
 
----
-title: "Lab 1: R and RStudio Installation"
----
 
 ## Learning Objectives
 By the end of this lab, you will be able to:
@@ -26,7 +23,10 @@ If you are using a DCC Chromebook or a computer where you cannot install softwar
 
 ---
 
-## Step 1: Install R (The Engine)
+::: {.callout-important}
+## 📝 Lab Task 1: Software installation
+
+### Step 1: Install R (The Engine)
 You must install R **before** you install RStudio.
 
 1. Go to the [CRAN website](https://cran.rstudio.com/).
@@ -35,25 +35,29 @@ You must install R **before** you install RStudio.
    * **macOS:** Download the `.pkg` file matching your chip (Apple silicon M1/M2 or Intel).
 3. Run the installer and keep all **default settings**.
 
-## Step 2: Install RStudio (The Dashboard)
+### Step 2: Install RStudio (The Dashboard)
 1. Visit the [Posit Download Page](https://posit.co/download/rstudio-desktop/).
 2. Click the button under **"2: Install RStudio"** for your OS.
 3. Run the installer using all **default settings**.
-
+:::
 ---
 
-## Step 3: Professional Folder Setup
+::: {.callout-important}
+## 📝 Lab Task 2: Professional Folder Setup
+
+
 Before verifying your install, set up your workspace exactly like we will for the rest of the semester:
 
 1. Open **RStudio**.
 2. Create a folder on your computer named `MAT186_Labs`.
 3. Inside that folder, create a sub-folder named `Lab_solutions`.
 4. Inside `Lab_solutions`, create a folder named `Lab01_YourName` (e.g., `Lab01_HenryMendoza`).
+:::
 
----
+
 
 ::: {.callout-important}
-## 📝 Lab Task 1: Verification & Screenshot
+## 📝 Lab Task 3: Verification & Screenshot
 
 1. **Run the Code**: In the RStudio **Console** (bottom-left), type the following and press **Enter**:
    `print("Hello, MAT 186! This is [Your Name]")`
@@ -64,24 +68,44 @@ Before verifying your install, set up your workspace exactly like we will for th
 
 ---
 
-## Lab 1 Final Submission Instructions
+::: {.callout-caution collapse="true"}
+## 📥 Lab Final Submission Instructions (Click to Expand)
+
 
 ### Step 1: Organize Your Folder
-Your `Lab01_YourName` folder should now contain:
+Before zipping, verify that your **Files pane** shows the following:
 
-* `lab01_task1.png` (The screenshot of your your entire RStudio).
+1. You are inside the `Lab_solutions` folder.
+2. You have a folder named `Lab01_YourName` (e.g., `Lab01_HenryMendoza`).
+3. **Inside** that folder, you have:
+    - Your Quarto file (`.qmd`) (e.g.,`Lab01_HenryMendoza.qmd`)
+    - Your rendered report (`.html`) (e.g.,`Lab01_HenryMendoza.html`)
+    - Your verification screenshot (`.png`) (e.g.,`lab01_task1.png`)
 
 ### Step 2: Create the ZIP Archive
-Brightspace requires a single upload. Package your folder now:
 
 1. Open your computer's **File Explorer** (Windows) or **Finder** (Mac).
 2. Navigate to your `MAT186_Labs/Lab_solutions/` directory.
-3. **Right-click** on your `Lab01_YourName` folder.
+3. **Right-click** on your lab folder (e.g., `Lab01_YourName` )
 4. Select **Compress** (Mac) or **Send to > Compressed (zipped) folder** (Windows).
-5. You will now see a file named `Lab01_YourName.zip`.
-
+5. You will now see a zipped file named (e.g.,`Lab01_YourName.zip`).    
+    
 ### Step 3: Submit to Brightspace
-1. Log into **Brightspace** and go to **Assignments > Lab 1 Submission**.
-2. Upload your **.zip** file and click **Submit**.
 
+1. Log into **Brightspace** and navigate to **Lab Assignments** (e.g.,`Lab 1: R and RStudio Installation`).
+2. Select the correct Lab folder.
+3. Upload your **.zip** file and click **Submit**.
+:::
+
+
+---
+
+::: {.callout-tip}
+### Done with the Lab?
+If you have finished all the tasks above, you can verify your work against the official solutions.
+
+<center>
+<a href="../solutions.html" class="btn btn-outline-success" role="button">🔓 Access Lab Solutions</a>
+</center>
+:::
 
