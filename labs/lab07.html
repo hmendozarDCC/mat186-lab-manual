@@ -631,6 +631,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#part-3-handling-missing-data-na" id="toc-part-3-handling-missing-data-na" class="nav-link" data-scroll-target="#part-3-handling-missing-data-na">Part 3: Handling Missing Data (<code>NA</code>)</a></li>
   <li><a href="#pro-tip-the-glimpse" id="toc-pro-tip-the-glimpse" class="nav-link" data-scroll-target="#pro-tip-the-glimpse">Pro-Tip: The “Glimpse”</a></li>
   </ul></li>
+  <li><a href="#lab-7-final-submission-instructions" id="toc-lab-7-final-submission-instructions" class="nav-link" data-scroll-target="#lab-7-final-submission-instructions">Lab 7 Final Submission Instructions</a></li>
   </ul>
 </nav>
     </div>
@@ -681,7 +682,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>“Raw” data is rarely ready for analysis. It might have columns you don’t need, rows that aren’t relevant to your study, or names that are hard to type. In this lab, we use the <code>dplyr</code> package (part of the <code>tidyverse</code>) to “tidy up” our datasets.</p>
+<p>“Raw” data is rarely ready for analysis. It might have columns you don’t need, rows that aren’t relevant to your study, or names that are hard to type. In this lab, we move from simply looking at data to <strong>transforming</strong> it. Raw data from portals like NY Open Data often contains too many variables or messy formatting. we use the <code>dplyr</code> package (part of the <code>tidyverse</code>) to “tidy up” our datasets and to keep only what is relevant to our research question.</p>
 <hr>
 </section>
 <section id="part-1-the-pipe-operator" class="level2">
@@ -968,16 +969,91 @@ Table&nbsp;4: Table: Star Wars characters after removing rows with missing heigh
 </div>
 </div>
 <hr>
-<div class="dcc-important">
-<p><strong>Lab Task 7:</strong></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Task 1: Loading the Dataset
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We continue using the <code>tidyverse</code> package. We must be careful with our file paths; since this solution is in the <code>solutions/</code> folder, we use <code>../</code> to find our data.</p>
 <ol type="1">
-<li>Open your Quarto document from Lab 6 (the one with your NY State Open Data).</li>
-<li>Create a new section called “Data Cleaning.”</li>
-<li>Use <code>select()</code> to keep only the 4 most important columns in your dataset.</li>
-<li>Use <code>filter()</code> to narrow your data down to one specific category or a certain range of numbers.</li>
-<li>Use <code>rename()</code> to make at least one column name easier to read.</li>
-<li><strong>Render</strong> your document and check that your new “Cleaned” table looks correct.</li>
+<li>Create a quarto document</li>
+<li>Insert the code <code>library(tidyverse)</code> in a chunk</li>
+<li>Load the SUNY Enrollment data <code>cleaned_suny &lt;- read_csv("../data/race_ny.csv")</code></li>
 </ol>
+</div>
+</div>
+<p>The goal of the following tasks is to create a “Clean” version of our table by selecting 4 key columns, filtering for a specific sector, and renaming columns for better readability.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Task 2: select important columns
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Select the 4 most important columns by their position. This avoids “Column not found” errors caused by hidden spaces!</p>
+<p>kept Term , Institution Sector, Total Enrollment, and Hispanic/Latino.</p>
+<p><code>cleaned_suny &lt;- ny_data |&gt;select(1, 2, 3, 6)</code></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Task 3: Rename the columns for clarity:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We shortened the names to semester, sector, total, and hispanic_latino. In general: rename(new_name = old_position_or_name) <code>cleaned_suny &lt;- ny_data |&gt;select(1, 2, 3, 6)|&gt; rename(semester = 1,          sector = 2,          total_enrollment = 3,          hispanic_latino = 4)</code></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Task 4: Filter for a specific category. We narrowed the results to only show <strong>“Community Colleges”</strong>.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>cleaned_suny &lt;- ny_data |&gt;select(1, 2, 3, 6)|&gt; rename(semester = 1,          sector = 2,          total_enrollment = 3,          hispanic_latino = 4)|&gt; filter(sector == "Community Colleges")</code></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Task 5: Show the first 10 rows
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>head(cleaned_suny, n = 10)</code></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-empty-content callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Task 6: <strong>Render</strong> your document and check that your new “Cleaned” table looks correct.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
 </div>
 <hr>
 </section>
@@ -985,6 +1061,38 @@ Table&nbsp;4: Table: Star Wars characters after removing rows with missing heigh
 <h2 class="anchored" data-anchor-id="pro-tip-the-glimpse">Pro-Tip: The “Glimpse”</h2>
 <p>Always run <code>glimpse(your_data)</code> after cleaning to make sure you haven’t accidentally deleted something you meant to keep!</p>
 <hr>
+</section>
+</section>
+<section id="lab-7-final-submission-instructions" class="level1">
+<h1>Lab 7 Final Submission Instructions</h1>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>📝 Final Checklist for Lab 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before submitting, your folder must be organized exactly as follows:</p>
+</div>
+</div>
+<section id="step-1-organize-your-folder" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-organize-your-folder">Step 1: Organize Your Folder</h3>
+<p>By now, your <strong>Files pane</strong> in RStudio should show the following structure: 1. You are inside the <code>Lab_solutions</code> folder. 2. You have a folder named <code>Lab07_YourName</code> (e.g., <code>Lab07_HenryMendoza</code>). 3. <strong>Inside</strong> that <code>Lab07_YourName</code> folder, you must have these two files: - <code>Lab07_yourname.qmd</code> (Your Quarto file containing the LaTeX code). - <code>Lab07_yourname.html</code> (The rendered report showing the math formulas).</p>
+</section>
+<section id="step-2-create-the-zip-archive" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-create-the-zip-archive">Step 2: Create the ZIP Archive</h3>
+<p>Since Lab 7 contains both your source code and your rendered math, you must package them together: 1. Open your computer’s <strong>File Explorer</strong> (Windows) or <strong>Finder</strong> (Mac). 2. Navigate to your <code>MAT186_Labs/Lab_solutions/</code> directory. 3. <strong>Right-click</strong> on your <code>Lab07_YourName</code> folder. 4. Select <strong>Compress</strong> (Mac) or <strong>Send to &gt; Compressed (zipped) folder</strong> (Windows). 5. You will now see a new file named <code>Lab07_YourName.zip</code>.</p>
+</section>
+<section id="step-3-submit-to-brightspace" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-submit-to-brightspace">Step 3: Submit to Brightspace</h3>
+<ol type="1">
+<li>Log into <strong>Brightspace</strong> and navigate to <strong>Assignments &gt; Lab 7 Submission</strong>.</li>
+<li>Upload your <strong>.zip</strong> file.</li>
+<li>Click <strong>Submit</strong>.</li>
+</ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

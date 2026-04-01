@@ -673,26 +673,9 @@ Please enter the classroom code to unlock Lab results.
 <div id="solution-content" style="display:none;">
 <section id="cleaning-data---official-solutions" class="level2">
 <h2 class="anchored" data-anchor-id="cleaning-data---official-solutions">Cleaning Data - Official Solutions</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Instructor Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Add your specific DCC lab answers below this box.</p>
-</div>
-</div>
-<section id="task-1-introduction-to-data-cleaning" class="level3">
-<h3 class="anchored" data-anchor-id="task-1-introduction-to-data-cleaning">Task 1: Introduction to Data Cleaning</h3>
-<p>In this lab, we move from simply looking at data to <strong>transforming</strong> it. Raw data from portals like NY Open Data often contains too many variables or messy formatting. We use the <code>dplyr</code> library to keep only what is relevant to our research question.</p>
 <hr>
-</section>
-<section id="task-2-loading-the-dataset" class="level3">
-<h3 class="anchored" data-anchor-id="task-2-loading-the-dataset">Task 2: Loading the Dataset</h3>
+<section id="task-1-loading-the-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="task-1-loading-the-dataset">Task 1: Loading the Dataset</h3>
 <p>We continue using the <code>tidyverse</code> package. We must be careful with our file paths; since this solution is in the <code>solutions/</code> folder, we use <code>../</code> to find our data.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -701,8 +684,8 @@ Please enter the classroom code to unlock Lab results.
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ny_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/race_ny.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="task-3-5-the-cleaning-pipeline" class="level3">
-<h3 class="anchored" data-anchor-id="task-3-5-the-cleaning-pipeline">Task 3-5: The Cleaning Pipeline</h3>
+<section id="task-2-5-the-cleaning-pipeline" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-5-the-cleaning-pipeline">Task 2-5: The Cleaning Pipeline</h3>
 <p>The goal of this task was to create a “Clean” version of our table by selecting 4 key columns, filtering for a specific sector, and renaming columns for better readability.</p>
 <section id="our-cleaning-strategy" class="level4">
 <h4 class="anchored" data-anchor-id="our-cleaning-strategy">Our Cleaning Strategy:</h4>
@@ -718,14 +701,14 @@ Please enter the classroom code to unlock Lab results.
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># This avoids "Column not found" errors caused by hidden spaces!</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">6</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Task 4: Rename the columns for clarity</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Task 3: Rename the columns for clarity</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># rename(new_name = old_position_or_name)</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">semester =</span> <span class="dv">1</span>,</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">sector =</span> <span class="dv">2</span>,</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">total_enrollment =</span> <span class="dv">3</span>,</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">hispanic_latino =</span> <span class="dv">4</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Task 3: Filter for a specific category</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Task 4: Filter for a specific category</span></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sector <span class="sc">==</span> <span class="st">"Community Colleges"</span>)</span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Task 5: Show the first 10 rows</span></span>
