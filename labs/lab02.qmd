@@ -3,7 +3,7 @@
 ## Learning Objectives
 * Create an **RStudio Project** to organize your work.
 * Understand the structure of a **Quarto (.qmd)** document.
-* "Render" a document into a professional HTML report.
+* "Render" a quarto document into a professional HTML report.
 
 ---
 
@@ -45,7 +45,7 @@ To verify your setup, take a **screenshot** of your RStudio interface.
 2. The `data` and `images` folders in the **Files** pane (bottom-right).
 * The `Lab02_yourname` folder nested inside `Lab_solutions` in the Files pane.
 
-Save this as `lab02_setup.png` on your `Lab02_yourname` folder.
+Save this as `lab02_task1.png` on your `Lab02_yourname` folder.
 :::
 
 
@@ -125,11 +125,11 @@ To turn your code into a report:
 ---
 
 ::: {.callout-important}
-## 📝 Lab Task 2: Your First Calculation
+## 📝 Lab Task 2: Your First Calculation in a quarto document
 
 Follow these steps to practice using Quarto:
 
-1.  **Create a Document**: In RStudio, go to **File > New File > Quarto Document**. Name it `Lab2_yourname`.
+1.  **Create a Document**: In RStudio, go to **File > New File > Quarto Document**. Name it `Lab2_task2_yourname`.
 2.  **Clean the Workspace**: Find the heading that says **Quarto**. Delete all the example text and code *below* that line so you have a blank white space.
 3.  **Add a Title**: In that new blank area, type a title for your work: `# Lab 2`. 
     *(Note: Using the # symbol makes the text large like a heading!)*
@@ -157,7 +157,7 @@ By now, your **Files pane** in RStudio should look like this:
 2. You have a folder named `Lab02_YourName` (e.g., `Lab02_HenryMendoza`).
 3. **Inside** that `Lab02_YourName` folder, you must have exactly three files:
 
-    - `lab02_setup.png` (The screenshot of your RStudio interface).
+    - `lab02_task1.png` (The screenshot of your RStudio interface).
     - `Lab2_yourname.qmd` (Your working Quarto code).
     - `Lab2_yourname.html` (The final report generated when you clicked **Render**).
 

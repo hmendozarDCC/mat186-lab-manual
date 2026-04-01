@@ -113,9 +113,27 @@ ggplot(data = starwars, mapping = aes(x = gender, y = height)) +
 
 ---
 
-<div class="dcc-important">
-**Lab Task 8:**
+::: {.callout-important}
+## 📝 Task 1: Preparing the Data
+:::
 
+
+::: {.callout-important}
+## 📝 Lab Task 1:
+:::
+
+
+::: {.callout-important}
+## 📝 Lab Task 1:
+:::
+
+::: {.callout-important}
+## 📝 Lab Task 1:
+:::
+
+::: {.callout-important}
+## 📝 Lab Task 1:
+:::
 1. Using your cleaned dataset from Lab 7, calculate the **Mean** and **Standard Deviation** for your main numeric variable.
 2. Create a **Histogram** of that variable. Is the data bell-shaped or skewed?
 3. Create a **Scatter Plot** comparing two numeric variables. Add a trend line using `geom_smooth()`.
