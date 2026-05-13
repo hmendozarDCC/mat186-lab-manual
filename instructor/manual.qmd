@@ -1,0 +1,67 @@
+---
+title: "MAT 186 Instructor Manual"
+subtitle: "DCC MCS Department — Spring 2025 Edition"
+author: "Henry Mendoza"
+date: last-modified
+toc: true
+format:
+  html:
+    theme: cosmo
+    code-copy: true
+---
+
+# Executive Response to Departmental Review
+
+## 1. Data Privacy and PII Protection
+To address concerns regarding "Public" repositories on GitHub:
+
+* **PII Safeguards:** Students use GitHub solely as a hosting platform for professional code portfolios. No Personal Identifiable Information (PII)—such as student IDs, home addresses, or personal phone numbers—is permitted in public code.
+* **Secure Grading Workflow:** While the *code* is public, the final graded assessment is submitted as a **Private .zip file to Brightspace**. This ensures student intellectual property and grades remain strictly within the college's secure LMS.
+
+## 2. Rigor and Credit-Hour Equivalence
+These labs represent the **Computer Component** of a 4-credit course, requiring significant work outside of class (approx. 2 hours per credit hour).
+
+* **Scaffolded Independence:** Early labs provide syntax guidance. Modules 10–15 shift to **Inquiry-Based Learning**, where students must determine appropriate statistical tests and write code without templates.
+* **Synthesis:** Each lab requires the raw code (`.qmd`), the rendered report (`.html`), and a written statistical interpretation.
+
+## 3. Textbook Alignment
+This manual confirms alignment with the required texts in the **Spring 2025 EXO**:
+1.  *Statistics: Introduction Using R* (Crawley, 2nd ed., 2015)
+2.  *A Student’s Guide to R* (Horton, Pruim, & Kaplan, 2015)
+
+The OER modernizes these resources by replacing 2015-era syntax with contemporary **Tidyverse** workflows.
+
+---
+
+# 15-Week Course Outline & SLO Alignment
+
+| Week | Stats Topic & Textbook Reference | R Lab Activity | DCC SLO Mapping |
+|:---:|:---|:---|:---|
+| 1 | Intro to Data Science (Crawley Ch. 1) | Lab 1: RStudio Setup | Software Competency |
+| 2 | Data Production (Horton Ch. 2) | Lab 2: Project Management | Experimental Design |
+| 3 | Math Symbols & LaTeX | Lab 3: LaTeX in Quarto | Written Communication |
+| 4 | Data Structures (Horton Ch. 2) | Lab 4: Vectors & Dataframes | Identify Data Types |
+| 5 | Descriptive Stats (Crawley Ch. 3) | Lab 5: Center & Spread | Summary Measures |
+| 6 | Probability (Crawley Ch. 5) | Lab 6: R Functions (`p,d,q,r`) | Discrete/Cont. Dist. |
+| 7 | **Midterm Assessment** | **Midterm EDA Project** | Exploratory Data Analysis |
+| 8 | Data Viz Theory (Crawley Ch. 4) | Lab 8: ggplot2 Graphics | Graphical Representation |
+| 9 | Sampling Theory (Crawley Ch. 6) | Lab 9: Standard Errors | Sampling Distributions |
+| 10 | Estimation (Horton Ch. 4) | Lab 10: Confidence Intervals | Interval Estimation |
+| 11 | Hypothesis Testing (Crawley Ch. 7) | Lab 11: 1-Sample Tests | Parametric Testing |
+| 12 | Comparing Groups & **Post-Hoc** | Lab 12: T-Tests & **Tukey’s HSD** | Parametric Testing |
+| 13 | **Non-Parametric Tests** | Lab 13: **Wilcoxon Rank-Sum** | Nonparametric Tests |
+| 14 | Regression (Crawley Ch. 11) | Lab 14: Linear Regression | Correlation/Regression |
+| 15 | **Final Capstone** | **Independent Final Report** | Comprehensive Inference |
+
+---
+
+# Specific Advanced Content
+* **Non-Parametric Tests:** Week 13 explicitly teaches Wilcoxon Rank-Sum and Signed-Rank tests. Students must determine through normality checks whether a Parametric or Non-Parametric test is justified.
+* **ANOVA & Post-Hoc:** Week 12 covers One-Way ANOVA followed by Tukey’s HSD to identify specific group differences.
+
+# Grading & Instructor Workflow
+* **LMS Hub:** Instructors link the GitHub site in **Brightspace**. Work is collected via **Brightspace Assignment Folders** (.zip files).
+* **Standard Rubric (10 pts):**
+    * **Structure (2 pts):** .zip method and .Rproj use.
+    * **Accuracy (4 pts):** Code execution and output.
+    * **Interpretation (4 pts):** Statistical explanation of results.

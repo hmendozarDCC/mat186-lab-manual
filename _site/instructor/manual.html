@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Henry Mendoza Rivera">
+<meta name="author" content="Henry Mendoza">
+<meta name="dcterms.date" content="2026-05-12">
 
-<title>Solution - Lab 6: Data collection – MAT 186: Data Science</title>
+<title>MAT 186 Instructor Manual – MAT 186: Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -76,7 +42,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-021f6fca89b3212f318a486fd4d18feb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-5a9af42285fc1755aebcee5933f6ad36.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -159,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Course Labs</li><li class="breadcrumb-item"><a href="../labs/lab06.html">Lab 6: Data collection</a></li><li class="breadcrumb-item"><a href="../solutions/lab06-ans-w5q1.html">🔑 Lab 6 Solution</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">MAT 186 Instructor Manual</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -334,13 +300,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
  <span class="menu-text">Lab 6: Data collection</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/lab06.html" class="sidebar-item-text sidebar-link">
@@ -349,7 +315,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../solutions/lab06-ans-w5q1.html" class="sidebar-item-text sidebar-link active">
+  <a href="../solutions/lab06-ans-w5q1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">🔑 Lab 6 Solution</span></a>
   </div>
 </li>
@@ -620,17 +586,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#data-collection---official-solutions" id="toc-data-collection---official-solutions" class="nav-link active" data-scroll-target="#data-collection---official-solutions">Data collection - Official Solutions</a></li>
+  <li><a href="#executive-response-to-departmental-review" id="toc-executive-response-to-departmental-review" class="nav-link active" data-scroll-target="#executive-response-to-departmental-review">Executive Response to Departmental Review</a>
+  <ul class="collapse">
+  <li><a href="#data-privacy-and-pii-protection" id="toc-data-privacy-and-pii-protection" class="nav-link" data-scroll-target="#data-privacy-and-pii-protection">1. Data Privacy and PII Protection</a></li>
+  <li><a href="#rigor-and-credit-hour-equivalence" id="toc-rigor-and-credit-hour-equivalence" class="nav-link" data-scroll-target="#rigor-and-credit-hour-equivalence">2. Rigor and Credit-Hour Equivalence</a></li>
+  <li><a href="#textbook-alignment" id="toc-textbook-alignment" class="nav-link" data-scroll-target="#textbook-alignment">3. Textbook Alignment</a></li>
+  </ul></li>
+  <li><a href="#week-course-outline-slo-alignment" id="toc-week-course-outline-slo-alignment" class="nav-link" data-scroll-target="#week-course-outline-slo-alignment">15-Week Course Outline &amp; SLO Alignment</a></li>
+  <li><a href="#specific-advanced-content" id="toc-specific-advanced-content" class="nav-link" data-scroll-target="#specific-advanced-content">Specific Advanced Content</a></li>
+  <li><a href="#grading-instructor-workflow" id="toc-grading-instructor-workflow" class="nav-link" data-scroll-target="#grading-instructor-workflow">Grading &amp; Instructor Workflow</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Course Labs</li><li class="breadcrumb-item"><a href="../labs/lab06.html">Lab 6: Data collection</a></li><li class="breadcrumb-item"><a href="../solutions/lab06-ans-w5q1.html">🔑 Lab 6 Solution</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Solution - Lab 6: Data collection</h1>
-<p class="subtitle lead">MAT 186: Introduction to Data Science</p>
+<h1 class="title">MAT 186 Instructor Manual</h1>
+<p class="subtitle lead">DCC MCS Department — Spring 2025 Edition</p>
 </div>
 
 
@@ -640,15 +614,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Henry Mendoza Rivera </p>
+             <p>Henry Mendoza </p>
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 12, 2026</p>
+    </div>
+  </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">April 1, 2026</p>
+      <p class="date-modified">May 12, 2026</p>
     </div>
   </div>
     
@@ -659,124 +639,164 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="password-gate" style="background: #f8f9fa; padding: 20px; border: 1px solid #dee2e6; border-radius: 5px; text-align: center;">
-<h3 class="anchored">
-🔒 Solutions Protected
-</h3>
-<p>
-Please enter the classroom code to unlock Lab results.
-</p>
-<p><input type="password" id="pass-input" style="padding: 5px;" placeholder="Enter password..."> <button onclick="checkPassword()" style="padding: 5px 15px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer;">Unlock</button></p>
-</div>
-<div id="solution-content" style="display:none;">
-<section id="data-collection---official-solutions" class="level2">
-<h2 class="anchored" data-anchor-id="data-collection---official-solutions">Data collection - Official Solutions</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Instructor Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Add your specific DCC lab answers below this box.</p>
-</div>
-</div>
-<section id="tasks-1-4-data-acquisition-organization" class="level3">
-<h3 class="anchored" data-anchor-id="tasks-1-4-data-acquisition-organization">Tasks 1-4: Data Acquisition &amp; Organization</h3>
-<p>The student’s project folder must be organized correctly for the code to run.</p>
+<section id="executive-response-to-departmental-review" class="level1">
+<h1>Executive Response to Departmental Review</h1>
+<section id="data-privacy-and-pii-protection" class="level2">
+<h2 class="anchored" data-anchor-id="data-privacy-and-pii-protection">1. Data Privacy and PII Protection</h2>
+<p>To address concerns regarding “Public” repositories on GitHub:</p>
+<ul>
+<li><strong>PII Safeguards:</strong> Students use GitHub solely as a hosting platform for professional code portfolios. No Personal Identifiable Information (PII)—such as student IDs, home addresses, or personal phone numbers—is permitted in public code.</li>
+<li><strong>Secure Grading Workflow:</strong> While the <em>code</em> is public, the final graded assessment is submitted as a <strong>Private .zip file to Brightspace</strong>. This ensures student intellectual property and grades remain strictly within the college’s secure LMS.</li>
+</ul>
+</section>
+<section id="rigor-and-credit-hour-equivalence" class="level2">
+<h2 class="anchored" data-anchor-id="rigor-and-credit-hour-equivalence">2. Rigor and Credit-Hour Equivalence</h2>
+<p>These labs represent the <strong>Computer Component</strong> of a 4-credit course, requiring significant work outside of class (approx. 2 hours per credit hour).</p>
+<ul>
+<li><strong>Scaffolded Independence:</strong> Early labs provide syntax guidance. Modules 10–15 shift to <strong>Inquiry-Based Learning</strong>, where students must determine appropriate statistical tests and write code without templates.</li>
+<li><strong>Synthesis:</strong> Each lab requires the raw code (<code>.qmd</code>), the rendered report (<code>.html</code>), and a written statistical interpretation.</li>
+</ul>
+</section>
+<section id="textbook-alignment" class="level2">
+<h2 class="anchored" data-anchor-id="textbook-alignment">3. Textbook Alignment</h2>
+<p>This manual confirms alignment with the required texts in the <strong>Spring 2025 EXO</strong>: 1. <em>Statistics: Introduction Using R</em> (Crawley, 2nd ed., 2015) 2. <em>A Student’s Guide to R</em> (Horton, Pruim, &amp; Kaplan, 2015)</p>
+<p>The OER modernizes these resources by replacing 2015-era syntax with contemporary <strong>Tidyverse</strong> workflows.</p>
 <hr>
 </section>
-<section id="task-5-data-narrative-the-paragraph" class="level3">
-<h3 class="anchored" data-anchor-id="task-5-data-narrative-the-paragraph">Task 5: Data Narrative (The Paragraph)</h3>
-<p><em>This is an example of what the student should have written in their Quarto document:</em></p>
-<blockquote class="blockquote">
-<p>“This dataset, <strong>race_ny.csv</strong>, was obtained from the NY State Open Data Portal. The data was collected by New York State government agencies to track demographic participation. One row in this dataset represents a single recorded observation of an individual or event entry categorized by race and ethnicity for a specific year and location.”</p>
-</blockquote>
+</section>
+<section id="week-course-outline-slo-alignment" class="level1">
+<h1>15-Week Course Outline &amp; SLO Alignment</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Week</th>
+<th style="text-align: left;">Stats Topic &amp; Textbook Reference</th>
+<th style="text-align: left;">R Lab Activity</th>
+<th style="text-align: left;">DCC SLO Mapping</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Intro to Data Science (Crawley Ch. 1)</td>
+<td style="text-align: left;">Lab 1: RStudio Setup</td>
+<td style="text-align: left;">Software Competency</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Data Production (Horton Ch. 2)</td>
+<td style="text-align: left;">Lab 2: Project Management</td>
+<td style="text-align: left;">Experimental Design</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Math Symbols &amp; LaTeX</td>
+<td style="text-align: left;">Lab 3: LaTeX in Quarto</td>
+<td style="text-align: left;">Written Communication</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">Data Structures (Horton Ch. 2)</td>
+<td style="text-align: left;">Lab 4: Vectors &amp; Dataframes</td>
+<td style="text-align: left;">Identify Data Types</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">Descriptive Stats (Crawley Ch. 3)</td>
+<td style="text-align: left;">Lab 5: Center &amp; Spread</td>
+<td style="text-align: left;">Summary Measures</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">Probability (Crawley Ch. 5)</td>
+<td style="text-align: left;">Lab 6: R Functions (<code>p,d,q,r</code>)</td>
+<td style="text-align: left;">Discrete/Cont. Dist.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: left;"><strong>Midterm Assessment</strong></td>
+<td style="text-align: left;"><strong>Midterm EDA Project</strong></td>
+<td style="text-align: left;">Exploratory Data Analysis</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">Data Viz Theory (Crawley Ch. 4)</td>
+<td style="text-align: left;">Lab 8: ggplot2 Graphics</td>
+<td style="text-align: left;">Graphical Representation</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">Sampling Theory (Crawley Ch. 6)</td>
+<td style="text-align: left;">Lab 9: Standard Errors</td>
+<td style="text-align: left;">Sampling Distributions</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: left;">Estimation (Horton Ch. 4)</td>
+<td style="text-align: left;">Lab 10: Confidence Intervals</td>
+<td style="text-align: left;">Interval Estimation</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">11</td>
+<td style="text-align: left;">Hypothesis Testing (Crawley Ch. 7)</td>
+<td style="text-align: left;">Lab 11: 1-Sample Tests</td>
+<td style="text-align: left;">Parametric Testing</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">12</td>
+<td style="text-align: left;">Comparing Groups &amp; <strong>Post-Hoc</strong></td>
+<td style="text-align: left;">Lab 12: T-Tests &amp; <strong>Tukey’s HSD</strong></td>
+<td style="text-align: left;">Parametric Testing</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">13</td>
+<td style="text-align: left;"><strong>Non-Parametric Tests</strong></td>
+<td style="text-align: left;">Lab 13: <strong>Wilcoxon Rank-Sum</strong></td>
+<td style="text-align: left;">Nonparametric Tests</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">14</td>
+<td style="text-align: left;">Regression (Crawley Ch. 11)</td>
+<td style="text-align: left;">Lab 14: Linear Regression</td>
+<td style="text-align: left;">Correlation/Regression</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">15</td>
+<td style="text-align: left;"><strong>Final Capstone</strong></td>
+<td style="text-align: left;"><strong>Independent Final Report</strong></td>
+<td style="text-align: left;">Comprehensive Inference</td>
+</tr>
+</tbody>
+</table>
 <hr>
 </section>
-<section id="task-6-importing-and-displaying-data" class="level3">
-<h3 class="anchored" data-anchor-id="task-6-importing-and-displaying-data">Task 6: Importing and Displaying Data</h3>
-<p>The student must use <code>read_csv()</code> (from the <code>tidyverse</code> package) and <code>head(..., n = 10)</code>.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Path Reminder
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Since this solution is inside the <code>solutions/</code> folder, we use <code>../data/</code> to access the data folder. In the student’s main lab file, they would likely just use <code>data/race_ny.csv</code>.</p>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Load the necessary library</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Load the data using the professional folder path</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace 'race_ny.csv' with the actual name of your downloaded file</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>ny_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/race_ny.csv"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Show the first 10 rows</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ny_data, <span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 12
-   Term    `Institution Sector` `Total Enrollment`  White Black or African Ame…¹
-   &lt;chr&gt;   &lt;chr&gt;                             &lt;dbl&gt;  &lt;dbl&gt;                  &lt;dbl&gt;
- 1 Fall 2… Community Colleges               192959 109000                  22626
- 2 Fall 2… Comprehensive Colle…              83674  51819                  10215
- 3 Fall 2… Doctoral Degree Gra…             112265  51837                   9048
- 4 Fall 2… Technology Colleges               26674  16050                   3336
- 5 Fall 2… Community Colleges               199873 115352                  24025
- 6 Fall 2… Comprehensive Colle…              85613  53566                  10527
- 7 Fall 2… Doctoral Degree Gra…             111299  51711                   8952
- 8 Fall 2… Technology Colleges               27266  16700                   3381
- 9 Fall 2… Community Colleges               209418 120742                  25454
-10 Fall 2… Comprehensive Colle…              86301  54882                  10417
-# ℹ abbreviated name: ¹​`Black or African American`
-# ℹ 7 more variables: `Hispanic/Latino` &lt;dbl&gt;,
-#   `American Indian or Alaska Native` &lt;dbl&gt;,
-#   `Native Hawaiian or Other Pacific Islander` &lt;dbl&gt;,
-#   `Two or More Races` &lt;dbl&gt;, Asian &lt;dbl&gt;, `Non-resident Alien` &lt;dbl&gt;,
-#   Unknown &lt;dbl&gt;</code></pre>
-</div>
-</div>
-<p><br><br></p>
+<section id="specific-advanced-content" class="level1">
+<h1>Specific Advanced Content</h1>
+<ul>
+<li><strong>Non-Parametric Tests:</strong> Week 13 explicitly teaches Wilcoxon Rank-Sum and Signed-Rank tests. Students must determine through normality checks whether a Parametric or Non-Parametric test is justified.</li>
+<li><strong>ANOVA &amp; Post-Hoc:</strong> Week 12 covers One-Way ANOVA followed by Tukey’s HSD to identify specific group differences.</li>
+</ul>
 </section>
+<section id="grading-instructor-workflow" class="level1">
+<h1>Grading &amp; Instructor Workflow</h1>
+<ul>
+<li><strong>LMS Hub:</strong> Instructors link the GitHub site in <strong>Brightspace</strong>. Work is collected via <strong>Brightspace Assignment Folders</strong> (.zip files).</li>
+<li><strong>Standard Rubric (10 pts):</strong>
+<ul>
+<li><strong>Structure (2 pts):</strong> .zip method and .Rproj use.</li>
+<li><strong>Accuracy (4 pts):</strong> Code execution and output.</li>
+<li><strong>Interpretation (4 pts):</strong> Statistical explanation of results.</li>
+</ul></li>
+</ul>
+
+
 </section>
-</div>
-<script>
-function checkPassword() {
-var userPass = document.getElementById("pass-input").value;
-
-// This uses the LAB_PASSWORD from your security.js file
-if (userPass === LAB_PASSWORD) {
-document.getElementById("password-gate").style.display = "none";
-document.getElementById("solution-content").style.display = "block";
-} else {
-alert("Incorrect password. Please try again.");
-}
-}
-
-// Allow "Enter" key to trigger the button
-document.getElementById("pass-input").addEventListener("keypress", function(event) {
-if (event.key === "Enter") {
-checkPassword();
-}
-});
-</script>
-<hr>
-<div class="content-block">
-<center>
-<a href="../solutions.html" class="btn btn-primary btn-lg" role="button">🏠 Back to Solutions Hub</a>
-</center>
-</div>
-
-
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
