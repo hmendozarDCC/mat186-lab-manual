@@ -10,6 +10,9 @@ execute:
 
 website:
   title: "MAT 186: Data Science"
+  page-footer:
+    left: "© 2025 Henry Mendoza"
+    right: "[Instructor Manual](instructor/manual.qmd)"
   
   navbar:
     logo: "/images/dcc-logo.png"
